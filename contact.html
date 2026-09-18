@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact · MFV Systems</title>
+<meta name="description" content="Parlons de votre établissement. Dites-nous où vous en êtes, on vous répond avec une piste concrète.">
+<link rel="icon" href="/logo.png">
+<link rel="stylesheet" href="/style.css">
+<script src="/reveal.js" defer></script>
+<meta property="og:title" content="Contact · MFV Systems">
+<meta property="og:description" content="Parlons de votre établissement.">
+<meta property="og:image" content="/logo.png">
+</head>
+<body>
+
+<header>
+  <div class="shell bar">
+    <a href="/" class="wordmark"><span class="b">MFV</span><span class="g">systems</span></a>
+    <nav class="links">
+      <a href="/">Accueil</a>
+      <a href="/produits">Le produit</a>
+      <a href="/methode">Notre méthode</a>
+      <a href="/equipe">L'équipe</a>
+      <a href="/faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="shell">
+      <span class="eyebrow">Contact</span>
+      <h1>Parlons de votre établissement</h1>
+      <p class="sub">Dites-nous où vous en êtes. Un premier échange, sans engagement, et on revient vers vous avec une piste concrète.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell contact-grid">
+
+      <form class="lead" id="lead">
+        <div class="f-row">
+          <div class="field">
+            <label for="name">Votre nom <span class="req">*</span></label>
+            <input id="name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="hotel">Nom de l'établissement <span class="req">*</span></label>
+            <input id="hotel" name="hotel" type="text" required autocomplete="organization">
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="phone">Téléphone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+        </div>
+        <div class="field">
+          <label for="situation">Où en êtes-vous ?</label>
+          <select id="situation" name="situation">
+            <option value="">Choisir…</option>
+            <option>Pas de site web</option>
+            <option>Un site, mais pas de moteur de réservation</option>
+            <option>Trop de dépendance aux OTA</option>
+            <option>Une plateforme que je loue (D-EDGE, SiteMinder…)</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Votre message <span class="req">*</span></label>
+          <textarea id="message" name="message" required placeholder="Votre PMS actuel, d'où viennent vos réservations, ce que vous aimeriez changer…"></textarea>
+        </div>
+        <input type="text" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-status" id="status" role="status"></div>
+        <button type="submit" class="btn" id="submit">Envoyer</button>
+        <p class="form-note">On répond en général sous deux jours ouvrés. Aucune donnée n'est partagée avec un tiers.</p>
+      </form>
+
+      <div class="aside">
+        <div class="card">
+          <h3>À quoi s'attendre</h3>
+          <p>On lit votre message, on regarde votre situation, et on vous répond avec une piste concrète. Pas de relance commerciale automatique.</p>
+          <a href="mailto:contact@mfv-systems.fr" class="mail">contact@mfv-systems.fr</a>
+          <ul>
+            <li>Votre PMS actuel et sa version</li>
+            <li>La part de vos réservations qui passe par les OTA</li>
+            <li>Ce que vous aimeriez changer en premier</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<section class="contact site-foot">
+    <div class="shell">
+      <div class="foot-bottom" style="margin-top:0;padding-top:0;border-top:0">
+        <span class="wordmark"><span class="b">MFV</span><span class="g">systems</span></span>
+        <nav class="foot-nav">
+          <a href="/produits">Le produit</a>
+          <a href="/methode">Notre méthode</a>
+          <a href="/equipe">L'équipe</a>
+          <a href="/faq">FAQ</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <p class="foot-legal">
+          MFV Systems, SAS en cours d'immatriculation. Siège : 8 rue Jean Richepin, 75116 Paris.
+          Direction : Yassmine Meyer et Thomas Finaz de Villaine, co-présidents.
+          Contact : <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>.
+          SIRET communiqué dès l'immatriculation. Hébergeur : Vercel Inc.<br>
+          <a href="/mentions-legales">Mentions légales</a> &middot; <a href="/confidentialite">Politique de confidentialité</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+<script>
+  // Clé Web3Forms : à remplacer par la vraie clé (gratuite, sur web3forms.com).
+  // Tant qu'elle n'est pas posée, le formulaire ouvre le client mail.
+  var ACCESS_KEY = "REPLACE_WITH_WEB3FORMS_KEY";
+
+  var form = document.getElementById('lead');
+  var statusEl = document.getElementById('status');
+  var submitBtn = document.getElementById('submit');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (form.botcheck.value) return; // spam
+
+    var data = {
+      name: form.name.value.trim(),
+      hotel: form.hotel.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      situation: form.situation.value,
+      message: form.message.value.trim()
+    };
+
+    var configured = ACCESS_KEY && ACCESS_KEY.indexOf('REPLACE') === -1;
+
+    if (!configured) {
+      var body = 'Nom : ' + data.name + '\n'
+        + 'Établissement : ' + data.hotel + '\n'
+        + 'Email : ' + data.email + '\n'
+        + 'Téléphone : ' + data.phone + '\n'
+        + 'Situation : ' + data.situation + '\n\n'
+        + data.message;
+      window.location.href = 'mailto:contact@mfv-systems.fr'
+        + '?subject=' + encodeURIComponent('Contact site — ' + data.hotel)
+        + '&body=' + encodeURIComponent(body);
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Envoi…';
+    statusEl.className = 'form-status';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: ACCESS_KEY,
+        subject: 'Contact site MFV — ' + data.hotel,
+        from_name: 'Site MFV Systems',
+        name: data.name,
+        email: data.email,
+        establissement: data.hotel,
+        telephone: data.phone,
+        situation: data.situation,
+        message: data.message
+      })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (r) {
+        if (r.success) {
+          form.reset();
+          statusEl.className = 'form-status ok';
+          statusEl.textContent = 'Message envoyé. On revient vers vous très vite.';
+        } else {
+          throw new Error(r.message || 'error');
+        }
+      })
+      .catch(function () {
+        statusEl.className = 'form-status err';
+        statusEl.textContent = "L'envoi a échoué. Écrivez-nous directement à contact@mfv-systems.fr.";
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Envoyer';
+      });
+  });
+</script>
+
+</body>
+</html>

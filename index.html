@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MFV Systems</title>
+<meta name="description" content="MFV Systems construit aux hôtels indépendants leur infrastructure de réservation. Ils l'achètent une fois, elle leur appartient. Produit phare : le Direct Booking Engine.">
+<link rel="icon" href="/logo.png">
+<link rel="stylesheet" href="/style.css">
+<script src="/reveal.js" defer></script>
+<meta property="og:title" content="MFV Systems">
+<meta property="og:description" content="Votre infrastructure de réservation. On construit, vous possédez.">
+<meta property="og:image" content="/logo.png">
+</head>
+<body>
+
+<header>
+  <div class="shell bar">
+    <a href="/" class="wordmark"><span class="b">MFV</span><span class="g">systems</span></a>
+    <nav class="links">
+      <a href="/">Accueil</a>
+      <a href="/produits">Le produit</a>
+      <a href="/methode">Notre méthode</a>
+      <a href="/equipe">L'équipe</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact" class="btn">Parler de votre établissement</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="shell">
+      <div class="hero-copy">
+        <span class="eyebrow">MFV Systems</span>
+        <h1>Votre infrastructure de réservation.</h1>
+        <p class="sub">On construit aux hôtels indépendants leur moteur de réservation, leur site, leurs paiements et leurs intégrations. Ils l'achètent une fois, elle leur appartient.</p>
+        <div class="cta">
+          <a href="/contact" class="btn">Parler de votre établissement</a>
+          <a href="#dbe" class="btn ghost">Voir le produit</a>
+        </div>
+      </div>
+
+      <div class="hero-viz" aria-hidden="true">
+        <div class="bk">
+          <div class="bk-top">
+            <span class="bk-hotel">Votre hôtel</span>
+            <span class="bk-tag">Réservation directe</span>
+          </div>
+          <div class="bk-dates">
+            <div><span>Arrivée</span><b>ven. 14 mars</b></div>
+            <div><span>Départ</span><b>dim. 16 mars</b></div>
+          </div>
+          <div class="bk-room">
+            <div class="r">
+              <b>Chambre Supérieure</b>
+              <span>2 nuits, 2 personnes</span>
+            </div>
+            <div class="p">280 €</div>
+          </div>
+          <div class="bk-btn">Payer et confirmer</div>
+          <p class="bk-note">Paiement sécurisé, la réservation arrive dans votre PMS.</p>
+        </div>
+        <div class="bk-chip">Commission&nbsp;: 0&nbsp;€</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="constat">
+    <div class="shell">
+      <span class="eyebrow">Le constat</span>
+      <h2 class="title">Louer une plateforme, ou posséder son infrastructure</h2>
+      <p class="intro">Les hôtels indépendants dépendent des OTA pour deux choses différentes : être visibles auprès des voyageurs, et transformer cette visibilité en réservations. Une commission sur chaque nuitée, la relation client qui appartient à Booking, et pour ceux qui veulent réagir, une plateforme de plus à louer à vie.</p>
+      <div class="compare">
+        <div class="card col">
+          <h3>Louer (D-EDGE, SiteMinder…)</h3>
+          <p>Un abonnement mensuel sans fin. Une interface identique d'un hôtel à l'autre. On arrête de payer, le moteur s'arrête. À la sortie, il ne reste qu'un export de données.</p>
+        </div>
+        <div class="card col own">
+          <h3>Posséder (MFV)</h3>
+          <p>Un projet payé une fois, rentabilisé dès que vous cessez de payer une commission sur vos réservations directes. Une infrastructure à votre image, sur votre domaine. Vos données, vos paiements, vos intégrations vous appartiennent. Si vous gardez un service récurrent, c'est un choix, pour une prestation réelle, jamais une obligation.</p>
+          <p style="margin-top:1rem"><a href="#sim" class="btn ghost">Calculer votre retour sur investissement</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cout">
+    <div class="shell">
+      <span class="eyebrow">Le coût des OTA</span>
+      <h2 class="title">Ce que la commission vous prend, chaque année</h2>
+      <p class="intro">Les plateformes prélèvent une part de chaque réservation qu'elles vous apportent. Sur vos réservations directes, cette part est nulle.</p>
+
+      <div class="stats">
+        <figure class="stat">
+          <b>15&nbsp;à&nbsp;25&nbsp;%</b>
+          <figcaption>de commission sur chaque réservation, selon la plateforme et la visibilité achetée.</figcaption>
+          <cite>Source : Coach Omnium</cite>
+        </figure>
+        <figure class="stat">
+          <b>Jusqu'à <span class="nb">150&nbsp;000&nbsp;€</span></b>
+          <figcaption>de commissions par an pour un établissement d'une soixantaine de chambres.</figcaption>
+          <cite>Source : Coach Omnium</cite>
+        </figure>
+        <figure class="stat own">
+          <b>0&nbsp;€</b>
+          <figcaption>de commission MFV sur vos réservations directes. Par conception, pas par promotion.</figcaption>
+          <cite>Modèle Direct Booking Engine</cite>
+        </figure>
+      </div>
+
+      <div class="sim" id="sim">
+        <h3>Estimez votre facture de commissions</h3>
+        <p class="sim-lead">Vos chiffres restent dans votre navigateur, rien n'est envoyé.</p>
+        <div class="sim-grid">
+          <label for="rooms">Chambres <output id="o-rooms">20</output>
+            <input type="range" id="rooms" min="5" max="150" value="20" step="1">
+          </label>
+          <label for="occ">Taux d'occupation <output id="o-occ">70 %</output>
+            <input type="range" id="occ" min="20" max="95" value="70" step="1">
+          </label>
+          <label for="adr">Prix moyen par nuit <output id="o-adr">120 €</output>
+            <input type="range" id="adr" min="50" max="600" value="120" step="5">
+          </label>
+          <label for="share">Part des réservations via les OTA <output id="o-share">40 %</output>
+            <input type="range" id="share" min="0" max="90" value="40" step="1">
+          </label>
+          <label for="comm" class="wide">Taux de commission OTA <output id="o-comm">17 %</output>
+            <input type="range" id="comm" min="10" max="30" value="17" step="1">
+          </label>
+        </div>
+        <div class="sim-out" aria-live="polite">
+          <div class="sim-res ota">
+            <span class="k">Commissions versées aux OTA, par an</span>
+            <span class="v" id="res-ota">0 €</span>
+          </div>
+          <div class="sim-res mfv">
+            <span class="k">Sur ces mêmes réservations, avec MFV</span>
+            <span class="v" id="res-mfv">0 €</span>
+          </div>
+        </div>
+        <p class="sim-note">Estimation indicative, à partir de vos hypothèses. Le taux de commission est pré-réglé sur la moyenne observée par Coach Omnium. Les frais de traitement des paiements, à votre charge dans les deux cas, ne sont pas comptés.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="loi">
+    <div class="shell">
+      <span class="eyebrow">Cadre légal</span>
+      <h2 class="title">Vous avez le droit d'être moins cher en direct</h2>
+      <p class="intro">Ce n'est pas une interprétation, c'est le droit français depuis 2015. Le texte, tel qu'il figure au Journal officiel :</p>
+
+      <article class="legif">
+        <div class="legif-head">
+          <p class="legif-crumb">Code du tourisme &rsaquo; Partie législative &rsaquo; Chapitre 1<sup>er</sup> : Hôtels (Articles L311-1 à L311-9)</p>
+          <h3>Article L311-5-2</h3>
+          <p class="legif-meta">
+            <span class="legif-vigueur">Version en vigueur depuis le 8 août 2015</span><br>
+            Création LOI n° 2015-990 du 6 août 2015 (dite loi Macron), article 133
+          </p>
+        </div>
+        <div class="legif-body">
+          <p>L'hôtelier conserve la liberté de consentir au client tout rabais ou avantage tarifaire, de quelque nature que ce soit, toute clause contraire étant réputée non écrite.</p>
+        </div>
+        <p class="legif-src">Source : <a href="https://www.legifrance.gouv.fr/" target="_blank" rel="noopener noreferrer">Légifrance</a>, article L311-5-2 du code du tourisme</p>
+      </article>
+
+      <p class="legif-plain">Autrement dit, aucune plateforme ne peut vous interdire d'offrir de meilleures conditions sur votre propre site. <b>Le Direct Booking Engine est fait pour que vos clients en profitent, et vous aussi.</b></p>
+    </div>
+  </section>
+
+  <section id="dbe">
+    <div class="shell">
+      <span class="eyebrow">Le produit phare</span>
+      <h2 class="title">Direct Booking Engine</h2>
+      <p class="intro">Le cœur de ce qu'on construit. Un parcours de réservation aussi clair que celui de Booking, sur votre domaine et à votre charte, avec le paiement et la confirmation gérés de bout en bout.</p>
+      <div class="feature">
+        <span class="eyebrow">Comment ça marche</span>
+        <h2>Réserver en direct, comme sur une OTA, mais chez vous</h2>
+        <p>Le voyageur ne quitte jamais votre univers. La réservation arrive directement dans votre logiciel de gestion, l'argent va directement sur votre compte.</p>
+        <div class="steps">
+          <div class="step"><b>Recherche</b><span>Le voyageur saisit ses dates depuis votre site.</span></div>
+          <div class="step"><b>Choix</b><span>Il compare vos chambres et vos tarifs, photos et conditions d'annulation en clair.</span></div>
+          <div class="step"><b>Paiement</b><span>Il paie en ligne. Rien n'est débité tant que la réservation n'est pas confirmée.</span></div>
+          <div class="step"><b>Confirmée</b><span>La réservation est créée dans votre PMS, le voyageur reçoit sa confirmation à votre nom.</span></div>
+        </div>
+        <p class="kicker">Le voyageur y gagne des conditions au moins aussi bonnes que sur les OTA, vous, la réservation sans commission et la relation client.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pour-qui">
+    <div class="shell">
+      <span class="eyebrow">Pour qui</span>
+      <h2 class="title">Les hôtels indépendants qui veulent reprendre la main</h2>
+      <div class="audience">
+        <div class="card"><h3>C'est pour vous si</h3><p>Vous êtes un établissement de charme, indépendant, quel que soit son classement, en France. Une grande part de vos réservations passe par les OTA et vous aimeriez que ça change. Un propriétaire ou un directeur est joignable et prêt à s'impliquer.</p></div>
+        <div class="card no"><h3>Ce n'est pas la peine si</h3><p>Les OTA vous conviennent, vous ne cherchez pas à réduire votre dépendance, et vous préférez ne rien changer à votre distribution.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="autour">
+    <div class="shell">
+      <span class="eyebrow">Et tout autour</span>
+      <h2 class="title">Le moteur ne vit pas seul</h2>
+      <p class="intro">Site web, paiement intégré, connexion au PMS, CRM, intégrations, automatisations et données. On branche tout ce dont l'hôtel a besoin, sur la même base.</p>
+      <p style="margin-top:1.6rem; display:flex; gap:.8rem; flex-wrap:wrap"><a href="/produits" class="btn ghost">Voir tout ce qu'on construit</a><a href="/demo" class="btn ghost">Démo du CRM</a></p>
+    </div>
+  </section>
+
+</main>
+
+<section id="contact" class="contact site-foot">
+    <div class="shell">
+      <span class="eyebrow">Parler de votre établissement</span>
+      <h2 class="title">Un premier échange, sans engagement</h2>
+      <p class="intro">Dites-nous où vous en êtes : pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme que vous louez et que vous aimeriez posséder. On vous répond avec une piste concrète.</p>
+      <div class="contact-card">
+        <a href="mailto:contact@mfv-systems.fr" class="mail">contact@mfv-systems.fr</a>
+        <a href="/contact" class="btn">Nous écrire</a>
+      </div>
+
+      <div class="foot-bottom">
+        <span class="wordmark"><span class="b">MFV</span><span class="g">systems</span></span>
+        <nav class="foot-nav">
+          <a href="/produits">Le produit</a>
+          <a href="/methode">Notre méthode</a>
+          <a href="/equipe">L'équipe</a>
+          <a href="/faq">FAQ</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <p class="foot-legal">
+          MFV Systems, SAS en cours d'immatriculation. Siège : 8 rue Jean Richepin, 75116 Paris.
+          Direction : Yassmine Meyer et Thomas Finaz de Villaine, co-présidents.
+          Contact : <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>.
+          SIRET communiqué dès l'immatriculation. Hébergeur : Vercel Inc.<br>
+          <a href="/mentions-legales">Mentions légales</a> &middot; <a href="/confidentialite">Politique de confidentialité</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Démo du CRM · MFV Systems</title>
+<meta name="description" content="Le CRM de votre hôtel, en démo : vue d'ensemble, fiches clients détaillées, préférences, fil d'activité, emails, et automatisations. Données fictives.">
+<link rel="icon" href="/logo.png">
+<link rel="stylesheet" href="/style.css">
+<script src="/reveal.js" defer></script>
+<style>
+  .d-intro { margin-top: 1rem; font-size: 1.08rem; color: var(--muted); max-width: 62ch; }
+
+  /* Onglets */
+  .d-tabs { display: inline-flex; margin-top: 1.9rem; padding: .3rem; background: var(--surface);
+    border: 1px solid var(--line); border-radius: 999px; box-shadow: var(--raise), var(--edge); flex-wrap: wrap; }
+  .d-tabs button { border: 0; background: transparent; font: inherit; font-weight: 600; font-size: .88rem;
+    color: var(--muted); padding: .55rem 1.1rem; border-radius: 999px; cursor: pointer; transition: background .15s, color .15s; }
+  .d-tabs button[aria-selected="true"] { background: var(--brand); color: #fff; }
+
+  .d-view { margin-top: 2rem; }
+  .d-lead { font-size: .95rem; color: var(--muted); margin: 0 0 1.4rem; max-width: 64ch; }
+  .d-lead b { color: var(--ink); font-weight: 600; }
+
+  /* Chiffres */
+  .d-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; margin-bottom: 1.6rem; }
+  .d-stat { background: var(--surface); border: 1px solid var(--line); border-radius: .8rem; padding: 1rem 1.1rem;
+    box-shadow: var(--raise), var(--edge); }
+  .d-stat b { display: block; font-size: 1.4rem; font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .d-stat.accent b { color: var(--brand); }
+  .d-stat span { font-size: .77rem; color: var(--muted); }
+  @media (max-width: 900px) { .d-stats { grid-template-columns: 1fr 1fr; } }
+
+  .d-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  @media (max-width: 820px) { .d-grid2 { grid-template-columns: 1fr; } }
+  .d-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem;
+    padding: 1.3rem 1.4rem; box-shadow: var(--raise), var(--edge); }
+  .d-panel h3 { font-size: .95rem; font-weight: 700; margin: 0 0 1rem; }
+
+  /* Graphe barres */
+  .d-bars { display: flex; align-items: flex-end; gap: .5rem; height: 130px; margin-top: .3rem; }
+  .d-bar { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 2px; }
+  .d-bar i { display: block; border-radius: 3px 3px 0 0; }
+  .d-bar .dir { background: var(--brand); }
+  .d-bar .ota { background: color-mix(in srgb, var(--ink) 18%, transparent); }
+  .d-bar em { font-style: normal; font-size: .68rem; color: var(--muted); text-align: center; margin-top: .35rem; }
+  .d-legend { display: flex; gap: 1.1rem; font-size: .76rem; color: var(--muted); margin-top: .9rem; }
+  .d-legend span::before { content: ""; display: inline-block; width: .65rem; height: .65rem; border-radius: 3px; margin-right: .35rem; vertical-align: middle; }
+  .d-legend .l-dir::before { background: var(--brand); }
+  .d-legend .l-ota::before { background: color-mix(in srgb, var(--ink) 18%, transparent); }
+
+  /* Listes compactes */
+  .d-mini { display: grid; gap: .6rem; }
+  .d-mini-row { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
+    padding-bottom: .6rem; border-bottom: 1px solid var(--line); font-size: .88rem; }
+  .d-mini-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .d-mini-row .s { color: var(--muted); font-size: .8rem; }
+  .d-todo { display: grid; gap: .7rem; }
+  .d-todo a { display: flex; gap: .6rem; align-items: flex-start; text-decoration: none; color: inherit;
+    font-size: .88rem; cursor: pointer; }
+  .d-todo a::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--brand); margin-top: .4rem; flex-shrink: 0; }
+  .d-todo a:hover span { color: var(--brand); }
+  .d-todo .s { color: var(--muted); font-size: .8rem; }
+
+  /* Barre d'outils + liste clients */
+  .d-tools { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.1rem; align-items: center; }
+  .d-search { flex: 1; min-width: 12rem; font: inherit; font-size: .9rem; padding: .58rem .9rem; border-radius: .6rem;
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink); box-shadow: var(--edge); }
+  .d-search:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; }
+  .d-chip { border: 1px solid var(--line); background: var(--surface); color: var(--muted); font: inherit; font-size: .82rem;
+    font-weight: 600; padding: .44rem .85rem; border-radius: 999px; cursor: pointer; transition: all .12s; }
+  .d-chip[aria-pressed="true"] { background: var(--brand-soft); color: var(--brand); border-color: transparent; }
+
+  .d-list { display: grid; gap: .5rem; }
+  .d-row { display: grid; grid-template-columns: 1fr auto; gap: .25rem 1rem; align-items: center; width: 100%;
+    text-align: left; font: inherit; cursor: pointer; background: var(--surface); border: 1px solid var(--line);
+    border-radius: .8rem; padding: .95rem 1.15rem; box-shadow: var(--raise), var(--edge);
+    transition: transform .1s, box-shadow .15s; }
+  .d-row:hover { transform: translateY(-1px); box-shadow: var(--raise-lg), var(--edge); }
+  .d-row:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+  .d-row-name { font-weight: 700; font-size: 1rem; }
+  .d-row-sub { font-size: .82rem; color: var(--muted); grid-column: 1; }
+  .d-row-meta { grid-row: 1 / span 2; align-self: center; text-align: right; }
+
+  /* Pastilles */
+  .d-tag, .d-badge { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .02em;
+    padding: .12rem .5rem; border-radius: 999px; white-space: nowrap; vertical-align: middle; }
+  .d-tag { background: var(--brand-soft); color: var(--brand); }
+  .d-badge { background: color-mix(in srgb, var(--ink) 8%, transparent); color: var(--muted); }
+  .d-badge.ok { background: color-mix(in srgb, #1f8a5b 16%, transparent); color: #1f8a5b; }
+  .d-badge.warn { background: color-mix(in srgb, #b26a00 16%, transparent); color: #b26a00; }
+
+  /* Automatisations */
+  .d-autos { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 820px) { .d-autos { grid-template-columns: 1fr; } }
+  .d-auto { background: var(--surface); border: 1px solid var(--line); border-radius: .9rem; padding: 1.2rem 1.3rem;
+    box-shadow: var(--raise), var(--edge); }
+  .d-auto-h { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+  .d-auto-h b { font-size: .95rem; }
+  .d-auto .when { font-size: .74rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--brand); }
+  .d-auto p { font-size: .85rem; color: var(--muted); margin: .5rem 0 .9rem; line-height: 1.5; }
+  .d-auto .see { border: 0; background: var(--paper); color: var(--ink); font: inherit; font-weight: 600; font-size: .8rem;
+    padding: .4rem .8rem; border-radius: .5rem; cursor: pointer; }
+  .d-switch { position: relative; width: 2.6rem; height: 1.5rem; flex-shrink: 0; border: 0; border-radius: 999px;
+    background: color-mix(in srgb, var(--ink) 18%, transparent); cursor: pointer; transition: background .15s; }
+  .d-switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 1.1rem; height: 1.1rem; border-radius: 50%;
+    background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3); transition: transform .16s; }
+  .d-switch[aria-checked="true"] { background: var(--brand); }
+  .d-switch[aria-checked="true"]::after { transform: translateX(1.1rem); }
+  .d-autos-note { grid-column: 1 / -1; font-size: .85rem; color: var(--muted); line-height: 1.6; }
+  .d-autos-note b { color: var(--ink); font-weight: 600; }
+
+  /* Tiroir détail */
+  .d-scrim { position: fixed; inset: 0; z-index: 40; background: rgba(15,18,30,.42); opacity: 0; pointer-events: none; transition: opacity .2s; }
+  .d-scrim.open { opacity: 1; pointer-events: auto; }
+  .d-drawer { position: fixed; top: 0; right: 0; z-index: 41; height: 100%; width: min(33rem, 94vw); background: var(--surface);
+    border-left: 1px solid var(--line); box-shadow: -20px 0 60px -30px rgba(15,18,30,.5);
+    transform: translateX(100%); transition: transform .24s cubic-bezier(.3,.7,.2,1); display: flex; flex-direction: column; }
+  .d-drawer.open { transform: none; }
+  .d-drawer-h { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+    padding: 1.4rem 1.5rem 1.1rem; border-bottom: 1px solid var(--line); }
+  .d-drawer-h h3 { font-size: 1.25rem; font-weight: 800; letter-spacing: -.02em; }
+  .d-drawer-h .subline { margin: .35rem 0 0; font-size: .84rem; color: var(--muted); }
+  .d-drawer-h .subline .d-tag, .d-drawer-h .subline .d-badge { margin-right: .3rem; }
+  .d-x { border: 0; background: var(--paper); color: var(--ink); width: 2rem; height: 2rem; border-radius: .5rem;
+    cursor: pointer; font-size: 1.1rem; line-height: 1; flex-shrink: 0; }
+  .d-body { padding: 1.4rem 1.5rem 2.6rem; overflow-y: auto; display: grid; gap: 1.7rem; }
+  .d-sec h4 { font-size: .73rem; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; color: var(--muted); margin: 0 0 .7rem; }
+  .d-kv { display: grid; grid-template-columns: auto 1fr; gap: .35rem 1rem; font-size: .88rem; }
+  .d-kv dt { color: var(--muted); } .d-kv dd { margin: 0; font-weight: 500; text-align: right; }
+  .d-prefs { display: flex; flex-wrap: wrap; gap: .45rem; }
+  .d-prefs span { font-size: .8rem; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: .25rem .7rem; }
+
+  .d-next { background: color-mix(in srgb, var(--brand) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--brand) 25%, var(--line));
+    border-radius: .8rem; padding: 1rem 1.1rem; font-size: .87rem; }
+  .d-next b { display: block; margin-bottom: .3rem; }
+  .d-next ul { margin: .6rem 0 0; padding-left: 1.1rem; color: var(--muted); }
+  .d-next li { margin: .2rem 0; }
+
+  .d-alert { background: color-mix(in srgb, #b26a00 10%, var(--surface)); border: 1px solid color-mix(in srgb, #b26a00 35%, var(--line));
+    border-radius: .7rem; padding: .95rem 1.05rem; font-size: .85rem; line-height: 1.5; }
+  .d-alert b { display: block; color: #b26a00; margin-bottom: .25rem; }
+  .d-alert.done { background: color-mix(in srgb, #1f8a5b 10%, var(--surface)); border-color: color-mix(in srgb, #1f8a5b 35%, var(--line)); }
+  .d-alert.done b { color: #1f8a5b; }
+  .d-btn { border: 0; background: var(--brand); color: #fff; font: inherit; font-weight: 600; font-size: .82rem;
+    padding: .5rem .95rem; border-radius: .55rem; cursor: pointer; margin-top: .7rem; }
+  .d-btn.ghost { background: var(--paper); color: var(--ink); border: 1px solid var(--line); margin: 0; }
+
+  /* Fil d'activité */
+  .d-actbar { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .d-actbar button { border: 1px solid var(--line); background: var(--surface); color: var(--muted); font: inherit;
+    font-size: .78rem; font-weight: 600; padding: .3rem .7rem; border-radius: 999px; cursor: pointer; }
+  .d-actbar button[aria-pressed="true"] { background: var(--brand-soft); color: var(--brand); border-color: transparent; }
+  .d-feed { display: grid; gap: 1rem; }
+  .d-item { display: grid; grid-template-columns: 1.7rem 1fr; gap: .7rem; }
+  .d-item .ic { width: 1.7rem; height: 1.7rem; border-radius: .5rem; display: grid; place-items: center; font-size: .85rem;
+    background: var(--paper); border: 1px solid var(--line); }
+  .d-item .ic.res { background: color-mix(in srgb, #1f8a5b 14%, transparent); border-color: transparent; }
+  .d-item .ic.email { background: var(--brand-soft); border-color: transparent; }
+  .d-item .hd { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }
+  .d-item .hd b { font-size: .88rem; }
+  .d-item .hd time { font-size: .74rem; color: var(--muted); white-space: nowrap; }
+  .d-item .tx { font-size: .84rem; color: var(--muted); line-height: 1.55; margin-top: .2rem; }
+  .d-item .amt { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  .d-compose { display: grid; gap: .5rem; margin-top: 1rem; }
+  .d-compose input, .d-compose textarea { font: inherit; font-size: .85rem; padding: .55rem .8rem; border-radius: .55rem;
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink); width: 100%; }
+  .d-compose textarea { min-height: 4.5rem; resize: vertical; }
+  .d-compose .rowb { display: flex; gap: .5rem; }
+
+  .d-note { font-size: .85rem; line-height: 1.6; color: var(--muted); font-style: italic; }
+  .d-empty { font-size: .9rem; color: var(--muted); padding: 1.5rem; text-align: center; }
+  .d-disc { margin-top: 2.4rem; font-size: .82rem; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="shell bar">
+    <a href="/" class="wordmark"><span class="b">MFV</span><span class="g">systems</span></a>
+    <nav class="links">
+      <a href="/">Accueil</a>
+      <a href="/produits">Le produit</a>
+      <a href="/methode">Notre méthode</a>
+      <a href="/equipe">L'équipe</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact" class="btn">Parler de votre établissement</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="shell">
+      <span class="eyebrow">Démo</span>
+      <h1>Le CRM de votre hôtel</h1>
+      <p class="d-intro">Vos clients, leurs séjours, d'où venaient leurs réservations, tout ce que vous savez d'eux et tous les messages que vous leur envoyez. Le lien direct que les plateformes gardent pour elles. Données fictives, cliquez partout.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell">
+      <div class="d-tabs" role="tablist" aria-label="Sections du CRM">
+        <button data-tab="home" role="tab" aria-selected="true">Vue d'ensemble</button>
+        <button data-tab="clients" role="tab" aria-selected="false">Clients</button>
+        <button data-tab="autos" role="tab" aria-selected="false">Automatisations</button>
+      </div>
+      <div class="d-view" id="view"></div>
+      <p class="d-disc">Démo. Les noms, montants, échanges et statistiques sont fictifs. Rien n'est enregistré, tout se réinitialise au rechargement.</p>
+    </div>
+  </section>
+</main>
+
+<section class="contact site-foot">
+  <div class="shell">
+    <div class="foot-bottom" style="margin-top:0;padding-top:0;border-top:0">
+      <span class="wordmark"><span class="b">MFV</span><span class="g">systems</span></span>
+      <nav class="foot-nav">
+        <a href="/produits">Le produit</a>
+        <a href="/methode">Notre méthode</a>
+        <a href="/equipe">L'équipe</a>
+        <a href="/faq">FAQ</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <p class="foot-legal">
+        MFV Systems, SAS en cours d'immatriculation. Siège : 8 rue Jean Richepin, 75116 Paris.
+        Direction : Yassmine Meyer et Thomas Finaz de Villaine, co-présidents.
+        Contact : <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>.
+        SIRET communiqué dès l'immatriculation. Hébergeur : Vercel Inc.<br>
+        <a href="/mentions-legales">Mentions légales</a> &middot; <a href="/confidentialite">Politique de confidentialité</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="d-scrim" id="scrim"></div>
+<aside class="d-drawer" id="drawer" aria-hidden="true"></aside>
+
+<script>
+(function () {
+  "use strict";
+  var eur = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+    return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); };
+
+  /* ---------- Données fictives ---------- */
+  // Réservations directes vs OTA, 6 derniers mois (en nombre de nuitées)
+  var monthly = [
+    { m: 'oct.', dir: 34, ota: 61 }, { m: 'nov.', dir: 41, ota: 55 }, { m: 'déc.', dir: 52, ota: 44 },
+    { m: 'janv.', dir: 48, ota: 39 }, { m: 'févr.', dir: 57, ota: 36 }, { m: 'mars', dir: 63, ota: 33 }
+  ];
+
+  var guests = [
+    { id: 'g1', name: 'Camille Rousseau', country: 'France', city: 'Lyon', lang: 'Français', tags: ['Fidèle'],
+      email: 'camille.rousseau@email.fr', phone: '+33 6 12 34 56 78', since: '2023',
+      prefs: ['Étage élevé', 'Côté jardin', 'Oreiller ferme', 'Séjours hors saison'],
+      note: 'Toujours charmante. Réserve en direct depuis qu\'on lui a proposé le surclassement.',
+      upcoming: null, pending: null,
+      activity: [
+        { type: 'review', date: '13 nov. 2024', title: 'Avis laissé, 5/5', body: '« Accueil parfait, chambre au calme comme demandé. On revient l\'an prochain. »' },
+        { type: 'message', dir: 'in', date: '13 nov. 2024', title: 'Message reçu', body: 'Merci, séjour parfait comme toujours.' },
+        { type: 'email', dir: 'out', date: '7 nov. 2024', title: 'Email envoyé — Votre arrivée demain', body: 'Bonjour Camille, votre chambre habituelle au 4e est prête. Arrivée possible dès 15h.' },
+        { type: 'reservation', date: '9 nov. 2024', title: 'Séjour — Suite Junior', body: '9 → 13 nov. 2024 · 4 nuits · 2 personnes', amount: 980, channel: 'Direct' },
+        { type: 'reservation', date: '14 mars 2024', title: 'Séjour — Chambre Deluxe', body: '14 → 17 mars 2024 · 3 nuits', amount: 560, channel: 'Direct' },
+        { type: 'reservation', date: '3 nov. 2023', title: 'Séjour — Chambre Deluxe', body: '3 → 6 nov. 2023 · 3 nuits', amount: 540, channel: 'Booking' }
+      ] },
+    { id: 'g2', name: 'Andreas Berg', country: 'Allemagne', city: 'Munich', lang: 'Allemand', tags: ['VIP', 'Affaires'],
+      email: 'a.berg@email.de', phone: '+49 170 1234567', since: '2024',
+      prefs: ['Chambre Exécutive', 'Check-in tardif', 'Facturation société', 'Bureau'],
+      note: 'Déplacement mensuel. Compte société : facture groupée en fin de mois.',
+      upcoming: { in: '2 avr.', out: '4 avr.', room: 'Chambre Exécutive', nights: 2, guests: 1,
+        checklist: ['Prévenir la réception d\'une arrivée vers 23h', 'Facture au compte Berg GmbH', 'Plateau repas froid en chambre'] },
+      pending: null,
+      activity: [
+        { type: 'message', dir: 'in', date: '3 mars 2025', title: 'Message reçu', body: 'Arrivée vers 23h le 3, un check-in tardif est-il possible ?' },
+        { type: 'message', dir: 'out', date: '3 mars 2025', title: 'Message envoyé', body: 'Bien sûr, la réception vous attend. Bon voyage.' },
+        { type: 'reservation', date: '4 mars 2025', title: 'Séjour — Chambre Exécutive', body: '4 → 6 mars 2025 · 2 nuits', amount: 440, channel: 'Direct' },
+        { type: 'reservation', date: '5 févr. 2025', title: 'Séjour — Chambre Exécutive', body: '5 → 7 févr. 2025 · 2 nuits', amount: 420, channel: 'Direct' },
+        { type: 'reservation', date: '8 janv. 2025', title: 'Séjour — Chambre Exécutive', body: '8 → 10 janv. 2025 · 2 nuits', amount: 420, channel: 'Direct' }
+      ] },
+    { id: 'g3', name: 'Cabinet Lefèvre & Associés', country: 'France', city: 'Paris', lang: 'Français', tags: ['Entreprise'],
+      email: 'events@lefevre-associes.fr', phone: '+33 1 45 00 00 00', since: '2024',
+      prefs: ['Séminaire annuel juin', 'Salle de réunion', 'Pause café continue', 'Contact : Nadia'],
+      note: 'Gros volume une fois par an + nuitées ponctuelles. Toujours en direct.',
+      upcoming: null, pending: null,
+      activity: [
+        { type: 'email', dir: 'in', date: '4 avr. 2025', title: 'Email reçu — RE: Devis séminaire 2025', body: 'Validé, merci. On confirmera le nombre exact début juin.' },
+        { type: 'email', dir: 'out', date: '2 avr. 2025', title: 'Email envoyé — Devis séminaire 2025', body: 'Mêmes conditions que l\'an dernier : 10 chambres, salle équipée, pauses incluses.' },
+        { type: 'reservation', date: '17 juin 2024', title: 'Séjour — 8 chambres + salle', body: '17 → 19 juin 2024 · séminaire', amount: 6400, channel: 'Direct' }
+      ] },
+    { id: 'g4', name: 'James Whitmore', country: 'Royaume-Uni', city: 'Bath', lang: 'Anglais', tags: ['Fidèle'],
+      email: 'jwhitmore@email.co.uk', phone: '+44 7700 900123', since: '2023',
+      prefs: ['Suite Junior', 'Anniversaire de mariage en septembre', 'Bouteille à l\'arrivée'],
+      note: 'Vient chaque septembre pour son anniversaire de mariage. Petite attention systématique.',
+      upcoming: null, pending: null,
+      activity: [
+        { type: 'email', dir: 'out', date: '15 sept. 2024', title: 'Email envoyé — On vous attend', body: 'Bonjour James, on prépare la suite pour votre anniversaire. Champagne au frais.' },
+        { type: 'reservation', date: '19 sept. 2024', title: 'Séjour — Suite Junior', body: '19 → 22 sept. 2024 · 3 nuits', amount: 1220, channel: 'Direct' },
+        { type: 'reservation', date: '20 sept. 2023', title: 'Séjour — Suite Junior', body: '20 → 23 sept. 2023 · 3 nuits', amount: 1180, channel: 'Expedia' }
+      ] },
+    { id: 'g5', name: 'Sofia Marchetti', country: 'Italie', city: 'Milan', lang: 'Italien', tags: ['Nouveau'],
+      email: 's.marchetti@email.it', phone: '+39 333 1234567', since: '2025',
+      prefs: [], note: 'Premier séjour, venue via Booking. Cible d\'une relance directe.',
+      upcoming: null, pending: null,
+      activity: [
+        { type: 'email', dir: 'out', date: '5 févr. 2025', title: 'Email envoyé — Merci de votre visite', body: 'La prochaine fois, en réservant sur notre site : surclassement selon disponibilité et petit-déjeuner offert.' },
+        { type: 'reservation', date: '2 févr. 2025', title: 'Séjour — Chambre Supérieure', body: '2 → 5 févr. 2025 · 3 nuits', amount: 510, channel: 'Booking' }
+      ] },
+    { id: 'g6', name: 'Léa Fontaine', country: 'France', city: 'Nantes', lang: 'Français', tags: ['À relancer'],
+      email: 'lea.fontaine@email.fr', phone: '+33 6 98 76 54 32', since: '2024',
+      prefs: ['Chambre Supérieure'], note: 'A commencé une réservation en direct sans la valider.',
+      upcoming: null,
+      pending: { dates: '28 → 30 mars', room: 'Chambre Supérieure', amount: 320 },
+      activity: [
+        { type: 'reservation', date: '11 août 2024', title: 'Séjour — Chambre Supérieure', body: '11 → 14 août 2024 · 3 nuits', amount: 690, channel: 'Direct' }
+      ] },
+    { id: 'g7', name: 'Hiroshi Tanaka', country: 'Japon', city: 'Tokyo', lang: 'Anglais', tags: ['Nouveau'],
+      email: 'h.tanaka@email.jp', phone: '+81 90 1234 5678', since: '2025',
+      prefs: ['Suite avec terrasse', 'Voyage de noces', 'Attentions personnalisées'],
+      note: 'Voyage de noces. Fleurs et mot de bienvenue prévus.',
+      upcoming: { in: '18 avr.', out: '22 avr.', room: 'Suite avec terrasse', nights: 4, guests: 2,
+        checklist: ['Check-in anticipé confirmé pour 13h', 'Bouquet et mot de bienvenue en chambre', 'Réservation restaurant le premier soir'] },
+      pending: null,
+      activity: [
+        { type: 'message', dir: 'in', date: '12 avr. 2025', title: 'Message reçu', body: 'Un check-in anticipé est-il possible le 18 ? Merci beaucoup.' },
+        { type: 'message', dir: 'out', date: '12 avr. 2025', title: 'Message envoyé', body: 'Oui, votre suite sera prête dès 13h. Tous nos vœux à vous deux.' },
+        { type: 'reservation', date: '18 avr. 2025', title: 'Séjour — Suite avec terrasse', body: '18 → 22 avr. 2025 · 4 nuits · voyage de noces', amount: 1640, channel: 'Direct' }
+      ] },
+    { id: 'g8', name: 'Marta Nowak', country: 'Pologne', city: 'Cracovie', lang: 'Anglais', tags: ['Fidèle'],
+      email: 'm.nowak@email.pl', phone: '+48 512 345 678', since: '2023',
+      prefs: ['Chambre Deluxe', 'Séjour en mai', 'Réserve toujours en direct'],
+      note: 'Trois séjours, passée au direct au deuxième et n\'en est jamais repartie.',
+      upcoming: null, pending: null,
+      activity: [
+        { type: 'message', dir: 'in', date: '21 avr. 2025', title: 'Message reçu', body: 'Oui parfait, merci beaucoup !' },
+        { type: 'email', dir: 'out', date: '20 avr. 2025', title: 'Email envoyé — Ravi de vous revoir', body: 'Bonjour Marta, même chambre que l\'an dernier pour votre séjour de mai ?' },
+        { type: 'reservation', date: '2 mai 2025', title: 'Séjour — Chambre Deluxe', body: '2 → 6 mai 2025 · 4 nuits', amount: 760, channel: 'Direct' },
+        { type: 'reservation', date: '10 mai 2024', title: 'Séjour — Chambre Deluxe', body: '10 → 13 mai 2024 · 3 nuits', amount: 590, channel: 'Direct' },
+        { type: 'reservation', date: '4 mai 2023', title: 'Séjour — Chambre Supérieure', body: '4 → 7 mai 2023 · 3 nuits', amount: 480, channel: 'Booking' }
+      ] }
+  ];
+
+  var automations = [
+    { id: 'a1', name: 'Confirmation de réservation', when: 'Immédiat', on: true,
+      body: 'Objet : Votre réservation est confirmée\n\nBonjour {prénom},\n\nNous avons le plaisir de confirmer votre séjour du {arrivée} au {départ}, en {chambre}.\nVotre paiement de {montant} a bien été reçu.\n\nÀ très bientôt,\nL\'équipe de {hôtel}' },
+    { id: 'a2', name: 'Informations pratiques', when: 'J-2 avant l\'arrivée', on: true,
+      body: 'Objet : Votre arrivée approche\n\nBonjour {prénom},\n\nQuelques infos avant votre venue : arrivée à partir de 15h, parking sur place, petit-déjeuner de 7h à 10h30.\nUne demande particulière ? Répondez simplement à cet email.\n\nÀ dans deux jours,\n{hôtel}' },
+    { id: 'a3', name: 'Message de bienvenue', when: 'Jour de l\'arrivée', on: true,
+      body: 'Objet : Bienvenue\n\nBonjour {prénom},\n\nVotre chambre est prête. La réception est à votre disposition 24h/24.\nBon séjour parmi nous.\n\n{hôtel}' },
+    { id: 'a4', name: 'Demande d\'avis', when: 'J+1 après le départ', on: true,
+      body: 'Objet : Votre séjour s\'est-il bien passé ?\n\nBonjour {prénom},\n\nMerci d\'avoir choisi {hôtel}. Votre avis nous aide beaucoup : il prend une minute.\n\n[ Laisser un avis ]\n\nAu plaisir de vous revoir.' },
+    { id: 'a5', name: 'Relance panier abandonné', when: '1h après un abandon', on: true,
+      body: 'Objet : Votre chambre vous attend encore\n\nBonjour {prénom},\n\nVous avez commencé une réservation pour le {dates}. Elle est encore disponible.\nReprenez là où vous vous êtes arrêté :\n\n[ Finaliser ma réservation ]' },
+    { id: 'a6', name: 'Offre anniversaire', when: 'Chaque année, 15 jours avant', on: false,
+      body: 'Objet : Un cadeau pour votre anniversaire\n\nBonjour {prénom},\n\nPour fêter ça, profitez de -15 % sur votre prochain séjour en direct, valable trois mois.\nCode : ANNIV\n\n[ Réserver ]' }
+  ];
+
+  var FILTERS = [
+    { k: 'all', label: 'Tous' }, { k: 'Fidèle', label: 'Fidèles' }, { k: 'VIP', label: 'VIP' },
+    { k: 'Entreprise', label: 'Entreprises' }, { k: 'Nouveau', label: 'Nouveaux' }, { k: 'À relancer', label: 'À relancer' }
+  ];
+  var FEED_FILTERS = [
+    { k: 'all', label: 'Tout' }, { k: 'reservation', label: 'Séjours' },
+    { k: 'email', label: 'Emails' }, { k: 'message', label: 'Messages' }, { k: 'note', label: 'Notes' }
+  ];
+
+  var state = { tab: 'home', filter: 'all', search: '', feedFilter: 'all', relaunched: {}, autos: {}, composing: null, openId: null };
+  automations.forEach(function (a) { state.autos[a.id] = a.on; });
+
+  var viewEl = document.getElementById('view');
+  var drawer = document.getElementById('drawer');
+  var scrim = document.getElementById('scrim');
+
+  function stat(v, l, accent) { return '<div class="d-stat' + (accent ? ' accent' : '') + '"><b>' + esc(v) + '</b><span>' + esc(l) + '</span></div>'; }
+  function kv(k, v) { return '<dt>' + esc(k) + '</dt><dd>' + esc(v) + '</dd>'; }
+  function tagClass(t) { return t === 'À relancer' ? 'd-badge warn' : 'd-tag'; }
+  function firstTag(g) { return g.tags[0] || 'Client'; }
+  function guestTotal(g) { return g.activity.filter(function (a) { return a.type === 'reservation'; }).reduce(function (s, a) { return s + (a.amount || 0); }, 0); }
+  function guestStays(g) { return g.activity.filter(function (a) { return a.type === 'reservation'; }).length; }
+  function matchesFilter(g, f) {
+    if (f === 'all') return true;
+    if (f === 'Entreprise') return g.tags.indexOf('Entreprise') !== -1;
+    return g.tags.indexOf(f) !== -1;
+  }
+
+  /* ---------- Vue d'ensemble ---------- */
+  function renderHome() {
+    var allRes = guests.reduce(function (a, g) { return a.concat(g.activity.filter(function (x) { return x.type === 'reservation'; })); }, []);
+    var direct = allRes.filter(function (r) { return r.channel === 'Direct'; });
+    var pct = Math.round(direct.length / allRes.length * 100);
+    var caDirect = direct.reduce(function (s, r) { return s + r.amount; }, 0);
+    var caOta = allRes.filter(function (r) { return r.channel !== 'Direct'; }).reduce(function (s, r) { return s + r.amount; }, 0);
+    var commission = Math.round(caOta * 0.17);
+    var loyal = guests.filter(function (g) { return g.tags.indexOf('Fidèle') !== -1 || g.tags.indexOf('VIP') !== -1; }).length;
+    var toRelaunch = guests.filter(function (g) { return g.pending && !state.relaunched[g.id]; });
+    var upcoming = guests.filter(function (g) { return g.upcoming; });
+
+    var maxBar = Math.max.apply(null, monthly.map(function (m) { return m.dir + m.ota; }));
+
+    var html = ''
+      + '<p class="d-lead">La photo de votre relation client. <b>Plus la part directe monte, moins vous versez de commissions.</b></p>'
+      + '<div class="d-stats">'
+      + stat(pct + ' %', 'des séjours réservés en direct', true)
+      + stat(eur.format(caDirect), 'de chiffre d\'affaires direct (12 mois)')
+      + stat(eur.format(commission), 'de commissions versées aux OTA (12 mois)')
+      + stat(guests.length, 'clients au fichier')
+      + '</div>'
+      + '<div class="d-grid2">'
+      + '<div class="d-panel"><h3>Réservations directes contre OTA</h3><div class="d-bars">'
+      + monthly.map(function (m) {
+          var hd = Math.round(m.dir / maxBar * 118), ho = Math.round(m.ota / maxBar * 118);
+          return '<span class="d-bar"><i class="ota" style="height:' + ho + 'px"></i><i class="dir" style="height:' + hd + 'px"></i><em>' + esc(m.m) + '</em></span>';
+        }).join('')
+      + '</div><div class="d-legend"><span class="l-dir">Direct</span><span class="l-ota">Via une OTA</span></div></div>'
+      + '<div class="d-panel"><h3>À faire</h3><div class="d-todo">'
+      + toRelaunch.map(function (g) { return '<a data-open="' + g.id + '"><span>Relancer le panier abandonné de ' + esc(g.name) + '</span></a>'; }).join('')
+      + upcoming.map(function (g) { return '<a data-open="' + g.id + '"><span>Préparer l\'arrivée de ' + esc(g.name) + '</span><span class="s"> · ' + esc(g.upcoming.in) + '</span></a>'; }).join('')
+      + '<a data-tab="clients"><span>Relancer Sofia Marchetti, venue via Booking, pour un prochain séjour en direct</span></a>'
+      + '</div></div>'
+      + '</div>'
+      + '<div class="d-panel" style="margin-top:1.2rem"><h3>Prochaines arrivées</h3><div class="d-mini">'
+      + (upcoming.length ? upcoming.map(function (g) {
+          return '<div class="d-mini-row"><span><b>' + esc(g.name) + '</b> <span class="' + tagClass(firstTag(g)) + '">' + esc(firstTag(g)) + '</span><br><span class="s">' + esc(g.upcoming.room) + ' · ' + g.upcoming.nights + ' nuits · ' + guestStays(g) + 'e séjour</span></span>'
+            + '<span class="s">' + esc(g.upcoming.in) + ' → ' + esc(g.upcoming.out) + '</span></div>';
+        }).join('') : '<p class="d-note">Aucune arrivée programmée.</p>')
+      + '</div></div>';
+
+    viewEl.innerHTML = html;
+    bindOpeners();
+  }
+
+  /* ---------- Clients ---------- */
+  function renderClients() {
+    var q = state.search.trim().toLowerCase();
+    var list = guests.filter(function (g) {
+      return matchesFilter(g, state.filter) && (!q || (g.name + ' ' + g.country + ' ' + g.city).toLowerCase().indexOf(q) !== -1);
+    });
+
+    var html = ''
+      + '<p class="d-lead">Une fiche par client. Ce que les plateformes ne vous transmettent jamais : ses coordonnées, ses préférences, tout votre historique commun.</p>'
+      + '<div class="d-tools">'
+      + '<input class="d-search" id="dSearch" placeholder="Rechercher un client, une ville…" value="' + esc(state.search) + '" aria-label="Rechercher">'
+      + FILTERS.map(function (f) { return '<button class="d-chip" data-f="' + f.k + '" aria-pressed="' + (state.filter === f.k) + '">' + f.label + '</button>'; }).join('')
+      + '</div><div class="d-list">';
+
+    list.forEach(function (g) {
+      var last = g.activity.filter(function (a) { return a.type === 'reservation'; })[0];
+      var pending = g.pending && !state.relaunched[g.id];
+      html += '<button class="d-row" data-open="' + g.id + '">'
+        + '<span class="d-row-name">' + esc(g.name) + ' ' + g.tags.map(function (t) { return '<span class="' + tagClass(t) + '">' + esc(t) + '</span>'; }).join(' ') + '</span>'
+        + '<span class="d-row-sub">' + esc(g.city) + ', ' + esc(g.country) + ' · ' + guestStays(g) + ' séjour' + (guestStays(g) > 1 ? 's' : '') + ' · ' + eur.format(guestTotal(g)) + (last ? ' · dernier : ' + esc(last.date) : '') + '</span>'
+        + '<span class="d-row-meta">' + (pending ? '<span class="d-badge warn">panier en attente</span>' : (g.upcoming ? '<span class="d-badge ok">arrivée ' + esc(g.upcoming.in) + '</span>' : '')) + '</span>'
+        + '</button>';
+    });
+    if (!list.length) html += '<p class="d-empty">Aucun client pour cette recherche.</p>';
+    html += '</div>';
+    viewEl.innerHTML = html;
+
+    var s = document.getElementById('dSearch');
+    s.addEventListener('input', function (e) {
+      state.search = e.target.value; renderClients();
+      var el = document.getElementById('dSearch'); el.focus(); el.setSelectionRange(el.value.length, el.value.length);
+    });
+    viewEl.querySelectorAll('[data-f]').forEach(function (b) {
+      b.addEventListener('click', function () { state.filter = b.getAttribute('data-f'); renderClients(); });
+    });
+    bindOpeners();
+  }
+
+  /* ---------- Automatisations ---------- */
+  function renderAutos() {
+    var html = ''
+      + '<p class="d-lead">Les messages qui partent tout seuls, au bon moment, <b>à votre nom et sur votre domaine</b>, pas celui d\'une plateforme. Activez, désactivez, ouvrez le modèle.</p>'
+      + '<div class="d-autos">'
+      + automations.map(function (a) {
+          return '<div class="d-auto"><div class="d-auto-h"><div><span class="when">' + esc(a.when) + '</span><br><b>' + esc(a.name) + '</b></div>'
+            + '<button class="d-switch" data-auto="' + a.id + '" role="switch" aria-checked="' + !!state.autos[a.id] + '" aria-label="Activer ' + esc(a.name) + '"></button></div>'
+            + '<p>' + esc(a.body.split('\n\n')[1] || '').slice(0, 90) + '…</p>'
+            + '<button class="see" data-model="' + a.id + '">Voir le modèle</button></div>';
+        }).join('')
+      + '<p class="d-autos-note"><b>Le point important :</b> ces emails renforcent votre marque à chaque envoi. Le client garde en tête le nom de votre hôtel, pas celui du site par lequel il a réservé.</p>'
+      + '</div>';
+    viewEl.innerHTML = html;
+
+    viewEl.querySelectorAll('[data-auto]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var id = b.getAttribute('data-auto');
+        state.autos[id] = !state.autos[id];
+        b.setAttribute('aria-checked', String(state.autos[id]));
+      });
+    });
+    viewEl.querySelectorAll('[data-model]').forEach(function (b) {
+      b.addEventListener('click', function () { openModel(b.getAttribute('data-model')); });
+    });
+  }
+
+  function openModel(id) {
+    var a = automations.find(function (x) { return x.id === id; });
+    if (!a) return;
+    showDrawer(
+      '<div class="d-drawer-h"><div><h3>' + esc(a.name) + '</h3><p class="subline">Envoi : ' + esc(a.when) + '</p></div>'
+      + '<button class="d-x" data-close aria-label="Fermer">&times;</button></div>'
+      + '<div class="d-body"><div class="d-sec"><h4>Modèle d\'email</h4>'
+      + '<pre style="white-space:pre-wrap;font:inherit;font-size:.85rem;line-height:1.6;background:var(--paper);border:1px solid var(--line);border-radius:.7rem;padding:1rem;margin:0">' + esc(a.body) + '</pre>'
+      + '<p class="d-note" style="margin-top:.8rem">Les champs entre accolades sont remplis automatiquement pour chaque client.</p></div></div>'
+    );
+  }
+
+  /* ---------- Fiche client ---------- */
+  function openGuest(id) {
+    var g = guests.find(function (x) { return x.id === id; });
+    if (!g) return;
+    state.openId = id;
+    var total = guestTotal(g), stays = guestStays(g), done = state.relaunched[g.id];
+    var feed = g.activity.filter(function (a) {
+      if (state.feedFilter === 'all') return true;
+      if (state.feedFilter === 'message') return a.type === 'message';
+      return a.type === state.feedFilter;
+    });
+
+    var html = ''
+      + '<div class="d-drawer-h"><div><h3>' + esc(g.name) + '</h3>'
+      + '<p class="subline">' + g.tags.map(function (t) { return '<span class="' + tagClass(t) + '">' + esc(t) + '</span>'; }).join('')
+      + esc(g.city) + ', ' + esc(g.country) + ' · client depuis ' + esc(g.since) + '</p></div>'
+      + '<button class="d-x" data-close aria-label="Fermer">&times;</button></div>'
+      + '<div class="d-body">'
+      + '<div class="d-sec"><h4>Fiche</h4><dl class="d-kv">'
+      + kv('Email', g.email) + kv('Téléphone', g.phone) + kv('Langue', g.lang)
+      + kv('Séjours', String(stays)) + kv('Total dépensé', eur.format(total))
+      + '</dl></div>';
+
+    if (g.prefs && g.prefs.length) {
+      html += '<div class="d-sec"><h4>Préférences et particularités</h4><div class="d-prefs">'
+        + g.prefs.map(function (p) { return '<span>' + esc(p) + '</span>'; }).join('') + '</div></div>';
+    }
+
+    if (g.upcoming) {
+      html += '<div class="d-sec"><h4>Prochaine arrivée</h4><div class="d-next"><b>' + esc(g.upcoming.in) + ' → ' + esc(g.upcoming.out)
+        + ' · ' + esc(g.upcoming.room) + '</b>' + g.upcoming.nights + ' nuits · ' + g.upcoming.guests + ' personne' + (g.upcoming.guests > 1 ? 's' : '')
+        + '<ul>' + g.upcoming.checklist.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul></div></div>';
+    }
+
+    if (g.pending) {
+      html += '<div class="d-sec"><h4>Réservation non finalisée</h4><div class="d-alert' + (done ? ' done' : '') + '">'
+        + (done ? '<b>Relance envoyée</b>Un email avec un lien pour finaliser vient de partir vers ' + esc(g.name) + '.'
+               : '<b>Panier abandonné</b>' + esc(g.pending.dates) + ' · ' + esc(g.pending.room) + ' · ' + eur.format(g.pending.amount)
+                 + '<br><button class="d-btn" data-relaunch="' + g.id + '">Envoyer une relance</button>')
+        + '</div></div>';
+    }
+
+    html += '<div class="d-sec"><h4>Historique</h4>'
+      + '<div class="d-actbar">' + FEED_FILTERS.map(function (f) {
+          return '<button data-feed="' + f.k + '" aria-pressed="' + (state.feedFilter === f.k) + '">' + f.label + '</button>';
+        }).join('') + '</div>'
+      + '<div class="d-feed">'
+      + (feed.length ? feed.map(feedItem).join('') : '<p class="d-note">Rien à afficher pour ce filtre.</p>')
+      + '</div>'
+      + '<div class="d-compose">'
+      + (state.composing === 'note'
+          ? '<textarea id="cInput" placeholder="Votre note interne…"></textarea><div class="rowb"><button class="d-btn" data-send="note">Ajouter</button><button class="d-btn ghost" data-cancel>Annuler</button></div>'
+          : state.composing === 'email'
+            ? '<input id="cSubject" placeholder="Objet de l\'email"><textarea id="cInput" placeholder="Votre message…"></textarea><div class="rowb"><button class="d-btn" data-send="email">Envoyer</button><button class="d-btn ghost" data-cancel>Annuler</button></div>'
+            : '<div class="rowb"><button class="d-btn ghost" data-compose="email">Écrire un email</button><button class="d-btn ghost" data-compose="note">Ajouter une note</button></div>')
+      + '</div></div>'
+      + '</div>';
+
+    showDrawer(html);
+
+    drawer.querySelectorAll('[data-feed]').forEach(function (b) {
+      b.addEventListener('click', function () { state.feedFilter = b.getAttribute('data-feed'); openGuest(id); });
+    });
+    var rb = drawer.querySelector('[data-relaunch]');
+    if (rb) rb.addEventListener('click', function () { state.relaunched[g.id] = true; openGuest(id); refreshBehind(); });
+    drawer.querySelectorAll('[data-compose]').forEach(function (b) {
+      b.addEventListener('click', function () { state.composing = b.getAttribute('data-compose'); openGuest(id); });
+    });
+    var cc = drawer.querySelector('[data-cancel]');
+    if (cc) cc.addEventListener('click', function () { state.composing = null; openGuest(id); });
+    var sb = drawer.querySelector('[data-send]');
+    if (sb) sb.addEventListener('click', function () {
+      var kind = sb.getAttribute('data-send');
+      var input = drawer.querySelector('#cInput');
+      var txt = input ? input.value.trim() : '';
+      if (!txt) { input && input.focus(); return; }
+      if (kind === 'note') {
+        g.activity.unshift({ type: 'note', date: 'à l\'instant', title: 'Note interne', body: txt });
+      } else {
+        var subj = (drawer.querySelector('#cSubject') || {}).value || 'sans objet';
+        g.activity.unshift({ type: 'email', dir: 'out', date: 'à l\'instant', title: 'Email envoyé — ' + subj, body: txt });
+      }
+      state.composing = null;
+      openGuest(id);
+    });
+  }
+
+  function feedItem(a) {
+    var icons = { reservation: '€', email: '@', message: '✉', call: '☎', note: '✎', review: '★' };
+    var ic = a.type === 'reservation' ? 'ic res' : (a.type === 'email' ? 'ic email' : 'ic');
+    var chan = a.type === 'reservation' && a.channel
+      ? ' <span class="d-badge ' + (a.channel === 'Direct' ? 'ok' : '') + '">' + esc(a.channel) + '</span>' : '';
+    var amt = a.amount ? '<span class="amt">' + eur.format(a.amount) + '</span>' : '';
+    return '<div class="d-item"><div class="' + ic + '">' + (icons[a.type] || '•') + '</div><div>'
+      + '<div class="hd"><b>' + esc(a.title) + chan + '</b><time>' + esc(a.date) + '</time></div>'
+      + '<div class="tx">' + esc(a.body) + ' ' + amt + '</div></div></div>';
+  }
+
+  /* ---------- Tiroir ---------- */
+  function showDrawer(html) {
+    drawer.innerHTML = html;
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    scrim.classList.add('open');
+    drawer.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', closeDrawer); });
+  }
+  function closeDrawer() {
+    drawer.classList.remove('open'); drawer.setAttribute('aria-hidden', 'true'); scrim.classList.remove('open');
+    state.composing = null; state.feedFilter = 'all'; state.openId = null;
+  }
+  scrim.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDrawer(); });
+
+  function refreshBehind() {
+    var keep = drawer.innerHTML, open = drawer.classList.contains('open');
+    if (state.tab === 'home') renderHome(); else if (state.tab === 'clients') renderClients();
+    if (open) { drawer.innerHTML = keep; drawer.classList.add('open'); scrim.classList.add('open');
+      drawer.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', closeDrawer); });
+      var rb = drawer.querySelector('[data-relaunch]');
+      if (rb && state.openId) { var id = state.openId; rb.addEventListener('click', function () { state.relaunched[id] = true; openGuest(id); refreshBehind(); }); }
+    }
+  }
+
+  function bindOpeners() {
+    viewEl.querySelectorAll('[data-open]').forEach(function (b) {
+      b.addEventListener('click', function () { openGuest(b.getAttribute('data-open')); });
+    });
+    viewEl.querySelectorAll('[data-tab]').forEach(function (b) {
+      b.addEventListener('click', function () { switchTab(b.getAttribute('data-tab')); });
+    });
+  }
+
+  function switchTab(t) {
+    state.tab = t;
+    document.querySelectorAll('.d-tabs button').forEach(function (x) {
+      x.setAttribute('aria-selected', String(x.getAttribute('data-tab') === t));
+    });
+    closeDrawer();
+    if (t === 'home') renderHome(); else if (t === 'clients') renderClients(); else renderAutos();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.querySelectorAll('.d-tabs button').forEach(function (b) {
+    b.addEventListener('click', function () { switchTab(b.getAttribute('data-tab')); });
+  });
+
+  renderHome();
+})();
+</script>
+
+</body>
+</html>
