@@ -367,6 +367,7 @@
   .team { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
   .team.solo { grid-template-columns: 1fr; max-width: 34rem; }
   .person { padding: 1.6rem 1.7rem; }
+  .person-photo { display: block; width: 4.6rem; height: 4.6rem; border-radius: 50%; object-fit: cover; object-position: top center; margin-bottom: 1rem; }
   .person b { display: block; font-weight: 700; font-size: 1.1rem; }
   .person span { display: block; margin-top: .5rem; color: var(--muted); font-size: .95rem; }
 
@@ -672,3 +673,36 @@ main > section:last-child { padding-bottom: clamp(2rem, 4vw, 3.2rem); }
   max-width: 60ch;
 }
 .legif-plain b { color: var(--ink); font-weight: 600; }
+
+.legif-mini {
+  background: var(--bf-bg);
+  color: var(--bf-ink);
+  border: 1px solid var(--bf-line);
+  border-top: 3px solid var(--bf-blue);
+  box-shadow: var(--raise);
+  font-family: 'Marianne', 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+  padding: 1rem 1.3rem;
+  margin-top: 1.2rem;
+}
+.legif-badge {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 0 0 .5rem;
+  font-weight: 700;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--bf-ink);
+}
+.legif-badge .dot {
+  flex: none;
+  width: .55rem;
+  height: .55rem;
+  border-radius: 50%;
+  background: #e11d48;
+  box-shadow: 0 0 0 4px rgba(225, 29, 72, .15);
+}
+.legif-mini h3 { margin: 0 0 .4rem; font-size: 1rem; font-weight: 700; color: var(--bf-ink); }
+.legif-mini p { margin: 0; font-size: .92rem; line-height: 1.6; color: var(--bf-ink); }
+.legif-mini a { color: var(--bf-blue); text-underline-offset: 2px; }
