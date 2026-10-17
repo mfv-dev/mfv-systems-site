@@ -5,223 +5,209 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MFV Systems</title>
 <meta name="description" content="MFV Systems construit aux hôtels indépendants leur infrastructure de réservation. Ils l'achètent une fois, elle leur appartient. Produit phare : le Direct Booking Engine.">
+<meta name="theme-color" content="#000633">
 <link rel="icon" href="/logo.png">
-<link rel="stylesheet" href="/style.css">
-<script src="/reveal.js" defer></script>
 <meta property="og:title" content="MFV Systems">
 <meta property="og:description" content="Votre infrastructure de réservation. On construit, vous possédez.">
 <meta property="og:image" content="/logo.png">
+<style>
+@font-face{font-family:'Hanken Grotesk';font-weight:300 500;font-style:normal;src:url(/assets/hanken-grotesk.woff2) format('woff2')}
+@font-face{font-family:'Montserrat';font-weight:300;font-style:normal;src:url(/assets/montserrat-300.woff2) format('woff2')}
+html,body{height:auto;overflow-y:auto}
+body{margin:0;background:#000633;font-family:'Hanken Grotesk',Arial,sans-serif;font-weight:300;color:#FFFFFF}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.8}
+section,footer{position:relative;z-index:1}
+
+@media (max-width:820px){
+  header{padding:14px 20px !important}
+  header nav{gap:6px 16px !important;font-size:14px !important}
+  section{padding-left:20px !important;padding-right:20px !important}
+  footer[data-site-foot]{position:static !important;padding-left:20px !important;padding-right:20px !important}
+  main{margin-bottom:0 !important;border-radius:0 !important}
+  #top{min-height:0 !important;background-image:linear-gradient(180deg,rgba(0,6,51,.55),rgba(0,6,51,.94)),url(/assets/tablette.jpg) !important;background-size:cover !important;background-position:center !important}
+  [style*="padding:110px 80px 90px"]{padding:90px 20px 56px !important}
+  [style*="position:absolute;right:80px;bottom:80px"]{position:static !important;margin-top:26px;display:inline-flex !important;white-space:normal !important}
+  [style*="pointer-events:none"]{display:none !important}
+  h1{font-size:36px !important}
+  h2{font-size:30px !important}
+  [style*="font-size:72px"]{font-size:48px !important}
+  [style*="font-size:44px"]{font-size:32px !important}
+  [style*="font-size:34px"]{font-size:24px !important}
+  [style*="font-size:32px;line-height:1.1"]{font-size:24px !important}
+  [style*="padding:44px 40px"]{padding:28px 18px !important}
+  [style*="padding:40px;border-radius:40px"]{padding:26px 18px !important}
+}
+@media (prefers-reduced-motion:reduce){
+  footer[data-site-foot]{position:static !important}
+  main{margin-bottom:0 !important}
+}
+html,body{overflow-x:hidden}
+</style>
 </head>
 <body>
+<div id="top-wrap">
 
-<header>
-  <div class="shell bar">
-    <a href="/" class="wordmark"><span class="b">MFV</span><span class="g">systems</span></a>
-    <nav class="links">
-      <a href="/">Accueil</a>
-      <a href="/produits">Le produit</a>
-      <a href="/methode">Notre méthode</a>
-      <a href="/equipe">L'équipe</a>
-      <a href="/faq">FAQ</a>
-      <a href="https://calendar.app.google/pSe63FQdmTLZMeQw7" class="btn" target="_blank" rel="noopener noreferrer">Réserver une démo</a>
-    </nav>
-  </div>
+
+<div style="position:relative;width:100%;background:#000633;color:#FFFFFF;font-family:'Hanken Grotesk',Arial,sans-serif;font-weight:300;overflow-x:clip;overflow-y:visible">
+
+<main style="position:relative;z-index:1;background:#000633;margin-bottom:var(--foot-h,470px);border-radius:0 0 56px 56px;overflow:clip">
+<!-- FOND : PLANNING DES CHAMBRES -->
+<div aria-hidden="true" style="position:absolute;right:0;top:860px;z-index:0;pointer-events:none;opacity:.85"><svg viewBox="330 40 320 330" width="520" height="536" style="display:block;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%);mask-image:linear-gradient(90deg,transparent 0%,#000 45%)" aria-hidden="true"><g stroke="#FFFFFF" stroke-opacity=".08"><path d="M340 70H650M340 120H650M340 170H650M340 220H650M340 270H650M340 320H650"></path><path d="M400 40V370M460 40V370M520 40V370M580 40V370"></path></g><g><rect x="360" y="82" width="120" height="26" rx="13" fill="#8B5CF6" opacity=".75"></rect><rect x="450" y="132" width="150" height="26" rx="13" fill="#2563EB" opacity=".8"></rect><rect x="380" y="182" width="90" height="26" rx="13" fill="#2563EB" opacity=".5"></rect><rect x="500" y="182" width="140" height="26" rx="13" fill="#8B5CF6" opacity=".6"></rect><rect x="350" y="232" width="170" height="26" rx="13" fill="#8B5CF6" opacity=".5"></rect><rect x="540" y="282" width="110" height="26" rx="13" fill="#2563EB" opacity=".7"></rect><rect x="400" y="332" width="130" height="26" rx="13" fill="#8B5CF6" opacity=".4"></rect></g></svg></div>
+<div aria-hidden="true" style="position:absolute;left:0;top:1850px;z-index:0;pointer-events:none;opacity:.85"><svg viewBox="330 40 320 330" width="520" height="536" style="display:block;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%);mask-image:linear-gradient(90deg,transparent 0%,#000 45%);transform:scaleX(-1)" aria-hidden="true"><g stroke="#FFFFFF" stroke-opacity=".08"><path d="M340 70H650M340 120H650M340 170H650M340 220H650M340 270H650M340 320H650"></path><path d="M400 40V370M460 40V370M520 40V370M580 40V370"></path></g><g><rect x="360" y="82" width="120" height="26" rx="13" fill="#8B5CF6" opacity=".75"></rect><rect x="450" y="132" width="150" height="26" rx="13" fill="#2563EB" opacity=".8"></rect><rect x="380" y="182" width="90" height="26" rx="13" fill="#2563EB" opacity=".5"></rect><rect x="500" y="182" width="140" height="26" rx="13" fill="#8B5CF6" opacity=".6"></rect><rect x="350" y="232" width="170" height="26" rx="13" fill="#8B5CF6" opacity=".5"></rect><rect x="540" y="282" width="110" height="26" rx="13" fill="#2563EB" opacity=".7"></rect><rect x="400" y="332" width="130" height="26" rx="13" fill="#8B5CF6" opacity=".4"></rect></g></svg></div>
+<div aria-hidden="true" style="position:absolute;right:0;top:2750px;z-index:0;pointer-events:none;opacity:.85"><svg viewBox="330 40 320 330" width="520" height="536" style="display:block;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%);mask-image:linear-gradient(90deg,transparent 0%,#000 45%)" aria-hidden="true"><g stroke="#FFFFFF" stroke-opacity=".08"><path d="M340 70H650M340 120H650M340 170H650M340 220H650M340 270H650M340 320H650"></path><path d="M400 40V370M460 40V370M520 40V370M580 40V370"></path></g><g><rect x="360" y="82" width="120" height="26" rx="13" fill="#8B5CF6" opacity=".75"></rect><rect x="450" y="132" width="150" height="26" rx="13" fill="#2563EB" opacity=".8"></rect><rect x="380" y="182" width="90" height="26" rx="13" fill="#2563EB" opacity=".5"></rect><rect x="500" y="182" width="140" height="26" rx="13" fill="#8B5CF6" opacity=".6"></rect><rect x="350" y="232" width="170" height="26" rx="13" fill="#8B5CF6" opacity=".5"></rect><rect x="540" y="282" width="110" height="26" rx="13" fill="#2563EB" opacity=".7"></rect><rect x="400" y="332" width="130" height="26" rx="13" fill="#8B5CF6" opacity=".4"></rect></g></svg></div>
+
+<!-- BARRE DU HAUT -->
+<header style="position:relative;z-index:5;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:16px 70px">
+<a href="#top" style="display:block;line-height:0"><img src="/assets/mfv-logo.png" alt="MFV" style="width:76px;height:76px;display:block"></a>
+<nav style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 56px;font-size:16px;font-weight:500">
+<a href="#solutions">Solutions ↓</a>
+<a href="#about">Pourquoi en direct</a>
+<a href="/demo">Démo</a>
+<a href="#about">À propos</a>
+<a href="/faq">Ressources ↓</a>
+</nav>
+<div style="display:flex;align-items:center;gap:8px">
+<a href="https://calendar.app.google/pSe63FQdmTLZMeQw7" target="_blank" rel="noopener noreferrer" style="padding:11px 24px;border-radius:999px;background:#FF4920;color:#FFFFFF;font-size:15px;font-weight:500">Demander une démo</a>
+</div>
 </header>
 
-<main id="top">
+<!-- HERO -->
+<section id="top" style="position:relative;margin-top:-72px;min-height:700px;display:flex;align-items:center;background-image:linear-gradient(90deg,#000633 0%,#000633 40%,rgba(0,6,51,0) 74%),linear-gradient(180deg,#000633 0%,rgba(0,6,51,0) 20%,rgba(0,6,51,0) 72%,#000633 100%),linear-gradient(rgba(0,6,51,.45),rgba(0,6,51,.45)),url(/assets/tablette.jpg);background-size:100% 100%,100% 100%,100% 100%,auto 112%;background-repeat:no-repeat;background-position:0 0,0 0,0 0,right center">
+<div style="position:relative;width:100%;max-width:1280px;margin:0 auto;padding:110px 80px 90px;box-sizing:border-box">
+<div style="max-width:560px;display:flex;flex-direction:column;gap:28px">
+<div style="font-size:14px;letter-spacing:.04em;color:#FF4920;font-weight:500">MFV SYSTEMS · HOSPITALITY TECHNOLOGY</div>
+<h1 style="margin:0;font-size:56px;line-height:1.08;font-weight:500;letter-spacing:-.02em"><span style="color:#FF4920">Attirez.</span> Convertissez. Gérez.</h1>
+<div style="font-size:26px;line-height:1.2;font-weight:500">Toute la puissance de votre hôtel, dans un seul écosystème.</div>
+<p style="margin:0;font-size:17px;line-height:1.5;font-weight:300">De la visibilité en ligne à la réservation directe, jusqu'à la gestion quotidienne de votre établissement. MFV Systems connecte les technologies essentielles à votre indépendance, sans bouleverser vos outils existants.</p>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px;border-radius:999px;background:#F4F4FA;color:#00094A;max-width:512px">
+<span style="padding-left:24px;font-size:17px;opacity:.55">Votre adresse e-mail</span>
+<a href="https://calendar.app.google/pSe63FQdmTLZMeQw7" target="_blank" rel="noopener noreferrer" style="padding:12px 22px;border-radius:999px;background:#FF4920;color:#FFFFFF;font-size:15px;font-weight:500;white-space:nowrap">Découvrir MFV →</a>
+</div>
+<div style="font-size:15px;opacity:.75">Des solutions indépendantes. Une technologie connectée.</div>
+</div>
+<div style="position:absolute;right:80px;bottom:80px;display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;background:rgba(255,255,255,.14);font-size:15px;white-space:nowrap">
+<span style="font-weight:500;font-size:20px;color:#FF4920">+ de 250</span><span>établissements nous ont fait confiance</span>
+</div>
+</div>
+</section>
 
-  <section class="hero">
-    <div class="shell">
-      <div class="hero-copy">
-        <span class="eyebrow">MFV Systems</span>
-        <h1>Votre site. Votre moteur de réservation. Vos clients.</h1>
-        <p class="sub">MFV construit votre canal de réservation directe : site, moteur de réservation, paiement et connexion à votre PMS. Vos clients réservent chez vous, sur votre domaine, sans commission MFV.</p>
-        <div class="cta">
-          <a href="https://calendar.app.google/pSe63FQdmTLZMeQw7" class="btn" target="_blank" rel="noopener noreferrer">Réserver une démo</a>
-          <a href="#sim" class="btn ghost">Calculer mes commissions OTA</a>
-        </div>
-      </div>
+<!-- A PROPOS DU CLUB -->
+<section id="about" style="padding:56px 24px 24px;display:flex;flex-direction:column;align-items:center;gap:32px">
+<div style="padding:6px 14px;border:1px solid rgba(255,255,255,.4);border-radius:999px;font-size:14px">À propos de MFV Systems</div>
+<p style="margin:0;max-width:830px;text-align:center;font-size:32px;line-height:1.1;font-weight:300">MFV Systems est un <span style="color:#FF4920">écosystème technologique dédié à l'hôtellerie</span> qui vous permet d'attirer davantage de voyageurs, de développer vos réservations directes et de simplifier la gestion de votre établissement.</p>
+<div style="width:100%;max-width:1120px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:start;gap:40px 48px;padding-top:48px">
+<div style="min-width:0;text-align:center"><div style="width:76px;height:76px;margin:0 auto 40px;border-radius:50%;background:#141A44;border:1px solid #1E2556;display:flex;align-items:center;justify-content:center"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#FF4920" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6l12 6-12 6-12-6zM6 18l12 6 12-6M6 24l12 6 12-6"></path></svg></div><div style="font-size:72px;font-weight:300;line-height:1;letter-spacing:-.03em;white-space:nowrap">3</div><div style="margin:20px auto 0;max-width:300px;font-size:19px;line-height:1.3;opacity:.7">Solutions complémentaires, un seul écosystème</div></div>
+<div style="min-width:0;text-align:center"><div style="width:76px;height:76px;margin:0 auto 40px;border-radius:50%;background:#141A44;border:1px solid #1E2556;display:flex;align-items:center;justify-content:center"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#FF4920" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 25l8-8 5 5 13-13M23 9h8v8"></path></svg></div><div style="font-size:72px;font-weight:300;line-height:1;letter-spacing:-.03em;white-space:nowrap">15 à 20 %</div><div style="margin:20px auto 0;max-width:300px;font-size:19px;line-height:1.3;opacity:.7">Commissions OTA potentiellement évitées sur les réservations directes*</div></div>
+<div style="min-width:0;text-align:center"><div style="width:76px;height:76px;margin:0 auto 40px;border-radius:50%;background:#141A44;border:1px solid #1E2556;display:flex;align-items:center;justify-content:center"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#FF4920" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17a11 11 0 0118-6l3 3M29 7v7h-7M29 19a11 11 0 01-18 6l-3-3M7 29v-7h7"></path></svg></div><div style="font-size:72px;font-weight:300;line-height:1;letter-spacing:-.03em;white-space:nowrap">1</div><div style="margin:20px auto 0;max-width:300px;font-size:19px;line-height:1.3;opacity:.7">Parcours connecté, de la découverte à la gestion</div></div>
+</div>
+</section>
+<section style="padding:24px 80px 40px">
+<div style="max-width:1280px;margin:0 auto;display:flex;gap:24px;align-items:flex-start;padding:26px 32px;border-radius:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);font-size:16px;line-height:1.3;box-sizing:border-box">
+<span style="flex:none;width:28px;height:28px;border:1.5px solid #FF4920;border-radius:50%;color:#FF4920;font-size:15px;line-height:28px;text-align:center;font-weight:500">i</span>
+<div><b style="font-weight:500">Loi Macron, 2015 :</b> l'hôtelier est libre de proposer sur son propre site des tarifs inférieurs à ceux des plateformes de réservation. Réserver en direct devient un vrai avantage, pour votre client comme pour vous.<br>*Le niveau de commission évité dépend de l'établissement et de son mix de canaux de vente.</div>
+</div>
+</section>
 
-      <div class="hero-viz" aria-hidden="true">
-        <div class="bk">
-          <div class="bk-top">
-            <span class="bk-hotel">Votre hôtel</span>
-            <span class="bk-tag">Réservation directe</span>
-          </div>
-          <div class="bk-dates">
-            <div><span>Arrivée</span><b>ven. 14 mars</b></div>
-            <div><span>Départ</span><b>dim. 16 mars</b></div>
-          </div>
-          <div class="bk-room">
-            <div class="r">
-              <b>Chambre Supérieure</b>
-              <span>2 nuits, 2 personnes</span>
-            </div>
-            <div class="p">280 €</div>
-          </div>
-          <div class="bk-btn">Payer et confirmer</div>
-          <p class="bk-note">Paiement sécurisé, la réservation arrive dans votre PMS.</p>
-        </div>
-        <div class="bk-chip">Commission&nbsp;: 0&nbsp;€</div>
-      </div>
-    </div>
-  </section>
+<!-- NOS SOLUTIONS -->
+<section id="solutions" style="padding:48px 80px 16px">
+<div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+<h2 style="margin:0;text-align:center;font-size:44px;line-height:1.05;font-weight:500;letter-spacing:-.02em">Nos <span style="color:#FF4920">solutions</span></h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+<div style="padding:40px;border-radius:40px;border:1px solid rgba(255,255,255,.2);display:flex;flex-direction:column;gap:40px;min-height:200px"><div style="display:flex;align-items:center;justify-content:center"><img src="/assets/mfv-studio.png" alt="MFV Studio" style="height:68px;width:auto;max-width:100%;display:block;filter:drop-shadow(0 0 10px rgba(255,255,255,.10))"></div><div style="text-align:center"><div style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:#A9B7F0;text-align:center;margin:-24px -.24em 22px 0;white-space:nowrap">Digital &amp; Acquisition</div><div style="font-size:17px;font-weight:500;line-height:1.25;color:#FFFFFF;margin:0;text-wrap:balance">Des sites web et des créations à l'image de votre hôtel.</div></div></div>
+<div style="padding:40px;border-radius:40px;border:1px solid rgba(255,255,255,.2);display:flex;flex-direction:column;gap:40px;min-height:200px"><div style="display:flex;align-items:center;justify-content:center"><img src="/assets/mfv-book.png" alt="MFV Book" style="height:68px;width:auto;max-width:100%;display:block;filter:drop-shadow(0 0 10px rgba(255,255,255,.10))"></div><div style="text-align:center"><div style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:#A9B7F0;text-align:center;margin:-24px -.24em 22px 0;white-space:nowrap">Direct Booking Engine</div><div style="font-size:17px;font-weight:500;line-height:1.25;color:#FFFFFF;margin:0;text-wrap:balance">Le moteur de réservation directe intégré à votre site.</div></div></div>
+<div style="padding:40px;border-radius:40px;border:1px solid rgba(255,255,255,.2);display:flex;flex-direction:column;gap:40px;min-height:200px"><div style="display:flex;align-items:center;justify-content:center"><img src="/assets/mfv-stay.png" alt="MFV Stay" style="height:68px;width:auto;max-width:100%;display:block;filter:drop-shadow(0 0 10px rgba(255,255,255,.10))"></div><div style="text-align:center"><div style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:#A9B7F0;text-align:center;margin:-24px -.24em 22px 0;white-space:nowrap">Hotel Management System</div><div style="font-size:17px;font-weight:500;line-height:1.25;color:#FFFFFF;margin:0;text-wrap:balance">Le PMS pensé pour les hôtels indépendants.</div></div></div>
+<div style="padding:40px;border-radius:40px;border:1px solid rgba(255,255,255,.2);display:flex;flex-direction:column;gap:40px;min-height:200px"><div style="display:flex;align-items:center;justify-content:center"><img src="/assets/mfv-insight.png" alt="MFV Insight" style="height:68px;width:auto;max-width:100%;display:block;filter:drop-shadow(0 0 10px rgba(255,255,255,.10))"></div><div style="text-align:center"><div style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:#A9B7F0;text-align:center;margin:-24px -.24em 22px 0;white-space:nowrap">Analytics &amp; Performance</div><div style="font-size:17px;font-weight:500;line-height:1.25;color:#FFFFFF;margin:0;text-wrap:balance">Un référencement qui vous apporte plus de réservations directes.</div></div></div>
+</div>
+<div style="max-width:1150px;width:100%;margin:0 auto;display:flex;gap:24px;align-items:center;padding:26px 32px;border-radius:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);font-size:16px;line-height:1.3;box-sizing:border-box">
+<span style="flex:none;width:28px;height:28px;border:1.5px solid #FF4920;border-radius:50%;color:#FF4920;font-size:15px;line-height:28px;text-align:center;font-weight:500">i</span>
+<div>Vos outils existants restent en place lorsque l'intégration est compatible.</div>
+</div>
+</div>
+</section>
 
-  <section id="constat">
-    <div class="shell">
-      <span class="eyebrow">Le constat</span>
-      <h2 class="title">Louer une plateforme, ou posséder son infrastructure</h2>
-      <p class="intro">Les hôtels indépendants dépendent des OTA pour deux choses différentes : être visibles auprès des voyageurs, et transformer cette visibilité en réservations. Une commission sur chaque nuitée, la relation client qui appartient à Booking, et pour ceux qui veulent réagir, une plateforme de plus à louer à vie.</p>
-      <div class="compare">
-        <div class="card col">
-          <h3>Louer une plateforme</h3>
-          <p>Un abonnement mensuel sans fin. Une interface identique d'un hôtel à l'autre. On arrête de payer, le moteur s'arrête. À la sortie, il ne reste qu'un export de données.</p>
-        </div>
-        <div class="card col own">
-          <h3>Posséder (MFV)</h3>
-          <p>Un projet payé une fois, rentabilisé dès que vous cessez de payer une commission sur vos réservations directes. Une infrastructure à votre image, sur votre domaine. Vos données, vos paiements, vos intégrations vous appartiennent. Si vous gardez un service récurrent, c'est un choix, pour une prestation réelle, jamais une obligation.</p>
-          <p style="margin-top:1rem"><a href="#sim" class="btn ghost">Calculer votre retour sur investissement</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- SIMULATEUR DE COMMISSIONS -->
+<section id="simulateur" style="padding:48px 80px 16px">
+<div style="max-width:1000px;margin:0 auto;padding:44px 40px;border-radius:48px;background:#0C1240;border:1px solid #1B2358;display:flex;flex-direction:column;gap:28px;box-sizing:border-box">
+<div style="text-align:center;display:flex;flex-direction:column;gap:10px"><h2 style="margin:0;font-size:38px;line-height:1.08;font-weight:500;letter-spacing:-.02em">Estimez votre facture de <span style="color:#FF4920">commissions</span></h2><p style="margin:0;font-size:16px;opacity:.75">Vos chiffres restent dans votre navigateur, rien n'est envoyé.</p></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px 40px">
+<label style="display:flex;flex-direction:column;gap:10px;font-size:15px;min-width:0"><span style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span>Chambres</span><span id="o-rooms" style="font-weight:500;color:#FFFFFF">20</span></span><input type="range" id="rooms" min="5" max="150" step="1" value="20" style="width:100%;accent-color:#FF4920"></label>
+<label style="display:flex;flex-direction:column;gap:10px;font-size:15px;min-width:0"><span style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span>Taux d'occupation</span><span id="o-occ" style="font-weight:500;color:#FFFFFF">70 %</span></span><input type="range" id="occ" min="20" max="95" step="1" value="70" style="width:100%;accent-color:#FF4920"></label>
+<label style="display:flex;flex-direction:column;gap:10px;font-size:15px;min-width:0"><span style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span>Prix moyen par nuit</span><span id="o-adr" style="font-weight:500;color:#FFFFFF">120 €</span></span><input type="range" id="adr" min="50" max="600" step="5" value="120" style="width:100%;accent-color:#FF4920"></label>
+<label style="display:flex;flex-direction:column;gap:10px;font-size:15px;min-width:0"><span style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span>Part des réservations via les OTA</span><span id="o-share" style="font-weight:500;color:#FFFFFF">40 %</span></span><input type="range" id="share" min="0" max="90" step="1" value="40" style="width:100%;accent-color:#FF4920"></label>
+<label style="display:flex;flex-direction:column;gap:10px;font-size:15px;min-width:0;grid-column:1 / -1"><span style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span>Taux de commission OTA</span><span id="o-comm" style="font-weight:500;color:#FFFFFF">17 %</span></span><input type="range" id="comm" min="10" max="30" step="1" value="17" style="width:100%;accent-color:#FF4920"></label>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px" aria-live="polite">
+<div style="padding:24px 28px;border-radius:24px;background:#151C50;border:1px solid #252D66;display:flex;flex-direction:column;gap:8px"><span style="font-size:14px;opacity:.75">Commissions versées aux OTA, par an</span><span id="res-ota" style="font-size:44px;font-weight:500;line-height:1;color:#FF4920">0 €</span></div>
+<div style="padding:24px 28px;border-radius:24px;background:#151C50;border:1px solid #252D66;display:flex;flex-direction:column;gap:8px"><span style="font-size:14px;opacity:.75">Sur ces mêmes réservations, avec MFV</span><span style="font-size:44px;font-weight:500;line-height:1">0 €</span></div>
+</div>
+<p style="margin:0;font-size:13px;line-height:1.45;opacity:.65;text-align:center">Estimation indicative, à partir de vos hypothèses. Le taux de commission est pré-réglé sur la moyenne observée par Coach Omnium. Les frais de traitement des paiements, à votre charge dans les deux cas, ne sont pas comptés.</p>
+</div>
+</section>
 
-  <section id="cout">
-    <div class="shell">
-      <span class="eyebrow">Le coût des OTA</span>
-      <h2 class="title">Ce que la commission vous prend, chaque année</h2>
-      <p class="intro">Les plateformes prélèvent une part de chaque réservation qu'elles vous apportent. Sur vos réservations directes, cette part est nulle.</p>
+<!-- BANDEAU -->
+<section style="padding:0;margin-top:24px"><div style="background:#10163F;padding:30px 24px;text-align:center;font-size:34px;line-height:1.15;font-weight:500;letter-spacing:-.02em">Votre indépendance a <span style="color:#FF4920">de la valeur.</span></div></section>
 
-      <div class="stats">
-        <figure class="stat">
-          <b>15&nbsp;à&nbsp;25&nbsp;%</b>
-          <figcaption>de commission sur chaque réservation, selon la plateforme et la visibilité achetée.</figcaption>
-          <cite>Source : Coach Omnium</cite>
-        </figure>
-        <figure class="stat">
-          <b>Jusqu'à <span class="nb">150&nbsp;000&nbsp;€</span></b>
-          <figcaption>de commissions par an pour un établissement d'une soixantaine de chambres.</figcaption>
-          <cite>Source : Coach Omnium</cite>
-        </figure>
-        <figure class="stat own">
-          <b>0&nbsp;€</b>
-          <figcaption>de commission MFV sur vos réservations directes. Par conception, pas par promotion.</figcaption>
-          <cite>Modèle Direct Booking Engine</cite>
-        </figure>
-      </div>
+<!-- PRODUIT PHARE -->
+<section id="profils" style="padding:56px 80px 16px">
+<div style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:14px;max-width:820px"><span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#FF4920;font-weight:500">Le produit phare</span><h2 style="margin:0;font-size:44px;line-height:1.05;font-weight:500;letter-spacing:-.02em">Direct Booking Engine</h2><p style="margin:0;font-size:18px;line-height:1.5;opacity:.85">Le cœur de ce qu'on construit. Un parcours de réservation aussi clair que celui de Booking, sur votre domaine et à votre charte, avec le paiement et la confirmation gérés de bout en bout.</p></div>
+<div style="padding:40px;border-radius:40px;background:#0C1240;border:1px solid #1B2358;display:flex;flex-direction:column;gap:20px;box-sizing:border-box">
+<span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#FF4920;font-weight:500">Comment ça marche</span>
+<h3 style="margin:0;font-size:30px;line-height:1.1;font-weight:500;letter-spacing:-.01em">Réserver en direct, comme sur une OTA, mais chez vous</h3>
+<p style="margin:0;font-size:17px;line-height:1.5;opacity:.85;max-width:760px">Le voyageur ne quitte jamais votre univers. La réservation arrive directement dans votre logiciel de gestion, l'argent va directement sur votre compte.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+<div style="padding:22px 22px 24px;border-radius:24px;background:#151C50;border:1px solid #252D66;display:flex;flex-direction:column;gap:8px"><b style="font-size:18px;font-weight:500">Recherche</b><span style="font-size:15px;line-height:1.35;opacity:.75">Le voyageur saisit ses dates depuis votre site.</span></div>
+<div style="padding:22px 22px 24px;border-radius:24px;background:#151C50;border:1px solid #252D66;display:flex;flex-direction:column;gap:8px"><b style="font-size:18px;font-weight:500">Choix</b><span style="font-size:15px;line-height:1.35;opacity:.75">Il compare vos chambres et vos tarifs, photos et conditions d'annulation en clair.</span></div>
+<div style="padding:22px 22px 24px;border-radius:24px;background:#151C50;border:1px solid #252D66;display:flex;flex-direction:column;gap:8px"><b style="font-size:18px;font-weight:500">Paiement</b><span style="font-size:15px;line-height:1.35;opacity:.75">Il paie en ligne. Rien n'est débité tant que la réservation n'est pas confirmée.</span></div>
+<div style="padding:22px 22px 24px;border-radius:24px;background:#151C50;border:1px solid #252D66;display:flex;flex-direction:column;gap:8px"><b style="font-size:18px;font-weight:500">Confirmée</b><span style="font-size:15px;line-height:1.35;opacity:.75">La réservation est créée dans votre PMS, le voyageur reçoit sa confirmation à votre nom.</span></div>
+</div>
+<p style="margin:0;font-size:16px;line-height:1.45;opacity:.85">Le voyageur y gagne des conditions au moins aussi bonnes que sur les OTA, vous, la réservation sans commission et la relation client.</p>
+</div>
+</div>
+</section>
 
-      <div class="sim" id="sim">
-        <h3>Estimez votre facture de commissions</h3>
-        <p class="sim-lead">Vos chiffres restent dans votre navigateur, rien n'est envoyé.</p>
-        <div class="sim-grid">
-          <label for="rooms">Chambres <output id="o-rooms">20</output>
-            <input type="range" id="rooms" min="5" max="150" value="20" step="1">
-          </label>
-          <label for="occ">Taux d'occupation <output id="o-occ">70 %</output>
-            <input type="range" id="occ" min="20" max="95" value="70" step="1">
-          </label>
-          <label for="adr">Prix moyen par nuit <output id="o-adr">120 €</output>
-            <input type="range" id="adr" min="50" max="600" value="120" step="5">
-          </label>
-          <label for="share">Part des réservations via les OTA <output id="o-share">40 %</output>
-            <input type="range" id="share" min="0" max="90" value="40" step="1">
-          </label>
-          <label for="comm" class="wide">Taux de commission OTA <output id="o-comm">17 %</output>
-            <input type="range" id="comm" min="10" max="30" value="17" step="1">
-          </label>
-        </div>
-        <div class="sim-out" aria-live="polite">
-          <div class="sim-res ota">
-            <span class="k">Commissions versées aux OTA, par an</span>
-            <span class="v" id="res-ota">0 €</span>
-          </div>
-          <div class="sim-res mfv">
-            <span class="k">Sur ces mêmes réservations, avec MFV</span>
-            <span class="v" id="res-mfv">0 €</span>
-          </div>
-        </div>
-        <p class="sim-note">Estimation indicative, à partir de vos hypothèses. Le taux de commission est pré-réglé sur la moyenne observée par Coach Omnium. Les frais de traitement des paiements, à votre charge dans les deux cas, ne sont pas comptés.</p>
-        <p class="sim-cta"><a href="/contact" class="btn ghost">Vous voulez savoir combien de réservations directes suffiraient pour rentabiliser MFV&nbsp;? Faites le calcul avec nous.</a></p>
-        <div class="legif-mini" id="loi">
-          <p class="legif-badge"><span class="dot" aria-hidden="true"></span>Article L311-5-2, en vigueur depuis 2015</p>
-          <p>« L'hôtelier conserve la liberté de consentir au client tout rabais ou avantage tarifaire. » <a href="https://www.legifrance.gouv.fr/" target="_blank" rel="noopener noreferrer">Voir le texte</a>, détail en <a href="/faq#loi">FAQ</a>.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="dbe">
-    <div class="shell">
-      <span class="eyebrow">Le produit phare</span>
-      <h2 class="title">Direct Booking Engine</h2>
-      <p class="intro">Le cœur de ce qu'on construit. Un parcours de réservation aussi clair que celui de Booking, sur votre domaine et à votre charte, avec le paiement et la confirmation gérés de bout en bout.</p>
-      <div class="feature">
-        <span class="eyebrow">Comment ça marche</span>
-        <h2>Réserver en direct, comme sur une OTA, mais chez vous</h2>
-        <p>Le voyageur ne quitte jamais votre univers. La réservation arrive directement dans votre logiciel de gestion, l'argent va directement sur votre compte.</p>
-        <div class="steps">
-          <div class="step"><b>Recherche</b><span>Le voyageur saisit ses dates depuis votre site.</span></div>
-          <div class="step"><b>Choix</b><span>Il compare vos chambres et vos tarifs, photos et conditions d'annulation en clair.</span></div>
-          <div class="step"><b>Paiement</b><span>Il paie en ligne. Rien n'est débité tant que la réservation n'est pas confirmée.</span></div>
-          <div class="step"><b>Confirmée</b><span>La réservation est créée dans votre PMS, le voyageur reçoit sa confirmation à votre nom.</span></div>
-        </div>
-        <p class="kicker">Le voyageur y gagne des conditions au moins aussi bonnes que sur les OTA, vous, la réservation sans commission et la relation client.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="pour-qui">
-    <div class="shell">
-      <span class="eyebrow">Pour qui</span>
-      <h2 class="title">Les hôtels indépendants qui veulent reprendre la main</h2>
-      <div class="audience">
-        <div class="card"><h3>C'est pour vous si</h3><p>Vous êtes un établissement de charme, indépendant, quel que soit son classement, en France. Une grande part de vos réservations passe par les OTA et vous aimeriez que ça change. Un propriétaire ou un directeur est joignable et prêt à s'impliquer.</p></div>
-        <div class="card no"><h3>Autre chose à savoir</h3><p>Les OTA restent un canal d'acquisition utile, MFV ne les remplace pas. L'objectif est d'augmenter la part de vos réservations directes, pas de couper Booking ou Expedia.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="autour">
-    <div class="shell">
-      <span class="eyebrow">Et tout autour</span>
-      <h2 class="title">Le moteur ne vit pas seul</h2>
-      <p class="intro">Site web, paiement intégré, connexion au PMS, CRM, intégrations, automatisations et données. On branche tout ce dont l'hôtel a besoin, sur la même base.</p>
-      <p style="margin-top:1.6rem; display:flex; gap:.8rem; flex-wrap:wrap"><a href="/produits" class="btn ghost">Voir tout ce qu'on construit</a><a href="/demo" class="btn ghost">Démo du CRM</a></p>
-    </div>
-  </section>
-
+<!-- BOUTON DEMO -->
+<section style="padding:40px 24px 72px;display:flex;justify-content:center"><a href="https://calendar.app.google/pSe63FQdmTLZMeQw7" target="_blank" rel="noopener noreferrer" style="padding:18px 36px;border-radius:999px;background:#FF4920;color:#FFFFFF;font-size:18px;font-weight:500">Réserver une démo</a></section>
 </main>
 
-<section id="contact" class="contact site-foot">
-    <div class="shell">
-      <span class="eyebrow">Parler de votre établissement</span>
-      <h2 class="title">Un premier échange, sans engagement</h2>
-      <p class="intro">Dites-nous où vous en êtes : pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme que vous louez et que vous aimeriez posséder. On vous répond avec une piste concrète.</p>
-      <div class="contact-card">
-        <a href="https://calendar.app.google/pSe63FQdmTLZMeQw7" class="btn" target="_blank" rel="noopener noreferrer">Réserver une démo de 30 min</a>
-        <a href="mailto:contact@mfv-systems.fr" class="mail">contact@mfv-systems.fr</a>
-        <a href="/contact" class="btn ghost">Nous écrire</a>
-      </div>
+<!-- PIED DE SITE QUI SE DÉVOILE AU SCROLL -->
+<footer data-site-foot="1" id="contact-mfv" style="position:fixed;left:0;right:0;bottom:0;z-index:0;width:100%;background:#10163F;color:#FFFFFF;padding:44px 80px 30px;box-sizing:border-box">
+<div style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:18px">
+<span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#FF4920;font-weight:500">Parler de votre établissement</span>
+<h2 style="margin:0;font-size:40px;line-height:1.05;font-weight:500;letter-spacing:-.02em">Un premier échange, sans engagement</h2>
+<p style="margin:0;font-size:17px;line-height:1.5;color:#A9B2E0;max-width:760px">Dites-nous où vous en êtes : pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme que vous louez et que vous aimeriez posséder. On vous répond avec une piste concrète.</p>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;margin-top:6px"><a href="https://calendar.app.google/pSe63FQdmTLZMeQw7" target="_blank" rel="noopener noreferrer" style="padding:14px 28px;border-radius:999px;background:#FF4920;color:#FFFFFF;font-size:16px;font-weight:500">Réserver une démo de 30 min</a><span style="font-size:16px">contact@mfv-systems.fr</span><a href="/contact" style="padding:13px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.4);font-size:16px">Nous écrire</a></div>
+<div style="margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);display:flex;flex-wrap:wrap;gap:14px 40px;align-items:center;justify-content:space-between"><span style="font-size:22px;letter-spacing:-.01em"><b style="font-weight:700">MFV</b> <span style="color:#A9B2E0">systems</span></span><nav style="display:flex;flex-wrap:wrap;gap:10px 22px;font-size:15px"><a href="/produits" style="color:#A9B2E0">Le produit</a><a href="/methode" style="color:#A9B2E0">Notre méthode</a><a href="/equipe" style="color:#A9B2E0">L'équipe</a><a href="/faq" style="color:#A9B2E0">FAQ</a><a href="/contact" style="color:#A9B2E0">Contact</a></nav></div>
+<p style="margin:0;padding-top:16px;border-top:1px solid rgba(255,255,255,.16);font-size:12.5px;line-height:1.6;color:#A9B2E0;max-width:900px">MFV Systems, SAS en cours d'immatriculation. Siège : 8 rue Jean Richepin, 75116 Paris. Direction : Yassmine Meyer et Thomas Finaz de Villaine, cofondateurs. Contact : contact@mfv-systems.fr. SIRET communiqué dès l'immatriculation. Hébergeur : Vercel Inc.<br>Mentions légales · Politique de confidentialité</p>
+</div>
+</footer>
 
-      <div class="foot-bottom">
-        <span class="wordmark"><span class="b">MFV</span><span class="g">systems</span></span>
-        <nav class="foot-nav">
-          <a href="/produits">Le produit</a>
-          <a href="/methode">Notre méthode</a>
-          <a href="/equipe">L'équipe</a>
-          <a href="/faq">FAQ</a>
-          <a href="/contact">Contact</a>
-        </nav>
-        <p class="foot-legal">
-          MFV Systems, SAS en cours d'immatriculation. Siège : 8 rue Jean Richepin, 75116 Paris.
-          Direction : Yassmine Meyer et Thomas Finaz de Villaine, cofondateurs.
-          Contact : <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>.
-          SIRET communiqué dès l'immatriculation. Hébergeur : Vercel Inc.<br>
-          <a href="/mentions-legales">Mentions légales</a> &middot; <a href="/confidentialite">Politique de confidentialité</a>
-        </p>
-      </div>
-    </div>
-  </section>
+</div>
 
+</div>
+<script>
+(function(){
+  var eur=new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0});
+  function $(id){return document.getElementById(id)}
+  var rooms=$('rooms');
+  if(rooms){
+    var ids=['rooms','occ','adr','share','comm'];
+    function calc(){
+      var r=+$('rooms').value,o=+$('occ').value,a=+$('adr').value,s=+$('share').value,c=+$('comm').value;
+      $('o-rooms').textContent=r;$('o-occ').textContent=o+' %';$('o-adr').textContent=eur.format(a);
+      $('o-share').textContent=s+' %';$('o-comm').textContent=c+' %';
+      $('res-ota').textContent=eur.format(r*365*(o/100)*(s/100)*a*(c/100));
+    }
+    ids.forEach(function(i){$(i).addEventListener('input',calc)});calc();
+  }
+  var foot=document.querySelector('[data-site-foot]');
+  if(foot){
+    var sync=function(){document.body.style.setProperty('--foot-h',foot.offsetHeight+'px')};
+    sync();window.addEventListener('resize',sync);window.addEventListener('load',sync);
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(sync);
+  }
+})();
+</script>
 </body>
 </html>
