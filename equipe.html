@@ -69,12 +69,34 @@
     <div class="shell">
       <span class="eyebrow">La technique</span>
       <h2 class="title">Qui construit le moteur</h2>
-      <p class="intro">Le produit est construit par une équipe technique, placée sous la responsabilité de Narboni, responsable du pôle développement.</p>
-      <ul class="why">
-        <li><b>Ce que l'équipe construit</b><span>Le moteur de réservation, les connexions aux logiciels de gestion, le routage des paiements et l'architecture multi-hôtel.</span></li>
-        <li><b>Comment elle livre</b><span>Avec des tests automatiques et des contrôles de sécurité. Rien n'entre dans le code sans avoir été relu.</span></li>
-        <li><b>À quel rythme</b><span>Du code est livré presque tous les jours, avec une attention portée à chaque détail.</span></li>
-      </ul>
+      <p class="intro" style="margin-inline:auto;text-align:center">Le produit est construit par une équipe technique, placée sous la responsabilité de Narboni, responsable du pôle développement.</p>
+      <div class="techmap">
+        <div class="card person techhead">
+          <img src="/team-sebastien.jpg" alt="Sébastien Narboni" class="person-photo">
+          <b>Narboni</b>
+          <span>Responsable du pôle développement</span>
+        </div>
+        <div class="techline" aria-hidden="true"></div>
+        <div class="techteam"><span>Équipe technique</span></div>
+        <div class="techline" aria-hidden="true"></div>
+        <ul class="techgrid">
+          <li class="card"><b>Moteur de réservation</b><span>Dates, disponibilités, tarifs, parcours de réservation.</span></li>
+          <li class="card"><b>Connexions et paiements</b><span>Liaison aux logiciels de gestion, routage des paiements, architecture multi-hôtel.</span></li>
+          <li class="card"><b>Qualité et sécurité</b><span>Tests automatiques, contrôles de sécurité, relecture avant chaque livraison.</span></li>
+        </ul>
+      </div>
+      <style>
+        .techmap { display: flex; flex-direction: column; align-items: center; margin-top: 2rem; }
+        .techhead { text-align: center; max-width: 22rem; width: 100%; }
+        .techhead .person-photo { margin-inline: auto; }
+        .techline { width: 1px; height: 1.6rem; background: var(--line); }
+        .techteam { border: 1px solid var(--line); border-radius: 999px; padding: .5rem 1.2rem; font-weight: 700; font-size: .95rem; }
+        .techgrid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; width: 100%; }
+        .techgrid .card { padding: 1.4rem 1.5rem; }
+        .techgrid b { display: block; font-weight: 700; }
+        .techgrid span { display: block; margin-top: .5rem; color: var(--muted); font-size: .95rem; }
+        @media (max-width: 760px) { .techgrid { grid-template-columns: 1fr; } }
+      </style>
     </div>
   </section>
 
