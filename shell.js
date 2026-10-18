@@ -25,8 +25,8 @@
    restent intactes tout en pointant vers la page /agence et les bonnes sections. */
 (function () {
   var map = {
-    'Référencement': '/insight#growth',
-    'Sites web et design': '/studio#sites',
+    'Référencement': '/agence#specialises',
+    'Sites web et design': '/agence#specialises',
     'CRM sur mesure': '/agence#crm',
     'Logiciels sur mesure': '/agence#logiciels',
     'Données': '/agence#donnees',
