@@ -1,0 +1,8 @@
+{
+  "name": "mfv-systems-site",
+  "private": true,
+  "description": "Site vitrine MFV Systems. Les pages sont statiques, seule la fonction api/lead.js tourne côté serveur.",
+  "dependencies": {
+    "nodemailer": "^6.9.14"
+  }
+}

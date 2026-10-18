@@ -43,6 +43,8 @@ section,footer{position:relative;z-index:1}
   main{margin-bottom:0 !important}
 }
 html,body{overflow-x:hidden}
+#lead-form:focus-within{box-shadow:0 0 0 3px rgba(255,73,32,.55)}
+#lead-btn:disabled{opacity:.6;cursor:default}
 </style>
 </head>
 <body>
@@ -79,8 +81,10 @@ html,body{overflow-x:hidden}
 <h1 style="margin:0;font-size:56px;line-height:1.08;font-weight:500;letter-spacing:-.02em"><span style="color:#FF4920">Attirez.</span> Convertissez. Gérez.</h1>
 <div style="font-size:26px;line-height:1.2;font-weight:500">Toute la puissance de votre hôtel, dans un seul écosystème.</div>
 <p style="margin:0;font-size:17px;line-height:1.5;font-weight:300">De la visibilité en ligne à la réservation directe, jusqu'à la gestion quotidienne de votre établissement. MFV Systems connecte les technologies essentielles à votre indépendance, sans bouleverser vos outils existants.</p>
-<div><a href="https://calendar.app.google/pSe63FQdmTLZMeQw7" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:18px 34px;border-radius:999px;background:#FF4920;color:#FFFFFF;font-size:18px;font-weight:500">Réserver une démo</a></div>
+<form id="lead-form" novalidate style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px;border-radius:999px;background:#F4F4FA;color:#00094A;max-width:512px"><label for="lead-email" style="position:absolute;left:-9999px">Votre adresse e-mail</label><input id="lead-email" name="email" type="email" required autocomplete="email" placeholder="Votre adresse e-mail" style="flex:1;min-width:0;border:0;background:transparent;padding:12px 0 12px 24px;font:inherit;font-size:17px;color:#00094A;outline:none"><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0"><button type="submit" id="lead-btn" style="padding:12px 22px;border-radius:999px;border:0;background:#FF4920;color:#FFFFFF;font:inherit;font-size:15px;font-weight:500;white-space:nowrap;cursor:pointer">Découvrir MFV &#8594;</button></form>
+<div id="lead-msg" role="status" aria-live="polite" style="font-size:15px;min-height:1.3em"></div>
 <div style="font-size:15px;opacity:.75">Des solutions indépendantes. Une technologie connectée.</div>
+<div style="font-size:13px;opacity:.65;margin-top:-14px">Votre e-mail sert uniquement à vous recontacter. <a href="/confidentialite" style="text-decoration:underline">Politique de confidentialité</a></div>
 </div>
 <div style="position:absolute;right:80px;bottom:80px;display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;background:rgba(255,255,255,.14);font-size:15px;white-space:nowrap">
 <span style="font-weight:500;font-size:20px;color:#FF4920">+ de 250</span><span>établissements nous ont fait confiance</span>
@@ -238,6 +242,31 @@ html,body{overflow-x:hidden}
       new IntersectionObserver(function(entries){
         entries.forEach(function(x){ if(x.isIntersecting){hide();requestAnimationFrame(run);}else{hide();} });
       },{rootMargin:'0px 0px -16% 0px',threshold:0}).observe(stat);
+    });
+  })();
+
+  (function(){
+    var f=document.getElementById('lead-form');
+    if(!f)return;
+    var msg=document.getElementById('lead-msg'),btn=document.getElementById('lead-btn');
+    function say(t,c){msg.style.color=c||'';msg.textContent=t}
+    var mail='contact@mfv-systems.fr';
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=f.email.value.trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){say('Merci de saisir une adresse e-mail valide.','#FFB4A3');return}
+      btn.disabled=true;say('Envoi en cours...');
+      fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,website:f.website.value})})
+        .then(function(r){return r.json().catch(function(){return{}}).then(function(j){return{status:r.status}})})
+        .then(function(res){
+          btn.disabled=false;
+          if(res.status===200){say('Merci, nous revenons vers vous très vite.','#9BE3B0');f.reset()}
+          else if(res.status===400){say('Cette adresse e-mail ne semble pas valide.','#FFB4A3')}
+          else if(res.status===429){say('Trop de tentatives, réessayez dans quelques minutes.','#FFD8A8')}
+          else if(res.status===503){say("L'envoi est momentanément indisponible. Écrivez-nous à "+mail+".",'#FFD8A8')}
+          else{say('Une erreur est survenue. Écrivez-nous à '+mail+'.','#FFD8A8')}
+        })
+        .catch(function(){btn.disabled=false;say('Connexion impossible. Écrivez-nous à '+mail+'.','#FFD8A8')});
     });
   })();
 </script>
