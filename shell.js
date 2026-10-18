@@ -20,3 +20,30 @@
   document.addEventListener('click', function () { closeAll(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
 })();
+
+/* Liens du menu Agence : ces cibles sont appliquées ici pour que les pages produits (Book, Stay, Insight, Studio)
+   restent intactes tout en pointant vers la page /agence et les bonnes sections. */
+(function () {
+  var map = {
+    'Référencement': '/insight#growth',
+    'Sites web et design': '/studio#sites',
+    'CRM sur mesure': '/agence#crm',
+    'Logiciels sur mesure': '/agence#logiciels',
+    'Données': '/agence#donnees',
+    'Autres entreprises': '/agence#secteurs'
+  };
+  document.querySelectorAll('.dd a').forEach(function (a) {
+    var b = a.querySelector('b');
+    if (b && map[b.textContent]) a.setAttribute('href', map[b.textContent]);
+  });
+  document.querySelectorAll('.nv').forEach(function (n) {
+    var btn = n.querySelector('.nv-b');
+    if (btn && /^Agence/.test(btn.textContent.trim()) && !n.querySelector('.dd-foot')) {
+      var f = document.createElement('a');
+      f.className = 'dd-foot';
+      f.href = '/agence';
+      f.textContent = 'Voir toute l’agence →';
+      n.querySelector('.dd-in').appendChild(f);
+    }
+  });
+})();
