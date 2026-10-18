@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MFV Studio, création digitale et direction artistique · MFV Systems</title>
+<meta name="description" content="MFV Studio, studio de création digitale : direction artistique, identité de marque, création web, UX/UI, contenus visuels, photo, vidéo et expériences digitales sur mesure.">
+<link rel="icon" href="/logo.png">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/shell.css">
+<meta name="theme-color" content="#000633">
+<style>
+:root{--violet:#8B5CF6}
+.sh{position:relative;overflow:hidden;isolation:isolate;padding-block:clamp(4.5rem,11vw,8.5rem);background:
+  radial-gradient(55% 85% at 88% 12%,rgba(139,92,246,.40),transparent 62%),
+  radial-gradient(45% 70% at 98% 88%,rgba(255,73,32,.22),transparent 62%),
+  radial-gradient(50% 60% at 4% 100%,rgba(232,177,79,.16),transparent 62%),#000633}
+.sh::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(75% 85% at 75% 25%,#000,transparent);mask-image:radial-gradient(75% 85% at 75% 25%,#000,transparent)}
+.sh .orb{position:absolute;z-index:-1;width:46vw;max-width:640px;aspect-ratio:1;right:-8%;top:8%;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(139,92,246,.55),rgba(255,73,32,.18) 55%,transparent 72%);filter:blur(40px);animation:drift 16s ease-in-out infinite alternate}
+.sh .art{position:absolute;z-index:-1;right:-4%;top:50%;transform:translateY(-50%);width:min(58vw,700px);height:auto;opacity:.95;pointer-events:none}
+@keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-40px,30px,0) scale(1.08)}}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.sh .shell{position:relative}
+.sh img.lg{height:92px;width:auto;display:block;margin:0 0 1.6rem -.3rem}
+.sh .tag{font-size:.78rem;letter-spacing:.34em;text-transform:uppercase;color:#B9C3F5;font-weight:400;margin:0 0 1.5rem}
+.sh h1{font-size:clamp(2.6rem,6.6vw,5.1rem);line-height:1.0;font-weight:500;letter-spacing:-.04em;max-width:14ch}
+.sh .sub{margin-top:1.7rem;font-size:clamp(1.05rem,2.2vw,1.3rem);color:#D3D9F5;max-width:44ch}
+.sh .cta{margin-top:2.3rem;display:flex;gap:.8rem;flex-wrap:wrap}
+@media (prefers-reduced-motion:no-preference){.sh .shell>*{animation:rise .9s cubic-bezier(.22,.61,.25,1) both}.sh .shell>*:nth-child(2){animation-delay:.08s}.sh .shell>*:nth-child(3){animation-delay:.16s}.sh .shell>*:nth-child(4){animation-delay:.26s}.sh .shell>*:nth-child(5){animation-delay:.36s}}
+@media (prefers-reduced-motion:reduce){.sh .orb{animation:none}}
+/* Expertises : liste éditoriale */
+.xlist{list-style:none;margin:2.2rem 0 0;padding:0;border-bottom:1px solid var(--line)}
+.xrow{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:1.2rem 3rem;padding:2rem .6rem;border-top:1px solid var(--line);transition:background .25s}
+.xrow:hover{background:linear-gradient(90deg,rgba(139,92,246,.10),transparent 70%)}
+.xhead{display:flex;align-items:baseline;gap:1.1rem}
+.xnum{font-size:clamp(2.4rem,4.4vw,3.4rem);font-weight:300;line-height:1;color:transparent;-webkit-text-stroke:1px var(--brand);letter-spacing:-.02em;min-width:3.2ch;transition:color .25s}
+.xrow:hover .xnum{color:var(--brand)}
+.xhead h3{font-size:clamp(1.3rem,2.4vw,1.8rem);font-weight:500;letter-spacing:-.025em;line-height:1.1}
+.xbody .xd{margin:0 0 1rem;font-size:1.05rem;color:#D3D9F5;max-width:52ch}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
+.chips li{padding:.3rem .8rem;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:.86rem;color:#E4E8FB;background:rgba(255,255,255,.03)}
+.xnote{margin:1rem 0 0;font-size:.92rem;color:var(--muted);max-width:56ch}
+.xnote a,.xlink a,.beyond a,.eco a{color:var(--brand)}
+.xlink{margin-top:1.8rem;font-size:1.02rem}
+/* Sites internet */
+.two2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem;margin-top:2rem}
+.case{position:relative;padding:2rem 1.8rem;border-radius:1.4rem;border:1px solid var(--line);background:linear-gradient(160deg,rgba(139,92,246,.14),rgba(255,255,255,.02) 55%)}
+.case h3{font-size:1.4rem;font-weight:500;letter-spacing:-.02em}
+.case p{margin:.9rem 0 0;color:#C7CEF0}
+.case a{color:var(--brand)}
+/* Approche */
+.tl{list-style:none;margin:2.6rem 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1.4rem;position:relative}
+.tl::before{content:"";position:absolute;left:0;right:0;top:.46rem;height:1px;background:linear-gradient(90deg,var(--brand),rgba(139,92,246,.6),transparent)}
+.tstep{position:relative;padding-top:2rem}
+.tstep .dot{position:absolute;left:0;top:0;width:.95rem;height:.95rem;border-radius:50%;background:var(--paper);border:2px solid var(--brand);box-shadow:0 0 18px rgba(255,73,32,.55)}
+.tnum{display:block;font-size:.8rem;letter-spacing:.2em;color:var(--brand);font-weight:500}
+.tstep h3{margin-top:.4rem;font-size:1.2rem;font-weight:500;letter-spacing:-.02em}
+.tstep p{margin:.6rem 0 0;font-size:.93rem;color:var(--muted)}
+/* Studio / Insight */
+.dual{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem;margin-top:2rem}
+.pane{padding:1.8rem;border-radius:1.4rem;border:1px solid var(--line);background:var(--surface)}
+.pane.s{background:linear-gradient(160deg,rgba(139,92,246,.16),var(--surface) 60%)}
+.pane h3{font-size:1.3rem;font-weight:500;margin-bottom:.4rem}
+.pane .who{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brand)}
+.pane ul{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.45rem}
+.pane li{position:relative;padding-left:1.1rem;font-size:.97rem;color:#D3D9F5}
+.pane li::before{content:"";position:absolute;left:0;top:.62em;width:.4rem;height:.4rem;border-radius:50%;background:var(--brand)}
+.flowline{margin-top:1.6rem;padding:1.2rem 1.4rem;border-left:2px solid var(--brand);color:#D3D9F5;max-width:60rem}
+/* Écosystème */
+.eco{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem;margin-top:2rem}
+.eco a.item{display:block;padding:1.5rem 1.4rem;border:1px solid var(--line);border-radius:1.2rem;background:var(--surface);text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+.eco a.item:hover{border-color:#5B6BD8;transform:translateY(-3px)}
+.eco b{display:block;font-size:1.15rem;font-weight:500}
+.eco span{display:block;margin-top:.35rem;color:var(--muted);font-size:.95rem}
+.beyond{max-width:52rem}
+.beyond .big{margin:0 0 1rem;font-size:clamp(1.7rem,3.8vw,2.7rem);font-weight:500;letter-spacing:-.035em;line-height:1.12}
+@media (max-width:1000px){.tl{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:2.2rem}.tl::before{display:none}.eco{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:780px){.xrow{grid-template-columns:minmax(0,1fr);padding:1.6rem .2rem}.two2,.dual{grid-template-columns:minmax(0,1fr)}.sh .art{opacity:.35;width:110vw;right:-30%}.sh img.lg{height:78px}}
+@media (max-width:520px){.tl{grid-template-columns:minmax(0,1fr)}}
+/* Réalisations : structure prête, non affichée tant qu'aucun projet n'est validé (bloc commenté dans la page). */
+.works{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem;margin-top:2rem}
+.work{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:1.4rem;overflow:hidden;background:var(--surface)}
+.work img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.work .wb{padding:1.3rem 1.4rem 1.5rem}
+.work .wm{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
+.work h3{margin:.45rem 0 .3rem;font-size:1.25rem;font-weight:500}
+.work p{margin:0;color:var(--muted);font-size:.95rem}
+@media (max-width:780px){.works{grid-template-columns:minmax(0,1fr)}}
+</style>
+<script src="/reveal.js" defer></script>
+<script src="/shell.js" defer></script>
+<meta property="og:title" content="MFV Studio, création digitale et direction artistique">
+<meta property="og:description" content="Votre identité mérite une expérience digitale à sa hauteur.">
+<meta property="og:image" content="/logo.png">
+</head>
+<body>
+
+<header class="site-h">
+<div class="bar2">
+<a href="/" class="logo" aria-label="MFV Systems, accueil"><img src="/assets/mfv-logo.png" alt="MFV"></a>
+<nav class="nv-nav">
+<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Produits <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/book"><b>MFV Book</b><span>Le moteur de réservation directe</span></a><a href="/stay"><b>MFV Stay</b><span>Le PMS pensé pour les hôtels indépendants</span></a><a href="/insight"><b>MFV Insight</b><span>Analyse et performance</span></a><a href="/studio"><b>MFV Studio</b><span>Création digitale et direction artistique</span></a><a class="dd-foot" href="/#simulateur">Estimez votre facture de commissions &#8594;</a></div></div></div>
+<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Agence <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/contact"><b>Référencement</b><span>Être trouvé et gagner des réservations ou des clients en direct</span></a><a href="/contact"><b>Sites web et design</b><span>Pour les hôtels, et pour d'autres métiers</span></a><a href="/contact"><b>CRM sur mesure</b><span>Connaître et suivre ses clients</span></a><a href="/contact"><b>Logiciels sur mesure</b><span>Des outils faits pour votre activité</span></a><a href="/contact"><b>Données</b><span>Récupérer et exploiter vos données pour décider</span></a></div></div></div>
+<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Pour qui <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/produits"><b>Hôtels indépendants</b><span>L'offre complète</span></a><a href="/contact"><b>Autres entreprises</b><span>Sites, CRM, logiciels et données pour votre activité</span></a></div></div></div>
+<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Ressources <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/faq"><b>FAQ</b><span>Les questions que posent les hôteliers</span></a><a href="/methode"><b>Notre méthode</b><span>Comment nous travaillons</span></a><a href="/equipe"><b>L'équipe</b><span>Qui sommes-nous</span></a><a href="/contact"><b>Contact</b><span>Parler de votre établissement ou de votre projet</span></a></div></div></div>
+</nav>
+<a class="cta" href="https://calendar.app.google/pSe63FQdmTLZMeQw7" target="_blank" rel="noopener noreferrer">Demander une démo</a>
+</div>
+</header>
+
+<main>
+  <section class="sh">
+    <div class="orb" aria-hidden="true"></div>
+    <svg class="art" viewBox="0 0 700 700" aria-hidden="true" focusable="false"><defs>
+<linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#FF4920"/></linearGradient>
+<radialGradient id="g2" cx=".35" cy=".3"><stop offset="0" stop-color="#8B5CF6" stop-opacity=".9"/><stop offset=".6" stop-color="#FF4920" stop-opacity=".35"/><stop offset="1" stop-color="#FF4920" stop-opacity="0"/></radialGradient></defs>
+<circle cx="380" cy="330" r="170" fill="url(#g2)"/>
+<g fill="none" stroke="url(#g1)" stroke-width="1.2"><circle cx="380" cy="330" r="110" opacity=".9"/><circle cx="380" cy="330" r="190" opacity=".7"/><circle cx="380" cy="330" r="270" opacity=".5"/><circle cx="380" cy="330" r="350" opacity=".3"/><path d="M40 520C190 400 300 470 420 380S620 250 700 270" opacity=".8"/><path d="M60 600C230 480 340 560 470 450S640 340 700 360" opacity=".45"/></g>
+<g fill="#fff"><circle cx="490" cy="330" r="4"/><circle cx="270" cy="250" r="3"/><circle cx="420" cy="215" r="2.5"/><circle cx="560" cy="430" r="3"/></g></svg>
+    <div class="shell">
+      <img class="lg" src="/assets/mfv-studio.png" alt="MFV Studio">
+      <p class="tag">Digital Design &amp; Creative Experiences</p>
+      <h1>Votre identité mérite une expérience digitale à sa hauteur.</h1>
+      <p class="sub">Direction artistique, identité de marque, création web et expériences digitales sur mesure. Nous donnons forme à des univers qui vous ressemblent et qui marquent les esprits.</p>
+      <div class="cta"><a class="btn" href="#expertises">Découvrir nos expertises</a><a class="btn ghost" href="/contact">Parler de votre projet</a></div>
+    </div>
+  </section>
+
+  <section id="expertises">
+    <div class="shell">
+      <span class="eyebrow">Nos expertises</span>
+      <h2 class="title">Un studio de création digitale</h2>
+      <p class="intro">MFV Studio accompagne les établissements hôteliers et les entreprises dans la conception et le développement de leur présence digitale. Nous voulons concevoir des expériences qui reflètent l'identité d'une marque, valorisent son positionnement et servent ses objectifs commerciaux.</p>
+      <ol class="xlist">
+        <li class="xrow"><div class="xhead"><span class="xnum">01</span><h3>Web Design &amp; Development</h3></div><div class="xbody"><p class="xd">Création et refonte de sites internet sur mesure.</p><ul class="chips"><li>Sites vitrines premium</li><li>Sites hôteliers</li><li>Sites corporate</li><li>Interfaces personnalisées</li><li>Responsive design</li><li>UX/UI design</li><li>Développement web</li><li>Optimisation des performances techniques</li></ul><p class="xnote">Pour les établissements hôteliers, possibilité d'intégrer <a href="/book">MFV Book</a> lorsque le projet le nécessite.</p></div></li>
+        <li class="xrow"><div class="xhead"><span class="xnum">02</span><h3>Branding &amp; Identity</h3></div><div class="xbody"><p class="xd">Construction et développement d'identités de marque.</p><ul class="chips"><li>Positionnement créatif</li><li>Identité visuelle</li><li>Direction artistique</li><li>Logotypes</li><li>Chartes graphiques</li><li>Univers de marque</li><li>Déclinaisons digitales</li></ul></div></li>
+        <li class="xrow"><div class="xhead"><span class="xnum">03</span><h3>Creative Content</h3></div><div class="xbody"><p class="xd">Création de contenus visuels adaptés à l'identité et aux objectifs de chaque marque.</p><ul class="chips"><li>Direction créative</li><li>Conception de visuels</li><li>Contenus pour sites internet</li><li>Supports de communication</li><li>Contenus destinés aux réseaux sociaux</li><li>Créations graphiques</li><li>Présentations et supports digitaux</li></ul></div></li>
+        <li class="xrow"><div class="xhead"><span class="xnum">04</span><h3>Photography &amp; Video</h3></div><div class="xbody"><p class="xd">Création et valorisation de contenus photo et vidéo.</p><ul class="chips"><li>Direction artistique photo et vidéo</li><li>Conception de campagnes visuelles</li><li>Photographie d'établissement et de produit</li><li>Vidéos de présentation</li><li>Formats courts</li><li>Contenus promotionnels</li><li>Montage et postproduction</li></ul></div></li>
+        <li class="xrow"><div class="xhead"><span class="xnum">05</span><h3>AI Creative Production</h3></div><div class="xbody"><p class="xd">Utilisation des technologies d'intelligence artificielle dans les processus de création.</p><ul class="chips"><li>Visuels génératifs</li><li>Vidéos assistées par IA</li><li>Concepts créatifs</li><li>Déclinaisons de campagnes</li><li>Création de contenus digitaux</li><li>Expérimentation visuelle</li></ul><p class="xnote">L'intelligence artificielle est un outil au service de la créativité, pas un substitut à la direction artistique.</p></div></li>
+        <li class="xrow"><div class="xhead"><span class="xnum">06</span><h3>Digital Experience &amp; UX</h3></div><div class="xbody"><p class="xd">Conception d'expériences digitales cohérentes, fluides et intuitives.</p><ul class="chips"><li>Architecture de l'information</li><li>Parcours utilisateurs</li><li>Interfaces web</li><li>Expérience mobile</li><li>Ergonomie</li><li>Optimisation de l'expérience utilisateur</li><li>Conception de parcours orientés conversion</li></ul></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="sites">
+    <div class="shell">
+      <span class="eyebrow">Les sites internet</span>
+      <h2 class="title">Deux façons de commencer</h2>
+      <p class="intro">Notre approche s'adapte à votre situation de départ.</p>
+      <div class="two2">
+        <div class="case"><h3>Vous disposez déjà d'un site internet</h3><p>Nous pouvons intervenir sur sa refonte, son expérience utilisateur, son identité visuelle ou son évolution.</p><p>Pour les hôtels, nous pouvons également étudier l'intégration de <a href="/book">MFV Book</a> sur un site existant.</p></div>
+        <div class="case"><h3>Vous partez de zéro</h3><p>Nous concevons votre présence digitale depuis ses fondations : direction artistique, architecture, design, développement et mise en ligne.</p><p>Pour les hôtels, le moteur de réservation <a href="/book">MFV Book</a> peut être intégré au projet lorsque sa compatibilité et sa disponibilité sont confirmées.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approche">
+    <div class="shell">
+      <span class="eyebrow">Notre approche créative</span>
+      <h2 class="title">Cinq étapes, du premier échange à l'évolution</h2>
+      <ol class="tl">
+        <li class="tstep"><span class="dot" aria-hidden="true"></span><span class="tnum">01</span><h3>Découvrir</h3><p>Comprendre la marque, son identité, son marché, ses objectifs et ses ambitions.</p></li>
+        <li class="tstep"><span class="dot" aria-hidden="true"></span><span class="tnum">02</span><h3>Imaginer</h3><p>Définir une direction créative, un univers visuel et les principes de l'expérience à concevoir.</p></li>
+        <li class="tstep"><span class="dot" aria-hidden="true"></span><span class="tnum">03</span><h3>Concevoir</h3><p>Transformer la stratégie en créations concrètes : interfaces, identités, contenus ou expériences digitales.</p></li>
+        <li class="tstep"><span class="dot" aria-hidden="true"></span><span class="tnum">04</span><h3>Déployer</h3><p>Finaliser les livrables, réaliser les intégrations nécessaires et accompagner leur mise en production.</p></li>
+        <li class="tstep"><span class="dot" aria-hidden="true"></span><span class="tnum">05</span><h3>Faire évoluer</h3><p>Assurer un accompagnement adapté, proposer des évolutions et mobiliser les autres expertises MFV lorsque cela est pertinent.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!--
+  RÉALISATIONS : section à ajouter ICI quand au moins un projet est validé (jamais de carte vide ni de faux projet).
+  Les styles (.works, .work) sont déjà dans la page.
+  <section id="realisations">
+    <div class="shell">
+      <span class="eyebrow">Nos réalisations</span>
+      <h2 class="title">Des projets qui nous ressemblent</h2>
+      <div class="works">
+        <a class="work" href="https://URL-DU-PROJET" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/realisations/NOM-DU-PROJET.jpg" alt="DESCRIPTION DE L'IMAGE">
+          <div class="wb"><span class="wm">SECTEUR D'ACTIVITÉ · NATURE DE L'INTERVENTION</span><h3>NOM DU PROJET</h3><p>PRÉSENTATION COURTE DU PROJET</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+-->
+
+  <section id="complementarite">
+    <div class="shell">
+      <span class="eyebrow">Studio et Insight</span>
+      <h2 class="title">Studio conçoit, Insight mesure</h2>
+      <p class="intro">Deux offres distinctes, pensées pour se compléter.</p>
+      <div class="dual">
+        <div class="pane s"><span class="who">MFV Studio</span><h3>Concevoir et créer</h3><ul><li>Branding</li><li>Direction artistique</li><li>Création web</li><li>UX/UI</li><li>Identité visuelle</li><li>Création de contenus</li><li>Photo et vidéo</li><li>Production créative assistée par IA</li></ul></div>
+        <div class="pane"><span class="who">MFV Insight</span><h3>Mesurer et optimiser</h3><ul><li>Analytics</li><li>Analyse des conversions</li><li>SEO</li><li>SEA / Google Ads</li><li>Stratégies d'acquisition</li><li>CRO</li><li>Analyse du trafic</li><li>Reporting</li><li>Optimisation de la performance commerciale</li></ul></div>
+      </div>
+      <p class="flowline">MFV Studio peut concevoir le site d'un hôtel. <a href="/insight" style="color:var(--brand)">MFV Insight</a> peut ensuite accompagner son référencement, analyser ses performances et optimiser son acquisition.</p>
+    </div>
+  </section>
+
+  <section id="au-dela">
+    <div class="shell beyond">
+      <span class="eyebrow">Au-delà de l'hôtellerie</span>
+      <p class="big">Notre créativité ne s'arrête pas à l'hôtellerie.</p>
+      <p class="intro">Si notre expertise s'inscrit au cœur de l'écosystème hôtelier, notre approche créative accompagne également les marques et entreprises d'autres secteurs. Chaque projet possède son identité, ses enjeux et ses ambitions. Notre rôle est de leur donner une expression digitale singulière.</p>
+      <p class="intro" style="margin-top:.9rem">MFV Studio peut être sollicité indépendamment des autres solutions MFV Systems : vous n'avez besoin ni de notre PMS ni de notre moteur de réservation.</p>
+      <p style="margin-top:1.6rem"><a class="btn" href="/contact">Parler de votre projet</a></p>
+    </div>
+  </section>
+
+  <section id="ecosysteme">
+    <div class="shell eco">
+      <div>
+        <span class="eyebrow">L'écosystème MFV</span>
+        <h2 class="title">Une offre indépendante, un écosystème complémentaire</h2>
+        <p class="intro">MFV Studio peut être sollicité seul. Selon votre projet, il peut être complété par d'autres solutions MFV.</p>
+      </div>
+    </div>
+    <div class="shell eco" style="margin-top:0">
+      <a class="item" href="/book"><b>MFV Book</b><span>Moteur de réservation directe</span></a>
+      <a class="item" href="/stay"><b>MFV Stay</b><span>Gestion hôtelière</span></a>
+      <a class="item" href="/insight"><b>MFV Insight</b><span>Analyse et croissance digitale</span></a>
+    </div>
+  </section>
+
+  <section id="questions">
+    <div class="shell">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2 class="title">Ce qu'on nous demande sur MFV Studio</h2>
+      <div class="faq" style="margin-top:1.6rem">
+        <details open><summary>Pouvez-vous créer un site internet entièrement sur mesure ?</summary><p class="a">Oui. La création web fait partie de notre expertise : nous concevons des sites sur mesure, de la direction artistique au développement, en passant par l'architecture et le design.</p></details>
+        <details><summary>Pouvez-vous reprendre ou moderniser un site existant ?</summary><p class="a">Oui. Nous pouvons intervenir sur la refonte d'un site, son expérience utilisateur, son identité visuelle ou son évolution.</p></details>
+        <details><summary>Travaillez-vous uniquement avec des hôtels ?</summary><p class="a">Non. Notre expertise s'inscrit au cœur de l'écosystème hôtelier, mais notre approche créative accompagne également des marques et des entreprises d'autres secteurs.</p></details>
+        <details><summary>Proposez-vous également l'identité visuelle et la création de contenus ?</summary><p class="a">Oui. L'identité visuelle, la direction artistique, les chartes graphiques, la création de contenus, la photo et la vidéo font partie de nos expertises.</p></details>
+        <details><summary>Est-il possible d'intégrer MFV Book à mon site ?</summary><p class="a">Pour les hôtels, nous pouvons étudier l'intégration de MFV Book à votre site, lorsque sa compatibilité et sa disponibilité sont confirmées. Parlez-nous de votre projet et de votre site actuel.</p></details>
+        <details><summary>Comment se déroule un projet avec MFV Studio ?</summary><p class="a">Un projet suit cinq étapes : découvrir, imaginer, concevoir, déployer, faire évoluer. Le détail du déroulé et du calendrier est défini avec vous, selon la nature du projet.</p></details>
+        <details><summary>Puis-je faire appel à MFV Studio sans utiliser les autres solutions MFV ?</summary><p class="a">Oui. MFV Studio est une offre indépendante : vous n'avez besoin ni de notre PMS ni de notre moteur de réservation pour le solliciter.</p></details>
+        
+      </div>
+      <p style="margin-top:1.4rem"><a href="/contact" class="btn ghost">Une autre question ?</a></p>
+    </div>
+  </section>
+</main>
+
+<section class="contact site-foot">
+<div class="shell">
+<span class="eyebrow">Parler de votre établissement</span>
+<h2 class="title">Un premier échange, sans engagement</h2>
+<p class="intro">Dites-nous où vous en êtes : pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme que vous louez et que vous aimeriez posséder. On vous répond avec une piste concrète.</p>
+<div class="sf-cta"><a class="btn" href="https://calendar.app.google/pSe63FQdmTLZMeQw7" target="_blank" rel="noopener noreferrer">Réserver une démo de 30 min</a><span class="sf-mail">contact@mfv-systems.fr</span><a class="btn ghost" href="/contact">Nous écrire</a></div>
+<div class="foot-bottom">
+<span class="wordmark"><b>MFV</b> <span class="g">systems</span></span>
+<nav class="foot-nav"><a href="/produits">Le produit</a><a href="/methode">Notre méthode</a><a href="/equipe">L'équipe</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></nav>
+<p class="foot-legal">MFV Systems, SAS en cours d'immatriculation. Siège : 8 rue Jean Richepin, 75116 Paris. Direction : Yassmine Meyer et Thomas Finaz de Villaine, cofondateurs. Contact : <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>. SIRET communiqué dès l'immatriculation. Hébergeur : Vercel Inc.<br><a href="/mentions-legales">Mentions légales</a> &middot; <a href="/confidentialite">Politique de confidentialité</a></p>
+</div>
+</div>
+</section>
+
+</body>
+</html>
