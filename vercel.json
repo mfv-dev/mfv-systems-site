@@ -6,6 +6,28 @@
       "source": "/demo",
       "destination": "/produits",
       "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "mfv-systems.vercel.app"
+        }
+      ],
+      "destination": "https://mfv-systems.fr/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.mfv-systems.fr"
+        }
+      ],
+      "destination": "https://mfv-systems.fr/$1",
+      "permanent": true
     }
   ],
   "headers": [

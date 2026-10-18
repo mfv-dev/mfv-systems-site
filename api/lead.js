@@ -21,10 +21,19 @@ module.exports = async (req, res) => {
   body = body || {};
 
   // Champ piège : un humain ne le voit pas, un robot le remplit.
-  if (body.website) return res.status(200).json({ ok: true });
+  if (body.website || body.botcheck) return res.status(200).json({ ok: true });
 
   const email = String(body.email || '').trim().slice(0, 254);
   if (!EMAIL.test(email)) return res.status(400).json({ error: 'email' });
+
+  // Champs facultatifs du formulaire de la page Contact (l'accueil n'envoie que l'e-mail).
+  const clean = (v, n) => String(v || '').replace(/[\r\n]+/g, ' ').trim().slice(0, n);
+  const name = clean(body.name, 120);
+  const hotel = clean(body.hotel, 160);
+  const phone = clean(body.phone, 40);
+  const situation = clean(body.situation, 160);
+  const message = String(body.message || '').trim().slice(0, 4000);
+  const isContact = Boolean(name || hotel || message);
 
   const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'inconnue';
   const now = Date.now();
@@ -44,12 +53,36 @@ module.exports = async (req, res) => {
       secure: port === 465,
       auth: { user: SMTP_USER, pass: SMTP_PASS },
     });
+    const lines = isContact
+      ? [
+          'Message reçu depuis la page Contact du site.',
+          '',
+          'Nom : ' + (name || '-'),
+          'Établissement : ' + (hotel || '-'),
+          'E-mail : ' + email,
+          'Téléphone : ' + (phone || '-'),
+          'Situation : ' + (situation || '-'),
+          '',
+          'Message :',
+          message || '-',
+          '',
+          'Reçu le : ' + new Date().toISOString(),
+        ]
+      : [
+          'Une personne souhaite être recontactée.',
+          '',
+          'E-mail : ' + email,
+          'Reçu le : ' + new Date().toISOString(),
+          'Page : accueil',
+        ];
     await transport.sendMail({
       from: '"Site MFV Systems" <' + SMTP_USER + '>',
       to: LEAD_TO || 'contact@mfv-systems.fr',
       replyTo: email,
-      subject: 'Nouveau contact depuis le site MFV Systems',
-      text: 'Une personne souhaite être recontactée.\n\nE-mail : ' + email + '\nReçu le : ' + new Date().toISOString() + '\nPage : accueil\n',
+      subject: isContact
+        ? 'Nouveau message depuis le site MFV Systems' + (hotel ? ' (' + hotel + ')' : '')
+        : 'Nouveau contact depuis le site MFV Systems',
+      text: lines.join('\n') + '\n',
     });
     recent.push(now);
     hits.set(ip, recent);

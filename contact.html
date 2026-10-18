@@ -15,19 +15,19 @@
 <script src="/shell.js" defer></script>
 <meta property="og:title" content="Contact · MFV Systems">
 <meta property="og:description" content="Parlons de votre établissement.">
-<link rel="canonical" href="https://mfv-systems.vercel.app/contact">
+<link rel="canonical" href="https://mfv-systems.fr/contact">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MFV Systems">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:url" content="https://mfv-systems.vercel.app/contact">
-<meta property="og:image" content="https://mfv-systems.vercel.app/assets/og-image.png">
+<meta property="og:url" content="https://mfv-systems.fr/contact">
+<meta property="og:image" content="https://mfv-systems.fr/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="MFV Systems, votre infrastructure de réservation">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact · MFV Systems">
 <meta name="twitter:description" content="Parlons de votre établissement ou de votre projet. Dites-nous où vous en êtes : un premier échange sans engagement, et nous revenons vers vous avec une piste concrète.">
-<meta name="twitter:image" content="https://mfv-systems.vercel.app/assets/og-image.png">
+<meta name="twitter:image" content="https://mfv-systems.fr/assets/og-image.png">
 </head>
 <body>
 
@@ -135,74 +135,67 @@
 </section>
 
 <script>
-  // Clé Web3Forms : à remplacer par la vraie clé (gratuite, sur web3forms.com).
-  // Tant qu'elle n'est pas posée, le formulaire ouvre le client mail.
-  var ACCESS_KEY = "REPLACE_WITH_WEB3FORMS_KEY";
-
   var form = document.getElementById('lead');
   var statusEl = document.getElementById('status');
   var submitBtn = document.getElementById('submit');
+  var MAIL = 'contact@mfv-systems.fr';
+
+  function openMailClient(d) {
+    var body = 'Nom : ' + d.name + '\n'
+      + 'Établissement : ' + d.hotel + '\n'
+      + 'Email : ' + d.email + '\n'
+      + 'Téléphone : ' + d.phone + '\n'
+      + 'Situation : ' + d.situation + '\n\n'
+      + d.message;
+    window.location.href = 'mailto:' + MAIL
+      + '?subject=' + encodeURIComponent('Contact site, ' + d.hotel)
+      + '&body=' + encodeURIComponent(body);
+  }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (form.botcheck.value) return; // spam
-
     var data = {
       name: form.name.value.trim(),
       hotel: form.hotel.value.trim(),
       email: form.email.value.trim(),
       phone: form.phone.value.trim(),
       situation: form.situation.value,
-      message: form.message.value.trim()
+      message: form.message.value.trim(),
+      botcheck: form.botcheck.value
     };
-
-    var configured = ACCESS_KEY && ACCESS_KEY.indexOf('REPLACE') === -1;
-
-    if (!configured) {
-      var body = 'Nom : ' + data.name + '\n'
-        + 'Établissement : ' + data.hotel + '\n'
-        + 'Email : ' + data.email + '\n'
-        + 'Téléphone : ' + data.phone + '\n'
-        + 'Situation : ' + data.situation + '\n\n'
-        + data.message;
-      window.location.href = 'mailto:contact@mfv-systems.fr'
-        + '?subject=' + encodeURIComponent('Contact site — ' + data.hotel)
-        + '&body=' + encodeURIComponent(body);
-      return;
-    }
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Envoi…';
     statusEl.className = 'form-status';
+    statusEl.textContent = '';
 
-    fetch('https://api.web3forms.com/submit', {
+    fetch('/api/lead', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        access_key: ACCESS_KEY,
-        subject: 'Contact site MFV — ' + data.hotel,
-        from_name: 'Site MFV Systems',
-        name: data.name,
-        email: data.email,
-        establissement: data.hotel,
-        telephone: data.phone,
-        situation: data.situation,
-        message: data.message
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
     })
-      .then(function (r) { return r.json(); })
       .then(function (r) {
-        if (r.success) {
+        if (r.status === 200) {
           form.reset();
           statusEl.className = 'form-status ok';
           statusEl.textContent = 'Message envoyé. On revient vers vous très vite.';
+        } else if (r.status === 503) {
+          statusEl.className = 'form-status err';
+          statusEl.textContent = "L'envoi direct est momentanément indisponible, votre messagerie va s'ouvrir avec votre message.";
+          openMailClient(data);
+        } else if (r.status === 400) {
+          statusEl.className = 'form-status err';
+          statusEl.textContent = 'Merci de vérifier votre adresse e-mail.';
+        } else if (r.status === 429) {
+          statusEl.className = 'form-status err';
+          statusEl.textContent = 'Trop de tentatives, réessayez dans quelques minutes.';
         } else {
-          throw new Error(r.message || 'error');
+          throw new Error('send');
         }
       })
       .catch(function () {
         statusEl.className = 'form-status err';
-        statusEl.textContent = "L'envoi a échoué. Écrivez-nous directement à contact@mfv-systems.fr.";
+        statusEl.textContent = "L'envoi a échoué. Écrivez-nous directement à " + MAIL + ".";
       })
       .finally(function () {
         submitBtn.disabled = false;
