@@ -24,3 +24,13 @@
   #lead-form input[type=email]{padding:14px 16px !important;width:100%;box-sizing:border-box}
   #lead-form button{width:100%;padding:14px 18px !important;white-space:normal}
 }
+
+/* Téléphone : les grilles de 4 cartes ou plus passent sur 2 colonnes. */
+@media (max-width:560px){
+  .grid:has(> :nth-child(4)),.grid.four{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important;margin-top:1.4rem}
+  .grid:has(> :nth-child(4)) > *,.grid.four > *{min-width:0}
+  .grid:has(> :nth-child(4)) .tile,.grid.four .tile{padding:14px 12px}
+  .grid:has(> :nth-child(4)) .tile h3,.grid.four .tile h3{font-size:1rem;margin:.4rem 0}
+  .grid:has(> :nth-child(4)) .tile p,.grid.four .tile p{font-size:.85rem;line-height:1.4;hyphens:auto;overflow-wrap:break-word}
+  .grid:has(> :nth-child(4)) .tile .n,.grid.four .tile .n{overflow-wrap:break-word}
+}
