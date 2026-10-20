@@ -1,0 +1,25 @@
+/* Téléphone : menu replié derrière un bouton, champ e-mail empilé. */
+.m-btn{display:none}
+@media (max-width:820px){
+  header .m-btn{display:inline-flex;align-items:center;gap:10px;order:2;margin-left:auto;padding:10px 16px;border-radius:999px;border:1px solid #3A4380;background:transparent;color:#fff;font:inherit;font-size:15px;font-weight:500;cursor:pointer}
+  header .m-btn:focus-visible{outline:2px solid #FF4920;outline-offset:2px}
+  header .m-btn .m-ico{display:inline-block;width:16px;height:2px;background:#fff;position:relative;transition:background .2s}
+  header .m-btn .m-ico::before,header .m-btn .m-ico::after{content:"";position:absolute;left:0;width:16px;height:2px;background:#fff;transition:transform .2s}
+  header .m-btn .m-ico::before{top:-5px}
+  header .m-btn .m-ico::after{top:5px}
+  header.m-open .m-btn .m-ico{background:transparent}
+  header.m-open .m-btn .m-ico::before{transform:translateY(5px) rotate(45deg)}
+  header.m-open .m-btn .m-ico::after{transform:translateY(-5px) rotate(-45deg)}
+  header img{width:56px !important;height:56px !important}
+  header .m-nav,header .m-cta{display:none !important}
+  header.m-open .m-nav{display:flex !important;order:3;width:100%;flex-direction:column;align-items:stretch;gap:0 !important}
+  header.m-open .m-cta{display:flex !important;order:4;width:100%;padding:8px 0 4px}
+  header.m-open .m-cta a{flex:1;text-align:center}
+  header .m-nav .nv{border-top:1px solid #1B2358}
+  header .m-nav .nv-b{width:100%;display:flex;justify-content:space-between;padding:14px 4px;font-size:17px}
+  header.m-open{max-height:100vh;overflow-y:auto}
+  .site-h .bar2,header[style*="position:relative"]{align-items:center}
+  #lead-form{flex-direction:column !important;align-items:stretch !important;border-radius:24px !important;padding:8px !important;gap:6px !important}
+  #lead-form input[type=email]{padding:14px 16px !important;width:100%;box-sizing:border-box}
+  #lead-form button{width:100%;padding:14px 18px !important;white-space:normal}
+}
