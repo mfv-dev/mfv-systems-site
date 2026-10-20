@@ -31,6 +31,6 @@
   .grid:has(> :nth-child(4)) > *,.grid.four > *{min-width:0}
   .grid:has(> :nth-child(4)) .tile,.grid.four .tile{padding:14px 12px}
   .grid:has(> :nth-child(4)) .tile h3,.grid.four .tile h3{font-size:1rem;margin:.4rem 0}
-  .grid:has(> :nth-child(4)) .tile p,.grid.four .tile p{font-size:.85rem;line-height:1.4;hyphens:auto;overflow-wrap:break-word}
+  .grid:has(> :nth-child(4)) .tile p,.grid.four .tile p{font-size:.85rem;line-height:1.4;hyphens:manual;overflow-wrap:break-word}
   .grid:has(> :nth-child(4)) .tile .n,.grid.four .tile .n{overflow-wrap:break-word}
 }
