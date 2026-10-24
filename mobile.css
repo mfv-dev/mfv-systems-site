@@ -34,3 +34,12 @@
   .grid:has(> :nth-child(4)) .tile p,.grid.four .tile p{font-size:.85rem;line-height:1.4;hyphens:manual;overflow-wrap:break-word}
   .grid:has(> :nth-child(4)) .tile .n,.grid.four .tile .n{overflow-wrap:break-word}
 }
+
+/* Barre collante « Réserver une démo », téléphone seulement */
+.demo-bar{display:none}
+@media (max-width:700px){
+  .demo-bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(0,6,51,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transform:translateY(110%);transition:transform .25s ease}
+  .demo-bar.on{transform:none}
+  .demo-bar a{display:block;text-align:center;background:#FF4920;color:#fff;font-weight:600;font-size:16px;line-height:1;padding:15px 18px;border-radius:999px;text-decoration:none}
+}
+@media (prefers-reduced-motion:reduce){.demo-bar{transition:none}}

@@ -6,7 +6,7 @@
   if (!nav) return;
   var host = nav.parentElement;
   nav.classList.add('m-nav');
-  var cta = h.querySelector('a[href*="calendar.app.google"]');
+  var cta = h.querySelector('a[href="/demo"]');
   if (cta) (cta.parentElement === host ? cta : cta.parentElement).classList.add('m-cta');
   var b = document.createElement('button');
   b.type = 'button';
