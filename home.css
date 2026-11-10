@@ -186,11 +186,10 @@ nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 .nums .law b{color:#fff;font-weight:500}
 .nums .law small{display:block;margin-top:10px;font-size:13px;color:#8F8F9A}
 
-/* SLIDES */
-.tilt{background:#000;overflow:hidden;height:110vh;position:relative}
+/* SLIDES : image entière, pleine largeur, sans zoom ; hauteur 100vh au plus, sans vide noir */
+.tilt{background:#000;overflow:hidden;position:relative;height:min(100vh,60vw)}
 .tilt .pin{position:absolute;inset:0;overflow:hidden}
-.tilt img{position:absolute;left:50%;top:50%;width:125vw;max-width:none;height:auto;transform:translate(-50%,-50%) scale(1.3)}
-.tilt .lbl{position:absolute;left:4vw;top:6vh;z-index:2;color:#fff;font-size:14px;opacity:.7}
+.tilt img{position:absolute;left:-2%;top:-2%;width:104%;height:104%;max-width:none;object-fit:cover;will-change:transform}
 
 /* GAINS */
 .gains{padding:18vh 0 14vh;background:#fff}
@@ -331,7 +330,6 @@ footer .huge{font-size:17.5vw;letter-spacing:-.07em;line-height:.8;margin-top:8v
   .better{height:auto}.better .pin{position:relative;height:90vh}
   .fadeo{opacity:1}
   .panel{position:relative;top:0}
-  .tilt img{transform:translate(-50%,-50%) scale(1)}
 }
 
 /* MOBILE : pas de sticky, pas de pin, seulement des fondus */
@@ -371,7 +369,7 @@ footer .huge{font-size:17.5vw;letter-spacing:-.07em;line-height:.8;margin-top:8v
   .nums .cell{padding:28px 0 12px}
   .nums .photo{margin-top:10vh;gap:32px}
   .nums .photo .ph{height:56vh}
-  .tilt{height:60vh}
+  .tilt{height:60vw}
   .gains{padding:12vh 0 10vh}
   .gains .head{grid-template-columns:1fr;gap:24px}
   .sim{padding:12vh 0}

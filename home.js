@@ -101,8 +101,8 @@
     gsap.utils.toArray('.nums .ph').forEach(function (ph) {
       gsap.from(ph, { clipPath: 'inset(12% 12% 12% 12% round 22px)', ease: 'none', scrollTrigger: { trigger: ph, start: 'top 95%', end: 'top 35%', scrub: true } });
     });
-    /* Grille de slides : elle glisse en diagonale en dézoomant */
-    gsap.fromTo('#tiltImg', { xPercent: -44, yPercent: -56, scale: 1.18 }, { xPercent: -56, yPercent: -44, scale: 1, ease: 'none', scrollTrigger: { trigger: '#tilt', start: 'top bottom', end: 'bottom top', scrub: true } });
+    /* Grille de slides : très léger glissement et zoom de 1 à 1,04 au plus */
+    gsap.fromTo('#tiltImg', { xPercent: -1.6, yPercent: -1.2, scale: 1 }, { xPercent: 1.6, yPercent: 1.2, scale: 1.04, ease: 'none', scrollTrigger: { trigger: '#tilt', start: 'top bottom', end: 'bottom top', scrub: true } });
     /* Vos gains : le tableau de bord se redresse */
     gsap.fromTo('#gshot', { scale: 0.86, rotateX: 14, y: 60 }, { scale: 1, rotateX: 0, y: 0, ease: 'none', transformPerspective: 1400, scrollTrigger: { trigger: '#gshot', start: 'top 95%', end: 'top 25%', scrub: true } });
     var panels = gsap.utils.toArray('.panel');
