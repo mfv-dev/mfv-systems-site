@@ -148,6 +148,7 @@ nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 .products .head h2{font-size:clamp(44px,5.6vw,96px);max-width:9em}
 .products .head p{max-width:380px;color:var(--mute);font-size:18px;line-height:1.5}
 .stack{position:relative}
+.stack:after{content:"";display:block;height:45vh}
 .panel{position:sticky;top:12vh;height:76vh;min-height:560px;border-radius:24px;overflow:hidden;margin-bottom:6vh;display:grid;grid-template-columns:1fr 1.25fr;background:var(--grey);transform-origin:50% 0;will-change:transform}
 .panel:nth-child(2){background:#E9E8F2}.panel:nth-child(3){background:#0B0B0F;color:#fff}.panel:nth-child(4){background:#E6E6EA}
 .panel .txt{padding:5vh 4vw;display:flex;flex-direction:column;justify-content:space-between}
@@ -359,6 +360,7 @@ footer .huge{font-size:17.5vw;letter-spacing:-.07em;line-height:.8;margin-top:8v
   .steps{grid-template-columns:1fr 1fr;gap:24px;margin-top:8vh}
   .products{padding:12vh 0 6vh}
   .products .head{flex-direction:column;align-items:flex-start;gap:20px}
+  .stack:after{display:none}
   .panel{position:relative;top:0;height:auto;min-height:0;grid-template-columns:1fr;margin-bottom:20px;transform:none!important;opacity:1!important}
   .panel .txt{padding:28px 24px;gap:24px}
   .panel .vis{height:360px}
