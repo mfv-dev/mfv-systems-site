@@ -53,7 +53,18 @@
       '<div class="bk-grid">' + cells + '</div>' +
       '<p class="bk-day">' + esc(dFmt.format(dateOf(picked))) + ' · heure de Paris</p>' +
       '<div class="bk-slots">' + slots + '</div>';
+    fit();
   }
+
+  /* La liste d'horaires prend la place restante dans le hero : elle défile si besoin, la carte ne déborde jamais */
+  function fit() {
+    var s = root.querySelector('.bk-slots'), hero = document.querySelector('.hero');
+    if (!s || !hero) return;
+    s.style.maxHeight = '';
+    var room = hero.getBoundingClientRect().bottom - s.getBoundingClientRect().top - 36;
+    if (room < s.scrollHeight) s.style.maxHeight = Math.max(76, room) + 'px';
+  }
+  window.addEventListener('resize', fit);
 
   function viewForm(time) {
     root.innerHTML =

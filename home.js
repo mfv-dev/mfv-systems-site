@@ -70,6 +70,9 @@
   gsap.matchMedia().add('(min-width: 901px)', function () {
     gsap.fromTo('#betterT', { scale: 0.7, opacity: 0, filter: 'blur(8px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', ease: 'none', scrollTrigger: { trigger: '#better', start: 'top 70%', end: 'center center', scrub: true } });
     gsap.to('#betterT', { yPercent: -40, opacity: 0, ease: 'none', scrollTrigger: { trigger: '#better', start: 'center top', end: 'bottom top', scrub: true } });
+    /* L'affiche s'ouvre : du centre vers le plein écran, avec un léger dézoom */
+    var rt = gsap.timeline({ scrollTrigger: { trigger: '#reveal', start: 'top top', end: 'bottom bottom', scrub: true } });
+    rt.to('#rframe', { clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'power2.inOut' }, 0).to('#rframe img', { scale: 1, ease: 'power2.inOut' }, 0).to('#rcap', { opacity: 1 }, 0.6);
   });
   /* Rubans animés en CSS : en pause hors écran */
   if ('IntersectionObserver' in window) {
