@@ -111,6 +111,25 @@
     ScrollTrigger.create({ trigger: el, start: 'top 88%', end: 'bottom 5%', onEnter: run, onEnterBack: run, onLeave: function () { if (tw) tw.kill(); el.textContent = '0'; }, onLeaveBack: function () { if (tw) tw.kill(); el.textContent = '0'; } });
   });
 
+  /* « Il existe une meilleure façon » : la phrase du dessous se révèle mot par mot */
+  var bs = document.getElementById('betterS');
+  if (bs) {
+    bs.setAttribute('aria-label', bs.textContent.trim().replace(/\s+/g, ' '));
+    (function cut(node) {
+      [].slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (t) {
+            if (!t) return;
+            if (/^\s+$/.test(t)) frag.appendChild(document.createTextNode(' '));
+            else { var s = document.createElement('span'); s.className = 'w2'; s.setAttribute('aria-hidden', 'true'); s.textContent = t; frag.appendChild(s); }
+          });
+          node.replaceChild(frag, n);
+        } else if (n.nodeType === 1) cut(n);
+      });
+    })(bs);
+  }
+
   /* Réception : le titre, le texte puis l'encadré apparaissent l'un après l'autre (fondu + montée de 30 px) */
   gsap.set('.recep .r1,.recep .r2,.recep .r3', { opacity: 0, y: 30 });
   gsap.to('.recep .r1,.recep .r2,.recep .r3', { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', stagger: 0.28, scrollTrigger: { trigger: '.recep-txt', start: 'top 80%' } });
@@ -126,9 +145,15 @@
     gsap.to(el, { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
   });
 
+  /* Mobile : la phrase se révèle mot par mot à l'entrée (rien d'épinglé) */
+  gsap.matchMedia().add('(max-width: 900px)', function () {
+    gsap.to('#betterS .w2', { opacity: 1, stagger: 0.12, ease: 'none', scrollTrigger: { trigger: '#betterS', start: 'top 85%', end: 'bottom 55%', scrub: true } });
+  });
+
   /* « Il existe une meilleure façon » : le titre se précise et reste écrit jusqu'à la fin de la section (ordinateur seulement, rien d'épinglé sur mobile) */
   gsap.matchMedia().add('(min-width: 901px)', function () {
     gsap.fromTo('#betterT', { scale: 0.7, opacity: 0, filter: 'blur(8px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', ease: 'none', scrollTrigger: { trigger: '#better', start: 'top 70%', end: 'center center', scrub: true } });
+    gsap.to('#betterS .w2', { opacity: 1, stagger: 0.12, ease: 'none', scrollTrigger: { trigger: '#better', start: 'center center', end: 'bottom bottom', scrub: true } });
 
     /* Quatre produits : chaque panneau recule quand le suivant arrive, et les cartes d'interface flottent à leur propre vitesse */
 
