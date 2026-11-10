@@ -226,13 +226,6 @@ nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 .serv video{display:block;height:88vh;width:auto;max-width:100%;object-fit:contain;border-radius:22px}
 .serv .btn{margin-top:32px}
 
-/* MARQUE */
-.metro{background:var(--grey);overflow:hidden;padding:12vh 0}
-.metro .track{display:flex;gap:2vw;width:max-content;will-change:transform}
-.metro .track img{height:62vh;width:auto;max-width:none;border-radius:20px}
-.metro .cap{width:min(1320px,92vw);margin:0 auto 6vh;display:flex;justify-content:space-between;align-items:end;gap:40px}
-.metro .cap h2{font-size:clamp(40px,4.6vw,76px);max-width:11em}
-
 /* APPAREILS */
 .dev{background:#fff;padding:16vh 0}
 .dev .grid{display:grid;grid-template-columns:.8fr 1.4fr;gap:3vw;align-items:center}
@@ -373,11 +366,6 @@ footer .huge{font-size:17.5vw;letter-spacing:-.07em;line-height:.8;margin-top:8v
   .sim .box{padding:28px 22px}
   .serv{padding:12vh 4vw}
   .serv video{width:100%;height:auto}
-  .metro{padding:10vh 0}
-  .metro .cap{flex-direction:column;align-items:flex-start;gap:16px}
-  .metro .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:0 4vw}
-  .metro .track{transform:none!important}
-  .metro .track img{height:44vh;scroll-snap-align:center}
   .dev{padding:12vh 0}
   .dev .grid{grid-template-columns:1fr;gap:24px}
   .accueil{height:60vh}
