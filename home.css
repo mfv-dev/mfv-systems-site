@@ -225,9 +225,15 @@ nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 .serv .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:6vw;align-items:center}
 .serv .vid{border-radius:22px;overflow:hidden}
 .serv h2{font-size:clamp(42px,4.8vw,80px);margin:22px 0 40px}
+.serv .fam{list-style:none;border-top:1px solid var(--line)}
+.serv .fam li{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.serv .fam b{font-weight:500;font-size:17px;letter-spacing:-.01em}
+.serv .fam span{font-size:15.5px;line-height:1.55;color:var(--mute)}
+.serv .more2{margin-top:22px;font-size:16px;color:var(--mute)}
+.serv .more2 .all{margin-left:10px;margin-top:0;color:var(--ink)}
 .serv ol{list-style:none;counter-reset:s;border-top:1px solid var(--line)}
-.serv li{counter-increment:s;display:flex;gap:26px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);font-size:19px}
-.serv li:before{content:counter(s,decimal-leading-zero);font-size:13px;color:var(--mute);width:24px;flex:none}
+.serv ol li{counter-increment:s;display:flex;gap:26px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);font-size:19px}
+.serv ol li:before{content:counter(s,decimal-leading-zero);font-size:13px;color:var(--mute);width:24px;flex:none}
 .serv .all{display:inline-flex;margin-top:28px;font-size:15px;font-weight:500;border-bottom:1px solid currentColor;padding-bottom:2px}
 
 /* MARQUE */
@@ -377,6 +383,7 @@ footer .huge{font-size:17.5vw;letter-spacing:-.07em;line-height:.8;margin-top:8v
   .sim .box{padding:28px 22px}
   .serv{padding:12vh 0}
   .serv .grid{grid-template-columns:1fr;gap:40px}
+  .serv .fam li{grid-template-columns:1fr;gap:6px}
   .metro{padding:10vh 0}
   .metro .cap{flex-direction:column;align-items:flex-start;gap:16px}
   .metro .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:0 4vw}
