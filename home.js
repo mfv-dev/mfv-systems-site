@@ -75,6 +75,12 @@
     gsap.fromTo('#betterT', { scale: 0.7, opacity: 0, filter: 'blur(8px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', ease: 'none', scrollTrigger: { trigger: '#better', start: 'top 70%', end: 'center center', scrub: true } });
 
     /* Quatre produits : chaque panneau recule quand le suivant arrive, et les cartes d'interface flottent à leur propre vitesse */
+
+    /* Badges des produits : l'icône apparaît quand son panneau arrive (léger rebond) */
+    gsap.utils.toArray('.bdg').forEach(function (b) {
+      gsap.set(b, { scale: 0.6, rotation: -8, opacity: 0 });
+      gsap.to(b, { scale: 1, rotation: 0, opacity: 1, duration: 1.1, ease: 'elastic.out(1, 0.6)', scrollTrigger: { trigger: b.closest('.panel'), start: 'top 70%', once: true } });
+    });
     var panels = gsap.utils.toArray('.panel');
     panels.forEach(function (p, i) {
       if (i < panels.length - 1) gsap.to(p, { scale: 0.94, ease: 'none', scrollTrigger: { trigger: panels[i + 1], start: 'top bottom', end: 'top 12%', scrub: true } });
