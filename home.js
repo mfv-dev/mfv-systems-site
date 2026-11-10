@@ -24,7 +24,7 @@
   /* Hero : un mot, une pause, le suivant (version validée hero_mots) */
   var video = document.querySelector('.hero video');
   var lines = [].slice.call(document.querySelectorAll('.hero h1 .ln>span')), after = [].slice.call(document.querySelectorAll('.hero .after'));
-  function loadFrame() { if (window.MFVBook) window.MFVBook.start(); }
+  function loadFrame() { if (window.MFVBook) window.MFVBook.start(); if (window.MFVChat) window.MFVChat.start(); }
   if (reduce) {
     loadFrame();
     lines.concat(after).forEach(function (e) { e.style.transform = 'none'; e.style.opacity = 1; });
