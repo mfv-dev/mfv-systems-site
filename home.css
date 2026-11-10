@@ -220,12 +220,12 @@ nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 .sim .out .v.hi{color:var(--indigo)}
 .sim .note{font-size:13px;color:var(--mute);margin-top:18px;line-height:1.5}
 
-/* SERVICES : vidéo panoramique du caisson, plein écran bord à bord */
-.serv{position:relative;width:100%;height:100vh;min-height:520px;overflow:hidden;background:#EDEDEF}
-.serv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:0}
+/* SERVICES : vidéo panoramique du caisson plein écran, bouton placé en dessous */
+.serv{background:#fff}
+.serv-v{position:relative;width:100%;height:100vh;min-height:520px;overflow:hidden;background:#EDEDEF}
+.serv-v video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:0}
 .serv .eyebrow{position:absolute;z-index:2;left:max(4vw,24px);top:max(6vh,76px);color:#0B0B0F;font-weight:500}
-.serv .btn{position:absolute;z-index:2;left:50%;bottom:6vh;transform:translateX(-50%)}
-.home .serv .btn:hover{transform:translateX(-50%) translateY(-2px)}
+.serv-b{display:flex;justify-content:center;padding:44px 4vw 12vh}
 
 /* APPAREILS */
 .dev{background:#fff;padding:16vh 0}
@@ -365,7 +365,8 @@ footer .huge{font-size:17.5vw;letter-spacing:-.07em;line-height:.8;margin-top:8v
   .sim{padding:12vh 0}
   .sim .grid{grid-template-columns:1fr;gap:40px}
   .sim .box{padding:28px 22px}
-  .serv{height:80vh}
+  .serv-v{height:80vh}
+  .serv-b{padding:32px 4vw 10vh}
   .dev{padding:12vh 0}
   .dev .grid{grid-template-columns:1fr;gap:24px}
   .accueil{height:60vh}
