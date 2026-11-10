@@ -113,7 +113,7 @@
     document.querySelectorAll('[data-par]').forEach(function (img) {
       gsap.fromTo(img, { yPercent: -8 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
     });
-    gsap.utils.toArray('.nums .ph').forEach(function (ph) {
+    gsap.utils.toArray('.nums .ph,.dev .ph').forEach(function (ph) {
       gsap.from(ph, { clipPath: 'inset(12% 12% 12% 12% round 22px)', ease: 'none', scrollTrigger: { trigger: ph, start: 'top 95%', end: 'top 35%', scrub: true } });
     });
     /* Grille de slides : très léger glissement et zoom de 1 à 1,04 au plus */
