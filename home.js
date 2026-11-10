@@ -18,6 +18,30 @@
     sim();
   }
 
+  /* Formulaire de démo : relais /api/lead (adresse e-mail seulement) */
+  var lf = document.getElementById('lead-form');
+  if (lf) {
+    var lmsg = document.getElementById('lead-msg'), lbtn = document.getElementById('lead-btn'), lmail = 'contact@mfv-systems.fr';
+    var say = function (t) { lmsg.textContent = t; };
+    lf.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = lf.email.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { say('Merci de saisir une adresse e-mail valide.'); return; }
+      lbtn.disabled = true; say('Envoi en cours...');
+      fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email, website: lf.website.value }) })
+        .then(function (r) { return r.status; })
+        .then(function (st) {
+          lbtn.disabled = false;
+          if (st === 200) { say('Merci, nous revenons vers vous très vite.'); lf.reset(); }
+          else if (st === 400) say('Cette adresse e-mail ne semble pas valide.');
+          else if (st === 429) say('Trop de tentatives, réessayez dans quelques minutes.');
+          else say("L'envoi est momentanément indisponible. Écrivez-nous à " + lmail + '.');
+        })
+        .catch(function () { lbtn.disabled = false; say('Connexion impossible. Écrivez-nous à ' + lmail + '.'); });
+    });
+  }
+
+
   /* Menu : sous-menus et bouton mobile */
   var items = document.querySelectorAll('.nv');
   function closeAll(except) {
@@ -120,6 +144,9 @@
     gsap.fromTo('#tiltImg', { xPercent: -1.6, yPercent: -1.2, scale: 1 }, { xPercent: 1.6, yPercent: 1.2, scale: 1.04, ease: 'none', scrollTrigger: { trigger: '#tilt', start: 'top bottom', end: 'bottom top', scrub: true } });
     /* Vos gains : le tableau de bord se redresse */
     gsap.fromTo('#gshot', { scale: 0.86, rotateX: 14, y: 60 }, { scale: 1, rotateX: 0, y: 0, ease: 'none', transformPerspective: 1400, scrollTrigger: { trigger: '#gshot', start: 'top 95%', end: 'top 25%', scrub: true } });
+    /* Démo : la carte de visite flotte et tourne légèrement ; le grand « MFV Systems » du pied de page monte */
+    gsap.fromTo('#dcard', { y: 80, rotate: -4 }, { y: -60, rotate: 2, ease: 'none', scrollTrigger: { trigger: '.demo', start: 'top bottom', end: 'bottom top', scrub: true } });
+    gsap.from('footer .huge', { yPercent: 60, ease: 'none', scrollTrigger: { trigger: 'footer', start: 'top bottom', end: 'bottom bottom', scrub: true } });
     var panels = gsap.utils.toArray('.panel');
     panels.forEach(function (p, i) {
       if (i < panels.length - 1) gsap.to(p, { scale: 0.94, ease: 'none', scrollTrigger: { trigger: panels[i + 1], start: 'top bottom', end: 'top 12%', scrub: true } });

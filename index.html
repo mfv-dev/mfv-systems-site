@@ -143,8 +143,24 @@
 
 <section class="accueil" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" poster="/assets/home/accueil-poster.jpg"><source src="/assets/home/accueil.mp4" type="video/mp4"></video></section>
 
-<section id="suite" style="height:100vh;display:grid;place-items:center;color:#6B6B74;font-size:15px">La suite arrive, section par section.</section>
+<section class="dark" id="demo">
+<div class="demo"><div class="wrap grid">
+<div><div class="eyebrow">Démo</div><h2 class="fade">Reprenez la main sur vos réservations.</h2><p class="sub fade">30 minutes, sans engagement.</p>
+<form id="lead-form" class="fade" novalidate><label class="hp" aria-hidden="true">Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+<input type="email" name="email" required placeholder="Email professionnel" aria-label="Email professionnel" autocomplete="email"><button class="btn pri" id="lead-btn" style="justify-content:center" type="submit">Être recontacté</button><div class="msg" id="lead-msg" role="status"></div></form>
+<p class="alt fade">Ou <a href="#top">réservez un créneau en haut de la page</a>, ou <a href="/contact">écrivez-nous</a>.</p></div>
+<div class="card" id="dcard"><img src="/assets/home/card-1000.webp" srcset="/assets/home/card-1000.webp 1000w, /assets/home/card-2000.webp 2000w" sizes="(max-width:900px) 92vw, 46vw" width="2000" height="1125" alt="Carte de visite MFV" decoding="async"></div>
+</div></div>
+</section>
 </main>
+<footer class="foot dark"><div class="wrap">
+<div class="top2"><div><a class="logo" href="/"><b>MFV</b><span>systems</span></a><p class="tagline">Solutions digitales pour l&rsquo;hôtellerie et au-delà.</p></div>
+<div><h4>Produits</h4><ul><li><a href="/studio">MFV Studio</a></li><li><a href="/book">MFV Book</a></li><li><a href="/stay">MFV Stay</a></li><li><a href="/insight">MFV Insight</a></li></ul></div>
+<div><h4>Agence</h4><ul><li><a href="/agence">Services</a></li><li><a href="/methode">Notre méthode</a></li><li><a href="/equipe">L&rsquo;équipe</a></li><li><a href="/faq">FAQ</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a></li><li>8 rue Jean Richepin, 75116 Paris</li><li><a href="/contact">Nous écrire</a></li></ul></div></div>
+<p class="legal">MFV Systems, SAS au capital de 10&nbsp;000&nbsp;€, RCS Paris 131&nbsp;904&nbsp;609, SIRET 131&nbsp;904&nbsp;609&nbsp;00016. Siège&nbsp;: 8 rue Jean Richepin, 75116 Paris. Président&nbsp;: Amaury Finaz de Villaine. Directeurs généraux&nbsp;: Thomas Finaz de Villaine et Yassmine Meyer. Contact&nbsp;: contact@mfv-systems.fr. Hébergeur&nbsp;: Vercel Inc.<br><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Politique de confidentialité</a> · <a href="/cgv">CGV</a></p>
+<div class="huge" aria-hidden="true">MFV Systems</div>
+</div></footer>
 <script src="/assets/vendor/gsap.min.js"></script>
 <script src="/assets/vendor/ScrollTrigger.min.js"></script>
 <script src="/assets/vendor/lenis.min.js"></script>
