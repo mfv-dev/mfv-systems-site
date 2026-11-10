@@ -28,7 +28,8 @@
   if (reduce) {
     loadFrame();
     lines.concat(after).forEach(function (e) { e.style.transform = 'none'; e.style.opacity = 1; });
-    if (video) { video.removeAttribute('autoplay'); video.pause(); }
+    document.querySelectorAll('video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); });
+    document.querySelectorAll('.fade').forEach(function (e) { e.style.opacity = 1; e.style.transform = 'none'; });
     return;
   }
   setTimeout(loadFrame, 350 + lines.length * 750 + 1200);
@@ -58,6 +59,9 @@
     });
   }
 
+  /* Affiche : un simple fondu à l'arrivée */
+  gsap.to('.fadeo', { opacity: 1, duration: 1.4, ease: 'power2.out', scrollTrigger: { trigger: '.fadeo', start: 'top 85%' } });
+
   /* Le constat : les mots se révèlent au défilement (ordinateur et mobile) */
   var m = document.getElementById('manif');
   if (m) m.innerHTML = m.textContent.trim().split(/\s+/).map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ');
@@ -70,14 +74,26 @@
   gsap.matchMedia().add('(min-width: 901px)', function () {
     gsap.fromTo('#betterT', { scale: 0.7, opacity: 0, filter: 'blur(8px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', ease: 'none', scrollTrigger: { trigger: '#better', start: 'top 70%', end: 'center center', scrub: true } });
     gsap.to('#betterT', { yPercent: -40, opacity: 0, ease: 'none', scrollTrigger: { trigger: '#better', start: 'center top', end: 'bottom top', scrub: true } });
-    /* L'affiche s'ouvre : du centre vers le plein écran, avec un léger dézoom */
-    var rt = gsap.timeline({ scrollTrigger: { trigger: '#reveal', start: 'top top', end: 'bottom bottom', scrub: true } });
-    rt.to('#rframe', { clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'power2.inOut' }, 0).to('#rframe img', { scale: 1, ease: 'power2.inOut' }, 0).to('#rcap', { opacity: 1 }, 0.6);
   });
   /* Rubans animés en CSS : en pause hors écran */
   if ('IntersectionObserver' in window) {
     var rio = new IntersectionObserver(function (es) { es.forEach(function (x) { x.target.classList.toggle('paused', !x.isIntersecting); }); }, { rootMargin: '200px' });
     document.querySelectorAll('.rib').forEach(function (e) { rio.observe(e); });
+  }
+
+  /* Vidéo de l'iPhone : repart de 0 quand la section entre à l'écran, pour voir la notification s'ouvrir */
+  if ('IntersectionObserver' in window) {
+    var rv = document.querySelector('video[data-restart]');
+    if (rv) new IntersectionObserver(function (es) {
+      es.forEach(function (x) { if (x.isIntersecting) { rv.currentTime = 0; var pr = rv.play(); if (pr && pr.catch) pr.catch(function () {}); } else rv.pause(); });
+    }, { threshold: 0.35 }).observe(rv);
+  }
+  /* Vidéos : en pause hors écran (elles démarrent 600 px avant d'apparaître) */
+  if ('IntersectionObserver' in window) {
+    var vio = new IntersectionObserver(function (es) {
+      es.forEach(function (x) { var v = x.target; if (x.isIntersecting) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); } else v.pause(); });
+    }, { rootMargin: '600px 0px' });
+    document.querySelectorAll('video:not([data-restart])').forEach(function (v) { vio.observe(v); });
   }
   var last = 0;
   ScrollTrigger.create({ start: 0, end: 'max', onUpdate: function (s) {

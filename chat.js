@@ -7,11 +7,26 @@
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
 
   var SUGGEST = ['Combien coûtent les OTA ?', 'Que fait MFV Book ?', 'Mes outils actuels restent-ils ?'];
-  var SAMPLE = {
-    'Combien coûtent les OTA ?': 'En moyenne, les hôtels reversent 17 % de commission à chaque réservation passée par une OTA (moyenne observée par Coach Omnium). Le simulateur plus bas sur la page estime ce que cela représente pour votre hôtel, en fonction de vos chambres, de votre taux d\'occupation et de votre prix moyen.',
-    'Que fait MFV Book ?': 'MFV Book est le moteur de réservation directe intégré à votre site. Le voyageur réserve et paie chez vous, les fonds vont directement sur votre compte et la réservation arrive dans votre PMS. Aucune commission MFV.',
-    'Mes outils actuels restent-ils ?': 'Oui, lorsque l\'intégration est compatible : MFV vous accompagne de la visibilité en ligne à la gestion quotidienne, sans bouleverser vos outils existants.'
-  };
+  var OTA = 'En moyenne, les hôtels reversent 17 % de commission à chaque réservation passée par une OTA (moyenne observée par Coach Omnium). Le simulateur plus bas sur la page estime ce que cela représente pour votre hôtel.';
+  var BOOK = 'MFV Book est le moteur de réservation directe intégré à votre site. Le voyageur réserve et paie chez vous, les fonds vont directement sur votre compte et la réservation arrive dans votre PMS. Aucune commission MFV.';
+  var TOOLS = 'Oui, lorsque l\'intégration est compatible : MFV vous accompagne de la visibilité en ligne à la gestion quotidienne, sans bouleverser vos outils existants.';
+  /* Réponses d'exemple (aperçu local seulement), faites uniquement de faits déjà présents sur le site */
+  var SAMPLE = [
+    [/^\s*(hello|bonjour|bonsoir|salut|hey|coucou)\b/i, 'Bonjour ! Je peux vous renseigner sur nos produits, la réservation directe ou les commissions des plateformes. Que voulez-vous savoir ?', false],
+    [/combien co[uû]tent les ota|commission|ota|booking|expedia/i, OTA, false],
+    [/mfv book|moteur|r[ée]servation directe|r[ée]server en direct/i, BOOK, false],
+    [/outils|existant|int[ée]gr|compatible|pms actuel/i, TOOLS, false],
+    [/stay|pms|planning|gestion/i, 'MFV Stay est le PMS pensé pour les hôtels indépendants : le planning, les clients et les paiements au même endroit, et chacun voit ce qui le concerne.', false],
+    [/studio|site web|site internet|identit|photo|vid[ée]o|design/i, 'MFV Studio crée des sites et des expériences digitales sur mesure : création de sites web, identité de marque, photographie et vidéo, pour les hôtels et pour d\'autres métiers.', false],
+    [/insight|seo|r[ée]f[ée]rencement|google|analytics|panier/i, 'MFV Insight vous aide à comprendre votre performance et à développer vos réservations directes : parcours de réservation, paniers abandonnés, référencement et acquisition.', false],
+    [/macron|loi/i, 'Depuis la loi Macron de 2015, l\'hôtelier est libre de proposer sur son propre site des tarifs inférieurs à ceux des plateformes. Réserver en direct devient un vrai avantage, pour votre client comme pour vous.', false],
+    [/prix|tarif|co[uû]t|devis|abonnement/i, 'Les tarifs dépendent de votre établissement et de vos besoins. Le plus simple est d\'en parler avec l\'équipe lors d\'un call de 30 minutes, sans engagement.', true]
+  ];
+  var FALLBACK = 'Je n\'ai pas cette information avec certitude. Le mieux est d\'en parler avec l\'équipe lors d\'un call de 30 minutes, sans engagement.';
+  function sampleAnswer(q) {
+    for (var i = 0; i < SAMPLE.length; i++) if (SAMPLE[i][0].test(q)) return { text: SAMPLE[i][1], cta: SAMPLE[i][2] };
+    return { text: FALLBACK, cta: true };
+  }
 
   var root = document.createElement('div');
   root.className = 'ai';
@@ -58,9 +73,7 @@
       });
     };
     if (PREVIEW) {
-      setTimeout(function () {
-        finish(SAMPLE[q] || 'Dans cet aperçu, je ne réponds qu\'aux trois questions suggérées. Sur le site, je répondrai à partir de nos contenus, sans rien inventer, et je proposerai de réserver un call si la question demande un conseil précis.', true);
-      }, 900);
+      setTimeout(function () { var a = sampleAnswer(q); finish(a.text, a.cta); }, 900);
       return;
     }
     fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: history.slice(-10) }) })
