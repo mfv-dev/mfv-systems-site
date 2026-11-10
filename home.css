@@ -135,11 +135,12 @@ nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 
 /* RESERVATION DIRECTE */
 .island{background:#EDEDEF;padding:14vh 0 18vh}
-.island .grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:40px;align-items:center}
+.island .grid{display:grid;grid-template-columns:.66fr 1.34fr;gap:40px;align-items:center}
 .island h2{font-size:clamp(40px,4.6vw,76px);margin:22px 0 26px}
 .island p{font-size:19px;line-height:1.5;color:var(--mute);max-width:460px}
-.island .vid{line-height:0;-webkit-mask-image:radial-gradient(ellipse closest-side at 50% 50%,#000 72%,transparent 100%);mask-image:radial-gradient(ellipse closest-side at 50% 50%,#000 72%,transparent 100%)}
-.island .vid video{display:block;width:100%;height:auto}
+.island .vid{position:relative;overflow:hidden;line-height:0;aspect-ratio:1229/1015;-webkit-mask-image:linear-gradient(to right,transparent,#000 9%,#000 91%,transparent),linear-gradient(to bottom,transparent,#000 5%,#000 92%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 9%,#000 91%,transparent),linear-gradient(to bottom,transparent,#000 5%,#000 92%,transparent);mask-composite:intersect}
+/* le cadre est recentré sur l'iPhone : la vidéo est agrandie et rognée sur son vide gris */
+.island .vid video{position:absolute;display:block;width:156.25%;height:auto;left:-28.1%;top:-6.4%;max-width:none}
 .island ul{list-style:none;margin-top:34px;border-top:1px solid #DADAE0}
 .island li{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #DADAE0;font-size:16px}
 .island li b{font-weight:500;text-align:right}
