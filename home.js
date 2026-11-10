@@ -111,6 +111,10 @@
     ScrollTrigger.create({ trigger: el, start: 'top 88%', end: 'bottom 5%', onEnter: run, onEnterBack: run, onLeave: function () { if (tw) tw.kill(); el.textContent = '0'; }, onLeaveBack: function () { if (tw) tw.kill(); el.textContent = '0'; } });
   });
 
+  /* Réception : le titre, le texte puis l'encadré apparaissent l'un après l'autre (fondu + montée de 30 px) */
+  gsap.set('.recep .r1,.recep .r2,.recep .r3', { opacity: 0, y: 30 });
+  gsap.to('.recep .r1,.recep .r2,.recep .r3', { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', stagger: 0.28, scrollTrigger: { trigger: '.recep-txt', start: 'top 80%' } });
+
   /* Affiche : un simple fondu à l'arrivée */
   gsap.to('.fadeo', { opacity: 1, duration: 1.4, ease: 'power2.out', scrollTrigger: { trigger: '.fadeo', start: 'top 85%' } });
 
@@ -133,8 +137,8 @@
       gsap.set(b, { scale: 0.6, opacity: 0 });
       gsap.to(b, { scale: 1, opacity: 1, duration: 1.1, ease: 'elastic.out(1, 0.6)', scrollTrigger: { trigger: b.closest('.panel'), start: 'top 70%', once: true } });
     });
-    /* Photo de la tablette : léger fondu et très léger zoom (de 1,04 à 1) à l'arrivée */
-    gsap.fromTo('.tab-full img', { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, ease: 'none', scrollTrigger: { trigger: '.tab-full', start: 'top 95%', end: 'top 35%', scrub: true } });
+    /* Réception : l'image dézoome très légèrement au défilement (de 1,04 à 1) */
+    gsap.fromTo('.recep-bg', { scale: 1.04 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.recep', start: 'top bottom', end: 'center center', scrub: true } });
     /* Appareils : parallaxe et ouverture des deux images */
     document.querySelectorAll('[data-par]').forEach(function (img) {
       gsap.fromTo(img, { yPercent: -8 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
