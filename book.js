@@ -88,7 +88,7 @@
   function viewDone(j, email) {
     root.innerHTML = '<div class="bk-done"><div class="ok" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></div>' +
       '<h3>C\'est confirmé.</h3><p><b>' + esc(j.when || '') + '</b> (heure de Paris).</p>' +
-      '<p style="margin-top:8px">' + (j.mailed ? 'Un e-mail de confirmation vient d\'être envoyé à ' + esc(email) + '.' : 'Nous vous confirmons le rendez-vous par e-mail.') + '</p></div>';
+      '<p style="margin-top:8px">' + (j.mailed ? 'Une invitation, avec le lien de visioconférence, vient d\'être envoyée à ' + esc(email) + '.' : 'Nous vous confirmons le rendez-vous par e-mail.') + '</p></div>';
   }
 
   root.addEventListener('click', function (e) {

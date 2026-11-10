@@ -1,12 +1,10 @@
 // Outils communs pour la réservation d'un call : lecture de l'agenda Google MFV et création du rendez-vous.
+// Connexion Google faite une seule fois avec le compte qui possède l'agenda (scripts/google-auth.js).
 // Réglages à poser dans Vercel (Settings > Environment Variables) :
-//   GCAL_CLIENT_EMAIL  adresse du « compte de service » Google (finit par .iam.gserviceaccount.com)
-//   GCAL_PRIVATE_KEY   clé privée de ce compte (champ private_key du fichier JSON)
-//   GCAL_CALENDAR_ID   agenda à utiliser (en général l'adresse Google de l'agenda partagé)
-//   GCAL_MEET_URL      (facultatif) lien de visioconférence permanent à indiquer dans les e-mails
+//   GCAL_CLIENT_ID, GCAL_CLIENT_SECRET   identifiant OAuth créé dans Google Cloud (projet MFV Site)
+//   GCAL_REFRESH_TOKEN                   jeton obtenu par scripts/google-auth.js
+//   GCAL_CALENDAR_ID                     (facultatif) agenda à utiliser, « primary » par défaut
 // Tant que les trois premiers ne sont pas posés, les fonctions répondent 503 et le site renvoie vers la page démo.
-const crypto = require('crypto');
-
 const TZ = 'Europe/Paris';
 const SLOT_MIN = 30;          // durée d'un créneau
 const DAY_START = 9 * 60;     // 9h00
@@ -15,8 +13,9 @@ const MIN_NOTICE_H = 24;      // à réserver au moins 24 h à l'avance
 const HORIZON_DAYS = 30;      // jusqu'à 30 jours
 
 function configured() {
-  return Boolean(process.env.GCAL_CLIENT_EMAIL && process.env.GCAL_PRIVATE_KEY && process.env.GCAL_CALENDAR_ID);
+  return Boolean(process.env.GCAL_CLIENT_ID && process.env.GCAL_CLIENT_SECRET && process.env.GCAL_REFRESH_TOKEN);
 }
+const calId = () => process.env.GCAL_CALENDAR_ID || 'primary';
 
 /* Heure de Paris <-> UTC, sans bibliothèque */
 const fmt = new Intl.DateTimeFormat('en-US', { timeZone: TZ, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
@@ -56,16 +55,12 @@ function candidateSlots(nowMs) {
   return out;
 }
 
-/* Accès Google (compte de service, jeton signé RS256) */
+/* Accès Google (jeton renouvelable) */
 let token = null;
-const b64 = (b) => Buffer.from(b).toString('base64url');
 async function accessToken() {
   if (token && token.exp > Date.now() + 60000) return token.value;
-  const now = Math.floor(Date.now() / 1000);
-  const head = b64(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
-  const claim = b64(JSON.stringify({ iss: process.env.GCAL_CLIENT_EMAIL, scope: 'https://www.googleapis.com/auth/calendar', aud: 'https://oauth2.googleapis.com/token', iat: now, exp: now + 3600 }));
-  const sig = crypto.createSign('RSA-SHA256').update(head + '.' + claim).sign(process.env.GCAL_PRIVATE_KEY.replace(/\\n/g, '\n'), 'base64url');
-  const r = await fetch('https://oauth2.googleapis.com/token', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=' + head + '.' + claim + '.' + sig });
+  const body = new URLSearchParams({ client_id: process.env.GCAL_CLIENT_ID, client_secret: process.env.GCAL_CLIENT_SECRET, refresh_token: process.env.GCAL_REFRESH_TOKEN, grant_type: 'refresh_token' });
+  const r = await fetch('https://oauth2.googleapis.com/token', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body });
   const j = await r.json();
   if (!r.ok || !j.access_token) throw new Error('token ' + r.status);
   token = { value: j.access_token, exp: Date.now() + (j.expires_in || 3600) * 1000 };
@@ -78,7 +73,7 @@ async function gfetch(url, opts) {
   return j;
 }
 async function busy(fromMs, toMs) {
-  const id = process.env.GCAL_CALENDAR_ID;
+  const id = calId();
   const j = await gfetch('https://www.googleapis.com/calendar/v3/freeBusy', { method: 'POST', body: JSON.stringify({ timeMin: new Date(fromMs).toISOString(), timeMax: new Date(toMs).toISOString(), timeZone: TZ, items: [{ id }] }) });
   const c = j.calendars && j.calendars[id];
   if (!c || (c.errors && c.errors.length)) throw new Error('freebusy');
@@ -94,15 +89,16 @@ async function freeSlots(nowMs) {
   free.forEach((s) => { (days[s.day] = days[s.day] || []).push(s.time); });
   return { days, slots: free };
 }
-async function createEvent(startMs, summary, description) {
-  const id = encodeURIComponent(process.env.GCAL_CALENDAR_ID);
-  return gfetch('https://www.googleapis.com/calendar/v3/calendars/' + id + '/events', {
+async function createEvent(startMs, summary, description, attendee) {
+  const id = encodeURIComponent(calId());
+  return gfetch('https://www.googleapis.com/calendar/v3/calendars/' + id + '/events?conferenceDataVersion=1&sendUpdates=all', {
     method: 'POST',
     body: JSON.stringify({
       summary, description,
-      location: process.env.GCAL_MEET_URL || undefined,
       start: { dateTime: new Date(startMs).toISOString(), timeZone: TZ },
       end: { dateTime: new Date(startMs + SLOT_MIN * 60000).toISOString(), timeZone: TZ },
+      attendees: attendee ? [{ email: attendee.email, displayName: attendee.name }] : undefined,
+      conferenceData: { createRequest: { requestId: 'mfv-' + startMs + '-' + Math.random().toString(36).slice(2, 8), conferenceSolutionKey: { type: 'hangoutsMeet' } } },
       reminders: { useDefault: true },
     }),
   });
