@@ -144,9 +144,8 @@
     gsap.fromTo('#tiltImg', { xPercent: -1.6, yPercent: -1.2, scale: 1 }, { xPercent: 1.6, yPercent: 1.2, scale: 1.04, ease: 'none', scrollTrigger: { trigger: '#tilt', start: 'top bottom', end: 'bottom top', scrub: true } });
     /* Vos gains : le tableau de bord se redresse */
     gsap.fromTo('#gshot', { scale: 0.86, rotateX: 14, y: 60 }, { scale: 1, rotateX: 0, y: 0, ease: 'none', transformPerspective: 1400, scrollTrigger: { trigger: '#gshot', start: 'top 95%', end: 'top 25%', scrub: true } });
-    /* Démo : la carte de visite flotte et tourne légèrement ; le grand « MFV Systems » du pied de page monte */
+    /* Démo : la carte de visite flotte et tourne légèrement */
     gsap.fromTo('#dcard', { y: 80, rotate: -4 }, { y: -60, rotate: 2, ease: 'none', scrollTrigger: { trigger: '.demo', start: 'top bottom', end: 'bottom top', scrub: true } });
-    gsap.from('footer .huge', { yPercent: 60, ease: 'none', scrollTrigger: { trigger: 'footer', start: 'top bottom', end: 'bottom bottom', scrub: true } });
     var panels = gsap.utils.toArray('.panel');
     panels.forEach(function (p, i) {
       if (i < panels.length - 1) gsap.to(p, { scale: 0.94, ease: 'none', scrollTrigger: { trigger: panels[i + 1], start: 'top bottom', end: 'top 12%', scrub: true } });
