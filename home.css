@@ -165,10 +165,7 @@ nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 .panel:nth-child(3) .more{color:#fff}
 .panel .vis{position:relative}
 .panel .vis .card{position:absolute;height:auto;border-radius:14px;box-shadow:0 30px 60px rgba(20,16,60,.16);background:#fff;will-change:transform}
-.panel .vis .cw{box-shadow:none;background:none;border-radius:0}
-.panel .vis .cw>img:first-child{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 30px 60px rgba(20,16,60,.16);background:#fff}
-.panel .vis .bdg{position:absolute;top:-28px;right:-28px;width:64px;height:64px;border-radius:0;box-shadow:none;background:none;filter:drop-shadow(0 12px 24px rgba(20,16,60,.25));pointer-events:none;will-change:transform}
-.panel .vis .bdg-up{top:-58px}
+.panel .bdg{position:absolute;z-index:5;top:32px;right:32px;width:72px;height:72px;filter:drop-shadow(0 12px 24px rgba(20,16,60,.25));pointer-events:none;will-change:transform}
 .panel .vis .rb{will-change:transform;position:absolute;inset:0;background:url(/assets/home/fond3.webp) center/cover;opacity:.5;animation:drift 16s ease-in-out infinite alternate}
 
 /* CHIFFRES */
@@ -368,8 +365,7 @@ footer .huge{font-size:17.5vw;letter-spacing:-.07em;line-height:.8;margin-top:8v
   .panel{position:relative;top:0;height:auto;min-height:0;grid-template-columns:1fr;margin-bottom:20px;transform:none!important;opacity:1!important}
   .panel .txt{padding:28px 24px;gap:24px}
   .panel .vis{height:360px}
-  .panel .vis .bdg{width:48px;height:48px;top:-16px;right:-10px}
-  .panel .vis .bdg-up{top:-44px}
+  .panel .bdg{width:52px;height:52px;top:20px;right:20px}
   .nums{padding:12vh 0}
   .nums .row,.nums .photo{grid-template-columns:1fr}
   .nums .cell{padding:28px 0 12px}
