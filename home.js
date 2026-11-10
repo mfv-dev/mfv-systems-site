@@ -3,6 +3,21 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var nav = document.getElementById('nav');
 
+  /* Simulateur de commissions (fonctionne sans animation) */
+  var eur = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+  var nb = function (s) { return s.replace(/\u202f/g, '\u00a0'); };
+  var $ = function (id) { return document.getElementById(id); };
+  if ($('rooms')) {
+    var sim = function () {
+      var r = +$('rooms').value, o = +$('occ').value, a = +$('adr').value, s = +$('ota').value, c = +$('com').value;
+      $('vRooms').textContent = r; $('vOcc').textContent = o + ' %'; $('vAdr').textContent = nb(eur.format(a));
+      $('vOta').textContent = s + ' %'; $('vCom').textContent = c + ' %';
+      $('oPaid').textContent = nb(eur.format(r * 365 * (o / 100) * a * (s / 100) * (c / 100)));
+    };
+    ['rooms', 'occ', 'adr', 'ota', 'com'].forEach(function (i) { $(i).addEventListener('input', sim); });
+    sim();
+  }
+
   /* Menu : sous-menus et bouton mobile */
   var items = document.querySelectorAll('.nv');
   function closeAll(except) {
