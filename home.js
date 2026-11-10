@@ -30,6 +30,7 @@
     lines.concat(after).forEach(function (e) { e.style.transform = 'none'; e.style.opacity = 1; });
     document.querySelectorAll('video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); });
     document.querySelectorAll('.fade').forEach(function (e) { e.style.opacity = 1; e.style.transform = 'none'; });
+    document.querySelectorAll('.cnt').forEach(function (c) { c.textContent = c.dataset.to; });
     return;
   }
   setTimeout(loadFrame, 350 + lines.length * 750 + 1200);
@@ -59,6 +60,15 @@
     });
   }
 
+
+  /* Chiffres : les compteurs défilent à l'entrée (ordinateur et mobile) */
+  document.querySelectorAll('.cnt').forEach(function (el) {
+    var to = +el.dataset.to, o = { v: 0 };
+    ScrollTrigger.create({ trigger: el, start: 'top 85%', once: true, onEnter: function () {
+      gsap.to(o, { v: to, duration: 2, ease: 'power3.out', onUpdate: function () { el.textContent = Math.round(o.v); } });
+    } });
+  });
+
   /* Affiche : un simple fondu à l'arrivée */
   gsap.to('.fadeo', { opacity: 1, duration: 1.4, ease: 'power2.out', scrollTrigger: { trigger: '.fadeo', start: 'top 85%' } });
 
@@ -80,6 +90,13 @@
     gsap.utils.toArray('.bdg').forEach(function (b) {
       gsap.set(b, { scale: 0.6, opacity: 0 });
       gsap.to(b, { scale: 1, opacity: 1, duration: 1.1, ease: 'elastic.out(1, 0.6)', scrollTrigger: { trigger: b.closest('.panel'), start: 'top 70%', once: true } });
+    });
+    /* Photo de la réception : elle s'ouvre (clip-path) et glisse doucement à l'intérieur de son cadre */
+    document.querySelectorAll('[data-par]').forEach(function (img) {
+      gsap.fromTo(img, { yPercent: -8 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
+    });
+    gsap.utils.toArray('.nums .ph').forEach(function (ph) {
+      gsap.from(ph, { clipPath: 'inset(12% 12% 12% 12% round 22px)', ease: 'none', scrollTrigger: { trigger: ph, start: 'top 95%', end: 'top 35%', scrub: true } });
     });
     var panels = gsap.utils.toArray('.panel');
     panels.forEach(function (p, i) {
