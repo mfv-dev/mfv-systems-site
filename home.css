@@ -122,6 +122,13 @@ nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 .better h2{position:relative;font-size:clamp(56px,9vw,160px);text-align:center}
 @keyframes drift{from{transform:translate3d(-3%,2%,0) scale(1.05)}to{transform:translate3d(3%,-2%,0) scale(1.12)}}
 
+/* RAPPEL : appel à l'action en haut de page */
+.rappel{background:#fff;padding:18vh 0 16vh;text-align:center}
+.rappel h2{font-size:clamp(40px,5.4vw,92px);line-height:1.02;letter-spacing:-.045em;font-weight:400;max-width:15em;margin:0 auto}
+.rappel h2 span{color:var(--indigo)}
+.rappel .ctas{margin-top:44px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.rappel p{margin-top:20px;font-size:15px;color:var(--mute)}
+
 /* AFFICHE : statique, pleine largeur */
 .poster{background:#EFEFF2;line-height:0}
 .poster img{display:block;width:100%;height:auto}
@@ -349,6 +356,7 @@ footer .legal a:hover{color:#fff}
   .hero{min-height:640px}
   .hero .lead{font-size:18px;margin-top:26px}
   .bookwrap{display:none}
+  .rappel{padding:12vh 0 10vh}
   .manifesto{padding:14vh 0 10vh}
   .manifesto .row{grid-template-columns:1fr;gap:24px}
   .better{height:auto}.better .pin{position:relative;height:70vh}
