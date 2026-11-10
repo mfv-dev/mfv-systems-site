@@ -70,10 +70,9 @@
     gsap.to(el, { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
   });
 
-  /* « Il existe une meilleure façon » : le titre se précise puis s'efface (ordinateur seulement, rien d'épinglé sur mobile) */
+  /* « Il existe une meilleure façon » : le titre se précise et reste écrit jusqu'à la fin de la section (ordinateur seulement, rien d'épinglé sur mobile) */
   gsap.matchMedia().add('(min-width: 901px)', function () {
     gsap.fromTo('#betterT', { scale: 0.7, opacity: 0, filter: 'blur(8px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', ease: 'none', scrollTrigger: { trigger: '#better', start: 'top 70%', end: 'center center', scrub: true } });
-    gsap.to('#betterT', { yPercent: -40, opacity: 0, ease: 'none', scrollTrigger: { trigger: '#better', start: 'center top', end: 'bottom top', scrub: true } });
   });
   /* Rubans animés en CSS : en pause hors écran */
   if ('IntersectionObserver' in window) {

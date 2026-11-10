@@ -132,7 +132,7 @@ nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 .island .grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:40px;align-items:center}
 .island h2{font-size:clamp(40px,4.6vw,76px);margin:22px 0 26px}
 .island p{font-size:19px;line-height:1.5;color:var(--mute);max-width:460px}
-.island .vid{line-height:0}
+.island .vid{line-height:0;-webkit-mask-image:radial-gradient(ellipse closest-side at 50% 50%,#000 72%,transparent 100%);mask-image:radial-gradient(ellipse closest-side at 50% 50%,#000 72%,transparent 100%)}
 .island .vid video{display:block;width:100%;height:auto}
 .island ul{list-style:none;margin-top:34px;border-top:1px solid #DADAE0}
 .island li{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #DADAE0;font-size:16px}
