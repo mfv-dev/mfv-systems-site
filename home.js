@@ -61,12 +61,15 @@
   }
 
 
-  /* Chiffres : les compteurs défilent à l'entrée (ordinateur et mobile) */
+  /* Chiffres : les compteurs repartent de 0 et défilent à chaque fois que la section entre à l'écran */
   document.querySelectorAll('.cnt').forEach(function (el) {
-    var to = +el.dataset.to, o = { v: 0 };
-    ScrollTrigger.create({ trigger: el, start: 'top 85%', once: true, onEnter: function () {
-      gsap.to(o, { v: to, duration: 2, ease: 'power3.out', onUpdate: function () { el.textContent = Math.round(o.v); } });
-    } });
+    var to = +el.dataset.to, o = { v: 0 }, tw = null;
+    function run() {
+      if (tw) tw.kill();
+      o.v = 0; el.textContent = '0';
+      tw = gsap.to(o, { v: to, duration: 2, ease: 'power3.out', onUpdate: function () { el.textContent = Math.round(o.v); } });
+    }
+    ScrollTrigger.create({ trigger: el, start: 'top 88%', end: 'bottom 5%', onEnter: run, onEnterBack: run, onLeave: function () { if (tw) tw.kill(); el.textContent = '0'; }, onLeaveBack: function () { if (tw) tw.kill(); el.textContent = '0'; } });
   });
 
   /* Affiche : un simple fondu à l'arrivée */
