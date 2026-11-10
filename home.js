@@ -73,6 +73,15 @@
   /* « Il existe une meilleure façon » : le titre se précise et reste écrit jusqu'à la fin de la section (ordinateur seulement, rien d'épinglé sur mobile) */
   gsap.matchMedia().add('(min-width: 901px)', function () {
     gsap.fromTo('#betterT', { scale: 0.7, opacity: 0, filter: 'blur(8px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', ease: 'none', scrollTrigger: { trigger: '#better', start: 'top 70%', end: 'center center', scrub: true } });
+
+    /* Quatre produits : chaque panneau recule quand le suivant arrive, et les cartes d'interface flottent à leur propre vitesse */
+    var panels = gsap.utils.toArray('.panel');
+    panels.forEach(function (p, i) {
+      if (i < panels.length - 1) gsap.to(p, { scale: 0.94, ease: 'none', scrollTrigger: { trigger: panels[i + 1], start: 'top bottom', end: 'top 12%', scrub: true } });
+      p.querySelectorAll('.card').forEach(function (c) {
+        gsap.fromTo(c, { y: -(+c.dataset.sp) }, { y: +c.dataset.sp, ease: 'none', scrollTrigger: { trigger: p, start: 'top bottom', end: 'bottom top', scrub: true } });
+      });
+    });
   });
   /* Rubans animés en CSS : en pause hors écran */
   if ('IntersectionObserver' in window) {
