@@ -60,6 +60,26 @@
     var o = !nav.classList.contains('open'); nav.classList.toggle('open', o); mb.setAttribute('aria-expanded', o ? 'true' : 'false');
   });
 
+  /* « Il existe une meilleure façon » : la phrase du dessous se révèle mot par mot */
+  var bs = document.getElementById('betterS');
+  if (bs) {
+    bs.setAttribute('aria-label', bs.textContent.trim().replace(/\s+/g, ' '));
+    (function cut(node) {
+      [].slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (t) {
+            if (!t) return;
+            if (/^\s+$/.test(t)) frag.appendChild(document.createTextNode(' '));
+            else { var s = document.createElement('span'); s.className = 'w2'; s.setAttribute('aria-hidden', 'true'); s.textContent = t; frag.appendChild(s); }
+          });
+          node.replaceChild(frag, n);
+        } else if (n.nodeType === 1) cut(n);
+      });
+    })(bs);
+    bs.classList.add('sp');
+  }
+
   /* Hero : un mot, une pause, le suivant (version validée hero_mots) */
   var video = document.querySelector('.hero video');
   var lines = [].slice.call(document.querySelectorAll('.hero h1 .ln>span')), after = [].slice.call(document.querySelectorAll('.hero .after'));
@@ -110,25 +130,6 @@
     }
     ScrollTrigger.create({ trigger: el, start: 'top 88%', end: 'bottom 5%', onEnter: run, onEnterBack: run, onLeave: function () { if (tw) tw.kill(); el.textContent = '0'; }, onLeaveBack: function () { if (tw) tw.kill(); el.textContent = '0'; } });
   });
-
-  /* « Il existe une meilleure façon » : la phrase du dessous se révèle mot par mot */
-  var bs = document.getElementById('betterS');
-  if (bs) {
-    bs.setAttribute('aria-label', bs.textContent.trim().replace(/\s+/g, ' '));
-    (function cut(node) {
-      [].slice.call(node.childNodes).forEach(function (n) {
-        if (n.nodeType === 3) {
-          var frag = document.createDocumentFragment();
-          n.textContent.split(/(\s+)/).forEach(function (t) {
-            if (!t) return;
-            if (/^\s+$/.test(t)) frag.appendChild(document.createTextNode(' '));
-            else { var s = document.createElement('span'); s.className = 'w2'; s.setAttribute('aria-hidden', 'true'); s.textContent = t; frag.appendChild(s); }
-          });
-          node.replaceChild(frag, n);
-        } else if (n.nodeType === 1) cut(n);
-      });
-    })(bs);
-  }
 
   /* Réception : le titre, le texte puis l'encadré apparaissent l'un après l'autre (fondu + montée de 30 px) */
   gsap.set('.recep .r1,.recep .r2,.recep .r3', { opacity: 0, y: 30 });
