@@ -138,7 +138,7 @@ nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 .island .grid{display:grid;grid-template-columns:.66fr 1.34fr;gap:40px;align-items:center}
 .island h2{font-size:clamp(40px,4.6vw,76px);margin:22px 0 26px}
 .island p{font-size:19px;line-height:1.5;color:var(--mute);max-width:460px}
-.island .vid{position:relative;overflow:hidden;line-height:0;aspect-ratio:1229/1015;-webkit-mask-image:linear-gradient(to right,transparent,#000 9%,#000 91%,transparent),linear-gradient(to bottom,transparent,#000 5%,#000 92%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 9%,#000 91%,transparent),linear-gradient(to bottom,transparent,#000 5%,#000 92%,transparent);mask-composite:intersect}
+.island .vid{position:relative;overflow:hidden;line-height:0;aspect-ratio:1229/1015;width:80%;margin:0 auto;-webkit-mask-image:linear-gradient(to right,transparent,#000 9%,#000 91%,transparent),linear-gradient(to bottom,transparent,#000 5%,#000 92%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 9%,#000 91%,transparent),linear-gradient(to bottom,transparent,#000 5%,#000 92%,transparent);mask-composite:intersect}
 /* le cadre est recentré sur l'iPhone : la vidéo est agrandie et rognée sur son vide gris */
 .island .vid video{position:absolute;display:block;width:156.25%;height:auto;left:-28.1%;top:-6.4%;max-width:none}
 .island ul{list-style:none;margin-top:34px;border-top:1px solid #DADAE0}
@@ -361,6 +361,7 @@ footer .legal a:hover{color:#fff}
   .better{height:auto}.better .pin{position:relative;min-height:70vh;padding:12vh 0}
   .island{padding:12vh 0}
   .island .grid{grid-template-columns:1fr;gap:40px}
+  .island .vid{width:100%}
   .steps{grid-template-columns:1fr 1fr;gap:24px;margin-top:8vh}
   .products{padding:12vh 0 6vh}
   .products .head{flex-direction:column;align-items:flex-start;gap:20px}
