@@ -84,7 +84,7 @@
   });
 
   /* Menu : défilement lissé, opaque après 40 px, se cache en descendant */
-  if (!window.gsap || !window.ScrollTrigger) return;
+  if (!window.gsap || !window.ScrollTrigger) { var bb = document.getElementById('betterB'); if (bb) { bb.style.opacity = 1; bb.style.visibility = 'visible'; } return; }
   gsap.registerPlugin(ScrollTrigger);
   if (window.Lenis) {
     var lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
@@ -147,13 +147,18 @@
 
   /* Mobile : la phrase se révèle mot par mot à l'entrée (rien d'épinglé) */
   gsap.matchMedia().add('(max-width: 900px)', function () {
-    gsap.to('#betterS .w2', { opacity: 1, stagger: 0.12, ease: 'none', scrollTrigger: { trigger: '#betterS', start: 'top 85%', end: 'bottom 55%', scrub: true } });
+    gsap.timeline({ scrollTrigger: { trigger: '#betterS', start: 'top 85%', end: 'bottom 40%', scrub: true } })
+      .to('#betterS .w2', { opacity: 1, stagger: 0.12, ease: 'none' })
+      .fromTo('#betterB', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.7, ease: 'none' });
   });
 
   /* « Il existe une meilleure façon » : le titre se précise et reste écrit jusqu'à la fin de la section (ordinateur seulement, rien d'épinglé sur mobile) */
   gsap.matchMedia().add('(min-width: 901px)', function () {
     gsap.fromTo('#betterT', { scale: 0.7, opacity: 0, filter: 'blur(8px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', ease: 'none', scrollTrigger: { trigger: '#better', start: 'top 70%', end: 'center center', scrub: true } });
-    gsap.to('#betterS .w2', { opacity: 1, stagger: 0.12, ease: 'none', scrollTrigger: { trigger: '#better', start: 'center center', end: 'bottom bottom', scrub: true } });
+    /* d'abord les mots, puis, tout à la fin du défilement, le bouton */
+    gsap.timeline({ scrollTrigger: { trigger: '#better', start: 'center center', end: 'bottom bottom', scrub: true } })
+      .to('#betterS .w2', { opacity: 1, stagger: 0.12, ease: 'none' })
+      .fromTo('#betterB', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.7, ease: 'none' });
 
     /* Quatre produits : chaque panneau recule quand le suivant arrive, et les cartes d'interface flottent à leur propre vitesse */
 
