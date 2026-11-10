@@ -101,6 +101,10 @@
     gsap.utils.toArray('.nums .ph').forEach(function (ph) {
       gsap.from(ph, { clipPath: 'inset(12% 12% 12% 12% round 22px)', ease: 'none', scrollTrigger: { trigger: ph, start: 'top 95%', end: 'top 35%', scrub: true } });
     });
+    /* Grille de slides : elle glisse en diagonale en dézoomant */
+    gsap.fromTo('#tiltImg', { xPercent: -44, yPercent: -56, scale: 1.18 }, { xPercent: -56, yPercent: -44, scale: 1, ease: 'none', scrollTrigger: { trigger: '#tilt', start: 'top bottom', end: 'bottom top', scrub: true } });
+    /* Vos gains : le tableau de bord se redresse */
+    gsap.fromTo('#gshot', { scale: 0.86, rotateX: 14, y: 60 }, { scale: 1, rotateX: 0, y: 0, ease: 'none', transformPerspective: 1400, scrollTrigger: { trigger: '#gshot', start: 'top 95%', end: 'top 25%', scrub: true } });
     var panels = gsap.utils.toArray('.panel');
     panels.forEach(function (p, i) {
       if (i < panels.length - 1) gsap.to(p, { scale: 0.94, ease: 'none', scrollTrigger: { trigger: panels[i + 1], start: 'top bottom', end: 'top 12%', scrub: true } });
