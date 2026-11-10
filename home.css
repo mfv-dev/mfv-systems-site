@@ -177,12 +177,12 @@ nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 .nums .cell .n{font-size:clamp(70px,9vw,150px);letter-spacing:-.06em;line-height:1;white-space:nowrap}
 .nums .cell .n small{font-size:.45em;letter-spacing:-.02em}
 .nums .cell p{margin-top:18px;color:#9A9AA6;font-size:16px;line-height:1.5;max-width:300px}
-.nums .photo{margin-top:16vh;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.nums .photo .ph{border-radius:22px 22px 22px 90px;overflow:hidden;height:72vh}
-.nums .photo .ph img{width:100%;height:120%;object-fit:cover;will-change:transform;max-width:none}
-.nums .photo h3{font-size:clamp(34px,3.6vw,58px)}
-.nums .photo p{margin-top:24px;color:#9A9AA6;font-size:18px;line-height:1.55;max-width:460px}
-.nums .law{margin-top:34px;border:1px solid #2A2A33;border-radius:14px;padding:22px 24px;font-size:15px;line-height:1.5;color:#C9C9D2;max-width:460px}
+.nums .tab-full{margin:16vh 0 0;line-height:0}
+.nums .tab-full img{display:block;width:100%;height:auto;will-change:transform,opacity}
+.nums .photo2{margin-top:10vh;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.nums .photo2 h3{font-size:clamp(34px,3.6vw,58px)}
+.nums .photo2 p{color:#9A9AA6;font-size:18px;line-height:1.55;max-width:520px}
+.nums .law{margin-top:30px;border:1px solid #2A2A33;border-radius:14px;padding:22px 24px;font-size:15px;line-height:1.5;color:#C9C9D2;max-width:460px}
 .nums .law b{color:#fff;font-weight:500}
 .nums .law small{display:block;margin-top:10px;font-size:13px;color:#8F8F9A}
 
@@ -358,10 +358,10 @@ footer .legal a:hover{color:#fff}
   .panel .vis{height:360px}
   .panel .bdg{width:52px;height:52px;top:20px;right:20px}
   .nums{padding:12vh 0}
-  .nums .row,.nums .photo{grid-template-columns:1fr}
+  .nums .row,.nums .photo2{grid-template-columns:1fr}
   .nums .cell{padding:28px 0 12px}
-  .nums .photo{margin-top:10vh;gap:32px}
-  .nums .photo .ph{height:56vh}
+  .nums .tab-full{margin-top:10vh}
+  .nums .photo2{margin-top:6vh;gap:28px}
   .tilt{height:60vw}
   .gains{padding:12vh 0 10vh}
   .gains .head{grid-template-columns:1fr;gap:24px}

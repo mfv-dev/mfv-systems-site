@@ -133,11 +133,13 @@
       gsap.set(b, { scale: 0.6, opacity: 0 });
       gsap.to(b, { scale: 1, opacity: 1, duration: 1.1, ease: 'elastic.out(1, 0.6)', scrollTrigger: { trigger: b.closest('.panel'), start: 'top 70%', once: true } });
     });
-    /* Photo de la réception : elle s'ouvre (clip-path) et glisse doucement à l'intérieur de son cadre */
+    /* Photo de la tablette : léger fondu et très léger zoom (de 1,04 à 1) à l'arrivée */
+    gsap.fromTo('.tab-full img', { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, ease: 'none', scrollTrigger: { trigger: '.tab-full', start: 'top 95%', end: 'top 35%', scrub: true } });
+    /* Appareils : parallaxe et ouverture des deux images */
     document.querySelectorAll('[data-par]').forEach(function (img) {
       gsap.fromTo(img, { yPercent: -8 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
     });
-    gsap.utils.toArray('.nums .ph,.dev .ph').forEach(function (ph) {
+    gsap.utils.toArray('.dev .ph').forEach(function (ph) {
       gsap.from(ph, { clipPath: 'inset(12% 12% 12% 12% round 22px)', ease: 'none', scrollTrigger: { trigger: ph, start: 'top 95%', end: 'top 35%', scrub: true } });
     });
     /* Grille de slides : très léger glissement et zoom de 1 à 1,04 au plus */
