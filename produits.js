@@ -45,6 +45,39 @@
     seoDraw = draw;
   }
 
+  /* Forme organique (page équipe) : un contour qui respire, un dégradé irisé qui tourne, un reflet qui glisse */
+  var blob = document.getElementById('bl-p0');
+  if (blob) {
+    var P = ['bl-p0', 'bl-p1', 'bl-p2', 'bl-p3'].map(function (id) { return document.getElementById(id); });
+    var g1 = document.getElementById('bl-g1'), gl = document.getElementById('bl-gl'), N = 36, running = false;
+    var draw = function (t) {
+      var pts = [];
+      for (var i = 0; i < N; i++) {
+        var a = (i / N) * Math.PI * 2;
+        var r = 74 * (1 + 0.085 * Math.sin(2 * a + t * 0.7 + 1.3) + 0.065 * Math.sin(3 * a - t * 0.5 + 0.4) + 0.04 * Math.sin(5 * a + t * 0.9) + 0.02 * Math.sin(7 * a - t * 1.1));
+        pts.push([r * Math.cos(a), r * Math.sin(a)]);
+      }
+      var d = 'M' + pts[0][0].toFixed(2) + ',' + pts[0][1].toFixed(2);
+      for (var k = 0; k < N; k++) {
+        var p0 = pts[(k - 1 + N) % N], p1 = pts[k], p2 = pts[(k + 1) % N], p3 = pts[(k + 2) % N];
+        d += 'C' + (p1[0] + (p2[0] - p0[0]) / 6).toFixed(2) + ',' + (p1[1] + (p2[1] - p0[1]) / 6).toFixed(2) + ' ' + (p2[0] - (p3[0] - p1[0]) / 6).toFixed(2) + ',' + (p2[1] - (p3[1] - p1[1]) / 6).toFixed(2) + ' ' + p2[0].toFixed(2) + ',' + p2[1].toFixed(2);
+      }
+      d += 'Z';
+      P.forEach(function (p) { p.setAttribute('d', d); });
+      var ang = t * 0.22;
+      g1.setAttribute('x1', (-90 * Math.cos(ang)).toFixed(1)); g1.setAttribute('y1', (-90 * Math.sin(ang)).toFixed(1));
+      g1.setAttribute('x2', (90 * Math.cos(ang)).toFixed(1)); g1.setAttribute('y2', (90 * Math.sin(ang)).toFixed(1));
+      var gx = -38 + 6 * Math.sin(t * 0.6), gy = -52 + 4 * Math.cos(t * 0.5);
+      gl.setAttribute('cx', gx.toFixed(1)); gl.setAttribute('cy', gy.toFixed(1)); gl.setAttribute('transform', 'rotate(-35 ' + gx.toFixed(1) + ' ' + gy.toFixed(1) + ')');
+    };
+    draw(2);
+    if (!reduce) {
+      var t0 = performance.now(), loop = function () { if (!running) return; draw((performance.now() - t0) / 1000 + 2); requestAnimationFrame(loop); };
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { es.forEach(function (x) { var on = x.isIntersecting; if (on && !running) { running = true; requestAnimationFrame(loop); } else if (!on) running = false; }); }, { rootMargin: '100px' }).observe(blob.closest('.blob'));
+      else { running = true; requestAnimationFrame(loop); }
+    }
+  }
+
   var cnt = document.querySelector('.cntd');
   if (reduce) { if (cnt) cnt.textContent = cnt.dataset.to; if (seoDraw) seoDraw(1); return; }
   if (!window.gsap || !window.ScrollTrigger) { if (cnt) cnt.textContent = cnt.dataset.to; if (seoDraw) seoDraw(1); return; }
