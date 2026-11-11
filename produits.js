@@ -13,11 +13,48 @@
     });
   });
 
+  /* Insight, Référencement : la recherche Google se remplit et le site monte à la première place */
+  var seoDraw = null;
+  if (document.getElementById('res')) {
+    var $ = function (id) { return document.getElementById(id); };
+    const R=[['comparateur-hotels.fr','Hôtels à Paris Opéra : comparez les prix','Plus de 300 hôtels autour de l’Opéra, réservez en ligne.'],
+   ['plateforme-voyage.com','Les 10 meilleurs hôtels boutique de Paris','Notre sélection 2026 d’hôtels de charme dans le 9e arrondissement.'],
+   ['guide-paris.fr','Où dormir près de l’Opéra Garnier ?','Quartiers, adresses et conseils pour votre séjour à Paris.'],
+   ['reserver-hotel.com','Hôtel Opéra Paris · Offres du moment','Réservez maintenant, payez sur place. Annulation gratuite.'],
+   ['avis-voyageurs.com','Hôtels boutique Paris : avis et photos','Découvrez les avis des voyageurs sur les hôtels du quartier.'],
+   ['blog-escapade.fr','Un week-end à Paris côté Opéra','Nos adresses préférées pour un séjour élégant.'],
+   ['annuaire-hotels.fr','Liste des hôtels du 9e arrondissement','Coordonnées et catégories des hôtels parisiens.']];
+   const me=['hotel-paris-opera.fr','Hôtel Paris Opéra · Site officiel','Hôtel indépendant au cœur de l’Opéra. Meilleur tarif garanti en réservant en direct.'];
+   const box=$('res'), H=76, els=[];
+   R.forEach(r=>{const d=document.createElement('div');d.className='r';d.innerHTML=`<div class="u"><i></i>${r[0]}</div><div class="t">${r[1]}</div><div class="d">${r[2]}</div>`;box.appendChild(d);els.push(d)});
+   const m=document.createElement('div');m.className='r me';m.innerHTML=`<div class="u"><i></i>${me[0]}</div><div class="t">${me[1]}</div><div class="d">${me[2]}</div><span class="pos" id="posTag">#8</span>`;box.appendChild(m);
+   const Q='hôtel boutique paris opéra',q=$('q'),line=$('kLine'),L=line.getTotalLength();line.style.strokeDasharray=L;
+   function draw(p){ // p 0..1
+    q.textContent=Q.slice(0,Math.round(Math.min(1,p/0.18)*Q.length));
+    const k=Math.min(1,Math.max(0,(p-0.22)/0.6)), e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+    const pos=7-7*e; // 7 -> 0 index
+    m.style.top=(pos*H+2)+'px';
+    els.forEach((d,i)=>{const slot=i<Math.round(pos)?i:i+1; const shift=(i>=pos-1&&i<pos)?0:0; d.style.top=((i>=pos?i+1:i)*H+8)+'px'; d.style.opacity=1});
+    const P=Math.max(1,Math.round(8-7*e)); $('kPos').textContent=P; $('posTag').textContent='#'+P;
+    $('kClk').textContent=Math.round(120+(1840-120)*e).toLocaleString('fr-FR');
+    line.style.strokeDashoffset=L*(1-e);
+   }
+   els.forEach(d=>d.style.transition='top .35s cubic-bezier(.16,1,.3,1)');m.style.transition='top .35s cubic-bezier(.16,1,.3,1)';
+   draw(0);
+   if(matchMedia('(max-width:900px)').matches){ScrollTrigger.create({trigger:'#seo',start:'top 70%',once:true,onEnter:()=>{const o={p:0};gsap.to(o,{p:1,duration:4,ease:'none',onUpdate:()=>draw(o.p)})}})}
+    seoDraw = draw;
+  }
+
   var cnt = document.querySelector('.cntd');
-  if (reduce) { if (cnt) cnt.textContent = cnt.dataset.to; return; }
-  if (!window.gsap || !window.ScrollTrigger) { if (cnt) cnt.textContent = cnt.dataset.to; return; }
+  if (reduce) { if (cnt) cnt.textContent = cnt.dataset.to; if (seoDraw) seoDraw(1); return; }
+  if (!window.gsap || !window.ScrollTrigger) { if (cnt) cnt.textContent = cnt.dataset.to; if (seoDraw) seoDraw(1); return; }
   gsap.registerPlugin(ScrollTrigger);
   var E = 'expo.out';
+  /* Référencement : ordinateur = section épinglée (320 vh) qui suit le scroll ; mobile = 4 s à l'entrée */
+  if (seoDraw) {
+    if (matchMedia('(max-width:900px)').matches) ScrollTrigger.create({ trigger: '#seo', start: 'top 70%', once: true, onEnter: function () { var o = { p: 0 }; gsap.to(o, { p: 1, duration: 4, ease: 'none', onUpdate: function () { seoDraw(o.p); } }); } });
+    else ScrollTrigger.create({ trigger: '#seo', start: 'top top', end: 'bottom bottom', scrub: true, onUpdate: function (s) { seoDraw(s.progress); } });
+  }
 
   /* Hero : l'image s'ouvre, le titre monte, le reste suit */
   gsap.from('.phero .vis', { clipPath: 'inset(8% 8% 8% 8% round 20px)', opacity: 0, duration: 1.6, ease: E });
