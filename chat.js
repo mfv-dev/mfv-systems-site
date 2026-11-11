@@ -86,7 +86,7 @@
     if (o) { if (!log.children.length) greet(); setTimeout(function () { input.focus({ preventScroll: true }); }, 250); } else bubble.focus({ preventScroll: true });
   }
 
-  window.MFVChat = { start: function () {
+  window.MFVChat = { open: function () { if (!started) window.MFVChat.start(); setOpen(true); }, start: function () {
     if (started) return; started = true;
     document.body.appendChild(root);
     panel = $('ai-panel'); log = $('ai-log'); sg = $('ai-sg'); form = $('ai-f'); input = $('ai-in'); bubble = $('ai-b');

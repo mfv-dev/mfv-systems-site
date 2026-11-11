@@ -78,6 +78,15 @@
     }
   }
 
+  /* Page équipe : la discussion s'ouvre quand on passe le curseur sur la forme (ou au clavier) */
+  var trig = document.querySelector('.eq .blob');
+  if (trig) {
+    var openChat = function () { if (window.MFVChat) window.MFVChat.open(); };
+    trig.addEventListener('mouseenter', openChat);
+    trig.addEventListener('click', openChat);
+    trig.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openChat(); } });
+  }
+
   var cnt = document.querySelector('.cntd');
   if (reduce) { if (cnt) cnt.textContent = cnt.dataset.to; if (seoDraw) seoDraw(1); return; }
   if (!window.gsap || !window.ScrollTrigger) { if (cnt) cnt.textContent = cnt.dataset.to; if (seoDraw) seoDraw(1); return; }
