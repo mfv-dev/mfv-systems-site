@@ -44,7 +44,7 @@
 .pg .eq-sec{padding:12vh 0}
 .pg .fnd{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:7vh}
 .pg .fnd article{background:var(--grey);border-radius:22px;overflow:hidden}
-.pg .fnd img{width:100%;height:auto;aspect-ratio:1/1.02;object-fit:cover;object-position:50% 20%;display:block}
+.pg .fnd img{width:100%;height:auto;aspect-ratio:1/.82;object-fit:cover;object-position:50% 16%;display:block}
 .pg .fnd .tx{padding:28px 30px 34px}
 .pg .fnd h3{font-size:28px;letter-spacing:-.035em}
 .pg .fnd .role{margin-top:6px;font-size:14px;color:var(--indigo);font-weight:500}
@@ -68,6 +68,20 @@
 .pg .tech-p span{display:block;margin-top:4px;font-size:14px;color:var(--mute)}
 .pg .tech-t-unused{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
 
+
+/* Président au-dessus des fondateurs */
+.pg .pres{display:grid;grid-template-columns:minmax(0,320px) 1fr;max-width:920px;margin:7vh auto 0;background:var(--grey);border-radius:22px;overflow:hidden}
+.pg .pres img{width:100%;height:100%;min-height:380px;object-fit:cover;object-position:50% 22%;display:block}
+.pg .pres .tx{padding:34px 36px;align-self:center}
+.pg .pres h3{font-size:28px;letter-spacing:-.035em}
+.pg .pres .role{margin-top:6px;font-size:14px;color:var(--indigo);font-weight:500}
+.pg .pres p{margin-top:16px;font-size:15.5px;line-height:1.6;color:var(--mute)}
+.pg .pres-stem{width:1px;height:44px;background:#BDBDC6;margin:0 auto}
+.pg .org-f{position:relative;margin-top:0}
+.pg .org-f:before{content:"";position:absolute;top:0;left:calc((100% - 18px)/4);right:calc((100% - 18px)/4);height:1px;background:#BDBDC6}
+.pg .org-f article{position:relative;margin-top:44px;overflow:visible}
+.pg .org-f article img{border-radius:22px 22px 0 0}
+.pg .org-f article:before{content:"";position:absolute;left:50%;top:-44px;width:1px;height:44px;background:#BDBDC6}
 
 /* Organigramme : Sébastien en tête, trois branches vers les cartes */
 .pg .org-stem{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;height:52px;align-items:center;margin-top:3vh}
@@ -106,6 +120,11 @@ body.home.dk{background:#0B0B0F;color:#fff}
   .pg .f-row{grid-template-columns:1fr}
   .pg .rdv-frame iframe{height:700px}
   .pg .fnd{grid-template-columns:1fr}
+  .pg .pres{grid-template-columns:1fr}
+  .pg .pres img{min-height:0;aspect-ratio:1/1.05;height:auto}
+  .pg .pres-stem,.pg .org-f:before,.pg .org-f article:before{display:none}
+  .pg .org-f article{margin-top:0}
+  .pg .pres+.pres-stem+.fnd{margin-top:18px}
   .pg .tech-top{grid-template-columns:1fr;gap:34px}
   .pg .tech-l{grid-column:auto;padding-right:0}
   .pg .skills{grid-template-columns:1fr}
