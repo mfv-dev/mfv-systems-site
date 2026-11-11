@@ -2,8 +2,8 @@
    Aperçu du design en local (localhost) avec des réponses d'exemple. Absent du vrai site tant que /api/chat n'est pas branché. */
 (function () {
   var PREVIEW = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) && !/[?&]live=1/.test(location.search);
-  /* Tant que /api/chat n'est pas branché, l'assistant n'apparaît pas sur le vrai site (aperçu local et lien de validation seulement). */
-  var ENABLED = PREVIEW || window.MFV_CHAT_LIVE === true;
+  /* Sans clé ANTHROPIC_API_KEY, /api/chat répond 503 et la fenêtre affiche un message honnête. */
+  var ENABLED = true;
   if (!ENABLED) document.documentElement.classList.add('no-chat');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var started = false, open = false, busy = false, history = [];
@@ -71,7 +71,7 @@
       typing.className = 'ai-m bot'; typing.innerHTML = '';
       typeInto(typing, text, function () {
         history.push({ role: 'assistant', content: text });
-        if (cta) add('cta', '<a href="#top" class="ai-c">Réserver un call</a>');
+        if (cta) add('cta', '<a href="' + (document.getElementById('book') ? '#top' : '/demo') + '" class="ai-c">Réserver un call</a>');
         busy = false; input.focus();
       });
     };
