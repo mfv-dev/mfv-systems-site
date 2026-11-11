@@ -114,6 +114,12 @@ body.home.dk{background:#0B0B0F;color:#fff}
 .dk footer.foot{border-top-color:#1E1E25}
 .pg .nf{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
 
+/* En-tête centré (page équipe) : même axe que la carte du président */
+.pg .ph-c{text-align:center}
+.pg .ph-c .eyebrow{justify-content:center}
+.pg .ph-c h1,.pg .ph-c .lead{margin-left:auto;margin-right:auto}
+.pg .ph-c .lead{max-width:620px}
+
 @media (max-width:900px){
   .pg .ph{padding:110px 0 36px}
   .pg .cgrid{grid-template-columns:1fr;gap:34px}
