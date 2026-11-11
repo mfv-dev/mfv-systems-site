@@ -78,6 +78,8 @@
 .pb .gc h3{font-size:24px;letter-spacing:-.03em;margin-top:16px;line-height:1.15}
 .pb .gc p{margin-top:14px;font-size:15.5px;line-height:1.6;color:var(--mute)}
 .pb .dark .gc p{color:#A3A3AE}
+.pb a.gc{display:block}
+.pb .gc .gi{width:56px;height:56px;margin-bottom:22px;filter:drop-shadow(0 8px 16px rgba(20,16,60,.18))}
 .pb .gc ul{list-style:none;margin-top:18px}
 .pb .gc li{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-top:1px solid var(--line);font-size:14.5px;line-height:1.4}
 .pb .gc li:before{content:"+";color:var(--indigo);font-weight:500}
