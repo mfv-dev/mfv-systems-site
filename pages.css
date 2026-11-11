@@ -75,6 +75,7 @@
 .pg .org-stem i{grid-column:3;justify-self:center;width:1px;height:100%;background:#BDBDC6}
 .pg .org-cards{position:relative;margin-top:0;padding-top:0}
 .pg .org-cards:before{content:"";position:absolute;top:0;left:calc((100% - 32px)/6);right:calc((100% - 32px)/6);height:1px;background:#BDBDC6}
+.pg .org-cards{margin-top:6vh}
 .pg .org-cards .gc{position:relative;margin-top:44px}
 .pg .org-cards .gc:before{content:"";position:absolute;left:50%;top:-44px;width:1px;height:44px;background:#BDBDC6}
 .pg .provs{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
