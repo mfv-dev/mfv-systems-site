@@ -48,7 +48,7 @@
   /* Forme organique (page équipe) : un contour qui respire, un dégradé irisé qui tourne, un reflet qui glisse */
   var blob = document.getElementById('bl-p0');
   if (blob) {
-    var P = ['bl-p0', 'bl-p1', 'bl-p2', 'bl-p3'].map(function (id) { return document.getElementById(id); });
+    var P = ['bl-ps', 'bl-p0', 'bl-p1', 'bl-p2', 'bl-p3'].map(function (id) { return document.getElementById(id); });
     var g1 = document.getElementById('bl-g1'), gl = document.getElementById('bl-gl'), N = 36, running = false;
     var draw = function (t) {
       var pts = [];
@@ -78,11 +78,10 @@
     }
   }
 
-  /* Page équipe : la discussion s'ouvre quand on passe le curseur sur la forme (ou au clavier) */
+  /* Page équipe : la discussion s'ouvre au clic sur la forme (ou au clavier) */
   var trig = document.querySelector('.eq .blob');
   if (trig) {
     var openChat = function () { if (window.MFVChat) window.MFVChat.open(); };
-    trig.addEventListener('mouseenter', openChat);
     trig.addEventListener('click', openChat);
     trig.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openChat(); } });
   }
