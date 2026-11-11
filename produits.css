@@ -128,7 +128,7 @@
 .serp .r .u i{width:18px;height:18px;border-radius:50%;background:#EDEDF0;display:inline-block}
 .serp .r .t{font-size:17px;color:#2A2F8F;margin-top:3px;letter-spacing:-.01em}
 .serp .r .d{font-size:12.5px;color:#8A8A92;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.serp .r.me{left:30px;right:16px;padding:8px 14px;border-radius:12px;background:#F5F4FF;box-shadow:0 0 0 1px #DCD9FB}
+.serp .r.me{left:30px;right:16px;height:74px;padding:6px 14px;border-radius:12px;background:#F5F4FF;box-shadow:0 0 0 1px #DCD9FB}
 .serp .r.me .t{color:var(--indigo);font-weight:500}.serp .r.me .u i{background:#0B0B0F}
 .serp .r.me .pos{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:12px;font-weight:500;color:#fff;background:var(--indigo);padding:6px 10px;border-radius:8px}
 @media(min-width:901px) and (max-height:800px){.seo .g{zoom:.88}}
