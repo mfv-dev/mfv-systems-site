@@ -134,6 +134,9 @@ body.home.dk{background:#0B0B0F;color:#fff}
 .pg .ph-c .lead{max-width:620px}
 
 @media (max-width:900px){
+  .pg .form-note a{display:inline-block;padding:10px 0}
+  .pg .aside a.mail{padding:12px 0}
+  .pg .rdv-alt a{display:inline-block;padding:10px 0}
   .pg .ph{padding:110px 0 36px}
   .pg .cgrid{grid-template-columns:1fr;gap:34px}
   .pg .f-row{grid-template-columns:1fr}

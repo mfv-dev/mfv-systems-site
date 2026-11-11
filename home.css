@@ -394,3 +394,12 @@ footer .legal a:hover{color:#fff}
 }
 
 .paused{animation-play-state:paused!important}
+
+/* MOBILE : zones de toucher d'au moins 44 px (pied de page, logo) */
+@media (max-width:900px){
+  footer li{margin-bottom:0}
+  footer li a{display:inline-block;padding:12px 0}
+  footer .legal a{display:inline-block;padding:12px 8px 12px 0}
+  .logo{padding:9px 0}
+}
+@media (max-width:900px){.ai-n{font-size:12.5px}}
