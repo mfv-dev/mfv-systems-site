@@ -5,18 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MFV Book, le moteur de réservation directe · MFV Systems</title>
 <meta name="description" content="MFV Book est le moteur de réservation directe des hôtels indépendants : un parcours clair sur votre site, la réservation dans votre PMS, les fonds sur votre compte, aucune commission MFV.">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=2">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png?v=2">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/shell.css">
-<meta name="theme-color" content="#000633">
-<style>.offers.two{grid-template-columns:repeat(2,minmax(0,1fr))}@media (max-width:780px){.offers.two{grid-template-columns:minmax(0,1fr)}}</style>
-<script src="/reveal.js" defer></script>
-<script src="/shell.js" defer></script>
 <meta property="og:title" content="MFV Book, le moteur de réservation directe">
 <meta property="og:description" content="Réservez en direct, comme sur une OTA, mais chez vous.">
+<link rel="preload" href="/assets/fonts/g400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/page-book.css">
 <link rel="canonical" href="https://mfv-systems.fr/book">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MFV Systems">
@@ -30,147 +28,102 @@
 <meta name="twitter:title" content="MFV Book, le moteur de réservation directe · MFV Systems">
 <meta name="twitter:description" content="MFV Book est le moteur de réservation directe des hôtels indépendants : un parcours clair sur votre site, la réservation dans votre PMS, les fonds sur votre compte, aucune commission MFV.">
 <meta name="twitter:image" content="https://mfv-systems.fr/assets/og-image.png">
-<link rel="stylesheet" href="/mobile.css">
-<script src="/mobile.js" defer></script>
-<script src="/demo-bar.js" defer></script>
 </head>
-<body>
-
-<header class="site-h">
-<div class="bar2">
-<a href="/" class="logo" aria-label="MFV Systems, accueil"><img src="/assets/mfv-logo.png" alt="MFV"></a>
-<nav class="nv-nav">
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Produits <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/book"><b>MFV Book</b><span>Le moteur de réservation directe</span></a><a href="/stay"><b>MFV Stay</b><span>Le PMS pensé pour les hôtels indépendants</span></a><a href="/insight"><b>MFV Insight</b><span>Analyse et performance</span></a><a href="/studio"><b>MFV Studio</b><span>Création digitale et direction artistique</span></a><a class="dd-foot" href="/#simulateur">Estimez votre facture de commissions &#8594;</a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Agence <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/contact"><b>Référencement</b><span>Être trouvé et gagner des réservations ou des clients en direct</span></a><a href="/contact"><b>Sites web et design</b><span>Pour les hôtels, et pour d'autres métiers</span></a><a href="/contact"><b>CRM sur mesure</b><span>Connaître et suivre ses clients</span></a><a href="/contact"><b>Logiciels sur mesure</b><span>Des outils faits pour votre activité</span></a><a href="/contact"><b>Données</b><span>Récupérer et exploiter vos données pour décider</span></a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Pour qui <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/produits"><b>Hôtels indépendants</b><span>L'offre complète</span></a><a href="/contact"><b>Autres entreprises</b><span>Sites, CRM, logiciels et données pour votre activité</span></a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Ressources <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/faq"><b>FAQ</b><span>Les questions que posent les hôteliers</span></a><a href="/methode"><b>Notre méthode</b><span>Comment nous travaillons</span></a><a href="/equipe"><b>L'équipe</b><span>Qui sommes-nous</span></a><a href="/contact"><b>Contact</b><span>Parler de votre établissement ou de votre projet</span></a></div></div></div>
-</nav>
-<a class="cta" href="/demo">Réserver une démo</a>
-</div>
-</header>
+<body class="home pb">
+<nav class="top" id="nav" aria-label="Navigation principale"><div class="wrap">
+<a class="logo" href="/" aria-label="MFV Systems, accueil"><img src="/assets/home/logo-mfv-noir.png" alt="MFV" width="320" height="90"></a>
+<button type="button" class="m-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+<ul id="menu"><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Produits <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/book"><b>MFV Book</b><span>Le moteur de réservation directe</span></a><a href="/stay"><b>MFV Stay</b><span>Le PMS pensé pour les hôtels indépendants</span></a><a href="/insight"><b>MFV Insight</b><span>Analyse et performance</span></a><a href="/studio"><b>MFV Studio</b><span>Création digitale et direction artistique</span></a><a class="dd-foot" href="#calcul">Estimez votre facture de commissions &#8594;</a></div></div></li><li class="nv"><a class="nv-l" href="/#resultats">Résultats</a></li><li class="nv"><a class="nv-l" href="#calcul">Simulateur</a></li><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Services <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/agence#specialises"><b>Référencement</b><span>Être trouvé et gagner des réservations ou des clients en direct</span></a><a href="/agence#specialises"><b>Sites web et design</b><span>Pour les hôtels, et pour d'autres métiers</span></a><a href="/agence#crm"><b>CRM sur mesure</b><span>Connaître et suivre ses clients</span></a><a href="/agence#logiciels"><b>Logiciels sur mesure</b><span>Des outils faits pour votre activité</span></a><a href="/agence#donnees"><b>Données</b><span>Récupérer et exploiter vos données pour décider</span></a><a class="dd-foot" href="/agence">Voir toute l'agence &#8594;</a></div></div></li><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Ressources <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/faq"><b>FAQ</b><span>Les questions que posent les hôteliers</span></a><a href="/methode"><b>Notre méthode</b><span>Comment nous travaillons</span></a><a href="/equipe"><b>L'équipe</b><span>Qui sommes-nous</span></a><a href="/contact"><b>Contact</b><span>Parler de votre établissement ou de votre projet</span></a></div></div></li><li class="cta-m"><a class="btn pri" href="/demo">Réserver une démo</a></li></ul>
+<a class="btn pri cta" href="/demo">Réserver une démo</a>
+</div></nav>
 
 <main>
-  <section class="page-head">
-    <div class="shell">
-      <img src="/assets/mfv-book.png" alt="MFV Book, direct booking engine" style="height:130px;width:auto;display:block;margin:0 0 1.4rem -.4rem">
-      <span class="eyebrow">Le moteur de réservation directe</span>
-      <h1>Réserver en direct, comme sur une OTA, mais chez vous</h1>
-      <p class="sub">Un parcours de réservation aussi clair que celui de Booking, sur votre domaine et à votre charte, avec le paiement et la confirmation gérés de bout en bout.</p>
-      <div style="margin-top:1.8rem;display:flex;gap:.8rem;flex-wrap:wrap"><a class="btn" href="/demo">Réserver une démo</a><a class="btn ghost" href="#parcours">Voir le parcours</a></div>
-    </div>
-  </section>
-
-  <section id="parcours">
-    <div class="shell">
-      <span class="eyebrow">Le parcours de réservation</span>
-      <h2 class="title">Ce que voit le voyageur, étape par étape</h2>
-      <p class="intro">Le voyageur ne quitte jamais votre univers. Un parcours aussi clair que celui d'une OTA, mais sur votre site et à votre charte. Aperçu de principe.</p>
-      <div class="parcours">
-        <div class="pscreen">
-          <p class="step"><em>1.</em> Recherche</p>
-          <div class="slab"><span class="lbl">Vos dates</span><div class="ln sm"></div></div>
-          <div class="slab"><span class="lbl">Voyageurs</span><div class="ln xs"></div></div>
-          <div class="go">Rechercher</div>
-          <p class="cap">Le voyageur saisit ses dates depuis votre site.</p>
-        </div>
-        <div class="pscreen">
-          <p class="step"><em>2.</em> Choix</p>
-          <div class="rowm"><div class="ph"></div><div class="col"><div class="ln sm"></div><span class="price">180 &euro;</span></div></div>
-          <div class="rowm"><div class="ph"></div><div class="col"><div class="ln sm"></div><span class="price">240 &euro;</span></div></div>
-          <p class="cap">Vos chambres, vos tarifs, photos et conditions d'annulation en clair.</p>
-        </div>
-        <div class="pscreen">
-          <p class="step"><em>3.</em> Paiement</p>
-          <div class="slab"><span class="lbl">Carte</span><div class="ln"></div><div class="ln sm"></div></div>
-          <span class="chip0">0 % de commission</span>
-          <div class="go">Payer et confirmer</div>
-          <p class="cap">Il paie en ligne. Rien n'est débité tant que ce n'est pas confirmé.</p>
-        </div>
-        <div class="pscreen">
-          <p class="step"><em>4.</em> Confirmée</p>
-          <div class="check">&check;</div>
-          <div class="ln sm"></div>
-          <div class="ln xs"></div>
-          <p class="cap">La réservation est créée dans votre PMS, la confirmation part à votre nom.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="gardez">
-    <div class="shell">
-      <span class="eyebrow">Ce que vous gardez</span>
-      <h2 class="title">Vos clients, vos fonds, votre logiciel</h2>
-      <div class="grid">
-        <div class="card tile lift"><span class="n">Paiement</span><h3>Les fonds vont sur votre compte</h3><p>Le voyageur paie en ligne, les fonds vont directement sur votre compte. Vous suivez tout depuis votre tableau de bord.</p></div>
-        <div class="card tile lift"><span class="n">PMS</span><h3>La réservation arrive dans votre PMS</h3><p>Le moteur lit vos disponibilités et vos tarifs en temps réel dans votre logiciel de gestion, et y crée les réservations. Rien ne change pour votre réception.</p></div>
-        <div class="card tile lift"><span class="n">Commission</span><h3>Aucune commission MFV</h3><p>Aucune commission MFV sur les réservations. Le voyageur y gagne des conditions au moins aussi bonnes que sur les OTA, vous, la réservation sans commission et la relation client.</p></div>
-        
-      </div>
-    </div>
-  </section>
-
-  <section id="offres">
-    <div class="shell">
-      <span class="eyebrow">Pour démarrer</span>
-      <h2 class="title">Deux manières de l'avoir chez vous</h2>
-      <p class="intro">Paiement initial unique. Chaque projet est chiffré après un premier échange. Le moteur s'achète seul&nbsp;: rien ne vous oblige à prendre le site ou le reste, seulement ce qui vous manque aujourd'hui.</p>
-      <div class="offers two">
-        <div class="card offer">
-          <span class="tag">Engine</span><h3>Le moteur</h3>
-          <p class="who">Vous avez déjà un site, il vous manque le moteur.</p>
-          <ul><li>Direct Booking Engine greffé sur votre site actuel</li><li>Paiement en ligne, l'hôtel encaisse en direct</li><li>Connexion à votre PMS</li><li>Emails de confirmation et d'annulation à votre nom</li></ul>
-        </div>
-        
-        <div class="card offer mid">
-          <div style="display:flex;flex-wrap:wrap;gap:.5rem;align-self:flex-start"><span class="tag">Engine + Site</span><span class="tag" style="background:#FF4920;color:#FFFFFF">Recommandé</span></div><h3>Le moteur et le site</h3>
-          <p class="who">Votre site est à refaire, autant tout faire d'un coup.</p>
-          <ul><li>Tout l'Engine</li><li>Création ou refonte de votre site web</li><li>Parcours de réservation intégré, à votre image</li><li>Suivi des visites et des conversions</li></ul>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <section id="commissions">
-    <div class="shell">
-      <span class="eyebrow">Le calcul</span>
-      <h2 class="title">Combien vous coûtent les commissions&nbsp;?</h2>
-      <p class="intro">Renseignez vos chiffres et voyez ce que vous versez aux OTA chaque année. Vos données restent dans votre navigateur, rien n'est envoyé.</p>
-      <p style="margin-top:1.4rem"><a class="btn" href="/#simulateur">Estimer ma facture de commissions</a></p>
-    </div>
-  </section>
-
-  <section id="questions">
-    <div class="shell">
-      <span class="eyebrow">Questions fréquentes</span>
-      <h2 class="title">Ce qu'on nous demande sur le moteur</h2>
-      <div class="faq" style="margin-top:1.6rem">
-        <details open><summary>Ça change quoi pour ma réception&nbsp;?</summary><p class="a">Avec un PMS compatible, votre réception continue de travailler depuis son environnement habituel. Les réservations directes arrivent dans votre PMS comme les autres.</p></details>
-        <details><summary>Je garde Booking et Expedia&nbsp;?</summary><p class="a">Oui, on ne coupe rien. Le but est de récupérer en direct les clients qui étaient déjà à vous, pas de vous priver de visibilité.</p></details>
-        <details><summary>Combien de temps ça prend&nbsp;?</summary><p class="a">On vous donne un calendrier précis au moment du cadrage, une fois qu'on connaît votre PMS et le périmètre exact du projet.</p></details>
-        <details><summary>Les fonds des réservations passent par vous&nbsp;?</summary><p class="a">Jamais. Le voyageur paie, les fonds vont directement sur votre compte. Aucune commission MFV sur les réservations.</p></details>
-        <details><summary>Ai-je le droit de proposer de meilleures conditions en direct&nbsp;?</summary><p class="a">Oui, c'est le droit français depuis 2015. L'article <a href="https://www.legifrance.gouv.fr/" target="_blank" rel="noopener noreferrer">L311-5-2 du Code du tourisme</a> (loi Macron, 6 août 2015) dispose que l'hôtelier conserve la liberté de consentir au client tout rabais ou avantage tarifaire, toute clause contraire étant réputée non écrite. Aucune plateforme ne peut donc vous interdire d'offrir de meilleures conditions sur votre propre site.</p></details>
-        
-      </div>
-      <p style="margin-top:1.4rem"><a href="/faq" class="btn ghost">Toutes les questions</a></p>
-    </div>
-  </section>
-</main>
-
-<section class="contact site-foot">
-<div class="shell">
-<span class="eyebrow">Parler de votre établissement</span>
-<h2 class="title">Un premier échange, sans engagement</h2>
-<p class="intro">Dites-nous où vous en êtes&nbsp;: pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme que vous louez et que vous aimeriez posséder. On vous répond avec une piste concrète.</p>
-<div class="sf-cta"><a class="btn" href="/demo">Réserver une démo de 30 min</a><span class="sf-mail">contact@mfv-systems.fr</span><a class="btn ghost" href="/contact">Nous écrire</a></div>
-<div class="foot-bottom">
-<span class="wordmark"><b>MFV</b> <span class="g">systems</span></span>
-<nav class="foot-nav"><a href="/produits">Le produit</a><a href="/methode">Notre méthode</a><a href="/equipe">L'équipe</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></nav>
-<p class="foot-legal">MFV Systems, SAS au capital de 10&nbsp;000&nbsp;€, RCS Paris 131&nbsp;904&nbsp;609, SIRET 131&nbsp;904&nbsp;609&nbsp;00016. Siège&nbsp;: 8 rue Jean Richepin, 75116 Paris. Président&nbsp;: Amaury Finaz de Villaine. Directeurs généraux&nbsp;: Thomas Finaz de Villaine et Yassmine Meyer. Contact&nbsp;: <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>. Hébergeur&nbsp;: Vercel Inc.<br><a href="/mentions-legales">Mentions légales</a> &middot; <a href="/confidentialite">Politique de confidentialité</a> &middot; <a href="/cgv">CGV</a></p>
+<section class="phero" id="top"><div class="wrap grid">
+<div class="vis"><img id="heroImg" src="/assets/book/book-desktop-1200.webp" srcset="/assets/book/book-desktop-1200.webp 1200w, /assets/book/book-desktop-2400.webp 2400w" sizes="(max-width:900px) 92vw, 50vw" width="2400" height="1480" alt="Page de réservation d&rsquo;un hôtel avec MFV Book" decoding="async"></div>
+<div class="txt">
+<img class="ic hin" src="/assets/book/icone-book-144.webp" srcset="/assets/book/icone-book-144.webp 1x, /assets/book/icone-book-288.webp 2x" width="72" height="72" alt="MFV Book">
+<h1><span class="ln"><span>MFV Book</span></span></h1>
+<p class="sub hin">Le moteur de réservation directe. Réserver en direct, comme sur une OTA, mais chez vous.</p>
+<div class="ctas hin"><a class="btn pri" href="/demo">Réserver une démo</a><a class="btn sec" href="#parcours">Voir le parcours</a></div>
+<div class="pills hin"><a class="on" href="/book" aria-current="page">BOOK</a><a href="/stay">STAY</a><a href="/studio">STUDIO</a><a href="/insight">INSIGHT</a></div>
 </div>
+</div></section>
+
+<section class="parcours" id="parcours"><div class="wrap">
+<div class="eyebrow">Le parcours</div>
+<h2 class="fade">Ce que voit le voyageur, étape par étape</h2>
+<p class="lead fade">Du choix des dates à la confirmation, le voyageur reste dans l&rsquo;univers de votre hôtel, sur votre domaine et à votre charte.</p>
+<div class="psteps">
+<div class="pstep"><div class="scr" data-sp="30"><img src="/assets/book/book-m1-390.webp" srcset="/assets/book/book-m1-390.webp 390w, /assets/book/book-m1-780.webp 780w" sizes="(max-width:900px) 44vw, 20vw" width="780" height="1688" alt="Écran de recherche" loading="lazy" decoding="async"></div><div class="n">01</div><h3>Recherche</h3><p>Le voyageur choisit ses dates et le nombre de voyageurs, directement depuis votre site.</p></div>
+<div class="pstep"><div class="scr" data-sp="60"><img src="/assets/book/book-m2-390.webp" srcset="/assets/book/book-m2-390.webp 390w, /assets/book/book-m2-780.webp 780w" sizes="(max-width:900px) 44vw, 20vw" width="780" height="1688" alt="Écran de choix de la chambre" loading="lazy" decoding="async"></div><div class="n">02</div><h3>Choix</h3><p>Chambres, tarifs, photos et conditions d&rsquo;annulation, présentés clairement.</p></div>
+<div class="pstep"><div class="scr" data-sp="90"><img src="/assets/book/book-m3-390.webp" srcset="/assets/book/book-m3-390.webp 390w, /assets/book/book-m3-780.webp 780w" sizes="(max-width:900px) 44vw, 20vw" width="780" height="1688" alt="Écran de paiement" loading="lazy" decoding="async"></div><div class="n">03</div><h3>Paiement</h3><p>Paiement en ligne sécurisé, 0&nbsp;% de commission. Rien n&rsquo;est débité avant la confirmation.</p></div>
+<div class="pstep"><div class="scr" data-sp="120"><img src="/assets/book/book-m4-390.webp" srcset="/assets/book/book-m4-390.webp 390w, /assets/book/book-m4-780.webp 780w" sizes="(max-width:900px) 44vw, 20vw" width="780" height="1688" alt="Écran de confirmation" loading="lazy" decoding="async"></div><div class="n">04</div><h3>Confirmée</h3><p>La réservation est créée dans votre PMS, et la confirmation part à votre nom.</p></div>
 </div>
+</div></section>
+
+<section class="dark keep"><div class="wrap">
+<div class="eyebrow">Ce que vous gardez</div>
+<h2 class="fade">Vos clients, vos fonds, votre logiciel</h2>
+<div class="cards3">
+<div class="kc fade"><div class="lab">PAIEMENT</div><h3>Les fonds vont sur votre compte</h3><p>Le voyageur paie en ligne, les fonds vont directement sur votre compte. Vous suivez tout depuis votre tableau de bord.</p></div>
+<div class="kc fade"><div class="lab">PMS</div><h3>La réservation arrive dans votre PMS</h3><p>Le moteur lit vos disponibilités et vos tarifs en temps réel dans votre logiciel de gestion, et y crée les réservations. Rien ne change pour votre réception.</p></div>
+<div class="kc fade"><div class="lab">COMMISSION</div><div class="big"><span class="cntd" data-from="17" data-to="0">0</span>&nbsp;%</div><h3>Aucune commission MFV</h3><p>Aucune commission MFV sur les réservations. Le voyageur y gagne des conditions au moins aussi bonnes que sur les OTA&nbsp;; vous, la réservation sans commission et la relation client.</p></div>
+</div>
+</div></section>
+
+<section class="offres" id="offres"><div class="wrap">
+<div class="eyebrow">Pour démarrer</div>
+<h2 class="fade">Deux manières de l&rsquo;avoir chez vous</h2>
+<p class="lead fade">Paiement initial unique. Chaque projet est chiffré après un premier échange. Le moteur s&rsquo;achète seul&nbsp;: rien ne vous oblige à prendre le site ou le reste, seulement ce qui vous manque aujourd&rsquo;hui.</p>
+<div class="cards2">
+<div class="oc fade"><div class="tags"><span class="tg">ENGINE</span></div><h3>Le moteur</h3><div class="d">Vous avez déjà un site, il vous manque le moteur.</div>
+<ul><li>Direct Booking Engine greffé sur votre site actuel</li><li>Paiement en ligne, l&rsquo;hôtel encaisse en direct</li><li>Connexion à votre PMS</li><li>Emails de confirmation et d&rsquo;annulation à votre nom</li></ul></div>
+<div class="oc rec fade"><div class="tags"><span class="tg">ENGINE + SITE</span><span class="tg r">RECOMMANDÉ</span></div><h3>Le moteur et le site</h3><div class="d">Votre site est à refaire, autant tout faire d&rsquo;un coup.</div>
+<ul><li>Tout l&rsquo;Engine</li><li>Création ou refonte de votre site web</li><li>Parcours de réservation intégré, à votre image</li><li>Suivi des visites et des conversions</li></ul></div>
+</div>
+</div></section>
+
+<section class="sim" id="calcul"><div class="wrap grid">
+<div><div class="eyebrow">Le calcul</div><h2 class="fade">Combien vous coûtent les commissions&nbsp;?</h2><p class="lead fade">Renseignez vos chiffres et voyez ce que vous versez aux OTA chaque année. Vos données restent dans votre navigateur, rien n&rsquo;est envoyé.</p></div>
+<div class="box fade" aria-live="polite">
+<div class="sl"><label for="rooms">Nombre de chambres <b id="vRooms"></b></label><input id="rooms" type="range" min="5" max="150" step="1" value="20"></div><div class="sl"><label for="occ">Taux d&rsquo;occupation <b id="vOcc"></b></label><input id="occ" type="range" min="20" max="95" step="1" value="70"></div><div class="sl"><label for="adr">Prix moyen par nuit <b id="vAdr"></b></label><input id="adr" type="range" min="50" max="600" step="5" value="120"></div><div class="sl"><label for="ota">Part des réservations via les OTA <b id="vOta"></b></label><input id="ota" type="range" min="0" max="90" step="1" value="40"></div><div class="sl"><label for="com">Taux de commission OTA <b id="vCom"></b></label><input id="com" type="range" min="10" max="30" step="1" value="17"></div>
+<div class="out"><div><div class="k">Commissions OTA payées par an</div><div class="v hi" id="oPaid"></div></div><div><div class="k">Les mêmes réservations avec MFV</div><div class="v">0 €</div><div class="k" style="margin-top:4px">de commission MFV</div></div></div>
+<p class="note">Estimation indicative, à partir de vos hypothèses (chambres × 365 × occupation × prix moyen × part OTA × commission). Le taux de commission est pré-réglé sur la moyenne observée par Coach Omnium. Les frais de traitement des paiements, à votre charge dans les deux cas, ne sont pas comptés.</p>
+</div>
+</div></section>
+
+<section class="faq" id="faq"><div class="wrap grid">
+<div><div class="eyebrow">Questions fréquentes</div><h2 class="fade">Ce qu&rsquo;on nous demande sur le moteur</h2><a class="btn sec fade" href="/faq" style="margin-top:34px">Toutes les questions</a></div>
+<div class="list fade">
+<div class="qa"><button type="button">Ça change quoi pour ma réception&nbsp;?<i aria-hidden="true">+</i></button><div class="a"><p>Avec un PMS compatible, rien&nbsp;: les réservations arrivent dans le logiciel, et votre équipe travaille dans son environnement habituel.</p></div></div>
+<div class="qa"><button type="button">Je garde Booking et Expedia&nbsp;?<i aria-hidden="true">+</i></button><div class="a"><p>Oui, rien n&rsquo;est coupé. L&rsquo;objectif est de récupérer en direct des clients que vous avez déjà, pas de quitter les plateformes.</p></div></div>
+<div class="qa"><button type="button">Combien de temps ça prend&nbsp;?<i aria-hidden="true">+</i></button><div class="a"><p>Le calendrier est donné lors du cadrage. Il dépend de votre PMS et du périmètre du projet.</p></div></div>
+<div class="qa"><button type="button">Les fonds des réservations passent par vous&nbsp;?<i aria-hidden="true">+</i></button><div class="a"><p>Non. Les fonds vont directement sur le compte de l&rsquo;hôtel, sans commission MFV.</p></div></div>
+<div class="qa"><button type="button">Ai-je le droit de proposer de meilleures conditions en direct&nbsp;?<i aria-hidden="true">+</i></button><div class="a"><p>Oui. Depuis la loi Macron de 2015 (article L311-5-2 du Code du tourisme), l&rsquo;hôtelier peut accorder tout rabais ou avantage sur son propre site.</p></div></div>
+</div>
+</div></section>
+
+<section class="dark" id="demo">
+<div class="fin"><div class="rib" aria-hidden="true"></div><div class="wrap" style="position:relative">
+<div class="eyebrow" style="justify-content:center">Démo</div>
+<h2 class="fade">Un premier échange, sans engagement</h2>
+<p class="lead fade">Pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme louée que vous aimeriez posséder&nbsp;: décrivez votre situation, on vous répond avec une piste concrète.</p>
+<div class="ctas fade"><a class="btn pri" href="/demo">Réserver une démo de 30 min</a><a class="btn sec" href="/contact">Nous écrire</a></div>
+<div class="mail fade"><a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a></div>
+</div></div>
 </section>
-
+</main>
+<footer class="foot dark"><div class="wrap">
+<div class="top2"><div><a class="logo" href="/" aria-label="MFV Systems, accueil"><img src="/assets/home/logo-mfv-blanc.png" alt="MFV" width="320" height="90"></a><p class="tagline">Solutions digitales pour l&rsquo;hôtellerie et au-delà.</p></div>
+<div><h4>Produits</h4><ul><li><a href="/studio">MFV Studio</a></li><li><a href="/book">MFV Book</a></li><li><a href="/stay">MFV Stay</a></li><li><a href="/insight">MFV Insight</a></li></ul></div>
+<div><h4>Agence</h4><ul><li><a href="/agence">Services</a></li><li><a href="/methode">Notre méthode</a></li><li><a href="/equipe">L&rsquo;équipe</a></li><li><a href="/faq">FAQ</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a></li><li>8 rue Jean Richepin, 75116 Paris</li><li><a href="/contact">Nous écrire</a></li></ul></div></div>
+<p class="legal">MFV Systems, SAS au capital de 10&nbsp;000&nbsp;€, RCS Paris 131&nbsp;904&nbsp;609, SIRET 131&nbsp;904&nbsp;609&nbsp;00016. Siège&nbsp;: 8 rue Jean Richepin, 75116 Paris. Président&nbsp;: Amaury Finaz de Villaine. Directeurs généraux&nbsp;: Thomas Finaz de Villaine et Yassmine Meyer. Contact&nbsp;: contact@mfv-systems.fr. Hébergeur&nbsp;: Vercel Inc.<br><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Politique de confidentialité</a> · <a href="/cgv">CGV</a></p>
+</div></footer>
+<script src="/assets/vendor/gsap.min.js"></script>
+<script src="/assets/vendor/ScrollTrigger.min.js"></script>
+<script src="/assets/vendor/lenis.min.js"></script>
+<script src="/home.js"></script>
+<script src="/page-book.js"></script>
 </body>
 </html>

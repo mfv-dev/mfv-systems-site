@@ -94,7 +94,7 @@
   }
   setTimeout(loadFrame, 350 + lines.length * 750 + 1200);
   var E = 'cubic-bezier(.16,1,.3,1)';
-  after[0].animate([{ opacity: 0, transform: 'translateY(18px)' }, { opacity: 1, transform: 'none' }], { duration: 900, delay: 100, easing: E, fill: 'both' });
+  if (after[0]) after[0].animate([{ opacity: 0, transform: 'translateY(18px)' }, { opacity: 1, transform: 'none' }], { duration: 900, delay: 100, easing: E, fill: 'both' });
   lines.forEach(function (l, i) {
     l.animate([{ transform: 'translateY(110%)', filter: 'blur(10px)', opacity: 0 }, { transform: 'none', filter: 'blur(0)', opacity: 1 }], { duration: 1300, delay: 350 + i * 750, easing: E, fill: 'both' });
   });
@@ -132,29 +132,30 @@
   });
 
   /* Réception : le titre, le texte puis l'encadré apparaissent l'un après l'autre (fondu + montée de 30 px) */
-  gsap.set('.recep .r1,.recep .r2,.recep .r3', { opacity: 0, y: 30 });
-  gsap.to('.recep .r1,.recep .r2,.recep .r3', { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', stagger: 0.28, scrollTrigger: { trigger: '.recep-txt', start: 'top 80%' } });
+  var isHome = !!document.getElementById('better');
+  if (isHome) gsap.set('.recep .r1,.recep .r2,.recep .r3', { opacity: 0, y: 30 });
+  if (isHome) gsap.to('.recep .r1,.recep .r2,.recep .r3', { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', stagger: 0.28, scrollTrigger: { trigger: '.recep-txt', start: 'top 80%' } });
 
   /* Affiche : un simple fondu à l'arrivée */
-  gsap.to('.fadeo', { opacity: 1, duration: 1.4, ease: 'power2.out', scrollTrigger: { trigger: '.fadeo', start: 'top 85%' } });
+  if (isHome) gsap.to('.fadeo', { opacity: 1, duration: 1.4, ease: 'power2.out', scrollTrigger: { trigger: '.fadeo', start: 'top 85%' } });
 
   /* Le constat : les mots se révèlent au défilement (ordinateur et mobile) */
   var m = document.getElementById('manif');
   if (m) m.innerHTML = m.textContent.trim().split(/\s+/).map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ');
-  gsap.to('#manif .w', { opacity: 1, stagger: 0.05, ease: 'none', scrollTrigger: { trigger: '#manif', start: 'top 80%', end: 'bottom 45%', scrub: true } });
+  if (isHome) gsap.to('#manif .w', { opacity: 1, stagger: 0.05, ease: 'none', scrollTrigger: { trigger: '#manif', start: 'top 80%', end: 'bottom 45%', scrub: true } });
   gsap.utils.toArray('.fade').forEach(function (el) {
     gsap.to(el, { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
   });
 
   /* Mobile : la phrase se révèle mot par mot à l'entrée (rien d'épinglé) */
-  gsap.matchMedia().add('(max-width: 900px)', function () {
+  if (isHome) gsap.matchMedia().add('(max-width: 900px)', function () {
     gsap.timeline({ scrollTrigger: { trigger: '#betterS', start: 'top 85%', end: 'bottom 40%', scrub: true } })
       .to('#betterS .w2', { opacity: 1, stagger: 0.12, ease: 'none' })
       .fromTo('#betterB', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.7, ease: 'none' });
   });
 
   /* « Il existe une meilleure façon » : le titre se précise et reste écrit jusqu'à la fin de la section (ordinateur seulement, rien d'épinglé sur mobile) */
-  gsap.matchMedia().add('(min-width: 901px)', function () {
+  if (isHome) gsap.matchMedia().add('(min-width: 901px)', function () {
     gsap.fromTo('#betterT', { scale: 0.7, opacity: 0, filter: 'blur(8px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', ease: 'none', scrollTrigger: { trigger: '#better', start: 'top 70%', end: 'center center', scrub: true } });
     /* d'abord les mots, puis, tout à la fin du défilement, le bouton */
     gsap.timeline({ scrollTrigger: { trigger: '#better', start: 'center center', end: 'bottom bottom', scrub: true } })
