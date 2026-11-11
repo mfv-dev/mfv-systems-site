@@ -5,18 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MFV Insight, comprenez votre performance · MFV Systems</title>
 <meta name="description" content="MFV Insight : de l'analyse du parcours de réservation à l'optimisation de votre visibilité digitale, comprenez vos performances et développez vos réservations directes.">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=2">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png?v=2">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/shell.css">
-<meta name="theme-color" content="#000633">
-<style>.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}@media (max-width:780px){.grid.two{grid-template-columns:minmax(0,1fr)}}</style>
-<script src="/reveal.js" defer></script>
-<script src="/shell.js" defer></script>
 <meta property="og:title" content="MFV Insight, comprenez votre performance">
 <meta property="og:description" content="Analytics et Growth : comprendre vos performances, développer vos réservations directes.">
+<link rel="preload" href="/assets/fonts/g400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/produits.css">
 <link rel="canonical" href="https://mfv-systems.fr/insight">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MFV Systems">
@@ -30,101 +28,70 @@
 <meta name="twitter:title" content="MFV Insight, comprenez votre performance · MFV Systems">
 <meta name="twitter:description" content="MFV Insight : de l'analyse du parcours de réservation à l'optimisation de votre visibilité digitale, comprenez vos performances et développez vos réservations directes.">
 <meta name="twitter:image" content="https://mfv-systems.fr/assets/og-image.png">
-<link rel="stylesheet" href="/mobile.css">
-<script src="/mobile.js" defer></script>
-<script src="/demo-bar.js" defer></script>
 </head>
-<body>
-
-<header class="site-h">
-<div class="bar2">
-<a href="/" class="logo" aria-label="MFV Systems, accueil"><img src="/assets/mfv-logo.png" alt="MFV"></a>
-<nav class="nv-nav">
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Produits <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/book"><b>MFV Book</b><span>Le moteur de réservation directe</span></a><a href="/stay"><b>MFV Stay</b><span>Le PMS pensé pour les hôtels indépendants</span></a><a href="/insight"><b>MFV Insight</b><span>Analyse et performance</span></a><a href="/studio"><b>MFV Studio</b><span>Création digitale et direction artistique</span></a><a class="dd-foot" href="/#simulateur">Estimez votre facture de commissions &#8594;</a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Agence <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/contact"><b>Référencement</b><span>Être trouvé et gagner des réservations ou des clients en direct</span></a><a href="/contact"><b>Sites web et design</b><span>Pour les hôtels, et pour d'autres métiers</span></a><a href="/contact"><b>CRM sur mesure</b><span>Connaître et suivre ses clients</span></a><a href="/contact"><b>Logiciels sur mesure</b><span>Des outils faits pour votre activité</span></a><a href="/contact"><b>Données</b><span>Récupérer et exploiter vos données pour décider</span></a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Pour qui <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/produits"><b>Hôtels indépendants</b><span>L'offre complète</span></a><a href="/contact"><b>Autres entreprises</b><span>Sites, CRM, logiciels et données pour votre activité</span></a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Ressources <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/faq"><b>FAQ</b><span>Les questions que posent les hôteliers</span></a><a href="/methode"><b>Notre méthode</b><span>Comment nous travaillons</span></a><a href="/equipe"><b>L'équipe</b><span>Qui sommes-nous</span></a><a href="/contact"><b>Contact</b><span>Parler de votre établissement ou de votre projet</span></a></div></div></div>
-</nav>
-<a class="cta" href="/demo">Réserver une démo</a>
-</div>
-</header>
+<body class="home pb">
+<nav class="top" id="nav" aria-label="Navigation principale"><div class="wrap">
+<a class="logo" href="/" aria-label="MFV Systems, accueil"><img src="/assets/home/logo-mfv-noir.png" alt="MFV" width="320" height="90"></a>
+<button type="button" class="m-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+<ul id="menu"><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Produits <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/book"><b>MFV Book</b><span>Le moteur de réservation directe</span></a><a href="/stay"><b>MFV Stay</b><span>Le PMS pensé pour les hôtels indépendants</span></a><a href="/insight"><b>MFV Insight</b><span>Analyse et performance</span></a><a href="/studio"><b>MFV Studio</b><span>Création digitale et direction artistique</span></a><a class="dd-foot" href="/#simulateur">Estimez votre facture de commissions &#8594;</a></div></div></li><li class="nv"><a class="nv-l" href="/#resultats">Résultats</a></li><li class="nv"><a class="nv-l" href="/#simulateur">Simulateur</a></li><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Services <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/agence#specialises"><b>Référencement</b><span>Être trouvé et gagner des réservations ou des clients en direct</span></a><a href="/agence#specialises"><b>Sites web et design</b><span>Pour les hôtels, et pour d'autres métiers</span></a><a href="/agence#crm"><b>CRM sur mesure</b><span>Connaître et suivre ses clients</span></a><a href="/agence#logiciels"><b>Logiciels sur mesure</b><span>Des outils faits pour votre activité</span></a><a href="/agence#donnees"><b>Données</b><span>Récupérer et exploiter vos données pour décider</span></a><a class="dd-foot" href="/agence">Voir toute l'agence &#8594;</a></div></div></li><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Ressources <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/faq"><b>FAQ</b><span>Les questions que posent les hôteliers</span></a><a href="/methode"><b>Notre méthode</b><span>Comment nous travaillons</span></a><a href="/equipe"><b>L'équipe</b><span>Qui sommes-nous</span></a><a href="/contact"><b>Contact</b><span>Parler de votre établissement ou de votre projet</span></a></div></div></li><li class="cta-m"><a class="btn pri" href="/demo">Réserver une démo</a></li></ul>
+<a class="btn pri cta" href="/demo">Réserver une démo</a>
+</div></nav>
 
 <main>
-  <section class="page-head">
-    <div class="shell">
-      <img src="/assets/mfv-insight.png" alt="MFV Insight, analytics et performance" style="height:130px;width:auto;display:block;margin:0 0 1.4rem -.4rem">
-      <span class="eyebrow">MFV Insight</span>
-      <h1>Comprenez votre performance. Accélérez votre croissance.</h1>
-      <p class="sub">De l'analyse du parcours de réservation à l'optimisation de votre visibilité digitale, MFV Insight vous donne les moyens de comprendre vos performances et de développer vos réservations directes.</p>
-      <div style="margin-top:1.8rem;display:flex;gap:.8rem;flex-wrap:wrap"><a class="btn" href="/contact">Parler de votre performance</a><a class="btn ghost" href="/demo">Réserver un échange</a></div>
-    </div>
-  </section>
+<section class="phero" id="top"><div class="wrap grid">
+  <div class="vis"><img id="heroImg" src="/assets/produits/insight-desktop-1200.webp" srcset="/assets/produits/insight-desktop-1200.webp 1200w, /assets/produits/insight-desktop-2400.webp 2400w" sizes="(max-width:900px) 92vw, 50vw" width="2400" height="1638" alt="Tableau de bord MFV Insight" decoding="async"></div>
+  <div class="txt">
+    <img class="ic hin" src="/assets/produits/icone-insight-144.webp" srcset="/assets/produits/icone-insight-144.webp 1x, /assets/produits/icone-insight-288.webp 2x" width="72" height="72" alt="MFV Insight">
+    <h1><span class="ln"><span>MFV Insight</span></span></h1>
+    <p class="sub hin">Comprenez votre performance. Accélérez votre croissance.</p>
+    <div class="ctas hin"><a class="btn pri" href="/contact">Parler de votre performance</a><a class="btn sec" href="#univers">Découvrir</a></div>
+    <div class="pills hin"><a href="/book">BOOK</a><a href="/stay">STAY</a><a href="/studio">STUDIO</a><a class="on" href="/insight" aria-current="page">INSIGHT</a></div>
+  </div>
+</div></section>
+<section class="blk " id='univers'><div class="wrap">
+  <div class="eyebrow">Deux univers complémentaires</div>
+  <h2 class="fade">Voir clair, puis grandir</h2>
+  <p class="lead fade">De l&rsquo;analyse du parcours de réservation à l&rsquo;optimisation de votre visibilité digitale, MFV Insight vous donne les moyens de comprendre vos performances et de développer vos réservations directes.</p>
+<div class="cards2"><div class="oc fade"><div class="tags"><span class="tg">INSIGHT ANALYTICS</span></div><h3>Comprendre</h3><div class="d">Comprendre les comportements de réservation, identifier les abandons et exploiter les données disponibles pour améliorer la conversion.</div></div><div class="oc rec fade"><div class="tags"><span class="tg">INSIGHT GROWTH</span></div><h3>Accélérer</h3><div class="d">Développer la visibilité de l&rsquo;établissement grâce au référencement naturel, aux stratégies d&rsquo;acquisition et à l&rsquo;optimisation de la performance digitale.</div></div></div>
+</div></section>
+<section class="blk grey" id='analytics'><div class="wrap">
+  <div class="eyebrow">Insight Analytics</div>
+  <h2 class="fade">Comprendre pourquoi un voyageur réserve, ou non</h2>
+  <p class="lead fade">Insight Analytics regarde ce qui se passe dans le parcours de réservation, pour que vous sachiez où vous perdez des réservations et comment les récupérer.</p>
+<div class="cards2"><div class="oc fade"><h3>Le parcours de réservation</h3><div class="d">Analyser le parcours de réservation pour comprendre les comportements des voyageurs.</div><img src="/assets/produits/ins-funnel-560.webp" srcset="/assets/produits/ins-funnel-560.webp 560w, /assets/produits/ins-funnel-1120.webp 1120w" sizes="(max-width:900px) 80vw, 40vw" width="1120" height="484" alt="Exemple de parcours de réservation sur 30 jours : des visites du site jusqu'aux réservations" loading="lazy" decoding="async" style="margin-top:28px;border-radius:12px;border:1px solid var(--line);width:100%;height:auto"></div><div class="oc fade"><h3>Les paniers abandonnés</h3><div class="d">Identifier les paniers abandonnés et exploiter les données disponibles pour améliorer la conversion.</div><img src="/assets/produits/ins-carts-420.webp" srcset="/assets/produits/ins-carts-420.webp 420w, /assets/produits/ins-carts-840.webp 840w" sizes="(max-width:900px) 80vw, 40vw" width="840" height="368" alt="Exemple de paniers abandonnés de la semaine" loading="lazy" decoding="async" style="margin-top:28px;border-radius:12px;border:1px solid var(--line);width:100%;height:auto"></div></div>
+</div></section>
+<section class="blk dark" id='growth'><div class="wrap">
+  <div class="eyebrow">Insight Growth</div>
+  <h2 class="fade">Développer la visibilité de votre établissement</h2>
+  <p class="lead fade">Insight Growth est une offre de services&nbsp;: nos équipes réalisent ces prestations avec leurs méthodes et leurs outils. Ce n&rsquo;est pas un logiciel automatisé.</p>
+<div class="gridn" style="--c:3"><div class="gc fade"><div class=lab>01</div><h3>Audit SEO et analyse de visibilité</h3><p>Un état des lieux de votre visibilité et des points à corriger.</p></div><div class="gc fade"><div class=lab>02</div><h3>Optimisation du référencement naturel</h3><p>Des actions pour gagner en visibilité sur les moteurs de recherche, sans payer de publicité.</p></div><div class="gc fade"><div class=lab>03</div><h3>Stratégie de mots-clés</h3><p>Les recherches sur lesquelles vous voulez être trouvé, choisies avec vous.</p></div><div class="gc fade"><div class=lab>04</div><h3>Optimisation technique et éditoriale</h3><p>Le site et ses contenus retravaillés pour mieux se placer et mieux convaincre.</p></div><div class="gc fade"><div class=lab>05</div><h3>Analyse du trafic et des conversions</h3><p>D&rsquo;où viennent vos visiteurs, et ce qui les amène à réserver ou non.</p></div><div class="gc fade"><div class=lab>06</div><h3>Optimisation des parcours utilisateurs</h3><p>Des parcours plus simples pour que davantage de visiteurs réservent (CRO).</p></div><div class="gc fade"><div class=lab>07</div><h3>Stratégie d&rsquo;acquisition digitale</h3><p>Les bons canaux pour faire venir de nouveaux voyageurs.</p></div><div class="gc fade"><div class=lab>08</div><h3>Google Ads et Google Business Profile</h3><p>Un accompagnement sur vos campagnes Google Ads et sur votre fiche d&rsquo;établissement Google.</p></div><div class="gc fade"><div class=lab>09</div><h3>Reporting et recommandations de performance</h3><p>Un suivi régulier de vos résultats, avec des recommandations concrètes.</p></div></div>
+</div></section>
+<section class="statement"><div class="wrap"><div class="eyebrow" style="justify-content:center">Avec le reste de MFV</div>
+  <h2 class="fade">Un complément à MFV Book et MFV Stay</h2>
+  <p class="lead fade">MFV Insight complète MFV Book et MFV Stay. Il peut aussi être proposé séparément, lorsque les données nécessaires sont accessibles.</p>
+<a class="btn pri fade" href="/contact">Parler de votre projet</a></div></section>
 
-  <section id="univers">
-    <div class="shell">
-      <span class="eyebrow">Deux univers complémentaires</span>
-      <h2 class="title">Voir clair, puis grandir</h2>
-      <div class="grid two" style="margin-top:1.6rem">
-        <div class="card tile lift" style="padding:1.8rem"><span class="n">Insight Analytics</span><h3 style="font-size:1.35rem;margin-top:.3rem">Comprendre</h3><p style="margin-top:.7rem">Comprendre les comportements de réservation, identifier les abandons et exploiter les données disponibles pour améliorer la conversion.</p></div>
-        <div class="card tile lift" style="padding:1.8rem"><span class="n">Insight Growth</span><h3 style="font-size:1.35rem;margin-top:.3rem">Accélérer</h3><p style="margin-top:.7rem">Développer la visibilité de l'établissement grâce au référencement naturel, aux stratégies d'acquisition et à l'optimisation de la performance digitale.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="analytics">
-    <div class="shell">
-      <span class="eyebrow">Insight Analytics</span>
-      <h2 class="title">Comprendre pourquoi un voyageur réserve, ou non</h2>
-      <p class="intro">Insight Analytics regarde ce qui se passe dans le parcours de réservation, pour que vous sachiez où vous perdez des réservations et comment les récupérer.</p>
-      <div class="grid two" style="margin-top:1.6rem">
-        <div class="card tile lift"><span class="n">Parcours</span><h3>Le parcours de réservation</h3><p>Analyser le parcours de réservation pour comprendre les comportements des voyageurs.</p></div>
-        <div class="card tile lift"><span class="n">Abandons</span><h3>Les paniers abandonnés</h3><p>Identifier les paniers abandonnés et exploiter les données disponibles pour améliorer la conversion.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="growth">
-    <div class="shell">
-      <span class="eyebrow">Insight Growth</span>
-      <h2 class="title">Développer la visibilité de votre établissement</h2>
-      <p class="intro">Insight Growth est une offre de services&nbsp;: nos équipes réalisent ces prestations avec leurs méthodes et leurs outils. Ce n'est pas un logiciel automatisé.</p>
-      <div class="grid">
-        <div class="card tile lift"><span class="n">Audit</span><h3>Audit SEO et analyse de visibilité</h3><p>Un état des lieux de votre visibilité et des points à corriger.</p></div>
-        <div class="card tile lift"><span class="n">Référencement</span><h3>Optimisation du référencement naturel</h3><p>Des actions pour gagner en visibilité sur les moteurs de recherche, sans payer de publicité.</p></div>
-        <div class="card tile lift"><span class="n">Mots-clés</span><h3>Stratégie de mots-clés</h3><p>Les recherches sur lesquelles vous voulez être trouvé, choisies avec vous.</p></div>
-        <div class="card tile lift"><span class="n">Contenu</span><h3>Optimisation technique et éditoriale</h3><p>Le site et ses contenus retravaillés pour mieux se placer et mieux convaincre.</p></div>
-        <div class="card tile lift"><span class="n">Trafic</span><h3>Analyse du trafic et des conversions</h3><p>D'où viennent vos visiteurs, et ce qui les amène à réserver ou non.</p></div>
-        <div class="card tile lift"><span class="n">Parcours</span><h3>Optimisation des parcours utilisateurs</h3><p>Des parcours plus simples pour que davantage de visiteurs réservent (CRO).</p></div>
-        <div class="card tile lift"><span class="n">Acquisition</span><h3>Stratégie d'acquisition digitale</h3><p>Les bons canaux pour faire venir de nouveaux voyageurs.</p></div>
-        <div class="card tile lift"><span class="n">Google</span><h3>Google Ads et Google Business Profile</h3><p>Un accompagnement sur vos campagnes Google Ads et sur votre fiche d'établissement Google.</p></div>
-        <div class="card tile lift"><span class="n">Pilotage</span><h3>Reporting et recommandations de performance</h3><p>Un suivi régulier de vos résultats, avec des recommandations concrètes.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="ensemble">
-    <div class="shell">
-      <span class="eyebrow">Avec le reste de MFV</span>
-      <h2 class="title">Un complément à MFV Book et MFV Stay</h2>
-      <p class="intro">MFV Insight complète <a href="/book">MFV Book</a> et <a href="/stay">MFV Stay</a>. Il peut aussi être proposé séparément, lorsque les données nécessaires sont accessibles.</p>
-      <p style="margin-top:1.4rem"><a class="btn" href="/contact">Parler de votre projet</a></p>
-    </div>
-  </section>
-</main>
-
-<section class="contact site-foot">
-<div class="shell">
-<span class="eyebrow">Parler de votre établissement</span>
-<h2 class="title">Un premier échange, sans engagement</h2>
-<p class="intro">Dites-nous où vous en êtes&nbsp;: pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme que vous louez et que vous aimeriez posséder. On vous répond avec une piste concrète.</p>
-<div class="sf-cta"><a class="btn" href="/demo">Réserver une démo de 30 min</a><span class="sf-mail">contact@mfv-systems.fr</span><a class="btn ghost" href="/contact">Nous écrire</a></div>
-<div class="foot-bottom">
-<span class="wordmark"><b>MFV</b> <span class="g">systems</span></span>
-<nav class="foot-nav"><a href="/produits">Le produit</a><a href="/methode">Notre méthode</a><a href="/equipe">L'équipe</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></nav>
-<p class="foot-legal">MFV Systems, SAS au capital de 10&nbsp;000&nbsp;€, RCS Paris 131&nbsp;904&nbsp;609, SIRET 131&nbsp;904&nbsp;609&nbsp;00016. Siège&nbsp;: 8 rue Jean Richepin, 75116 Paris. Président&nbsp;: Amaury Finaz de Villaine. Directeurs généraux&nbsp;: Thomas Finaz de Villaine et Yassmine Meyer. Contact&nbsp;: <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>. Hébergeur&nbsp;: Vercel Inc.<br><a href="/mentions-legales">Mentions légales</a> &middot; <a href="/confidentialite">Politique de confidentialité</a> &middot; <a href="/cgv">CGV</a></p>
-</div>
-</div>
+<section class="dark" id="demo">
+<div class="fin"><div class="rib" aria-hidden="true"></div><div class="wrap" style="position:relative">
+<div class="eyebrow" style="justify-content:center">Parler de votre établissement</div>
+<h2 class="fade">Un premier échange, sans engagement</h2>
+<p class="lead fade">Dites-nous où vous en êtes&nbsp;: pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme que vous louez et que vous aimeriez posséder. On vous répond avec une piste concrète.</p>
+<div class="ctas fade"><a class="btn pri" href="/demo">Réserver une démo de 30 min</a><a class="btn sec" href="/contact">Nous écrire</a></div>
+<div class="mail fade"><a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a></div>
+</div></div>
 </section>
-
+</main>
+<footer class="foot dark"><div class="wrap">
+<div class="top2"><div><a class="logo" href="/" aria-label="MFV Systems, accueil"><img src="/assets/home/logo-mfv-blanc.png" alt="MFV" width="320" height="90"></a><p class="tagline">Solutions digitales pour l&rsquo;hôtellerie et au-delà.</p></div>
+<div><h4>Produits</h4><ul><li><a href="/studio">MFV Studio</a></li><li><a href="/book">MFV Book</a></li><li><a href="/stay">MFV Stay</a></li><li><a href="/insight">MFV Insight</a></li></ul></div>
+<div><h4>Agence</h4><ul><li><a href="/agence">Services</a></li><li><a href="/methode">Notre méthode</a></li><li><a href="/equipe">L&rsquo;équipe</a></li><li><a href="/faq">FAQ</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a></li><li>8 rue Jean Richepin, 75116 Paris</li><li><a href="/contact">Nous écrire</a></li></ul></div></div>
+<p class="legal">MFV Systems, SAS au capital de 10&nbsp;000&nbsp;€, RCS Paris 131&nbsp;904&nbsp;609, SIRET 131&nbsp;904&nbsp;609&nbsp;00016. Siège&nbsp;: 8 rue Jean Richepin, 75116 Paris. Président&nbsp;: Amaury Finaz de Villaine. Directeurs généraux&nbsp;: Thomas Finaz de Villaine et Yassmine Meyer. Contact&nbsp;: contact@mfv-systems.fr. Hébergeur&nbsp;: Vercel Inc.<br><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Politique de confidentialité</a> · <a href="/cgv">CGV</a></p>
+</div></footer>
+<script src="/assets/vendor/gsap.min.js"></script>
+<script src="/assets/vendor/ScrollTrigger.min.js"></script>
+<script src="/assets/vendor/lenis.min.js"></script>
+<script src="/home.js"></script>
+<script src="/produits.js"></script>
 </body>
 </html>
