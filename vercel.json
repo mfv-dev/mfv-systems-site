@@ -3,6 +3,21 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/agence",
+      "destination": "/studio",
+      "permanent": true
+    },
+    {
+      "source": "/methode",
+      "destination": "/studio",
+      "permanent": true
+    },
+    {
+      "source": "/produits",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/(.*)",
       "has": [
         {

@@ -5,144 +5,75 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>L'équipe &middot; MFV Systems</title>
 <meta name="description" content="Deux fondateurs complémentaires : produit et développement d'un côté, hôtellerie et distribution de l'autre. Économique, propriétaire, intégré.">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=2">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png?v=2">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/shell.css">
-<meta name="theme-color" content="#000633">
-<script src="/reveal.js" defer></script>
-<script src="/shell.js" defer></script>
 <meta property="og:title" content="L'équipe &middot; MFV Systems">
 <meta property="og:description" content="Deux fondateurs complémentaires : produit et développement d'un côté, hôtellerie et distribution de l'autre. Économique, propriétaire, intégré.">
+<link rel="preload" href="/assets/fonts/g400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/home.css?v=4">
+<link rel="stylesheet" href="/produits.css?v=8">
+<link rel="stylesheet" href="/pages.css?v=4">
 <link rel="canonical" href="https://mfv-systems.fr/equipe">
+<meta property="og:url" content="https://mfv-systems.fr/equipe">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MFV Systems">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:url" content="https://mfv-systems.fr/equipe">
 <meta property="og:image" content="https://mfv-systems.fr/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="MFV Systems, votre infrastructure de réservation">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="L'équipe &middot; MFV Systems">
 <meta name="twitter:description" content="Deux fondateurs complémentaires : produit et développement d'un côté, hôtellerie et distribution de l'autre. Économique, propriétaire, intégré.">
 <meta name="twitter:image" content="https://mfv-systems.fr/assets/og-image.png">
-<link rel="stylesheet" href="/mobile.css">
-<script src="/mobile.js" defer></script>
-<script src="/demo-bar.js" defer></script>
 </head>
-<body>
-
-<header class="site-h">
-<div class="bar2">
-<a href="/" class="logo" aria-label="MFV Systems, accueil"><img src="/assets/mfv-logo.png" alt="MFV"></a>
-<nav class="nv-nav">
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Produits <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/book"><b>MFV Book</b><span>Le moteur de réservation directe</span></a><a href="/stay"><b>MFV Stay</b><span>Le PMS pensé pour les hôtels indépendants</span></a><a href="/insight"><b>MFV Insight</b><span>Analyse et performance</span></a><a href="/studio"><b>MFV Studio</b><span>Création digitale et direction artistique</span></a><a class="dd-foot" href="/#simulateur">Estimez votre facture de commissions &#8594;</a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Agence <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/agence#specialises"><b>Référencement</b><span>Être trouvé et gagner des réservations ou des clients en direct</span></a><a href="/agence#specialises"><b>Sites web et design</b><span>Pour les hôtels, et pour d'autres métiers</span></a><a href="/agence#crm"><b>CRM sur mesure</b><span>Connaître et suivre ses clients</span></a><a href="/agence#logiciels"><b>Logiciels sur mesure</b><span>Des outils faits pour votre activité</span></a><a href="/agence#donnees"><b>Données</b><span>Récupérer et exploiter vos données pour décider</span></a><a class="dd-foot" href="/agence">Voir toute l'agence &#8594;</a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Pour qui <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/produits"><b>Hôtels indépendants</b><span>L'offre complète</span></a><a href="/agence#secteurs"><b>Autres entreprises</b><span>Sites, CRM, logiciels et données pour votre activité</span></a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Ressources <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/faq"><b>FAQ</b><span>Les questions que posent les hôteliers</span></a><a href="/methode"><b>Notre méthode</b><span>Comment nous travaillons</span></a><a href="/equipe"><b>L'équipe</b><span>Qui sommes-nous</span></a><a href="/contact"><b>Contact</b><span>Parler de votre établissement ou de votre projet</span></a></div></div></div>
-</nav>
-<a class="cta" href="/demo">Réserver une démo</a>
-</div>
-</header>
+<body class="home pb pg">
+<nav class="top" id="nav" aria-label="Navigation principale"><div class="wrap">
+<a class="logo" href="/" aria-label="MFV Systems, accueil"><img src="/assets/home/logo-mfv-systems-noir.png" alt="MFV Systems" width="900" height="128"></a>
+<button type="button" class="m-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+<ul id="menu"><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Produits <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/book"><b>MFV Book</b><span>Le moteur de réservation directe</span></a><a href="/stay"><b>MFV Stay</b><span>Le PMS pensé pour les hôtels indépendants</span></a><a href="/insight"><b>MFV Insight</b><span>Analyse et performance</span></a><a href="/studio"><b>MFV Studio</b><span>Création digitale et direction artistique</span></a><a class="dd-foot" href="/#simulateur">Estimez votre facture de commissions &#8594;</a></div></div></li><li class="nv"><a class="nv-l" href="/#resultats">Résultats</a></li><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Services <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/insight#seo"><b>Référencement</b><span>Être trouvé et gagner des réservations ou des clients en direct</span></a><a href="/studio"><b>Sites web et design</b><span>Pour les hôtels, et pour d'autres métiers</span></a><a href="/stay#fonctions"><b>CRM clients</b><span>Connaître et suivre ses clients</span></a><a href="/insight#analytics"><b>Données</b><span>Récupérer et exploiter vos données pour décider</span></a></div></div></li><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Ressources <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/faq"><b>FAQ</b><span>Les questions que posent les hôteliers</span></a><a href="/equipe"><b>L'équipe</b><span>Qui sommes-nous</span></a><a href="/contact"><b>Contact</b><span>Parler de votre établissement ou de votre projet</span></a></div></div></li><li class="cta-m"><a class="btn pri" href="/demo">Réserver une démo</a></li></ul>
+<a class="btn pri cta" href="/demo">Réserver une démo</a>
+</div></nav>
 
 <main>
+<section class="ph"><div class="wrap"><div class="eyebrow">L&rsquo;équipe</div><h1>Deux fondateurs, deux terrains complémentaires</h1><p class="lead">L&rsquo;un apporte le développement commercial et la stratégie, l&rsquo;autre l&rsquo;exigence de l&rsquo;hôtellerie de luxe et l&rsquo;identité de marque, au service des hôtels indépendants.</p></div></section>
+<section class="eq-sec" style="padding-top:0"><div class="wrap"><div class="eyebrow">Les fondateurs</div><h2 class="eq-h">Qui construit, qui connaît le terrain</h2>
+<div class="fnd">
+<article><img src="/assets/equipe/thomas-480.webp" srcset="/assets/equipe/thomas-480.webp 480w, /assets/equipe/thomas-960.webp 960w" sizes="(max-width:900px) 92vw, 46vw" width="960" height="1255" alt="Thomas Finaz de Villaine" loading="lazy"><div class="tx"><h3>Thomas Finaz de Villaine</h3><div class="role">Direction commerciale et stratégie</div><p>Thomas Finaz de Villaine pilote le développement commercial et la stratégie de MFV. Directement impliqué auprès des établissements, il identifie avec chaque hôtelier les solutions les plus adaptées à ses enjeux et l&rsquo;accompagne dans la durée. Auparavant, il a évolué plusieurs années dans le développement commercial et le conseil, notamment dans les secteurs de la cybersécurité et de la finance.</p></div></article>
+<article><img src="/assets/equipe/yassmine-480.webp" srcset="/assets/equipe/yassmine-480.webp 480w, /assets/equipe/yassmine-960.webp 960w" sizes="(max-width:900px) 92vw, 46vw" width="960" height="1280" alt="Yassmine Meyer" loading="lazy"><div class="tx"><h3>Yassmine Meyer</h3><div class="role">Direction marque et produit</div><p>Yassmine Meyer accompagne des marques premium sur leur stratégie digitale, leur marketing et leur image, et conçoit l&rsquo;expérience des produits MFV. Auparavant, plusieurs années en relations clients et gestion VIP dans l&rsquo;hôtellerie de luxe, sur plusieurs continents. Elle connaît l&rsquo;hôtel des deux côtés du comptoir&nbsp;: ce que vit le client, et ce qui le fait revenir.</p></div></article>
+</div></div></section>
+<section class="eq-sec grey" style="background:var(--grey)"><div class="wrap"><div class="eyebrow">La technique</div><h2 class="eq-h">Qui construit le moteur</h2>
+<p class="lead">Le produit est construit par une équipe technique, placée sous la responsabilité de Sébastien Narboni, responsable du pôle développement.</p>
+<div class="tech-h"><img src="/assets/equipe/sebastien-240.webp" srcset="/assets/equipe/sebastien-240.webp 240w, /assets/equipe/sebastien-480.webp 480w" width="240" height="240" alt="Sébastien Narboni" loading="lazy"><div><b>Sébastien Narboni</b><span>Responsable du pôle développement</span></div></div>
+<div class="tech-t">Équipe technique</div>
+<div class="gridn" style="--c:3;margin-top:3vh"><div class="gc"><div class="lab">Moteur</div><h3>Moteur de réservation</h3><p>Dates, disponibilités, tarifs, parcours de réservation.</p></div><div class="gc"><div class="lab">Connexions</div><h3>Connexions et paiements</h3><p>Liaison aux logiciels de gestion, routage des paiements, architecture multi-hôtel.</p></div><div class="gc"><div class="lab">Qualité</div><h3>Qualité et sécurité</h3><p>Tests automatiques, contrôles de sécurité, relecture avant chaque livraison.</p></div></div></div></section>
+<section class="eq-sec"><div class="wrap"><div class="eyebrow">Votre interlocuteur</div><h2 class="eq-h">Une personne dédiée, 7 jours sur 7</h2>
+<p class="lead">Chaque hôtel accompagné a un interlocuteur dédié chez MFV. Une seule personne à contacter, qui connaît votre établissement et son projet, et qui fait le lien avec l&rsquo;équipe technique.</p>
+<div class="gridn" style="--c:3"><div class="gc"><div class="lab">Simplicité</div><h3>Un seul contact</h3><p>Pas de service à chercher ni de demande à répéter.</p></div><div class="gc"><div class="lab">Disponibilité</div><h3>Disponible 7 jours sur 7</h3><p>Pour vos questions, vos demandes et les urgences.</p></div><div class="gc"><div class="lab">Technique</div><h3>Lien avec la technique</h3><p>Il transmet à l&rsquo;équipe technique et vous tient informé.</p></div></div></div></section>
+<section class="eq-sec" style="background:var(--grey)"><div class="wrap"><div class="eyebrow">Ce qui nous guide</div><h2 class="eq-h">Économique, propriétaire, intégré</h2>
+<div class="gridn" style="--c:3"><div class="gc"><div class="lab">Économique</div><h3>Économique</h3><p>Vous achetez votre infrastructure une fois. Pas d&rsquo;abonnement pour avoir le droit de l&rsquo;utiliser. Le récurrent ne paie que des services réels et optionnels.</p></div><div class="gc"><div class="lab">Propriétaire</div><h3>Propriétaire</h3><p>Vos données, votre nom de domaine, votre compte de paiement, vos contenus restent les vôtres. À la sortie&nbsp;: export complet, sans frais, sans clause d&rsquo;exclusivité.</p></div><div class="gc"><div class="lab">Intégré</div><h3>Intégré</h3><p>Un seul ensemble qui marche, pas quatre prestataires à coordonner. Données hébergées en Europe.</p></div></div></div></section>
 
-  <section class="page-head">
-    <div class="shell">
-      <span class="eyebrow">L'équipe</span>
-      <h1>Deux fondateurs, deux terrains complémentaires</h1>
-      <p class="sub">L'un apporte le développement commercial et la stratégie, l'autre l'exigence de l'hôtellerie de luxe et l'identité de marque, au service des hôtels indépendants.</p>
-    </div>
-  </section>
-
-  <section id="fondateurs">
-    <div class="shell">
-      <span class="eyebrow">Les fondateurs</span>
-      <h2 class="title">Qui construit, qui connaît le terrain</h2>
-      <div class="team">
-        <div class="card person"><img src="/team-thomas.jpg" alt="Thomas Finaz de Villaine" class="person-photo"><b>Thomas Finaz de Villaine</b><span class="role">Direction commerciale et stratégie</span><span>Thomas Finaz de Villaine pilote le développement commercial et la stratégie de MFV. Directement impliqué auprès des établissements, il identifie avec chaque hôtelier les solutions les plus adaptées à ses enjeux et l'accompagne dans la durée. Auparavant, il a évolué plusieurs années dans le développement commercial et le conseil, notamment dans les secteurs de la cybersécurité et de la finance.</span></div>
-        <div class="card person"><img src="/team-yassmine.jpg" alt="Yassmine Meyer" class="person-photo"><b>Yassmine Meyer</b><span class="role">Direction marque et produit</span><span>Yassmine Meyer accompagne des marques premium sur leur stratégie digitale, leur marketing et leur image, et conçoit l'expérience des produits MFV. Auparavant, plusieurs années en relations clients et gestion VIP dans l'hôtellerie de luxe, sur plusieurs continents. Elle connaît l'hôtel des deux côtés du comptoir&nbsp;: ce que vit le client, et ce qui le fait revenir.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="technique">
-    <div class="shell">
-      <span class="eyebrow" style="display:block;text-align:center">La technique</span>
-      <h2 class="title" style="text-align:center">Qui construit le moteur</h2>
-      <p class="intro" style="margin-inline:auto;text-align:center">Le produit est construit par une équipe technique, placée sous la responsabilité de Sébastien Narboni, responsable du pôle développement.</p>
-      <div class="techmap">
-        <div class="card person techhead">
-          <img src="/team-sebastien.jpg" alt="Sébastien Narboni" class="person-photo">
-          <b>Sébastien Narboni</b>
-          <span class="role">Responsable du pôle développement</span>
-        </div>
-        <div class="techline" aria-hidden="true"></div>
-        <div class="techteam"><span>Équipe technique</span></div>
-        <div class="techline" aria-hidden="true"></div>
-        <ul class="techgrid">
-          <li class="card"><b>Moteur de réservation</b><span>Dates, disponibilités, tarifs, parcours de réservation.</span></li>
-          <li class="card"><b>Connexions et paiements</b><span>Liaison aux logiciels de gestion, routage des paiements, architecture multi-hôtel.</span></li>
-          <li class="card"><b>Qualité et sécurité</b><span>Tests automatiques, contrôles de sécurité, relecture avant chaque livraison.</span></li>
-        </ul>
-      </div>
-      <style>
-        .person .role { color: var(--deep-accent); font-weight: 600; }
-        .techmap { display: flex; flex-direction: column; align-items: center; margin-top: 2rem; }
-        .techhead { text-align: center; max-width: 22rem; width: 100%; }
-        .techhead .person-photo { margin-inline: auto; }
-        .techline { width: 1px; height: 1.6rem; background: var(--line); }
-        .techteam { border: 1px solid var(--line); border-radius: 999px; padding: .5rem 1.2rem; font-weight: 700; font-size: .95rem; }
-        .techgrid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; width: 100%; }
-        .techgrid .card { padding: 1.4rem 1.5rem; }
-        .techgrid b { display: block; font-weight: 700; }
-        .techgrid span { display: block; margin-top: .5rem; color: var(--muted); font-size: .95rem; }
-        @media (max-width: 760px) { .techgrid { grid-template-columns: 1fr; } }
-      </style>
-    </div>
-  </section>
-
-  <section id="interlocuteur">
-    <div class="shell">
-      <span class="eyebrow" style="display:block;text-align:center">Votre interlocuteur</span>
-      <h2 class="title" style="text-align:center">Une personne dédiée, 7 jours sur 7</h2>
-      <p class="intro" style="margin-inline:auto;text-align:center">Chaque hôtel accompagné a un interlocuteur dédié chez MFV. Une seule personne à contacter, qui connaît votre établissement et son projet, et qui fait le lien avec l'équipe technique.</p>
-      <ul class="techgrid" style="margin-top:2rem">
-        <li class="card"><b>Un seul contact</b><span>Pas de service à chercher ni de demande à répéter.</span></li>
-        <li class="card"><b>Disponible 7 jours sur 7</b><span>Pour vos questions, vos demandes et les urgences.</span></li>
-        <li class="card"><b>Lien avec la technique</b><span>Il transmet à l'équipe technique et vous tient informé.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="pourquoi">
-    <div class="shell">
-      <span class="eyebrow">Ce qui nous guide</span>
-      <h2 class="title">Économique, propriétaire, intégré</h2>
-      <ul class="why">
-        <li><b>Économique</b><span>Vous achetez votre infrastructure une fois. Pas d'abonnement pour avoir le droit de l'utiliser. Le récurrent ne paie que des services réels et optionnels.</span></li>
-        <li><b>Propriétaire</b><span>Vos données, votre nom de domaine, votre compte de paiement, vos contenus restent les vôtres. À la sortie&nbsp;: export complet, sans frais, sans clause d'exclusivité.</span></li>
-        <li><b>Intégré</b><span>Un seul ensemble qui marche, pas quatre prestataires à coordonner. Données hébergées en Europe.</span></li>
-      </ul>
-    </div>
-  </section>
-</main>
-
-  <section class="contact site-foot">
-<div class="shell">
-<span class="eyebrow">Parler de votre établissement</span>
-<h2 class="title">Un premier échange, sans engagement</h2>
-<p class="intro">Dites-nous où vous en êtes&nbsp;: pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme que vous louez et que vous aimeriez posséder. On vous répond avec une piste concrète.</p>
-<div class="sf-cta"><a class="btn" href="/demo">Réserver une démo de 30 min</a><span class="sf-mail">contact@mfv-systems.fr</span><a class="btn ghost" href="/contact">Nous écrire</a></div>
-<div class="foot-bottom">
-<span class="wordmark"><b>MFV</b> <span class="g">systems</span></span>
-<nav class="foot-nav"><a href="/produits">Le produit</a><a href="/methode">Notre méthode</a><a href="/equipe">L'équipe</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></nav>
-<p class="foot-legal">MFV Systems, SAS au capital de 10&nbsp;000&nbsp;€, RCS Paris 131&nbsp;904&nbsp;609, SIRET 131&nbsp;904&nbsp;609&nbsp;00016. Siège&nbsp;: 8 rue Jean Richepin, 75116 Paris. Président&nbsp;: Amaury Finaz de Villaine. Directeurs généraux&nbsp;: Thomas Finaz de Villaine et Yassmine Meyer. Contact&nbsp;: <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>. Hébergeur&nbsp;: Vercel Inc.<br><a href="/mentions-legales">Mentions légales</a> &middot; <a href="/confidentialite">Politique de confidentialité</a> &middot; <a href="/cgv">CGV</a></p>
-</div>
-</div>
+<section class="dark" id="demo">
+<div class="fin"><div class="rib" aria-hidden="true"></div><div class="wrap" style="position:relative">
+<div class="eyebrow" style="justify-content:center">Parler de votre établissement</div>
+<h2 class="fade">Un premier échange, sans engagement</h2>
+<p class="lead fade">Dites-nous où vous en êtes&nbsp;: pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme que vous louez et que vous aimeriez posséder. On vous répond avec une piste concrète.</p>
+<div class="ctas fade"><a class="btn pri" href="/demo">Réserver une démo de 30 min</a><a class="btn sec" href="/contact">Nous écrire</a></div>
+<div class="mail fade"><a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a></div>
+</div></div>
 </section>
+</main>
+<footer class="foot dark"><div class="wrap">
+<div class="top2"><div><a class="logo" href="/" aria-label="MFV Systems, accueil"><img src="/assets/home/logo-mfv-systems-blanc.png" alt="MFV Systems" width="900" height="128"></a><p class="tagline">Solutions digitales pour l&rsquo;hôtellerie et au-delà.</p></div>
+<div><h4>Produits</h4><ul><li><a href="/studio">MFV Studio</a></li><li><a href="/book">MFV Book</a></li><li><a href="/stay">MFV Stay</a></li><li><a href="/insight">MFV Insight</a></li></ul></div>
+<div><h4>MFV</h4><ul><li><a href="/equipe">L&rsquo;équipe</a></li><li><a href="/faq">FAQ</a></li><li><a href="/demo">Réserver une démo</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a></li><li>8 rue Jean Richepin, 75116 Paris</li><li><a href="/contact">Nous écrire</a></li></ul></div></div>
+<p class="legal">MFV Systems, SAS au capital de 10&nbsp;000&nbsp;€, RCS Paris 131&nbsp;904&nbsp;609, SIRET 131&nbsp;904&nbsp;609&nbsp;00016. Siège&nbsp;: 8 rue Jean Richepin, 75116 Paris. Président&nbsp;: Amaury Finaz de Villaine. Directeurs généraux&nbsp;: Thomas Finaz de Villaine et Yassmine Meyer. Contact&nbsp;: contact@mfv-systems.fr. Hébergeur&nbsp;: Vercel Inc.<br><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Politique de confidentialité</a> · <a href="/cgv">CGV</a></p>
+</div></footer>
+<script src="/assets/vendor/gsap.min.js"></script>
+<script src="/assets/vendor/ScrollTrigger.min.js"></script>
+<script src="/assets/vendor/lenis.min.js"></script>
+<script src="/home.js?v=4"></script>
+<script src="/produits.js?v=8"></script>
 </body>
 </html>

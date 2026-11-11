@@ -1,0 +1,86 @@
+/* Pages simples (contact, démo, FAQ, équipe, légales, 404) : même DA que l'accueil. Les pages légales et la 404 sont sur fond noir (.dk). */
+.pg .ph{padding:150px 0 56px}
+.pg .ph h1{font-size:clamp(38px,4.4vw,68px);margin-top:20px;max-width:15em;text-wrap:balance}
+.pg .ph .lead{margin-top:22px}
+.pg .ph .lead a,.pg .doc a,.pg .aside a.mail{border-bottom:1px solid currentColor}
+.pg .sec{padding:0 0 12vh}
+
+/* CONTACT */
+.pg .cgrid{display:grid;grid-template-columns:1.4fr 1fr;gap:5vw;align-items:start}
+.pg form.lead-f{display:grid;gap:18px}
+.pg .f-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pg .field label{display:block;font-size:14px;margin-bottom:8px}
+.pg .field .req{color:var(--indigo)}
+.pg .field input,.pg .field select,.pg .field textarea{width:100%;border-radius:10px;border:1px solid var(--line);background:#fff;padding:0 14px;font:inherit;font-size:15px;color:var(--ink)}
+.pg .field input,.pg .field select{height:48px}
+.pg .field textarea{min-height:150px;padding:14px;resize:vertical}
+.pg .field input:focus,.pg .field select:focus,.pg .field textarea:focus{outline:2px solid var(--indigo);outline-offset:1px;border-color:transparent}
+.pg .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.pg .form-status{min-height:22px;font-size:14px}
+.pg .form-status.ok{color:#15803D}.pg .form-status.err{color:#B42318}
+.pg .form-note{font-size:13px;color:var(--mute);line-height:1.5}
+.pg .lead-f button.btn{justify-self:start}
+.pg .aside{display:grid;gap:16px}
+.pg .aside .card{background:var(--grey);border-radius:20px;padding:30px 28px}
+.pg .aside h3{font-size:22px;letter-spacing:-.03em}
+.pg .aside p{margin-top:12px;font-size:15.5px;line-height:1.6;color:var(--mute)}
+.pg .aside .btn{margin-top:20px}
+.pg .aside a.mail{display:inline-block;margin-top:14px;font-size:15px}
+.pg .aside ul{list-style:none;margin-top:16px}
+.pg .aside li{padding:10px 0;border-top:1px solid #DADAE0;font-size:14.5px}
+
+/* DEMO */
+.pg .rdv-frame{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 30px 60px rgba(20,16,60,.08)}
+.pg .rdv-frame iframe{display:block;width:100%;height:760px;border:0}
+.pg .rdv-alt{margin-top:18px;font-size:14.5px;color:var(--mute)}
+.pg .rdv-alt a{border-bottom:1px solid currentColor;color:var(--ink)}
+
+/* FAQ */
+.pg .faq-l{max-width:900px}
+.pg .faq-l .qa a{border-bottom:1px solid currentColor}
+
+/* EQUIPE */
+.pg .eq-h{margin-top:22px;font-size:clamp(34px,3.8vw,56px);max-width:14em;text-wrap:balance}
+.pg .eq-sec{padding:12vh 0}
+.pg .fnd{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:7vh}
+.pg .fnd article{background:var(--grey);border-radius:22px;overflow:hidden}
+.pg .fnd img{width:100%;height:auto;aspect-ratio:1/1.02;object-fit:cover;object-position:50% 20%;display:block}
+.pg .fnd .tx{padding:28px 30px 34px}
+.pg .fnd h3{font-size:28px;letter-spacing:-.035em}
+.pg .fnd .role{margin-top:6px;font-size:14px;color:var(--indigo);font-weight:500}
+.pg .fnd p{margin-top:16px;font-size:15.5px;line-height:1.6;color:var(--mute)}
+.pg .tech-h{display:flex;align-items:center;gap:18px;margin-top:6vh}
+.pg .tech-h img{width:84px;height:84px;border-radius:50%;object-fit:cover}
+.pg .tech-h b{display:block;font-size:22px;font-weight:500;letter-spacing:-.03em}
+.pg .tech-h span{font-size:14px;color:var(--mute)}
+.pg .tech-t{margin-top:18px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+
+/* PAGES LEGALES ET 404 : fond noir */
+body.home.dk{background:#0B0B0F;color:#fff}
+.dk .ph .lead{color:#A3A3AE}
+.dk .eyebrow{color:#9A9AA6}.dk .eyebrow:before{background:var(--lav)}
+.pg .doc{max-width:780px;padding-bottom:12vh}
+.pg .doc .updated{font-size:14px;color:#8F8F9A;margin-bottom:10px}
+.pg .doc h2{font-size:22px;letter-spacing:-.025em;margin:46px 0 12px;max-width:none;font-weight:500}
+.pg .doc p,.pg .doc li{font-size:16px;line-height:1.7;color:#B5B5BF;margin-top:10px}
+.pg .doc ul{margin:10px 0 0 20px}
+.pg .doc strong{color:#fff;font-weight:500}
+.pg .doc a:hover{color:#fff}
+.dk nav.top.solid{background:rgba(11,11,15,.82)}
+.dk nav.top .nv-b,.dk nav.top .nv-l{color:#fff}
+.dk .m-btn{background:#131318;border-color:#2A2A33;color:#fff}
+.dk footer.foot{border-top-color:#1E1E25}
+.pg .nf{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+
+@media (max-width:900px){
+  .pg .ph{padding:110px 0 36px}
+  .pg .cgrid{grid-template-columns:1fr;gap:34px}
+  .pg .f-row{grid-template-columns:1fr}
+  .pg .rdv-frame iframe{height:700px}
+  .pg .fnd{grid-template-columns:1fr}
+  .pg .eq-sec{padding:10vh 0}
+  .dk nav.top ul{background:#0B0B0F;border-bottom-color:#1E1E25}
+  .dk nav.top.open{background:#0B0B0F}
+  .dk nav.top .dd-in{background:#131318;border-color:#2A2A33}
+  .dk nav.top .dd a b{color:#fff}.dk nav.top .dd a:hover{background:#1B1B22}
+}
