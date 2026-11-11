@@ -119,7 +119,7 @@
 .seo .note{font-size:12px;color:#9A9AA6;margin-top:12px}
 .serp{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 40px 80px rgba(20,16,60,.10);overflow:hidden}
 .serp .sb{display:flex;align-items:center;gap:12px;margin:22px 24px 8px;height:52px;border:1px solid #E4E4EA;border-radius:99px;padding:0 20px;font-size:17px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.serp .sb svg{flex:none}.serp .q:after{content:"";display:inline-block;width:1.5px;height:20px;background:var(--ink);margin-left:2px;vertical-align:-4px;animation:blink 1s steps(1) infinite}
+.serp .sb svg{flex:none}.serp .sb .sg{margin-left:auto}.serp .q:after{content:"";display:inline-block;width:1.5px;height:20px;background:var(--ink);margin-left:2px;vertical-align:-4px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 .serp .tabs2{display:flex;gap:22px;padding:6px 44px 12px;font-size:13px;color:#8A8A92;border-bottom:1px solid #F0F0F3}.serp .tabs2 b{color:var(--ink);font-weight:500;border-bottom:2px solid var(--ink);padding-bottom:10px}
 .serp .res{position:relative;height:624px;margin:6px 0 4px}
