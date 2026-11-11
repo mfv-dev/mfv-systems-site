@@ -33,7 +33,7 @@ nav.top.solid{background:rgba(255,255,255,.78);backdrop-filter:blur(16px);-webki
 nav.top.hide{transform:translateY(-100%)}
 nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
 .logo{display:inline-flex;align-items:center;line-height:0}
-.logo img{display:block;height:40px;width:auto}
+.logo img{display:block;height:26px;width:auto}
 nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 .nv{position:relative}
 .nv-b,.nv-l{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:10px 2px;font:inherit;font-size:15px;color:var(--ink);opacity:.78;transition:opacity .2s}
@@ -269,7 +269,7 @@ nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 .demo .alt a{color:#fff;border-bottom:1px solid currentColor}
 footer.foot{padding:10vh 0 6vh;border-top:1px solid #1E1E25}
 footer .top2{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
-footer .logo img{height:48px}
+footer .logo img{height:32px}
 footer .tagline{color:#9A9AA6;font-size:14px;margin-top:18px;max-width:300px;line-height:1.5}
 footer h4{font-weight:500;font-size:14px;margin-bottom:16px}
 footer li{list-style:none;color:#9A9AA6;font-size:14px;margin-bottom:10px}
