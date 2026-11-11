@@ -107,6 +107,7 @@
   .eq .blob:hover,.eq .blob:focus-visible{transform:scale(1.06)}
   .eq .ai-b{display:none}   /* ici, la discussion s'ouvre depuis la forme */
 }
+@media (min-width:901px){.no-chat .eq .blob{pointer-events:none;cursor:default}.no-chat .eq .blob:hover{transform:none}}
 @media (max-width:900px){.pg .blob{display:none}}
 
 /* PAGES LEGALES ET 404 : fond noir */

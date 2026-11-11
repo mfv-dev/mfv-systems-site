@@ -2,6 +2,9 @@
    Aperçu du design en local (localhost) avec des réponses d'exemple. Absent du vrai site tant que /api/chat n'est pas branché. */
 (function () {
   var PREVIEW = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) && !/[?&]live=1/.test(location.search);
+  /* Tant que /api/chat n'est pas branché, l'assistant n'apparaît pas sur le vrai site (aperçu local et lien de validation seulement). */
+  var ENABLED = PREVIEW || window.MFV_CHAT_LIVE === true;
+  if (!ENABLED) document.documentElement.classList.add('no-chat');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var started = false, open = false, busy = false, history = [];
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
@@ -86,8 +89,8 @@
     if (o) { if (!log.children.length) greet(); setTimeout(function () { input.focus({ preventScroll: true }); }, 250); } else bubble.focus({ preventScroll: true });
   }
 
-  window.MFVChat = { open: function () { if (!started) window.MFVChat.start(); setOpen(true); }, start: function () {
-    if (started) return; started = true;
+  window.MFVChat = { open: function () { if (!ENABLED) return; if (!started) window.MFVChat.start(); setOpen(true); }, start: function () {
+    if (!ENABLED || started) return; started = true;
     document.body.appendChild(root);
     panel = $('ai-panel'); log = $('ai-log'); sg = $('ai-sg'); form = $('ai-f'); input = $('ai-in'); bubble = $('ai-b');
     bubble.addEventListener('click', function () { setOpen(!open); });
