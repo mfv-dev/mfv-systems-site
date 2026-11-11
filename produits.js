@@ -1,4 +1,4 @@
-/* Page MFV Book : accordéon FAQ et animations propres à la page (le menu, Lenis, le simulateur et les fondus viennent de home.js). */
+/* Pages produits (Book, Stay, Studio, Insight) : accordéon FAQ et animations communes (le menu, Lenis, le simulateur et les fondus viennent de home.js). */
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -26,7 +26,7 @@
   gsap.from('.hin', { opacity: 0, y: 22, duration: 1.1, ease: 'power3.out', stagger: 0.1, delay: 0.45 });
 
   /* Parcours : les quatre écrans montent l'un après l'autre */
-  gsap.from('.pstep>*', { opacity: 0, y: 70, duration: 1.3, ease: E, stagger: 0.07, scrollTrigger: { trigger: '.psteps', start: 'top 85%' } });
+  if (document.querySelector('.psteps')) gsap.from('.pstep>*', { opacity: 0, y: 70, duration: 1.3, ease: E, stagger: 0.07, scrollTrigger: { trigger: '.psteps', start: 'top 85%' } });
 
   /* 17 % -> 0 % : le compteur redescend à chaque fois que la carte entre à l'écran */
   if (cnt) {

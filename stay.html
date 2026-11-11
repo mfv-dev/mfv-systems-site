@@ -5,18 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MFV Stay, le PMS des hôtels indépendants · MFV Systems</title>
 <meta name="description" content="MFV Stay est le logiciel du quotidien des hôtels indépendants : arrivées, départs, chambres, planning, réservations, clients, paiements et équipe dans un seul outil.">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=2">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png?v=2">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/shell.css">
-<meta name="theme-color" content="#000633">
-<style>.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}@media (max-width:1000px){.grid.four{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:560px){.grid.four{grid-template-columns:minmax(0,1fr)}}</style>
-<script src="/reveal.js" defer></script>
-<script src="/shell.js" defer></script>
 <meta property="og:title" content="MFV Stay, le PMS des hôtels indépendants">
 <meta property="og:description" content="Le logiciel du quotidien de votre hôtel, dans un seul outil.">
+<link rel="preload" href="/assets/fonts/g400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/produits.css">
 <link rel="canonical" href="https://mfv-systems.fr/stay">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MFV Systems">
@@ -30,144 +28,92 @@
 <meta name="twitter:title" content="MFV Stay, le PMS des hôtels indépendants · MFV Systems">
 <meta name="twitter:description" content="MFV Stay est le logiciel du quotidien des hôtels indépendants : arrivées, départs, chambres, planning, réservations, clients, paiements et équipe dans un seul outil.">
 <meta name="twitter:image" content="https://mfv-systems.fr/assets/og-image.png">
-<link rel="stylesheet" href="/mobile.css">
-<script src="/mobile.js" defer></script>
-<script src="/demo-bar.js" defer></script>
 </head>
-<body>
-
-<header class="site-h">
-<div class="bar2">
-<a href="/" class="logo" aria-label="MFV Systems, accueil"><img src="/assets/mfv-logo.png" alt="MFV"></a>
-<nav class="nv-nav">
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Produits <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/book"><b>MFV Book</b><span>Le moteur de réservation directe</span></a><a href="/stay"><b>MFV Stay</b><span>Le PMS pensé pour les hôtels indépendants</span></a><a href="/insight"><b>MFV Insight</b><span>Analyse et performance</span></a><a href="/studio"><b>MFV Studio</b><span>Création digitale et direction artistique</span></a><a class="dd-foot" href="/#simulateur">Estimez votre facture de commissions &#8594;</a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Agence <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/contact"><b>Référencement</b><span>Être trouvé et gagner des réservations ou des clients en direct</span></a><a href="/contact"><b>Sites web et design</b><span>Pour les hôtels, et pour d'autres métiers</span></a><a href="/contact"><b>CRM sur mesure</b><span>Connaître et suivre ses clients</span></a><a href="/contact"><b>Logiciels sur mesure</b><span>Des outils faits pour votre activité</span></a><a href="/contact"><b>Données</b><span>Récupérer et exploiter vos données pour décider</span></a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Pour qui <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/produits"><b>Hôtels indépendants</b><span>L'offre complète</span></a><a href="/contact"><b>Autres entreprises</b><span>Sites, CRM, logiciels et données pour votre activité</span></a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Ressources <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/faq"><b>FAQ</b><span>Les questions que posent les hôteliers</span></a><a href="/methode"><b>Notre méthode</b><span>Comment nous travaillons</span></a><a href="/equipe"><b>L'équipe</b><span>Qui sommes-nous</span></a><a href="/contact"><b>Contact</b><span>Parler de votre établissement ou de votre projet</span></a></div></div></div>
-</nav>
-<a class="cta" href="/demo">Réserver une démo</a>
-</div>
-</header>
+<body class="home pb">
+<nav class="top" id="nav" aria-label="Navigation principale"><div class="wrap">
+<a class="logo" href="/" aria-label="MFV Systems, accueil"><img src="/assets/home/logo-mfv-noir.png" alt="MFV" width="320" height="90"></a>
+<button type="button" class="m-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+<ul id="menu"><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Produits <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/book"><b>MFV Book</b><span>Le moteur de réservation directe</span></a><a href="/stay"><b>MFV Stay</b><span>Le PMS pensé pour les hôtels indépendants</span></a><a href="/insight"><b>MFV Insight</b><span>Analyse et performance</span></a><a href="/studio"><b>MFV Studio</b><span>Création digitale et direction artistique</span></a><a class="dd-foot" href="/#simulateur">Estimez votre facture de commissions &#8594;</a></div></div></li><li class="nv"><a class="nv-l" href="/#resultats">Résultats</a></li><li class="nv"><a class="nv-l" href="/#simulateur">Simulateur</a></li><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Services <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/agence#specialises"><b>Référencement</b><span>Être trouvé et gagner des réservations ou des clients en direct</span></a><a href="/agence#specialises"><b>Sites web et design</b><span>Pour les hôtels, et pour d'autres métiers</span></a><a href="/agence#crm"><b>CRM sur mesure</b><span>Connaître et suivre ses clients</span></a><a href="/agence#logiciels"><b>Logiciels sur mesure</b><span>Des outils faits pour votre activité</span></a><a href="/agence#donnees"><b>Données</b><span>Récupérer et exploiter vos données pour décider</span></a><a class="dd-foot" href="/agence">Voir toute l'agence &#8594;</a></div></div></li><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Ressources <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/faq"><b>FAQ</b><span>Les questions que posent les hôteliers</span></a><a href="/methode"><b>Notre méthode</b><span>Comment nous travaillons</span></a><a href="/equipe"><b>L'équipe</b><span>Qui sommes-nous</span></a><a href="/contact"><b>Contact</b><span>Parler de votre établissement ou de votre projet</span></a></div></div></li><li class="cta-m"><a class="btn pri" href="/demo">Réserver une démo</a></li></ul>
+<a class="btn pri cta" href="/demo">Réserver une démo</a>
+</div></nav>
 
 <main>
-  <section class="page-head">
-    <div class="shell">
-      <img src="/assets/mfv-stay.png" alt="MFV Stay, hotel management system" style="height:130px;width:auto;display:block;margin:0 0 1.4rem -.4rem">
-      <span class="eyebrow">Le PMS pensé pour les hôtels indépendants</span>
-      <h1>Le logiciel du quotidien de votre hôtel</h1>
-      <p class="sub">MFV Stay remplace le cahier, le tableur et les post-it par un seul outil&nbsp;: arrivées, départs, chambres, planning, réservations, clients, paiements, équipe.</p>
-      <div style="margin-top:1.8rem;display:flex;gap:.8rem;flex-wrap:wrap"><a class="btn" href="/demo">Réserver une démo</a><a class="btn ghost" href="#fonctions">Voir les fonctionnalités</a></div>
-    </div>
-  </section>
+<section class="phero" id="top"><div class="wrap grid">
+  <div class="vis"><img id="heroImg" src="/assets/produits/stay-desktop-1200.webp" srcset="/assets/produits/stay-desktop-1200.webp 1200w, /assets/produits/stay-desktop-2400.webp 2400w" sizes="(max-width:900px) 92vw, 50vw" width="2400" height="1876" alt="Planning MFV Stay" decoding="async"></div>
+  <div class="txt">
+    <img class="ic hin" src="/assets/produits/icone-stay-144.webp" srcset="/assets/produits/icone-stay-144.webp 1x, /assets/produits/icone-stay-288.webp 2x" width="72" height="72" alt="MFV Stay">
+    <h1><span class="ln"><span>MFV Stay</span></span></h1>
+    <p class="sub hin">Le PMS pensé pour les hôtels indépendants. Le logiciel du quotidien de votre hôtel.</p>
+    <div class="ctas hin"><a class="btn pri" href="/demo">Réserver une démo</a><a class="btn sec" href="#fonctions">Voir les fonctionnalités</a></div>
+    <div class="pills hin"><a href="/book">BOOK</a><a class="on" href="/stay" aria-current="page">STAY</a><a href="/studio">STUDIO</a><a href="/insight">INSIGHT</a></div>
+  </div>
+</div></section>
+<section class="blk "><div class="wrap">
+  <div class="eyebrow">Le constat</div>
+  <h2 class="fade">Le cahier, le tableur et les post-it, réunis en un seul outil.</h2>
+  <p class="lead fade">MFV Stay remplace le cahier, le tableur et les post-it par un seul outil&nbsp;: arrivées, départs, chambres, planning, réservations, clients, paiements, équipe.</p>
 
-  <section id="journee">
-    <div class="shell">
-      <span class="eyebrow">Au quotidien</span>
-      <h2 class="title">Une journée avec MFV Stay</h2>
-      <p class="intro">Pensé pour être compris en quelques secondes, sur ordinateur, tablette ou téléphone.</p>
-      <ol class="flow">
-        <li><span class="num">1</span><b>Le tableau de bord</b><span>Alertes, consignes de la main courante et tâches du jour&nbsp;: tout ce qui demande votre attention remonte en premier.</span></li>
-        <li><span class="num">2</span><b>Les arrivées</b><span>Le check-in se fait d'un clic quand le client arrive.</span></li>
-        <li><span class="num">3</span><b>Pendant le séjour</b><span>Vous ajoutez le minibar, vous prolongez si besoin, vous encaissez.</span></li>
-        <li><span class="num">4</span><b>Les départs</b><span>Le check-out se fait d'un clic&nbsp;; la chambre passe «&nbsp;à nettoyer&nbsp;» et le ménage la voit.</span></li>
-        <li><span class="num">5</span><b>Fin de service</b><span>Vous laissez une consigne dans la main courante pour l'équipe suivante.</span></li>
-        </ol>
-    </div>
-  </section>
+</div></section>
+<section class="blk grey" id='journee'><div class="wrap">
+  <div class="eyebrow">Au quotidien</div>
+  <h2 class="fade">Une journée avec MFV Stay</h2>
+  <p class="lead fade">Pensé pour être compris en quelques secondes, sur ordinateur, tablette ou téléphone.</p>
+<div class="tl"><div class="it fade"><div class="n">01</div><h3>Le tableau de bord</h3><p>Alertes, consignes de la main courante et tâches du jour&nbsp;: tout ce qui demande votre attention remonte en premier.</p></div><div class="it fade"><div class="n">02</div><h3>Les arrivées</h3><p>Le check-in se fait d&rsquo;un clic quand le client arrive.</p></div><div class="it fade"><div class="n">03</div><h3>Pendant le séjour</h3><p>Vous ajoutez le minibar, vous prolongez si besoin, vous encaissez.</p></div><div class="it fade"><div class="n">04</div><h3>Les départs</h3><p>Le check-out se fait d&rsquo;un clic&nbsp;; la chambre passe «&nbsp;à nettoyer&nbsp;» et le ménage la voit.</p></div><div class="it fade"><div class="n">05</div><h3>Fin de service</h3><p>Vous laissez une consigne dans la main courante pour l&rsquo;équipe suivante.</p></div></div>
+</div></section>
+<section class="blk " id='fonctions'><div class="wrap">
+  <div class="eyebrow">Les fonctionnalités</div>
+  <h2 class="fade">Tout ce dont un hôtel a besoin</h2>
+<div class="gridn" style="--c:4"><div class="gc fade"><div class=lab>Aujourd&rsquo;hui</div><h3>Le tableau de bord</h3><p>Arrivées, départs et clients présents du jour, statut des chambres en un coup d&rsquo;œil, paiements restant dus, tâches en retard.</p></div><div class="gc fade"><div class=lab>Chambres</div><h3>Les chambres</h3><p>Étage, type et statut de chaque chambre. Changement de statut en un clic, types de chambre avec photo, couleurs de statut au choix.</p></div><div class="gc fade"><div class=lab>Planning</div><h3>Le planning sur 14 jours</h3><p>Toutes les chambres sur un seul écran. Glissez une réservation pour changer de chambre ou de dates&nbsp;: impossible de réserver deux fois la même chambre sur les mêmes nuits.</p></div><div class="gc fade"><div class=lab>Réservations</div><h3>Les réservations</h3><p>Création, modification, annulation, prolongation de séjour, source de chaque réservation. Export en fichier CSV pour la comptabilité.</p></div><div class="gc fade"><div class=lab>Paiements</div><h3>Les paiements</h3><p>Montant payé et reste dû par réservation, minibar compris, avec le mode de paiement. Une vue de tout ce qui reste à encaisser.</p></div><div class="gc fade"><div class=lab>Clients</div><h3>Le CRM clients</h3><p>Une fiche par client&nbsp;: coordonnées, historique de tous les séjours, notes. Recherche instantanée et export en fichier CSV.</p></div><div class="gc fade"><div class=lab>Tâches</div><h3>Tâches et main courante</h3><p>Des tâches assignées à un membre de l&rsquo;équipe, avec échéance. Des consignes partagées entre les équipes du matin, du soir et de la nuit.</p></div><div class="gc fade"><div class=lab>Recherche</div><h3>La recherche universelle</h3><p>Cmd ou Ctrl + K&nbsp;: retrouvez une réservation, un client ou une chambre depuis n&rsquo;importe quel écran.</p></div></div>
+</div></section>
+<section class="blk dark" id='equipe'><div class="wrap">
+  <div class="eyebrow">Toute l&rsquo;équipe</div>
+  <h2 class="fade">Chacun voit ce qui le concerne</h2>
+  <p class="lead fade">Quatre rôles, des comptes que vous créez, activez ou désactivez à tout moment.</p>
+<div class="gridn" style="--c:4"><div class="gc fade"><div class=lab>Propriétaire</div><h3>Accès complet</h3><p>Tout voir, tout régler, gérer les comptes de l&rsquo;équipe.</p></div><div class="gc fade"><div class=lab>Manager</div><h3>Accès complet</h3><p>Les mêmes droits que le propriétaire au quotidien.</p></div><div class="gc fade"><div class=lab>Réception</div><h3>Le quotidien de l&rsquo;accueil</h3><p>Réservations, clients, chambres, planning, paiements et tâches.</p></div><div class="gc fade"><div class=lab>Ménage</div><h3>Les chambres et ses tâches</h3><p>Le statut des chambres et ses propres tâches, rien d&rsquo;autre.</p></div></div>
+</div></section>
+<section class="blk grey"><div class="wrap">
+  <div class="eyebrow">Autonome, et ouvert</div>
+  <h2 class="fade">Il fonctionne seul, il se branche si vous le voulez</h2>
+  <p class="lead fade">MFV Stay n&rsquo;a besoin d&rsquo;aucun autre logiciel. Votre site, vos plateformes et vos emails se branchent en option.</p>
+<div class="gridn" style="--c:3"><div class="gc fade"><div class=lab>Votre site</div><h3>Les réservations arrivent seules</h3><p>Le site de l&rsquo;hôtel envoie ses réservations sans ressaisie&nbsp;: disponibilités, tarifs, création et annulation. Rejouer un même envoi ne crée jamais deux réservations.</p></div><div class="gc fade"><div class=lab>Fiabilité</div><h3>Jamais de réservation de travers</h3><p>Si le prix a changé entre la recherche et la réservation, ou si la chambre n&rsquo;est plus libre, la réservation est refusée plutôt que créée de travers.</p></div><div class="gc fade"><div class=lab>Emails</div><h3>Les demandes par email, lues pour vous</h3><p>Une IA lit l&rsquo;email de demande et remplit les champs&nbsp;: nom, dates, nombre de personnes. Le logiciel signale tout conflit avec le planning. Vous validez ou vous refusez, rien ne se crée sans votre accord.</p></div></div>
+</div></section>
+<section class="blk "><div class="wrap">
+  <div class="eyebrow">Vos données</div>
+  <h2 class="fade">Protégées, hôtel par hôtel</h2>
+<div class="gridn" style="--c:3"><div class="gc fade"><div class=lab>Cloisonnement</div><h3>Chaque hôtel est à part</h3><p>Aucune donnée n&rsquo;est partagée avec un autre hôtel. Les droits sont appliqués par le serveur, pas seulement par l&rsquo;affichage.</p></div><div class="gc fade"><div class=lab>Sécurité</div><h3>Chiffré, en HTTPS</h3><p>Mots de passe chiffrés, sessions sécurisées, connexion en HTTPS uniquement.</p></div><div class="gc fade"><div class=lab>Journal</div><h3>Qui a fait quoi, et quand</h3><p>Un historique des actions, réservé au propriétaire et au manager.</p></div></div>
+</div></section>
+<section class="statement grey"><div class="wrap"><div class="eyebrow" style="justify-content:center">Sur tous vos écrans</div>
+  <h2 class="fade">À l&rsquo;image de votre hôtel</h2>
+  <p class="lead fade">Ajoutez le logo de votre hôtel, choisissez les couleurs et la police. L&rsquo;application s&rsquo;installe sur ordinateur, tablette et téléphone, au nom et au logo de votre hôtel. Chaque projet est chiffré après un premier échange.</p>
+<a class="btn pri fade" href="/demo">Réserver une démo</a></div></section>
+<section class="faq" id="faq"><div class="wrap grid">
+  <div><div class="eyebrow">Questions fréquentes</div>
+  <h2 class="fade">Ce qu&rsquo;on nous demande sur le logiciel</h2>
+<a class="btn sec fade" href="/faq" style="margin-top:34px">Toutes les questions</a></div>
+  <div class="list fade"><div class="qa"><button>Ça change quoi pour ma réception&nbsp;?<i>+</i></button><div class="a"><p>Avec un PMS compatible, votre réception continue de travailler depuis son environnement habituel. Les réservations directes arrivent dans votre PMS comme les autres.</p></div></div><div class="qa"><button>Mes données sont-elles visibles par d&rsquo;autres hôtels&nbsp;?<i>+</i></button><div class="a"><p>Non. Chaque hôtel est totalement cloisonné, aucune donnée n&rsquo;est partagée avec un autre hôtel.</p></div></div><div class="qa"><button>Que se passe-t-il en cas de conflit sur une prolongation ou un déplacement&nbsp;?<i>+</i></button><div class="a"><p>Le logiciel refuse et explique pourquoi, et il propose une chambre alternative. Sinon, vous annulez et vous recréez sur d&rsquo;autres dates.</p></div></div><div class="qa"><button>J&rsquo;ai fait un check-in par erreur.<i>+</i></button><div class="a"><p>Utilisez «&nbsp;annuler le check-in&nbsp;» sur la fiche de la réservation.</p></div></div></div>
+</div></section>
 
-  <section id="fonctions">
-    <div class="shell">
-      <span class="eyebrow">Les fonctionnalités</span>
-      <h2 class="title">Tout ce dont un hôtel a besoin</h2>
-      <div class="grid">
-        <div class="card tile lift"><span class="n">Aujourd'hui</span><h3>Le tableau de bord</h3><p>Arrivées, départs et clients présents du jour, statut des chambres en un coup d'œil, paiements restant dus, tâches en retard.</p></div>
-        <div class="card tile lift"><span class="n">Chambres</span><h3>Les chambres</h3><p>Étage, type et statut de chaque chambre. Changement de statut en un clic, types de chambre avec photo, couleurs de statut au choix.</p></div>
-        <div class="card tile lift"><span class="n">Planning</span><h3>Le planning sur 14 jours</h3><p>Toutes les chambres sur un seul écran. Glissez une réservation pour changer de chambre ou de dates&nbsp;: impossible de réserver deux fois la même chambre sur les mêmes nuits.</p></div>
-        <div class="card tile lift"><span class="n">Réservations</span><h3>Les réservations</h3><p>Création, modification, annulation, prolongation de séjour, source de chaque réservation. Export en fichier CSV pour la comptabilité.</p></div>
-        <div class="card tile lift"><span class="n">Paiements</span><h3>Les paiements</h3><p>Montant payé et reste dû par réservation, minibar compris, avec le mode de paiement. Une vue de tout ce qui reste à encaisser.</p></div>
-        <div class="card tile lift"><span class="n">Clients</span><h3>Le CRM clients</h3><p>Une fiche par client&nbsp;: coordonnées, historique de tous les séjours, notes. Recherche instantanée et export en fichier CSV.</p></div>
-        <div class="card tile lift"><span class="n">Tâches</span><h3>Tâches et main courante</h3><p>Des tâches assignées à un membre de l'équipe, avec échéance. Des consignes partagées entre les équipes du matin, du soir et de la nuit.</p></div>
-        <div class="card tile lift"><span class="n">Recherche</span><h3>La recherche universelle</h3><p>Cmd ou Ctrl + K&nbsp;: retrouvez une réservation, un client ou une chambre depuis n'importe quel écran.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="equipe">
-    <div class="shell">
-      <span class="eyebrow">Toute l'équipe</span>
-      <h2 class="title">Chacun voit ce qui le concerne</h2>
-      <p class="intro">Quatre rôles, des comptes que vous créez, activez ou désactivez à tout moment.</p>
-      <div class="grid four">
-        <div class="card tile lift"><span class="n">Propriétaire</span><h3>Accès complet</h3><p>Tout voir, tout régler, gérer les comptes de l'équipe.</p></div>
-        <div class="card tile lift"><span class="n">Manager</span><h3>Accès complet</h3><p>Les mêmes droits que le propriétaire au quotidien.</p></div>
-        <div class="card tile lift"><span class="n">Réception</span><h3>Le quotidien de l'accueil</h3><p>Réservations, clients, chambres, planning, paiements et tâches.</p></div>
-        <div class="card tile lift"><span class="n">Ménage</span><h3>Les chambres et ses tâches</h3><p>Le statut des chambres et ses propres tâches, rien d'autre.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="connexions">
-    <div class="shell">
-      <span class="eyebrow">Autonome, et ouvert</span>
-      <h2 class="title">Il fonctionne seul, il se branche si vous le voulez</h2>
-      <p class="intro">MFV Stay n'a besoin d'aucun autre logiciel. Votre site, vos plateformes et vos emails se branchent en option.</p>
-      <div class="grid">
-        <div class="card tile lift"><span class="n">Votre site</span><h3>Les réservations arrivent seules</h3><p>Le site de l'hôtel envoie ses réservations sans ressaisie&nbsp;: disponibilités, tarifs, création et annulation. Rejouer un même envoi ne crée jamais deux réservations.</p></div>
-        <div class="card tile lift"><span class="n">Fiabilité</span><h3>Jamais de réservation de travers</h3><p>Si le prix a changé entre la recherche et la réservation, ou si la chambre n'est plus libre, la réservation est refusée plutôt que créée de travers.</p></div>
-        <div class="card tile lift"><span class="n">Emails</span><h3>Les demandes par email, lues pour vous</h3><p>Une IA lit l'email de demande et remplit les champs&nbsp;: nom, dates, nombre de personnes. Le logiciel signale tout conflit avec le planning. Vous validez ou vous refusez, rien ne se crée sans votre accord.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="donnees">
-    <div class="shell">
-      <span class="eyebrow">Vos données</span>
-      <h2 class="title">Protégées, hôtel par hôtel</h2>
-      <div class="grid">
-        <div class="card tile lift"><span class="n">Cloisonnement</span><h3>Chaque hôtel est à part</h3><p>Aucune donnée n'est partagée avec un autre hôtel. Les droits sont appliqués par le serveur, pas seulement par l'affichage.</p></div>
-        <div class="card tile lift"><span class="n">Sécurité</span><h3>Chiffré, en HTTPS</h3><p>Mots de passe chiffrés, sessions sécurisées, connexion en HTTPS uniquement.</p></div>
-        <div class="card tile lift"><span class="n">Journal</span><h3>Qui a fait quoi, et quand</h3><p>Un historique des actions, réservé au propriétaire et au manager.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="ecrans">
-    <div class="shell">
-      <span class="eyebrow">Sur tous vos écrans</span>
-      <h2 class="title">À l'image de votre hôtel</h2>
-      <p class="intro">Ajoutez le logo de votre hôtel, choisissez les couleurs et la police. L'application s'installe sur ordinateur, tablette et téléphone, au nom et au logo de votre hôtel. Chaque projet est chiffré après un premier échange.</p>
-      <p style="margin-top:1.4rem"><a class="btn" href="/demo">Réserver une démo</a></p>
-    </div>
-  </section>
-
-  <section id="questions">
-    <div class="shell">
-      <span class="eyebrow">Questions fréquentes</span>
-      <h2 class="title">Ce qu'on nous demande sur le logiciel</h2>
-      <div class="faq" style="margin-top:1.6rem">
-        <details open><summary>Ça change quoi pour ma réception&nbsp;?</summary><p class="a">Avec un PMS compatible, votre réception continue de travailler depuis son environnement habituel. Les réservations directes arrivent dans votre PMS comme les autres.</p></details>
-        <details><summary>Mes données sont-elles visibles par d'autres hôtels&nbsp;?</summary><p class="a">Non. Chaque hôtel est totalement cloisonné, aucune donnée n'est partagée avec un autre hôtel.</p></details>
-        <details><summary>Que se passe-t-il en cas de conflit sur une prolongation ou un déplacement&nbsp;?</summary><p class="a">Le logiciel refuse et explique pourquoi, et il propose une chambre alternative. Sinon, vous annulez et vous recréez sur d'autres dates.</p></details>
-        <details><summary>J'ai fait un check-in par erreur.</summary><p class="a">Utilisez «&nbsp;annuler le check-in&nbsp;» sur la fiche de la réservation.</p></details>
-      </div>
-      <p style="margin-top:1.4rem"><a href="/faq" class="btn ghost">Toutes les questions</a></p>
-    </div>
-  </section>
-</main>
-
-<section class="contact site-foot">
-<div class="shell">
-<span class="eyebrow">Parler de votre établissement</span>
-<h2 class="title">Un premier échange, sans engagement</h2>
-<p class="intro">Dites-nous où vous en êtes&nbsp;: pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme que vous louez et que vous aimeriez posséder. On vous répond avec une piste concrète.</p>
-<div class="sf-cta"><a class="btn" href="/demo">Réserver une démo de 30 min</a><span class="sf-mail">contact@mfv-systems.fr</span><a class="btn ghost" href="/contact">Nous écrire</a></div>
-<div class="foot-bottom">
-<span class="wordmark"><b>MFV</b> <span class="g">systems</span></span>
-<nav class="foot-nav"><a href="/produits">Le produit</a><a href="/methode">Notre méthode</a><a href="/equipe">L'équipe</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></nav>
-<p class="foot-legal">MFV Systems, SAS au capital de 10&nbsp;000&nbsp;€, RCS Paris 131&nbsp;904&nbsp;609, SIRET 131&nbsp;904&nbsp;609&nbsp;00016. Siège&nbsp;: 8 rue Jean Richepin, 75116 Paris. Président&nbsp;: Amaury Finaz de Villaine. Directeurs généraux&nbsp;: Thomas Finaz de Villaine et Yassmine Meyer. Contact&nbsp;: <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>. Hébergeur&nbsp;: Vercel Inc.<br><a href="/mentions-legales">Mentions légales</a> &middot; <a href="/confidentialite">Politique de confidentialité</a> &middot; <a href="/cgv">CGV</a></p>
-</div>
-</div>
+<section class="dark" id="demo">
+<div class="fin"><div class="rib" aria-hidden="true"></div><div class="wrap" style="position:relative">
+<div class="eyebrow" style="justify-content:center">Parler de votre établissement</div>
+<h2 class="fade">Un premier échange, sans engagement</h2>
+<p class="lead fade">Dites-nous où vous en êtes&nbsp;: pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme que vous louez et que vous aimeriez posséder. On vous répond avec une piste concrète.</p>
+<div class="ctas fade"><a class="btn pri" href="/demo">Réserver une démo de 30 min</a><a class="btn sec" href="/contact">Nous écrire</a></div>
+<div class="mail fade"><a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a></div>
+</div></div>
 </section>
-
+</main>
+<footer class="foot dark"><div class="wrap">
+<div class="top2"><div><a class="logo" href="/" aria-label="MFV Systems, accueil"><img src="/assets/home/logo-mfv-blanc.png" alt="MFV" width="320" height="90"></a><p class="tagline">Solutions digitales pour l&rsquo;hôtellerie et au-delà.</p></div>
+<div><h4>Produits</h4><ul><li><a href="/studio">MFV Studio</a></li><li><a href="/book">MFV Book</a></li><li><a href="/stay">MFV Stay</a></li><li><a href="/insight">MFV Insight</a></li></ul></div>
+<div><h4>Agence</h4><ul><li><a href="/agence">Services</a></li><li><a href="/methode">Notre méthode</a></li><li><a href="/equipe">L&rsquo;équipe</a></li><li><a href="/faq">FAQ</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a></li><li>8 rue Jean Richepin, 75116 Paris</li><li><a href="/contact">Nous écrire</a></li></ul></div></div>
+<p class="legal">MFV Systems, SAS au capital de 10&nbsp;000&nbsp;€, RCS Paris 131&nbsp;904&nbsp;609, SIRET 131&nbsp;904&nbsp;609&nbsp;00016. Siège&nbsp;: 8 rue Jean Richepin, 75116 Paris. Président&nbsp;: Amaury Finaz de Villaine. Directeurs généraux&nbsp;: Thomas Finaz de Villaine et Yassmine Meyer. Contact&nbsp;: contact@mfv-systems.fr. Hébergeur&nbsp;: Vercel Inc.<br><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Politique de confidentialité</a> · <a href="/cgv">CGV</a></p>
+</div></footer>
+<script src="/assets/vendor/gsap.min.js"></script>
+<script src="/assets/vendor/ScrollTrigger.min.js"></script>
+<script src="/assets/vendor/lenis.min.js"></script>
+<script src="/home.js"></script>
+<script src="/produits.js"></script>
 </body>
 </html>
