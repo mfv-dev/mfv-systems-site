@@ -186,7 +186,8 @@
 
 /* DEMO + PIED DE PAGE */
 .pb .fin{position:relative;padding:14vh 0 10vh;text-align:center;overflow:hidden}
-.pb .fin .rib{position:absolute;inset:auto -10% -30% -10%;height:70%;background:url(/assets/home/fond2.webp) center/cover;opacity:.22;mix-blend-mode:screen;animation:drift 18s ease-in-out infinite alternate;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 55%);mask-image:linear-gradient(to bottom,transparent,#000 55%)}
+.pb .fin .rib:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 46% 44% at 50% 46%,rgba(11,11,15,.82) 0,rgba(11,11,15,.55) 55%,rgba(11,11,15,0) 100%)}
+.pb .fin .rib{position:absolute;inset:0;background:url(/assets/home/vague-alpha.webp) center bottom/cover no-repeat;opacity:.95;animation:drift 22s ease-in-out infinite alternate;pointer-events:none}
 .pb .fin h2{margin:22px auto 0;font-size:clamp(38px,4.6vw,76px)}
 .pb .fin .lead{margin:26px auto 0}
 .pb .fin .ctas{margin-top:38px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
