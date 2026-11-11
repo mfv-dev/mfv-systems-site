@@ -16,8 +16,6 @@
 .pb .phero h1 .ln span{display:inline-block}
 .pb .phero .sub{margin-top:26px;font-size:19px;line-height:1.5;color:var(--mute);max-width:470px}
 .pb .phero .ctas{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.pb .phero .ctas .btn.pri{background:var(--indigo)}
-.pb .phero .ctas .btn.pri:hover{background:var(--ink)}
 .pb .pills{position:absolute;bottom:0;display:flex;gap:12px}
 .pb .pills a{font-size:13px;letter-spacing:.05em;padding:7px 13px;border-radius:99px;background:#F1F1F3;transition:background .3s,color .3s}
 .pb .pills a.on{background:var(--ink);color:#fff}

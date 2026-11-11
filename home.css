@@ -20,9 +20,9 @@ body.home{font-family:Geist,system-ui,sans-serif;color:var(--ink);background:#ff
 .dark .eyebrow{color:#9A9AA6}.dark .eyebrow:before{background:var(--lav)}
 .home h1,.home h2,.home h3{font-weight:400;letter-spacing:-.045em;line-height:.98}
 .btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border-radius:var(--r);font-size:15px;font-weight:500;transition:transform .3s,background .3s,color .3s;border:0;cursor:pointer;font-family:inherit}
-.home .btn.pri{background:var(--ink);color:#fff}.home .btn.pri:hover{background:var(--indigo)}
+.home .btn.pri{background:var(--indigo);color:#fff}.home .btn.pri:hover{background:var(--ink)}
 .home .btn.sec{border:1px solid var(--line);background:#fff;color:var(--ink)}
-.home .dark .btn.pri{background:#fff;color:var(--ink)}.home .dark .btn.pri:hover{background:var(--lav);color:var(--ink)}
+.home .dark .btn.pri{background:var(--indigo);color:#fff}.home .dark .btn.pri:hover{background:var(--lav);color:var(--ink)}
 .home .dark .btn.sec{background:transparent;border-color:#2A2A33;color:#fff}
 .btn:hover{transform:translateY(-2px)}
 .btn svg{width:16px;height:16px}
@@ -95,8 +95,8 @@ nav.top ul{display:flex;gap:30px;list-style:none;font-size:15px}
 .bk-form input[type=text],.bk-form input[type=email]{height:46px;border-radius:10px;border:1px solid #E4E4EA;padding:0 14px;font:inherit;font-size:15px;color:#0B0B0F;background:#fff}
 .bk-form input:focus{outline:2px solid #4F46E5;outline-offset:1px;border-color:transparent}
 .bk-form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-.bk-form button[type=submit]{height:48px;border-radius:10px;border:0;background:#0B0B0F;color:#fff;font:inherit;font-weight:500;font-size:15px;cursor:pointer;transition:background .3s}
-.bk-form button[type=submit]:hover{background:#4F46E5}
+.bk-form button[type=submit]{height:48px;border-radius:10px;border:0;background:#4F46E5;color:#fff;font:inherit;font-weight:500;font-size:15px;cursor:pointer;transition:background .3s}
+.bk-form button[type=submit]:hover{background:#0B0B0F}
 .bk-form button:disabled{opacity:.6;cursor:default}
 .bk-msg{min-height:20px;font-size:13px;color:#B42318}
 .bk-done{text-align:left;padding-top:6px}
