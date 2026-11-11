@@ -9,7 +9,7 @@
 .pb .phero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:4vw;min-height:calc(100vh - 170px);align-items:stretch}
 .pb .phero .vis{border-radius:20px;background:#F3F3F5 url(/assets/home/fond2.webp) 50% 85%/170% auto no-repeat;background-blend-mode:multiply;display:flex;align-items:center;justify-content:center;padding:4%;overflow:hidden}
 .pb .phero .vis img{width:100%;height:auto;border-radius:14px;box-shadow:0 40px 80px rgba(20,16,60,.13);will-change:transform}
-.pb .phero .txt{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding-bottom:70px}
+.pb .phero .txt{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding-bottom:124px}
 .pb .phero .ic{width:72px;height:72px;margin-bottom:28px;filter:drop-shadow(0 10px 20px rgba(20,16,60,.2))}
 .pb .phero h1{font-size:clamp(52px,6vw,96px)}
 .pb .phero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
@@ -23,7 +23,7 @@
 .p-insight{--acc:#35D299;--acc-t:#0B0B0F}
 .pb .phero .ctas .btn.pri{background:var(--acc);color:var(--acc-t)}
 .pb .phero .ctas .btn.pri:hover{background:var(--ink);color:#fff}
-.pb .pills{position:absolute;bottom:0;display:flex;gap:12px}
+.pb .pills{position:absolute;bottom:44px;display:flex;gap:12px}
 .pb .pills a{font-size:13px;letter-spacing:.05em;padding:7px 13px;border-radius:99px;background:#F1F1F3;transition:background .3s,color .3s}
 .pb .pills a.on{background:var(--ink);color:#fff}
 .pb .pills a:not(.on):hover{background:#E4E4EA}
