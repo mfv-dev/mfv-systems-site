@@ -53,7 +53,13 @@
 .pg .tech-h img{width:84px;height:84px;border-radius:50%;object-fit:cover}
 .pg .tech-h b{display:block;font-size:22px;font-weight:500;letter-spacing:-.03em}
 .pg .tech-h span{font-size:14px;color:var(--mute)}
-.pg .tech-t{margin-top:18px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.pg .tech-top{display:grid;grid-template-columns:1.25fr .75fr;gap:5vw;align-items:center}
+.pg .tech-p{display:flex;flex-direction:column;align-items:center;text-align:center}
+.pg .tech-p img{width:min(380px,100%);height:auto;aspect-ratio:1/1;border-radius:50%;object-fit:cover;box-shadow:0 30px 60px rgba(20,16,60,.14)}
+.pg .tech-p figcaption{margin-top:22px}
+.pg .tech-p b{display:block;font-size:22px;font-weight:500;letter-spacing:-.03em}
+.pg .tech-p span{display:block;margin-top:4px;font-size:14px;color:var(--mute)}
+.pg .tech-t{margin-top:9vh;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
 
 /* PAGES LEGALES ET 404 : fond noir */
 body.home.dk{background:#0B0B0F;color:#fff}
@@ -78,6 +84,8 @@ body.home.dk{background:#0B0B0F;color:#fff}
   .pg .f-row{grid-template-columns:1fr}
   .pg .rdv-frame iframe{height:700px}
   .pg .fnd{grid-template-columns:1fr}
+  .pg .tech-top{grid-template-columns:1fr;gap:34px}
+  .pg .tech-p img{width:min(300px,80%)}
   .pg .eq-sec{padding:10vh 0}
   .dk nav.top ul{background:#0B0B0F;border-bottom-color:#1E1E25}
   .dk nav.top.open{background:#0B0B0F}
