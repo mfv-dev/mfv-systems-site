@@ -143,6 +143,19 @@
 @media(min-width:901px) and (max-height:700px){.seo .g{zoom:.78}}
 @media(max-width:900px){.seo{height:auto}.seo .pin{position:relative;height:auto;padding:12vh 0}.seo .g{grid-template-columns:1fr}}
 
+
+/* Studio : expertises plus compactes */
+.pb #expertises{padding:12vh 0}
+.pb #expertises h2{font-size:clamp(34px,3.8vw,60px)}
+.pb #expertises .lead{font-size:17px;margin-top:20px}
+.pb #expertises .gridn{gap:14px;margin-top:6vh}
+.pb #expertises .gc{padding:22px 22px 24px}
+.pb #expertises .gc h3{font-size:20px;margin-top:12px}
+.pb #expertises .gc p{font-size:14px;line-height:1.5;margin-top:8px}
+.pb #expertises .gc ul{margin-top:12px}
+.pb #expertises .gc li{padding:5px 0;font-size:13px}
+.pb #expertises .gc li+p{margin-top:12px}
+
 /* CALCUL : même simulateur que l'accueil (.sim de home.css) */
 .pb .sim .lead{font-size:18px;max-width:440px}
 
