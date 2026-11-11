@@ -97,6 +97,28 @@
 .pg .pv i{width:18px;height:18px;background:currentColor;-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}
 .pg .gc:hover .pv{color:var(--ink)}
 
+/* Forme fluide animée (section Votre interlocuteur) */
+.pg .interloc{position:relative;overflow:hidden}
+.pg .interloc .wrap{position:relative;z-index:1}
+.pg .blob{position:absolute;right:max(2vw,calc((100vw - 1320px)/2));top:56px;width:min(24vw,330px);aspect-ratio:1;pointer-events:none}
+.pg .blob i{position:absolute;inset:0;display:block;will-change:transform,border-radius}
+.pg .blob i:nth-child(1){background:linear-gradient(135deg,#4F46E5 0%,#8B83F5 55%,#C9C4FF 100%);opacity:.92;animation:bl1 13s ease-in-out infinite alternate}
+.pg .blob i:nth-child(2){inset:8% 4% 12% 10%;background:linear-gradient(200deg,#35B6FF 0%,#7C6CF5 50%,#F3A6F0 100%);opacity:.75;mix-blend-mode:multiply;animation:bl2 17s ease-in-out infinite alternate}
+.pg .blob i:nth-child(3){inset:22% 20% 24% 26%;background:radial-gradient(circle at 30% 25%,#fff 0%,rgba(255,255,255,.55) 28%,rgba(255,255,255,0) 65%);animation:bl3 11s ease-in-out infinite alternate}
+@keyframes bl1{
+  0%{border-radius:58% 42% 61% 39% / 47% 56% 44% 53%;transform:rotate(0deg) translate3d(0,0,0) scale(1)}
+  50%{border-radius:41% 59% 38% 62% / 60% 40% 60% 40%;transform:rotate(60deg) translate3d(2%,-3%,0) scale(1.04)}
+  100%{border-radius:63% 37% 52% 48% / 38% 62% 38% 62%;transform:rotate(130deg) translate3d(-2%,3%,0) scale(.97)}}
+@keyframes bl2{
+  0%{border-radius:44% 56% 37% 63% / 54% 38% 62% 46%;transform:rotate(0deg) translate3d(0,0,0)}
+  50%{border-radius:62% 38% 55% 45% / 41% 63% 37% 59%;transform:rotate(-70deg) translate3d(-3%,2%,0)}
+  100%{border-radius:50% 50% 40% 60% / 62% 38% 62% 38%;transform:rotate(-150deg) translate3d(3%,-2%,0)}}
+@keyframes bl3{
+  0%{border-radius:50%;transform:translate3d(-6%,-4%,0) scale(1)}
+  100%{border-radius:42% 58% 55% 45% / 55% 42% 58% 45%;transform:translate3d(6%,5%,0) scale(1.12)}}
+@media (prefers-reduced-motion:reduce){.pg .blob i{animation:none}}
+@media (max-width:900px){.pg .blob{display:none}}
+
 /* PAGES LEGALES ET 404 : fond noir */
 body.home.dk{background:#0B0B0F;color:#fff}
 .dk .ph .lead{color:#A3A3AE}
