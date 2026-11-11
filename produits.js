@@ -49,5 +49,7 @@
       gsap.fromTo(c, { y: 60 }, { y: 0, ease: 'none', scrollTrigger: { trigger: c, start: 'top bottom', end: 'top 60%', scrub: 1 } });
     });
   });
+  /* Stay : l'image des appareils glisse de 60 px vers la gauche et passe de 1,06 à 1 */
+  if (document.querySelector('.ecr-img')) gsap.fromTo('.ecr-img', { scale: 1.06, x: 60 }, { scale: 1, x: 0, ease: 'none', scrollTrigger: { trigger: '.ecr', start: 'top bottom', end: 'center center', scrub: 1 } });
   window.addEventListener('load', function () { ScrollTrigger.refresh(); });
 })();
