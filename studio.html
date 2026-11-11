@@ -5,18 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MFV Studio, création digitale et direction artistique · MFV Systems</title>
 <meta name="description" content="MFV Studio, studio de création digitale : direction artistique, identité de marque, création web, UX/UI, contenus visuels, photo, vidéo et expériences digitales sur mesure.">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=2">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png?v=2">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/shell.css">
-<meta name="theme-color" content="#000633">
-<style>.btn:focus-visible{outline:2px solid #fff;outline-offset:3px}.offer h3 a,.tile h3 a{text-decoration:none}.tile h3 a:hover{color:var(--brand)}.offer .who a,.audience a,.pt-phase a{color:var(--brand)}.offer li{font-size:.92rem}.offers{margin-top:2rem}.offers .offer .who{font-size:.95rem}</style>
-<script src="/reveal.js" defer></script>
-<script src="/shell.js" defer></script>
 <meta property="og:title" content="MFV Studio, création digitale et direction artistique">
 <meta property="og:description" content="Votre identité mérite une expérience digitale à sa hauteur.">
+<link rel="preload" href="/assets/fonts/g400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/produits.css">
 <link rel="canonical" href="https://mfv-systems.fr/studio">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MFV Systems">
@@ -30,176 +28,91 @@
 <meta name="twitter:title" content="MFV Studio, création digitale et direction artistique · MFV Systems">
 <meta name="twitter:description" content="MFV Studio, studio de création digitale : direction artistique, identité de marque, création web, UX/UI, contenus visuels, photo, vidéo et expériences digitales sur mesure.">
 <meta name="twitter:image" content="https://mfv-systems.fr/assets/og-image.png">
-<link rel="stylesheet" href="/mobile.css">
-<script src="/mobile.js" defer></script>
-<script src="/demo-bar.js" defer></script>
-<style>
-.refs{list-style:none;margin:2.4rem 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:2.6rem 2rem;align-items:center}
-.refs li{display:flex;align-items:center;justify-content:center;height:64px}
-.refs img{max-width:78%;max-height:100%;width:auto;height:auto;opacity:.92}
-@media(max-width:820px){.refs{grid-template-columns:repeat(2,1fr);gap:2rem 1.4rem}.refs li{height:52px}}
-</style>
 </head>
-<body>
-
-<header class="site-h">
-<div class="bar2">
-<a href="/" class="logo" aria-label="MFV Systems, accueil"><img src="/assets/mfv-logo.png" alt="MFV"></a>
-<nav class="nv-nav">
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Produits <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/book"><b>MFV Book</b><span>Le moteur de réservation directe</span></a><a href="/stay"><b>MFV Stay</b><span>Le PMS pensé pour les hôtels indépendants</span></a><a href="/insight"><b>MFV Insight</b><span>Analyse et performance</span></a><a href="/studio"><b>MFV Studio</b><span>Création digitale et direction artistique</span></a><a class="dd-foot" href="/#simulateur">Estimez votre facture de commissions &#8594;</a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Agence <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/contact"><b>Référencement</b><span>Être trouvé et gagner des réservations ou des clients en direct</span></a><a href="/contact"><b>Sites web et design</b><span>Pour les hôtels, et pour d'autres métiers</span></a><a href="/contact"><b>CRM sur mesure</b><span>Connaître et suivre ses clients</span></a><a href="/contact"><b>Logiciels sur mesure</b><span>Des outils faits pour votre activité</span></a><a href="/contact"><b>Données</b><span>Récupérer et exploiter vos données pour décider</span></a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Pour qui <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/produits"><b>Hôtels indépendants</b><span>L'offre complète</span></a><a href="/contact"><b>Autres entreprises</b><span>Sites, CRM, logiciels et données pour votre activité</span></a></div></div></div>
-<div class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Ressources <i aria-hidden="true">&#9662;</i></button><div class="dd"><div class="dd-in"><a href="/faq"><b>FAQ</b><span>Les questions que posent les hôteliers</span></a><a href="/methode"><b>Notre méthode</b><span>Comment nous travaillons</span></a><a href="/equipe"><b>L'équipe</b><span>Qui sommes-nous</span></a><a href="/contact"><b>Contact</b><span>Parler de votre établissement ou de votre projet</span></a></div></div></div>
-</nav>
-<a class="cta" href="/demo">Réserver une démo</a>
-</div>
-</header>
+<body class="home pb">
+<nav class="top" id="nav" aria-label="Navigation principale"><div class="wrap">
+<a class="logo" href="/" aria-label="MFV Systems, accueil"><img src="/assets/home/logo-mfv-noir.png" alt="MFV" width="320" height="90"></a>
+<button type="button" class="m-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+<ul id="menu"><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Produits <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/book"><b>MFV Book</b><span>Le moteur de réservation directe</span></a><a href="/stay"><b>MFV Stay</b><span>Le PMS pensé pour les hôtels indépendants</span></a><a href="/insight"><b>MFV Insight</b><span>Analyse et performance</span></a><a href="/studio"><b>MFV Studio</b><span>Création digitale et direction artistique</span></a><a class="dd-foot" href="/#simulateur">Estimez votre facture de commissions &#8594;</a></div></div></li><li class="nv"><a class="nv-l" href="/#resultats">Résultats</a></li><li class="nv"><a class="nv-l" href="/#simulateur">Simulateur</a></li><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Services <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/agence#specialises"><b>Référencement</b><span>Être trouvé et gagner des réservations ou des clients en direct</span></a><a href="/agence#specialises"><b>Sites web et design</b><span>Pour les hôtels, et pour d'autres métiers</span></a><a href="/agence#crm"><b>CRM sur mesure</b><span>Connaître et suivre ses clients</span></a><a href="/agence#logiciels"><b>Logiciels sur mesure</b><span>Des outils faits pour votre activité</span></a><a href="/agence#donnees"><b>Données</b><span>Récupérer et exploiter vos données pour décider</span></a><a class="dd-foot" href="/agence">Voir toute l'agence &#8594;</a></div></div></li><li class="nv"><button type="button" class="nv-b" aria-haspopup="true" aria-expanded="false">Ressources <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd"><div class="dd-in"><a href="/faq"><b>FAQ</b><span>Les questions que posent les hôteliers</span></a><a href="/methode"><b>Notre méthode</b><span>Comment nous travaillons</span></a><a href="/equipe"><b>L'équipe</b><span>Qui sommes-nous</span></a><a href="/contact"><b>Contact</b><span>Parler de votre établissement ou de votre projet</span></a></div></div></li><li class="cta-m"><a class="btn pri" href="/demo">Réserver une démo</a></li></ul>
+<a class="btn pri cta" href="/demo">Réserver une démo</a>
+</div></nav>
 
 <main>
-  <section class="page-head">
-    <div class="shell">
-      <img src="/assets/mfv-studio.png" alt="MFV Studio" style="height:130px;width:auto;display:block;margin:0 0 1.4rem -.4rem">
-      <span class="eyebrow">Digital Design &amp; Creative Experiences</span>
-      <h1>Votre identité mérite une expérience digitale à sa hauteur.</h1>
-      <p class="sub">Direction artistique, identité de marque, création web et expériences digitales sur mesure. Nous donnons forme à des univers qui vous ressemblent et qui marquent les esprits.</p>
-      <div style="margin-top:1.8rem;display:flex;gap:.8rem;flex-wrap:wrap"><a class="btn" href="#expertises">Découvrir nos expertises</a><a class="btn ghost" href="/contact">Parler de votre projet</a></div>
-    </div>
-  </section>
+<section class="phero" id="top"><div class="wrap grid">
+  <div class="vis"><img id="heroImg" src="/assets/produits/studio-desktop-1200.webp" srcset="/assets/produits/studio-desktop-1200.webp 1200w, /assets/produits/studio-desktop-2400.webp 2400w" sizes="(max-width:900px) 92vw, 50vw" width="2400" height="1586" alt="Site d'hôtel créé par MFV Studio" decoding="async"></div>
+  <div class="txt">
+    <img class="ic hin" src="/assets/produits/icone-studio-144.webp" srcset="/assets/produits/icone-studio-144.webp 1x, /assets/produits/icone-studio-288.webp 2x" width="72" height="72" alt="MFV Studio">
+    <h1><span class="ln"><span>MFV Studio</span></span></h1>
+    <p class="sub hin">Digital Design & Creative Experiences. Votre identité mérite une expérience digitale à sa hauteur.</p>
+    <div class="ctas hin"><a class="btn pri" href="/contact">Parler de votre projet</a><a class="btn sec" href="#expertises">Découvrir nos expertises</a></div>
+    <div class="pills hin"><a href="/book">BOOK</a><a href="/stay">STAY</a><a class="on" href="/studio" aria-current="page">STUDIO</a><a href="/insight">INSIGHT</a></div>
+  </div>
+</div></section>
+<section class="blk grey" id='expertises'><div class="wrap">
+  <div class="eyebrow">Nos expertises</div>
+  <h2 class="fade">Un studio de création digitale</h2>
+  <p class="lead fade">MFV Studio accompagne les établissements hôteliers et les entreprises dans la conception et le développement de leur présence digitale. Nous voulons concevoir des expériences qui reflètent l&rsquo;identité d&rsquo;une marque, valorisent son positionnement et servent ses objectifs commerciaux.</p>
+<div class="gridn" style="--c:3"><div class="gc fade"><div class=lab>01</div><h3>Web Design & Development</h3><p>Création et refonte de sites internet sur mesure.</p><ul><li>Sites vitrines premium</li><li>Sites hôteliers</li><li>Sites corporate</li><li>Interfaces personnalisées</li><li>Responsive design</li><li>UX/UI design</li><li>Développement web</li><li>Optimisation des performances techniques</li></ul><p>Pour les établissements hôteliers, possibilité d&rsquo;intégrer MFV Book lorsque le projet le nécessite.</p></div><div class="gc fade"><div class=lab>02</div><h3>Branding & Identity</h3><p>Construction et développement d&rsquo;identités de marque.</p><ul><li>Positionnement créatif</li><li>Identité visuelle</li><li>Direction artistique</li><li>Logotypes</li><li>Chartes graphiques</li><li>Univers de marque</li><li>Déclinaisons digitales</li></ul></div><div class="gc fade"><div class=lab>03</div><h3>Creative Content</h3><p>Création de contenus visuels adaptés à l&rsquo;identité et aux objectifs de chaque marque.</p><ul><li>Direction créative</li><li>Conception de visuels</li><li>Contenus pour sites internet</li><li>Supports de communication</li><li>Contenus destinés aux réseaux sociaux</li><li>Créations graphiques</li><li>Présentations et supports digitaux</li></ul></div><div class="gc fade"><div class=lab>04</div><h3>Photography & Video</h3><p>Création et valorisation de contenus photo et vidéo.</p><ul><li>Direction artistique photo et vidéo</li><li>Conception de campagnes visuelles</li><li>Photographie d&rsquo;établissement et de produit</li><li>Vidéos de présentation</li><li>Formats courts</li><li>Contenus promotionnels</li><li>Montage et postproduction</li></ul></div><div class="gc fade"><div class=lab>05</div><h3>AI Creative Production</h3><p>Utilisation des technologies d&rsquo;intelligence artificielle dans les processus de création.</p><ul><li>Visuels génératifs</li><li>Vidéos assistées par IA</li><li>Concepts créatifs</li><li>Déclinaisons de campagnes</li><li>Création de contenus digitaux</li><li>Expérimentation visuelle</li></ul><p>L&rsquo;intelligence artificielle est un outil au service de la créativité, pas un substitut à la direction artistique.</p></div><div class="gc fade"><div class=lab>06</div><h3>Digital Experience & UX</h3><p>Conception d&rsquo;expériences digitales cohérentes, fluides et intuitives.</p><ul><li>Architecture de l&rsquo;information</li><li>Parcours utilisateurs</li><li>Interfaces web</li><li>Expérience mobile</li><li>Ergonomie</li><li>Optimisation de l&rsquo;expérience utilisateur</li><li>Conception de parcours orientés conversion</li></ul></div></div>
+</div></section>
+<section class="blk "><div class="wrap">
+  <div class="eyebrow">Les sites internet</div>
+  <h2 class="fade">Deux façons de commencer</h2>
+  <p class="lead fade">Notre approche s&rsquo;adapte à votre situation de départ.</p>
+<div class="cards2"><div class="oc fade"><div class="tags"><span class="tg">REFONTE</span></div><h3>Vous disposez déjà d&rsquo;un site internet</h3><div class="d">Nous pouvons intervenir sur sa refonte, son expérience utilisateur, son identité visuelle ou son évolution.</div><div class="d">Pour les hôtels, nous pouvons également étudier l&rsquo;intégration de MFV Book sur un site existant.</div></div><div class="oc rec fade"><div class="tags"><span class="tg">CRÉATION</span></div><h3>Vous partez de zéro</h3><div class="d">Nous concevons votre présence digitale depuis ses fondations&nbsp;: direction artistique, architecture, design, développement et mise en ligne.</div><div class="d">Pour les hôtels, le moteur de réservation MFV Book peut être intégré au projet lorsque sa compatibilité et sa disponibilité sont confirmées.</div></div></div>
+</div></section>
+<section class="blk dark" id='approche'><div class="wrap">
+  <div class="eyebrow">Notre approche créative</div>
+  <h2 class="fade">Cinq étapes, du premier échange à l&rsquo;évolution</h2>
+<div class="tl"><div class="it fade"><div class="n">01</div><h3>Découvrir</h3><p>Comprendre la marque, son identité, son marché, ses objectifs et ses ambitions.</p></div><div class="it fade"><div class="n">02</div><h3>Imaginer</h3><p>Définir une direction créative, un univers visuel et les principes de l&rsquo;expérience à concevoir.</p></div><div class="it fade"><div class="n">03</div><h3>Concevoir</h3><p>Transformer la stratégie en créations concrètes&nbsp;: interfaces, identités, contenus ou expériences digitales.</p></div><div class="it fade"><div class="n">04</div><h3>Déployer</h3><p>Finaliser les livrables, réaliser les intégrations nécessaires et accompagner leur mise en production.</p></div><div class="it fade"><div class="n">05</div><h3>Faire évoluer</h3><p>Assurer un accompagnement adapté, proposer des évolutions et mobiliser les autres expertises MFV lorsque cela est pertinent.</p></div></div>
+</div></section>
+<section class="blk " id='realisations'><div class="wrap">
+  <div class="eyebrow">Nos réalisations</div>
+  <h2 class="fade">Des projets qui nous ressemblent</h2>
+<div class="stat fade"><div class="big2">+<span class="cnt" data-from="0" data-to="335">0</span></div><p>projets digitaux créés, du site vitrine à l&rsquo;expérience sur mesure.</p></div><div class="clients fade"><span>Bvlgari</span><span>Dior</span><span>Cifonelli</span><span>Rolex Paris Masters</span><span>Porsche</span><span>McLaren</span><span>Jacquemus</span><span>Vivacy</span><span>Orano</span></div><a class="btn sec fade" href="/contact" style="margin-top:6vh">Demander notre portfolio</a>
+</div></section>
+<section class="blk grey"><div class="wrap">
+  <div class="eyebrow">Studio et Insight</div>
+  <h2 class="fade">Studio conçoit, Insight mesure</h2>
+  <p class="lead fade">Deux offres distinctes, pensées pour se compléter. MFV Studio peut concevoir le site d&rsquo;un hôtel. MFV Insight peut ensuite accompagner son référencement, analyser ses performances et optimiser son acquisition.</p>
+<div class="cards2"><div class="oc fade"><div class="tags"><span class="tg">MFV STUDIO</span></div><h3>Concevoir</h3><ul><li>Branding</li><li>Direction artistique</li><li>Création web</li><li>UX/UI</li><li>Identité visuelle</li><li>Création de contenus</li><li>Photo et vidéo</li><li>Production créative assistée par IA</li></ul></div><div class="oc rec fade"><div class="tags"><span class="tg">MFV INSIGHT</span></div><h3>Mesurer</h3><ul><li>Analytics</li><li>Analyse des conversions</li><li>SEO</li><li>SEA / Google Ads</li><li>Stratégies d&rsquo;acquisition</li><li>CRO</li><li>Analyse du trafic</li><li>Reporting</li><li>Optimisation de la performance commerciale</li></ul></div></div>
+</div></section>
+<section class="statement dark"><div class="wrap"><div class="eyebrow" style="justify-content:center">Au-delà de l&rsquo;hôtellerie</div>
+  <h2 class="fade">Notre créativité ne s&rsquo;arrête pas à l&rsquo;hôtellerie.</h2>
+  <p class="lead fade">Si notre expertise s&rsquo;inscrit au cœur de l&rsquo;écosystème hôtelier, notre approche créative accompagne également les marques et entreprises d&rsquo;autres secteurs. Chaque projet possède son identité, ses enjeux et ses ambitions. Notre rôle est de leur donner une expression digitale singulière. MFV Studio peut être sollicité indépendamment des autres solutions MFV Systems&nbsp;: vous n&rsquo;avez besoin ni de notre PMS ni de notre moteur de réservation.</p>
+<a class="btn pri fade" href="/contact">Parler de votre projet</a></div></section>
+<section class="blk "><div class="wrap">
+  <div class="eyebrow">L&rsquo;écosystème MFV</div>
+  <h2 class="fade">Une offre indépendante, un écosystème complémentaire</h2>
+<div class="gridn" style="--c:3"><div class="gc fade"><div class=lab>Réservation</div><h3>MFV Book</h3><p>Moteur de réservation directe.</p></div><div class="gc fade"><div class=lab>Gestion</div><h3>MFV Stay</h3><p>Gestion hôtelière.</p></div><div class="gc fade"><div class=lab>Croissance</div><h3>MFV Insight</h3><p>Analyse et croissance digitale.</p></div></div>
+</div></section>
+<section class="faq" id="faq"><div class="wrap grid">
+  <div><div class="eyebrow">Questions fréquentes</div>
+  <h2 class="fade">Ce qu&rsquo;on nous demande sur MFV Studio</h2>
+<a class="btn sec fade" href="/contact" style="margin-top:34px">Une autre question&nbsp;?</a></div>
+  <div class="list fade"><div class="qa"><button>Pouvez-vous créer un site internet entièrement sur mesure&nbsp;?<i>+</i></button><div class="a"><p>Oui. La création web fait partie de notre expertise&nbsp;: nous concevons des sites sur mesure, de la direction artistique au développement, en passant par l&rsquo;architecture et le design.</p></div></div><div class="qa"><button>Pouvez-vous reprendre ou moderniser un site existant&nbsp;?<i>+</i></button><div class="a"><p>Oui. Nous pouvons intervenir sur la refonte d&rsquo;un site, son expérience utilisateur, son identité visuelle ou son évolution.</p></div></div><div class="qa"><button>Travaillez-vous uniquement avec des hôtels&nbsp;?<i>+</i></button><div class="a"><p>Non. Notre expertise s&rsquo;inscrit au cœur de l&rsquo;écosystème hôtelier, mais notre approche créative accompagne également des marques et des entreprises d&rsquo;autres secteurs.</p></div></div><div class="qa"><button>Proposez-vous également l&rsquo;identité visuelle et la création de contenus&nbsp;?<i>+</i></button><div class="a"><p>Oui. L&rsquo;identité visuelle, la direction artistique, les chartes graphiques, la création de contenus, la photo et la vidéo font partie de nos expertises.</p></div></div><div class="qa"><button>Est-il possible d&rsquo;intégrer MFV Book à mon site&nbsp;?<i>+</i></button><div class="a"><p>Pour les hôtels, nous pouvons étudier l&rsquo;intégration de MFV Book à votre site, lorsque sa compatibilité et sa disponibilité sont confirmées. Parlez-nous de votre projet et de votre site actuel.</p></div></div><div class="qa"><button>Comment se déroule un projet avec MFV Studio&nbsp;?<i>+</i></button><div class="a"><p>Un projet suit cinq étapes&nbsp;: découvrir, imaginer, concevoir, déployer, faire évoluer. Le détail du déroulé et du calendrier est défini avec vous, selon la nature du projet.</p></div></div><div class="qa"><button>Puis-je faire appel à MFV Studio sans utiliser les autres solutions MFV&nbsp;?<i>+</i></button><div class="a"><p>Oui. MFV Studio est une offre indépendante&nbsp;: vous n&rsquo;avez besoin ni de notre PMS ni de notre moteur de réservation pour le solliciter.</p></div></div></div>
+</div></section>
 
-  <section id="expertises">
-    <div class="shell">
-      <span class="eyebrow">Nos expertises</span>
-      <h2 class="title">Un studio de création digitale</h2>
-      <p class="intro">MFV Studio accompagne les établissements hôteliers et les entreprises dans la conception et le développement de leur présence digitale. Nous voulons concevoir des expériences qui reflètent l'identité d'une marque, valorisent son positionnement et servent ses objectifs commerciaux.</p>
-      <div class="offers">
-        <div class="card offer"><span class="tag">01</span><h3>Web Design &amp; Development</h3><p class="who">Création et refonte de sites internet sur mesure.</p><ul><li>Sites vitrines premium</li><li>Sites hôteliers</li><li>Sites corporate</li><li>Interfaces personnalisées</li><li>Responsive design</li><li>UX/UI design</li><li>Développement web</li><li>Optimisation des performances techniques</li></ul><p class="who" style="margin-top:1rem">Pour les établissements hôteliers, possibilité d'intégrer <a href="/book">MFV Book</a> lorsque le projet le nécessite.</p></div>
-        <div class="card offer"><span class="tag">02</span><h3>Branding &amp; Identity</h3><p class="who">Construction et développement d'identités de marque.</p><ul><li>Positionnement créatif</li><li>Identité visuelle</li><li>Direction artistique</li><li>Logotypes</li><li>Chartes graphiques</li><li>Univers de marque</li><li>Déclinaisons digitales</li></ul></div>
-        <div class="card offer"><span class="tag">03</span><h3>Creative Content</h3><p class="who">Création de contenus visuels adaptés à l'identité et aux objectifs de chaque marque.</p><ul><li>Direction créative</li><li>Conception de visuels</li><li>Contenus pour sites internet</li><li>Supports de communication</li><li>Contenus destinés aux réseaux sociaux</li><li>Créations graphiques</li><li>Présentations et supports digitaux</li></ul></div>
-        <div class="card offer"><span class="tag">04</span><h3>Photography &amp; Video</h3><p class="who">Création et valorisation de contenus photo et vidéo.</p><ul><li>Direction artistique photo et vidéo</li><li>Conception de campagnes visuelles</li><li>Photographie d'établissement et de produit</li><li>Vidéos de présentation</li><li>Formats courts</li><li>Contenus promotionnels</li><li>Montage et postproduction</li></ul></div>
-        <div class="card offer"><span class="tag">05</span><h3>AI Creative Production</h3><p class="who">Utilisation des technologies d'intelligence artificielle dans les processus de création.</p><ul><li>Visuels génératifs</li><li>Vidéos assistées par IA</li><li>Concepts créatifs</li><li>Déclinaisons de campagnes</li><li>Création de contenus digitaux</li><li>Expérimentation visuelle</li></ul><p class="who" style="margin-top:1rem">L'intelligence artificielle est un outil au service de la créativité, pas un substitut à la direction artistique.</p></div>
-        <div class="card offer"><span class="tag">06</span><h3>Digital Experience &amp; UX</h3><p class="who">Conception d'expériences digitales cohérentes, fluides et intuitives.</p><ul><li>Architecture de l'information</li><li>Parcours utilisateurs</li><li>Interfaces web</li><li>Expérience mobile</li><li>Ergonomie</li><li>Optimisation de l'expérience utilisateur</li><li>Conception de parcours orientés conversion</li></ul></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="sites">
-    <div class="shell">
-      <span class="eyebrow">Les sites internet</span>
-      <h2 class="title">Deux façons de commencer</h2>
-      <p class="intro">Notre approche s'adapte à votre situation de départ.</p>
-      <div class="audience">
-        <div class="card"><h3>Vous disposez déjà d'un site internet</h3><p>Nous pouvons intervenir sur sa refonte, son expérience utilisateur, son identité visuelle ou son évolution.</p><p style="margin-top:.7rem">Pour les hôtels, nous pouvons également étudier l'intégration de <a href="/book">MFV Book</a> sur un site existant.</p></div>
-        <div class="card"><h3>Vous partez de zéro</h3><p>Nous concevons votre présence digitale depuis ses fondations&nbsp;: direction artistique, architecture, design, développement et mise en ligne.</p><p style="margin-top:.7rem">Pour les hôtels, le moteur de réservation <a href="/book">MFV Book</a> peut être intégré au projet lorsque sa compatibilité et sa disponibilité sont confirmées.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="approche">
-    <div class="shell">
-      <span class="eyebrow">Notre approche créative</span>
-      <h2 class="title">Cinq étapes, du premier échange à l'évolution</h2>
-      <ol class="flow">
-        <li><span class="num">1</span><b>Découvrir</b><span>Comprendre la marque, son identité, son marché, ses objectifs et ses ambitions.</span></li>
-        <li><span class="num">2</span><b>Imaginer</b><span>Définir une direction créative, un univers visuel et les principes de l'expérience à concevoir.</span></li>
-        <li><span class="num">3</span><b>Concevoir</b><span>Transformer la stratégie en créations concrètes&nbsp;: interfaces, identités, contenus ou expériences digitales.</span></li>
-        <li><span class="num">4</span><b>Déployer</b><span>Finaliser les livrables, réaliser les intégrations nécessaires et accompagner leur mise en production.</span></li>
-        <li><span class="num">5</span><b>Faire évoluer</b><span>Assurer un accompagnement adapté, proposer des évolutions et mobiliser les autres expertises MFV lorsque cela est pertinent.</span></li>
-        </ol>
-    </div>
-  </section>
-
-  <section id="realisations">
-    <div class="shell">
-      <span class="eyebrow">Nos réalisations</span>
-      <h2 class="title">Des projets qui nous ressemblent</h2>
-      <p style="margin-top:1.2rem;font-size:1.25rem;max-width:42rem"><b style="color:#FF4920;font-size:2.6rem;font-weight:700;line-height:1;margin-right:.35rem">+335</b> projets digitaux créés, du site vitrine à l'expérience sur mesure</p>
-      <ul class="refs" aria-label="Quelques références">
-<li><img src="/assets/refs/bvlgari.png" alt="Bvlgari" loading="lazy"></li>
-<li><img src="/assets/refs/dior.png" alt="Dior" loading="lazy"></li>
-<li><img src="/assets/refs/cifonelli.png" alt="Cifonelli" loading="lazy"></li>
-<li><img src="/assets/refs/rolexpm.png" alt="Rolex Paris Masters" loading="lazy"></li>
-<li><img src="/assets/refs/porsche.png" alt="Porsche" loading="lazy"></li>
-<li><img src="/assets/refs/mclaren.png" alt="McLaren" loading="lazy"></li>
-<li><img src="/assets/refs/jacquemus.png" alt="Jacquemus" loading="lazy"></li>
-<li><img src="/assets/refs/vivacy.png" alt="Vivacy" loading="lazy"></li>
-<li><img src="/assets/refs/orano.png" alt="Orano" loading="lazy"></li>
-</ul>
-<p style="margin-top:3rem"><a class="btn" href="/contact">Demander notre portfolio</a></p>
-    </div>
-  </section>
-
-  <section id="complementarite">
-    <div class="shell">
-      <span class="eyebrow">Studio et Insight</span>
-      <h2 class="title">Studio conçoit, Insight mesure</h2>
-      <p class="intro">Deux offres distinctes, pensées pour se compléter.</p>
-      <div class="pt">
-        <div class="pt-phase">
-          <div class="pt-cols">
-            <div><span class="who">MFV Studio</span><ul><li>Branding</li><li>Direction artistique</li><li>Création web</li><li>UX/UI</li><li>Identité visuelle</li><li>Création de contenus</li><li>Photo et vidéo</li><li>Production créative assistée par IA</li></ul></div>
-            <div><span class="who you">MFV Insight</span><ul><li>Analytics</li><li>Analyse des conversions</li><li>SEO</li><li>SEA / Google Ads</li><li>Stratégies d'acquisition</li><li>CRO</li><li>Analyse du trafic</li><li>Reporting</li><li>Optimisation de la performance commerciale</li></ul></div>
-          </div>
-        </div>
-      </div>
-      <p class="intro" style="margin-top:1.4rem">MFV Studio peut concevoir le site d'un hôtel. <a href="/insight" style="color:var(--brand)">MFV Insight</a> peut ensuite accompagner son référencement, analyser ses performances et optimiser son acquisition.</p>
-    </div>
-  </section>
-
-  <section id="au-dela">
-    <div class="shell">
-      <span class="eyebrow">Au-delà de l'hôtellerie</span>
-      <h2 class="title">Notre créativité ne s'arrête pas à l'hôtellerie.</h2>
-      <p class="intro">Si notre expertise s'inscrit au cœur de l'écosystème hôtelier, notre approche créative accompagne également les marques et entreprises d'autres secteurs. Chaque projet possède son identité, ses enjeux et ses ambitions. Notre rôle est de leur donner une expression digitale singulière.</p>
-      <p class="intro" style="margin-top:.9rem">MFV Studio peut être sollicité indépendamment des autres solutions MFV Systems&nbsp;: vous n'avez besoin ni de notre PMS ni de notre moteur de réservation.</p>
-      <p style="margin-top:1.4rem"><a class="btn" href="/contact">Parler de votre projet</a></p>
-    </div>
-  </section>
-
-  <section id="ecosysteme">
-    <div class="shell">
-      <span class="eyebrow">L'écosystème MFV</span>
-      <h2 class="title">Une offre indépendante, un écosystème complémentaire</h2>
-      <p class="intro">MFV Studio peut être sollicité seul. Selon votre projet, il peut être complété par d'autres solutions MFV.</p>
-      <div class="grid">
-        <div class="card tile lift"><span class="n">Réservation</span><h3><a href="/book">MFV Book</a></h3><p>Moteur de réservation directe.</p></div>
-        <div class="card tile lift"><span class="n">Gestion</span><h3><a href="/stay">MFV Stay</a></h3><p>Gestion hôtelière.</p></div>
-        <div class="card tile lift"><span class="n">Croissance</span><h3><a href="/insight">MFV Insight</a></h3><p>Analyse et croissance digitale.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="questions">
-    <div class="shell">
-      <span class="eyebrow">Questions fréquentes</span>
-      <h2 class="title">Ce qu'on nous demande sur MFV Studio</h2>
-      <div class="faq" style="margin-top:1.6rem">
-        <details open><summary>Pouvez-vous créer un site internet entièrement sur mesure&nbsp;?</summary><p class="a">Oui. La création web fait partie de notre expertise&nbsp;: nous concevons des sites sur mesure, de la direction artistique au développement, en passant par l'architecture et le design.</p></details>
-        <details><summary>Pouvez-vous reprendre ou moderniser un site existant&nbsp;?</summary><p class="a">Oui. Nous pouvons intervenir sur la refonte d'un site, son expérience utilisateur, son identité visuelle ou son évolution.</p></details>
-        <details><summary>Travaillez-vous uniquement avec des hôtels&nbsp;?</summary><p class="a">Non. Notre expertise s'inscrit au cœur de l'écosystème hôtelier, mais notre approche créative accompagne également des marques et des entreprises d'autres secteurs.</p></details>
-        <details><summary>Proposez-vous également l'identité visuelle et la création de contenus&nbsp;?</summary><p class="a">Oui. L'identité visuelle, la direction artistique, les chartes graphiques, la création de contenus, la photo et la vidéo font partie de nos expertises.</p></details>
-        <details><summary>Est-il possible d'intégrer MFV Book à mon site&nbsp;?</summary><p class="a">Pour les hôtels, nous pouvons étudier l'intégration de MFV Book à votre site, lorsque sa compatibilité et sa disponibilité sont confirmées. Parlez-nous de votre projet et de votre site actuel.</p></details>
-        <details><summary>Comment se déroule un projet avec MFV Studio&nbsp;?</summary><p class="a">Un projet suit cinq étapes&nbsp;: découvrir, imaginer, concevoir, déployer, faire évoluer. Le détail du déroulé et du calendrier est défini avec vous, selon la nature du projet.</p></details>
-        <details><summary>Puis-je faire appel à MFV Studio sans utiliser les autres solutions MFV&nbsp;?</summary><p class="a">Oui. MFV Studio est une offre indépendante&nbsp;: vous n'avez besoin ni de notre PMS ni de notre moteur de réservation pour le solliciter.</p></details>
-        
-      </div>
-      <p style="margin-top:1.4rem"><a href="/contact" class="btn ghost">Une autre question&nbsp;?</a></p>
-    </div>
-  </section>
-</main>
-
-<section class="contact site-foot">
-<div class="shell">
-<span class="eyebrow">Parler de votre établissement</span>
-<h2 class="title">Un premier échange, sans engagement</h2>
-<p class="intro">Dites-nous où vous en êtes&nbsp;: pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme que vous louez et que vous aimeriez posséder. On vous répond avec une piste concrète.</p>
-<div class="sf-cta"><a class="btn" href="/demo">Réserver une démo de 30 min</a><span class="sf-mail">contact@mfv-systems.fr</span><a class="btn ghost" href="/contact">Nous écrire</a></div>
-<div class="foot-bottom">
-<span class="wordmark"><b>MFV</b> <span class="g">systems</span></span>
-<nav class="foot-nav"><a href="/produits">Le produit</a><a href="/methode">Notre méthode</a><a href="/equipe">L'équipe</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></nav>
-<p class="foot-legal">MFV Systems, SAS au capital de 10&nbsp;000&nbsp;€, RCS Paris 131&nbsp;904&nbsp;609, SIRET 131&nbsp;904&nbsp;609&nbsp;00016. Siège&nbsp;: 8 rue Jean Richepin, 75116 Paris. Président&nbsp;: Amaury Finaz de Villaine. Directeurs généraux&nbsp;: Thomas Finaz de Villaine et Yassmine Meyer. Contact&nbsp;: <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>. Hébergeur&nbsp;: Vercel Inc.<br><a href="/mentions-legales">Mentions légales</a> &middot; <a href="/confidentialite">Politique de confidentialité</a> &middot; <a href="/cgv">CGV</a></p>
-</div>
-</div>
+<section class="dark" id="demo">
+<div class="fin"><div class="rib" aria-hidden="true"></div><div class="wrap" style="position:relative">
+<div class="eyebrow" style="justify-content:center">Parler de votre établissement</div>
+<h2 class="fade">Un premier échange, sans engagement</h2>
+<p class="lead fade">Dites-nous où vous en êtes&nbsp;: pas de site, pas de moteur, trop de dépendance aux OTA, ou une plateforme que vous louez et que vous aimeriez posséder. On vous répond avec une piste concrète.</p>
+<div class="ctas fade"><a class="btn pri" href="/demo">Réserver une démo de 30 min</a><a class="btn sec" href="/contact">Nous écrire</a></div>
+<div class="mail fade"><a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a></div>
+</div></div>
 </section>
-
+</main>
+<footer class="foot dark"><div class="wrap">
+<div class="top2"><div><a class="logo" href="/" aria-label="MFV Systems, accueil"><img src="/assets/home/logo-mfv-blanc.png" alt="MFV" width="320" height="90"></a><p class="tagline">Solutions digitales pour l&rsquo;hôtellerie et au-delà.</p></div>
+<div><h4>Produits</h4><ul><li><a href="/studio">MFV Studio</a></li><li><a href="/book">MFV Book</a></li><li><a href="/stay">MFV Stay</a></li><li><a href="/insight">MFV Insight</a></li></ul></div>
+<div><h4>Agence</h4><ul><li><a href="/agence">Services</a></li><li><a href="/methode">Notre méthode</a></li><li><a href="/equipe">L&rsquo;équipe</a></li><li><a href="/faq">FAQ</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a></li><li>8 rue Jean Richepin, 75116 Paris</li><li><a href="/contact">Nous écrire</a></li></ul></div></div>
+<p class="legal">MFV Systems, SAS au capital de 10&nbsp;000&nbsp;€, RCS Paris 131&nbsp;904&nbsp;609, SIRET 131&nbsp;904&nbsp;609&nbsp;00016. Siège&nbsp;: 8 rue Jean Richepin, 75116 Paris. Président&nbsp;: Amaury Finaz de Villaine. Directeurs généraux&nbsp;: Thomas Finaz de Villaine et Yassmine Meyer. Contact&nbsp;: contact@mfv-systems.fr. Hébergeur&nbsp;: Vercel Inc.<br><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Politique de confidentialité</a> · <a href="/cgv">CGV</a></p>
+</div></footer>
+<script src="/assets/vendor/gsap.min.js"></script>
+<script src="/assets/vendor/ScrollTrigger.min.js"></script>
+<script src="/assets/vendor/lenis.min.js"></script>
+<script src="/home.js"></script>
+<script src="/produits.js"></script>
 </body>
 </html>
