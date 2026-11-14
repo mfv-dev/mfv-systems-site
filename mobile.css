@@ -6,8 +6,9 @@ html.mm-open,html.mm-open body{overflow:hidden}
 
 /* barre fixe : Réserver une démo + bouton rond de l'assistant */
 .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:30;gap:8px}
-.mbar .mb-d{flex:1;height:56px;border-radius:14px;background:#4F46E5;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:16px;box-shadow:0 12px 30px rgba(79,70,229,.35);text-decoration:none}
-.mbar .mb-a{flex:0 0 56px;height:56px;border-radius:14px;border:0;background:linear-gradient(135deg,#4F46E5,#8B83F5);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(79,70,229,.35);cursor:pointer}
+.mbar .mb-d{flex:1;height:56px;border-radius:14px;background:#0B0B0F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:16px;box-shadow:0 12px 30px rgba(11,11,15,.3);text-decoration:none}
+.mbar .mb-a{flex:0 0 56px;height:56px;border-radius:14px;border:0;background:#0B0B0F;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(11,11,15,.3);cursor:pointer;outline:1px solid rgba(255,255,255,.22);outline-offset:-1px}
+.mbar .mb-d{outline:1px solid rgba(255,255,255,.22);outline-offset:-1px}
 .mbar .mb-d:active,.mbar .mb-a:active{transform:scale(.97)}
 
 /* en-tête : le bouton Menu devient un burger */
