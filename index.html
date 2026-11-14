@@ -13,7 +13,9 @@
 <meta property="og:title" content="MFV Systems · Réservation directe pour les hôtels indépendants">
 <meta property="og:description" content="Votre infrastructure de réservation. On construit, vous possédez.">
 <link rel="preload" href="/assets/fonts/g400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/home.css?v=5">
+<link rel="stylesheet" href="/home.css?v=7">
+<link rel="stylesheet" href="/mobile.css?v=2" media="(max-width:900px)">
+<link rel="stylesheet" href="/home-m.css?v=3" media="(max-width:900px)">
 
 <link rel="canonical" href="https://mfv-systems.fr/">
 <meta property="og:type" content="website">
@@ -38,9 +40,9 @@
 <a class="btn pri cta" href="/demo">Réserver une démo</a>
 </div></nav>
 
-<main>
+<main class="d-main">
 <section class="hero" id="top">
-<video class="bg" autoplay muted loop playsinline preload="metadata" poster="/assets/home/vague-poster.jpg" aria-hidden="true"><source src="/assets/home/vague.mp4" type="video/mp4"><source src="/assets/home/vague.webm" type="video/webm"></video>
+<video class="bg" muted loop playsinline preload="none" poster="/assets/home/vague-poster.jpg" aria-hidden="true"><source src="/assets/home/vague.mp4" type="video/mp4"><source src="/assets/home/vague.webm" type="video/webm"></video>
 <div class="in">
 <div class="eyebrow after">Écosystème digital pour hôtels indépendants</div>
 <h1><span class="sr">Attirez. Convertissez. Gérez.</span>
@@ -64,7 +66,7 @@
 
 <section class="better" id="better"><div class="pin"><video class="rib" muted loop playsinline preload="none" poster="/assets/home/vague-poster.jpg" aria-hidden="true"><source src="/assets/home/vague.mp4" type="video/mp4"><source src="/assets/home/vague.webm" type="video/webm"></video><div class="bt"><h2 id="betterT">Il existe une<br>meilleure façon.</h2><p id="betterS">Simplifiez votre gestion. Récupérez vos commissions. <em>Avec MFV Systems.</em></p><a class="btn pri bb" id="betterB" href="/demo">Reprenez la main sur vos réservations <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div></div></section>
 
-<section class="poster" id="affiche"><img class="fadeo" src="/assets/home/affiche-1400.webp" srcset="/assets/home/affiche-1400.webp 1400w, /assets/home/affiche-2400.webp 2400w" sizes="100vw" width="2400" height="1350" alt="Affiche MFV Systems : Solutions digitales hôtelières" decoding="async"></section>
+<section class="poster" id="affiche"><img loading="lazy" class="fadeo" src="/assets/home/affiche-1400.webp" srcset="/assets/home/affiche-1400.webp 1400w, /assets/home/affiche-2400.webp 2400w" sizes="100vw" width="2400" height="1350" alt="Affiche MFV Systems : Solutions digitales hôtelières" decoding="async"></section>
 
 <section class="island" id="direct"><div class="wrap">
 <div class="grid">
@@ -84,14 +86,14 @@
 <section class="products" id="produits"><div class="wrap">
 <div class="head"><h2 class="fade">Quatre produits. Un seul écosystème.</h2><p class="fade">Chaque solution fonctionne seule. Ensemble, elles couvrent tout le parcours, de la première recherche jusqu&rsquo;au départ du client.</p></div>
 <div class="stack" id="stack">
-<article class="panel"><img class="bdg" src="/assets/home/icone_studio.webp" width="72" height="72" alt="" aria-hidden="true" decoding="async"><div class="txt"><div><div class="num">01 · Attirer</div><h3>MFV Studio</h3><div class="tag">Votre identité mérite une expérience digitale à sa hauteur.</div></div><div><p>Création digitale, identité de marque et expériences sur mesure, pour les hôtels et pour d&rsquo;autres métiers.</p><div class="feat"><span>Création de sites web</span><span>Identité de marque</span><span>Photographie et vidéo</span></div><a class="more" href="/studio">Découvrir MFV Studio</a></div></div>
-<div class="vis"><div class="rb"></div><img class="card" data-sp="-60" src="/assets/home/c_studio_site.webp" width="1400" height="484" alt="Site d&rsquo;hôtel réalisé par MFV Studio, exemple de démonstration" style="width:78%;left:6%;top:16%" decoding="async"><img class="card" data-sp="-140" src="/assets/home/c_studio_mobile.webp" width="600" height="958" alt="Version mobile du site, exemple de démonstration" style="width:30%;right:6%;top:42%" decoding="async"></div></article>
-<article class="panel"><img class="bdg" src="/assets/home/icone_book.webp" width="72" height="72" alt="" aria-hidden="true" decoding="async"><div class="txt"><div><div class="num">02 · Convertir</div><h3>MFV Book</h3><div class="tag">Réserver en direct, comme sur une OTA, mais chez vous.</div></div><div><p>Le moteur de réservation directe intégré à votre site : les fonds vont sur votre compte et la réservation arrive dans votre PMS.</p><div class="feat"><span>Les fonds vont sur votre compte</span><span>Dans votre PMS</span><span>Aucune commission MFV</span></div><a class="more" href="/book">Découvrir MFV Book</a></div></div>
-<div class="vis"><div class="rb"></div><img class="card" data-sp="-70" src="/assets/home/c_book_cal.webp" width="960" height="608" alt="Calendrier de réservation MFV Book" style="width:56%;left:8%;top:12%" decoding="async"><img class="card" data-sp="-150" src="/assets/home/c_book_sum.webp" width="960" height="746" alt="Récapitulatif de réservation MFV Book" style="width:46%;right:7%;top:38%" decoding="async"></div></article>
-<article class="panel"><img class="bdg" src="/assets/home/icone_stay.webp" width="72" height="72" alt="" aria-hidden="true" decoding="async"><div class="txt"><div><div class="num">03 · Gérer</div><h3>MFV Stay</h3><div class="tag">Le logiciel du quotidien de votre hôtel.</div></div><div><p>Le PMS pensé pour les hôtels indépendants : le planning, les clients et les paiements au même endroit.</p><div class="feat"><span>Planning sur 14 jours</span><span>CRM clients et paiements</span><span>Chacun voit ce qui le concerne</span></div><a class="more" href="/stay">Découvrir MFV Stay</a></div></div>
-<div class="vis"><img class="card" data-sp="-60" src="/assets/home/c_stay_plan.webp" width="960" height="375" alt="Planning des chambres MFV Stay" style="width:82%;left:6%;top:14%" decoding="async"><img class="card" data-sp="-130" src="/assets/home/c_stay_kpis.webp" width="960" height="83" alt="Indicateurs du tableau de bord MFV Stay" style="width:50%;left:6%;top:58%" decoding="async"><img class="card" data-sp="-190" src="/assets/home/c_stay_rev.webp" width="700" height="408" alt="Chiffre d&rsquo;affaires MFV Stay" style="width:36%;right:5%;top:46%" decoding="async"></div></article>
-<article class="panel"><img class="bdg" src="/assets/home/icone_insight.webp" width="72" height="72" alt="" aria-hidden="true" decoding="async"><div class="txt"><div><div class="num">04 · Comprendre</div><h3>MFV Insight</h3><div class="tag">Comprenez votre performance. Accélérez votre croissance.</div></div><div><p>Un référencement qui vous apporte plus de réservations directes, et une lecture claire de votre parcours de réservation.</p><div class="feat"><span>Le parcours de réservation</span><span>Les paniers abandonnés</span><span>Référencement et acquisition</span></div><a class="more" href="/insight">Découvrir MFV Insight</a></div></div>
-<div class="vis"><div class="rb"></div><img class="card" data-sp="-70" src="/assets/home/c_ins_funnel.webp" width="960" height="415" alt="Parcours de réservation MFV Insight" style="width:56%;left:8%;top:12%" decoding="async"><img class="card" data-sp="-150" src="/assets/home/c_ins_carts.webp" width="840" height="368" alt="Paniers abandonnés MFV Insight" style="width:48%;right:6%;top:44%" decoding="async"></div></article>
+<article class="panel"><img loading="lazy" class="bdg" src="/assets/home/icone_studio.webp" width="72" height="72" alt="" aria-hidden="true" decoding="async"><div class="txt"><div><div class="num">01 · Attirer</div><h3>MFV Studio</h3><div class="tag">Votre identité mérite une expérience digitale à sa hauteur.</div></div><div><p>Création digitale, identité de marque et expériences sur mesure, pour les hôtels et pour d&rsquo;autres métiers.</p><div class="feat"><span>Création de sites web</span><span>Identité de marque</span><span>Photographie et vidéo</span></div><a class="more" href="/studio">Découvrir MFV Studio</a></div></div>
+<div class="vis"><div class="rb"></div><img loading="lazy" class="card" data-sp="-60" src="/assets/home/c_studio_site.webp" width="1400" height="484" alt="Site d&rsquo;hôtel réalisé par MFV Studio, exemple de démonstration" style="width:78%;left:6%;top:16%" decoding="async"><img loading="lazy" class="card" data-sp="-140" src="/assets/home/c_studio_mobile.webp" width="600" height="958" alt="Version mobile du site, exemple de démonstration" style="width:30%;right:6%;top:42%" decoding="async"></div></article>
+<article class="panel"><img loading="lazy" class="bdg" src="/assets/home/icone_book.webp" width="72" height="72" alt="" aria-hidden="true" decoding="async"><div class="txt"><div><div class="num">02 · Convertir</div><h3>MFV Book</h3><div class="tag">Réserver en direct, comme sur une OTA, mais chez vous.</div></div><div><p>Le moteur de réservation directe intégré à votre site : les fonds vont sur votre compte et la réservation arrive dans votre PMS.</p><div class="feat"><span>Les fonds vont sur votre compte</span><span>Dans votre PMS</span><span>Aucune commission MFV</span></div><a class="more" href="/book">Découvrir MFV Book</a></div></div>
+<div class="vis"><div class="rb"></div><img loading="lazy" class="card" data-sp="-70" src="/assets/home/c_book_cal.webp" width="960" height="608" alt="Calendrier de réservation MFV Book" style="width:56%;left:8%;top:12%" decoding="async"><img loading="lazy" class="card" data-sp="-150" src="/assets/home/c_book_sum.webp" width="960" height="746" alt="Récapitulatif de réservation MFV Book" style="width:46%;right:7%;top:38%" decoding="async"></div></article>
+<article class="panel"><img loading="lazy" class="bdg" src="/assets/home/icone_stay.webp" width="72" height="72" alt="" aria-hidden="true" decoding="async"><div class="txt"><div><div class="num">03 · Gérer</div><h3>MFV Stay</h3><div class="tag">Le logiciel du quotidien de votre hôtel.</div></div><div><p>Le PMS pensé pour les hôtels indépendants : le planning, les clients et les paiements au même endroit.</p><div class="feat"><span>Planning sur 14 jours</span><span>CRM clients et paiements</span><span>Chacun voit ce qui le concerne</span></div><a class="more" href="/stay">Découvrir MFV Stay</a></div></div>
+<div class="vis"><img loading="lazy" class="card" data-sp="-60" src="/assets/home/c_stay_plan.webp" width="960" height="375" alt="Planning des chambres MFV Stay" style="width:82%;left:6%;top:14%" decoding="async"><img loading="lazy" class="card" data-sp="-130" src="/assets/home/c_stay_kpis.webp" width="960" height="83" alt="Indicateurs du tableau de bord MFV Stay" style="width:50%;left:6%;top:58%" decoding="async"><img loading="lazy" class="card" data-sp="-190" src="/assets/home/c_stay_rev.webp" width="700" height="408" alt="Chiffre d&rsquo;affaires MFV Stay" style="width:36%;right:5%;top:46%" decoding="async"></div></article>
+<article class="panel"><img loading="lazy" class="bdg" src="/assets/home/icone_insight.webp" width="72" height="72" alt="" aria-hidden="true" decoding="async"><div class="txt"><div><div class="num">04 · Comprendre</div><h3>MFV Insight</h3><div class="tag">Comprenez votre performance. Accélérez votre croissance.</div></div><div><p>Un référencement qui vous apporte plus de réservations directes, et une lecture claire de votre parcours de réservation.</p><div class="feat"><span>Le parcours de réservation</span><span>Les paniers abandonnés</span><span>Référencement et acquisition</span></div><a class="more" href="/insight">Découvrir MFV Insight</a></div></div>
+<div class="vis"><div class="rb"></div><img loading="lazy" class="card" data-sp="-70" src="/assets/home/c_ins_funnel.webp" width="960" height="415" alt="Parcours de réservation MFV Insight" style="width:56%;left:8%;top:12%" decoding="async"><img loading="lazy" class="card" data-sp="-150" src="/assets/home/c_ins_carts.webp" width="840" height="368" alt="Paniers abandonnés MFV Insight" style="width:48%;right:6%;top:44%" decoding="async"></div></article>
 </div>
 </div></section>
 
@@ -111,11 +113,11 @@
 <div class="recep-txt"><h3 class="r1">Pour votre réception, rien ne change. Sauf le temps gagné.</h3><p class="r2">La réservation est créée dans votre PMS, le voyageur reçoit sa confirmation à votre nom, et vos outils existants restent en place lorsque l&rsquo;intégration est compatible.</p><div class="law r3"><b>Loi Macron, 2015&nbsp;:</b> l&rsquo;hôtelier est libre de proposer sur son propre site des tarifs inférieurs à ceux des plateformes de réservation. Réserver en direct devient un vrai avantage, pour votre client comme pour vous.</div></div>
 </section>
 
-<section class="tilt" id="tilt"><div class="pin"><img id="tiltImg" src="/assets/home/slides2-1600.webp" srcset="/assets/home/slides2-1600.webp 1600w, /assets/home/slides2-3200.webp 3200w" sizes="100vw" width="3200" height="1920" alt="Présentation des interfaces MFV : grille de slides" decoding="async"></div></section>
+<section class="tilt" id="tilt"><div class="pin"><img loading="lazy" id="tiltImg" src="/assets/home/slides2-1600.webp" srcset="/assets/home/slides2-1600.webp 1600w, /assets/home/slides2-3200.webp 3200w" sizes="100vw" width="3200" height="1920" alt="Présentation des interfaces MFV : grille de slides" decoding="async"></div></section>
 
 <section class="gains" id="gains"><div class="wrap">
 <div class="head"><div><div class="eyebrow">MFV Stay · Vos gains</div><h2 class="fade" style="margin-top:22px">Voyez ce que vous récupérez.</h2></div><p class="fade">Réservations directes, commissions évitées, visibilité en ligne : un tableau de bord clair pour mesurer ce que l&rsquo;écosystème vous rapporte.</p></div>
-<div class="shot" id="gshot"><img src="/assets/home/gains2-1400.webp" srcset="/assets/home/gains2-1400.webp 1400w, /assets/home/gains2-2400.webp 2400w" sizes="92vw" width="2400" height="1440" alt="Exemple de tableau de bord MFV Stay : vos gains" decoding="async"></div>
+<div class="shot" id="gshot"><img loading="lazy" src="/assets/home/gains2-1400.webp" srcset="/assets/home/gains2-1400.webp 1400w, /assets/home/gains2-2400.webp 2400w" sizes="92vw" width="2400" height="1440" alt="Exemple de tableau de bord MFV Stay : vos gains" decoding="async"></div>
 <p class="ex">Exemple illustratif.</p>
 </div></section>
 
@@ -138,7 +140,7 @@
 
 <section class="dev"><div class="wrap">
 <div class="eyebrow">Partout avec vous</div><h2 class="fade">Votre hôtel dans la poche, vos chiffres sur l&rsquo;écran.</h2>
-<div class="grid"><div class="ph"><img src="/assets/home/iphone-800.webp" srcset="/assets/home/iphone-800.webp 800w, /assets/home/iphone-1500.webp 1500w" sizes="(max-width:900px) 92vw, 30vw" width="1500" height="2003" alt="iPhone : notification MFV Book « Nouvelle réservation directe » et fiche de réservation dans MFV Stay" data-par decoding="async"></div><div class="ph"><img src="/assets/home/macbook-1200.webp" srcset="/assets/home/macbook-1200.webp 1200w, /assets/home/macbook-2200.webp 2200w" sizes="(max-width:900px) 92vw, 60vw" width="2200" height="1237" alt="MacBook affichant le tableau de bord MFV Insight : parcours de réservation, paniers abandonnés et sources de trafic" data-par decoding="async"></div></div>
+<div class="grid"><div class="ph"><img loading="lazy" src="/assets/home/iphone-800.webp" srcset="/assets/home/iphone-800.webp 800w, /assets/home/iphone-1500.webp 1500w" sizes="(max-width:900px) 92vw, 30vw" width="1500" height="2003" alt="iPhone : notification MFV Book « Nouvelle réservation directe » et fiche de réservation dans MFV Stay" data-par decoding="async"></div><div class="ph"><img loading="lazy" src="/assets/home/macbook-1200.webp" srcset="/assets/home/macbook-1200.webp 1200w, /assets/home/macbook-2200.webp 2200w" sizes="(max-width:900px) 92vw, 60vw" width="2200" height="1237" alt="MacBook affichant le tableau de bord MFV Insight : parcours de réservation, paniers abandonnés et sources de trafic" data-par decoding="async"></div></div>
 </div></section>
 
 <section class="accueil" aria-label="Publicité animée MFV Systems dans un couloir de métro"><video muted loop playsinline preload="none" poster="/assets/home/metro-anime-poster.jpg"><source src="/assets/home/metro-anime.mp4" type="video/mp4"></video></section>
@@ -149,10 +151,100 @@
 <form id="lead-form" class="fade" novalidate><label class="hp" aria-hidden="true">Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
 <input type="email" name="email" required placeholder="Email professionnel" aria-label="Email professionnel" autocomplete="email"><button class="btn pri" id="lead-btn" style="justify-content:center" type="submit">Être recontacté</button><div class="msg" id="lead-msg" role="status"></div></form>
 <p class="alt fade">Ou <a href="#top">réservez un créneau en haut de la page</a>, ou <a href="/contact">écrivez-nous</a>.</p></div>
-<div class="card" id="dcard"><img src="/assets/home/card-1000.webp" srcset="/assets/home/card-1000.webp 1000w, /assets/home/card-2000.webp 2000w" sizes="(max-width:900px) 92vw, 46vw" width="2000" height="1125" alt="Carte de visite MFV" decoding="async"></div>
+<div class="card" id="dcard"><img loading="lazy" src="/assets/home/card-1000.webp" srcset="/assets/home/card-1000.webp 1000w, /assets/home/card-2000.webp 2000w" sizes="(max-width:900px) 92vw, 46vw" width="2000" height="1125" alt="Carte de visite MFV" decoding="async"></div>
 </div></div>
 </section>
 </main>
+<main class="m-main" id="m-main">
+
+<section class="mh" id="m-top">
+<div class="mw">
+<div class="meb">Écosystème digital pour hôtels indépendants</div>
+<h1><span class="sr">Attirez. Convertissez. Gérez.</span><span class="mln" aria-hidden="true"><span>Attirez.</span></span><span class="mln" aria-hidden="true"><span>Convertissez.</span></span><span class="mln" aria-hidden="true"><span class="mac">Gérez.</span></span></h1>
+<p class="mlead">Site, référencement, moteur de réservation, PMS et analytics. Quatre outils connectés, sans bouleverser vos outils existants.</p>
+<div class="mnotif" id="m-notif"><div class="mnh"><img src="/assets/home/icone_book.webp" width="22" height="22" alt=""><span class="mna">MFV SYSTEMS</span><span class="mnt">maintenant</span></div>
+<div class="mnb"><b>Vous souhaitez en savoir plus ?</b>Prenez rendez-vous avec notre équipe : une démo de 30 minutes, sur vos propres chiffres.</div>
+<a class="mnbtn" href="/demo">Réserver une démo</a></div>
+</div>
+<video class="mhv" muted loop playsinline preload="none" poster="/assets/mobile/vague_hero_m.webp" aria-hidden="true"><source src="/assets/mobile/vague_hero_m.mp4" type="video/mp4"></video>
+</section>
+
+<section class="mman mw" id="m-constat"><div class="meb">Le constat</div>
+<p data-words>Les hôtels reversent en moyenne 17&nbsp;% de commission à chaque réservation passée par une OTA. Vos clients deviennent les leurs, et votre marge diminue chaque saison.</p>
+<p class="msrc">Moyenne des commissions observée par Coach Omnium.</p></section>
+
+<section class="mbet" id="m-better"><div class="mpin">
+<video muted loop playsinline preload="none" poster="/assets/mobile/vague_m.webp" aria-hidden="true"><source src="/assets/mobile/vague_m.mp4" type="video/mp4"></video>
+<h2 class="mup">Il existe une meilleure façon.</h2>
+<p data-words data-accent="3">Simplifiez votre gestion. Récupérez vos commissions. Avec MFV Systems.</p>
+</div></section>
+
+<section class="mpic"><div class="mmedia mup"><img src="/assets/mobile/affiche_m.webp" width="900" height="1108" alt="Affiche MFV Systems : solutions digitales pour hôteliers" loading="lazy" decoding="async"></div></section>
+
+<section class="misl" id="m-direct"><div class="mw">
+<div class="meb">Réservation directe</div><h2 class="mup">Chaque réservation arrive en direct.</h2>
+<div class="mmedia mup"><video id="m-islv" muted loop playsinline preload="none" poster="/assets/mobile/island_m.webp" aria-label="Animation : notification de réservation directe reçue sur iPhone"><source src="/assets/mobile/island_m.mp4" type="video/mp4"></video></div>
+<ul class="mup"><li><span>Commission MFV</span><b>Aucune</b></li><li><span>Versement</span><b>Sur votre compte</b></li><li><span>Planning</span><b>Mis à jour automatiquement</b></li></ul>
+</div></section>
+
+<section class="mprod" id="m-produits">
+<div class="mw"><div class="meb">Quatre produits. Un seul écosystème.</div><h2 class="mup">Glissez pour découvrir.</h2></div>
+<div class="mcar" id="m-car">
+<article class="mpc"><div class="mtop"><span class="mn">01 · Attirer</span><img src="/assets/home/icone_studio.webp" width="52" height="52" alt="" loading="lazy"></div><h3>MFV Studio</h3><div class="mt">Votre identité mérite une expérience digitale à sa hauteur.</div><p>Création digitale, identité de marque et expériences sur mesure, pour les hôtels et pour d&rsquo;autres métiers.</p><a class="mmore" href="/studio">Découvrir MFV Studio</a><img class="mshot" src="/assets/home/c_studio_site.webp" width="1400" height="484" alt="Site d&rsquo;hôtel réalisé par MFV Studio, exemple de démonstration" loading="lazy"></article>
+<article class="mpc"><div class="mtop"><span class="mn">02 · Convertir</span><img src="/assets/home/icone_book.webp" width="52" height="52" alt="" loading="lazy"></div><h3>MFV Book</h3><div class="mt">Réserver en direct, comme sur une OTA, mais chez vous.</div><p>Le moteur de réservation directe intégré à votre site : les fonds vont sur votre compte et la réservation arrive dans votre PMS.</p><a class="mmore" href="/book">Découvrir MFV Book</a><img class="mshot" src="/assets/home/c_book_sum.webp" width="960" height="746" alt="Récapitulatif d&rsquo;une réservation directe, exemple de démonstration" loading="lazy"></article>
+<article class="mpc md"><div class="mtop"><span class="mn">03 · Gérer</span><img src="/assets/home/icone_stay.webp" width="52" height="52" alt="" loading="lazy"></div><h3>MFV Stay</h3><div class="mt">Le logiciel du quotidien de votre hôtel.</div><p>Le PMS pensé pour les hôtels indépendants : le planning, les clients et les paiements au même endroit.</p><a class="mmore" href="/stay">Découvrir MFV Stay</a><img class="mshot" src="/assets/home/c_stay_plan.webp" width="960" height="375" alt="Planning des chambres, exemple de démonstration" loading="lazy"></article>
+<article class="mpc"><div class="mtop"><span class="mn">04 · Comprendre</span><img src="/assets/home/icone_insight.webp" width="52" height="52" alt="" loading="lazy"></div><h3>MFV Insight</h3><div class="mt">Comprenez votre performance. Accélérez votre croissance.</div><p>Un référencement qui vous apporte plus de réservations directes, et une lecture claire de votre parcours de réservation.</p><a class="mmore" href="/insight">Découvrir MFV Insight</a><img class="mshot" src="/assets/home/c_ins_funnel.webp" width="960" height="415" alt="Parcours de réservation, exemple de démonstration" loading="lazy"></article>
+</div>
+<div class="mdots" id="m-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+</section>
+
+<section class="mdark mnums" id="m-resultats"><div class="mw">
+<div class="meb">Pourquoi le direct</div><h2 class="mup">Chaque réservation directe, c&rsquo;est de la marge qui reste à l&rsquo;hôtel.</h2>
+<div class="mrow">
+<div class="mcell"><div class="mv"><span data-to="17">0</span><small>&nbsp;%</small></div><p>Commission moyenne des OTA, évitée sur vos réservations directes*</p></div>
+<div class="mcell"><div class="mv"><span data-to="250">0</span><small>+</small></div><p>Établissements nous ont fait confiance.</p></div>
+<div class="mcell"><div class="mv"><span data-to="47">0</span><small>&nbsp;services</small></div><p>Du site web à la publicité : référencement, applications, logiciels, marketing, identité visuelle, analytics.</p></div>
+</div>
+<p class="msrc2">*Le niveau de commission évité dépend de l&rsquo;établissement et de son mix de canaux de vente. Moyenne des commissions observée par Coach Omnium.</p>
+</div></section>
+
+<section class="mrec"><img class="mup" src="/assets/mobile/tablette_m.webp" width="900" height="815" alt="MFV Stay sur tablette à la réception" loading="lazy" decoding="async">
+<div class="mw"><h2 class="mup">Pour votre réception, rien ne change. Sauf le temps gagné.</h2><p class="mlead mup">La réservation est créée dans votre PMS, le voyageur reçoit sa confirmation à votre nom, et vos outils existants restent en place lorsque l&rsquo;intégration est compatible.</p></div></section>
+
+<section class="mdark mslides"><img class="mup" src="/assets/mobile/slides_m.webp" width="900" height="756" alt="Présentation MFV Systems en quatre pages" loading="lazy" decoding="async"></section>
+
+<section class="mgains" id="m-gains"><div class="mw">
+<div class="meb">MFV Stay · Vos gains</div><h2 class="mup">Voyez ce que vous récupérez.</h2>
+<div class="mgk"><div class="mk mup"><div class="ml">Réservations directes cette année</div><div class="mv2">1&nbsp;240</div></div><div class="mk mup"><div class="ml">Chiffre d&rsquo;affaires direct</div><div class="mv2">288&nbsp;000&nbsp;€</div></div><div class="mk hi mup"><div class="ml">Commissions OTA évitées</div><div class="mv2">48&nbsp;960&nbsp;€</div></div></div>
+<p class="mnote">Exemple illustratif.</p>
+</div></section>
+
+<section class="msim" id="m-simulateur"><div class="mw">
+<div class="meb">Simulateur</div><h2 class="mup">Estimez votre facture de commissions.</h2>
+<p class="mlead">Ajustez les chiffres de votre hôtel pour estimer les commissions versées chaque année aux OTA. Vos chiffres restent dans votre navigateur, rien n&rsquo;est envoyé.</p>
+<div class="msl"><label for="m-rooms">Nombre de chambres <b id="m-vRooms"></b></label><input id="m-rooms" type="range" min="5" max="150" step="1" value="20"></div>
+<div class="msl"><label for="m-occ">Taux d&rsquo;occupation <b id="m-vOcc"></b></label><input id="m-occ" type="range" min="20" max="95" step="1" value="70"></div>
+<div class="msl"><label for="m-adr">Prix moyen par nuit <b id="m-vAdr"></b></label><input id="m-adr" type="range" min="50" max="600" step="5" value="120"></div>
+<div class="msl"><label for="m-ota">Part des réservations via les OTA <b id="m-vOta"></b></label><input id="m-ota" type="range" min="0" max="90" step="1" value="40"></div>
+<div class="msl"><label for="m-com">Taux de commission OTA <b id="m-vCom"></b></label><input id="m-com" type="range" min="10" max="30" step="1" value="17"></div>
+<div class="mres" aria-live="polite"><div><div class="ml2">Commissions OTA payées par an</div><div class="mv3" id="m-paid"></div></div><div class="mz"><div class="ml2">Avec MFV</div><div class="mv3">0&nbsp;€</div></div></div>
+<p class="mnote2">Estimation indicative, à partir de vos hypothèses (chambres × 365 × occupation × prix moyen × part OTA × commission). Le taux de commission est pré-réglé sur la moyenne observée par Coach Omnium. Les frais de traitement des paiements, à votre charge dans les deux cas, ne sont pas comptés.</p>
+</div></section>
+
+<section class="mserv" id="m-services"><div class="mw"><div class="meb">Tout ce que nous faisons</div><h2 class="mup">Hôtels, marques, entreprises.</h2></div>
+<div class="mmedia mup mflat"><video muted loop playsinline preload="none" poster="/assets/mobile/caisson_m.webp" aria-label="Animation : la liste des services MFV défile sur l&rsquo;affiche d&rsquo;un caisson lumineux"><source src="/assets/mobile/caisson_m.mp4" type="video/mp4"></video></div>
+<div class="mw"><a class="mbtn mbtn2" href="#m-produits">Découvrir nos produits&nbsp;&rarr;</a></div></section>
+
+<section class="mmetro"><div class="mw"><div class="mmedia mup"><video muted loop playsinline preload="none" poster="/assets/mobile/metro_m.webp" aria-label="Publicité animée MFV Systems dans un couloir de métro"><source src="/assets/mobile/metro_m.mp4" type="video/mp4"></video></div></div></section>
+
+<section class="mdark mdemo" id="m-demo"><div class="mw">
+<div class="meb">Démo</div><h2 class="mup">Reprenez la main sur vos réservations.</h2><p class="mlead mup">30 minutes, sans engagement.</p>
+<form id="m-form" novalidate><input type="text" name="hotel" placeholder="Nom de l&rsquo;établissement" autocomplete="organization" aria-label="Nom de l&rsquo;établissement"><input type="email" name="email" required placeholder="Email professionnel" autocomplete="email" aria-label="Email professionnel"><input type="text" name="website" class="mhp" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="mbtn mpri" type="submit" id="m-fbtn">Être recontacté</button><p class="mfmsg" id="m-fmsg" role="status"></p></form>
+<p class="malt">Ou <a href="/demo">réservez un créneau en ligne</a>, ou <a href="/contact">écrivez-nous</a>.</p>
+</div></section>
+
+</main>
+
 <footer class="foot dark"><div class="wrap">
 <div class="top2"><div><a class="logo" href="/" aria-label="MFV Systems, accueil"><img src="/assets/home/logo-mfv-systems-blanc.png" alt="MFV Systems" width="900" height="128"></a><p class="tagline">Solutions digitales pour l&rsquo;hôtellerie et au-delà.</p></div>
 <div><h4>Produits</h4><ul><li><a href="/studio">MFV Studio</a></li><li><a href="/book">MFV Book</a></li><li><a href="/stay">MFV Stay</a></li><li><a href="/insight">MFV Insight</a></li></ul></div>
@@ -165,6 +257,8 @@
 <script src="/assets/vendor/lenis.min.js"></script>
 <script src="/book.js"></script>
 <script src="/chat.js?v=4"></script>
-<script src="/home.js?v=3"></script>
+<script src="/mobile.js?v=1"></script>
+<script src="/home.js?v=6"></script>
+<script src="/home-m.js?v=1"></script>
 </body>
 </html>

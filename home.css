@@ -403,3 +403,8 @@ footer .legal a:hover{color:#fff}
   .logo{padding:9px 0}
 }
 @media (max-width:900px){.ai-n{font-size:12.5px}}
+
+/* MOBILE / BUREAU : un seul des deux <main> est affiché ; la barre du bas et le menu plein écran n'existent que sur mobile */
+.m-main{display:none}
+.mbar,.mmenu{display:none}
+@media (max-width:900px){.d-main{display:none}.d-main *{filter:none!important}.m-main{display:block}}
