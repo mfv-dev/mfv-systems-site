@@ -41,11 +41,13 @@
   var bf = $('#m-better');
   if (bf) {
     var bw = $$('.mbw', bf), bl = $$('.mbl', bf);
-    if (reduce) bf.classList.add('go');
+    if (reduce) { bf.classList.add('go'); var b0 = $('.mbb', bf); if (b0) b0.classList.add('go'); }
     else {
       bw.forEach(function (w, i) { w.style.transitionDelay = (i * 0.14) + 's'; });
       bl.forEach(function (l, i) { l.style.transitionDelay = (1 + i * 0.35) + 's'; });
-      var bb = $('.mbb', bf); if (bb) bb.style.transitionDelay = (1 + bl.length * 0.35) + 's';
+      /* le bouton glisse quand IL est à l'écran (sinon l'animation est finie avant qu'on l'atteigne) */
+      var bb = $('.mbb', bf), bbw = $('.mbbw', bf);
+      if (bb && bbw) new IntersectionObserver(function (es, o) { es.forEach(function (x) { if (x.isIntersecting) { setTimeout(function () { bb.classList.add('go'); }, 250); o.disconnect(); } }); }, { threshold: 0.9 }).observe(bbw);
       new IntersectionObserver(function (es, o) { es.forEach(function (x) { if (x.isIntersecting) { bf.classList.add('go'); o.disconnect(); } }); }, { threshold: 0.45 }).observe(bf);
     }
   }
