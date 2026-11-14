@@ -27,8 +27,7 @@
     var vh = window.innerHeight;
     $$('[data-words]', root).forEach(function (p) {
       var pr;
-      if (p.closest('.mbet')) { var b = $('#m-better').getBoundingClientRect(); pr = (-b.top) / (b.height - vh) * 1.4 - 0.1; }
-      else { var r = p.getBoundingClientRect(); pr = (vh * 0.85 - r.top) / (r.height + vh * 0.35); }
+      var r = p.getBoundingClientRect(); pr = (vh * 0.85 - r.top) / (r.height + vh * 0.35);
       pr = Math.max(0, Math.min(1, pr));
       var ws = p.querySelectorAll('.wd'), n = reduce ? ws.length : Math.round(pr * ws.length);
       ws.forEach(function (w, i) { w.style.opacity = i < n ? 1 : 0.13; });
@@ -37,6 +36,18 @@
   var tick = false;
   window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(function () { words(); tick = false; }); } }, { passive: true });
   words();
+
+  /* « Il existe une meilleure façon » : une seule animation, déclenchée à 45 % de visibilité */
+  var bf = $('#m-better');
+  if (bf) {
+    var bw = $$('.mbw', bf), bl = $$('.mbl', bf);
+    if (reduce) bf.classList.add('go');
+    else {
+      bw.forEach(function (w, i) { w.style.transitionDelay = (i * 0.14) + 's'; });
+      bl.forEach(function (l, i) { l.style.transitionDelay = (1 + i * 0.35) + 's'; });
+      new IntersectionObserver(function (es, o) { es.forEach(function (x) { if (x.isIntersecting) { bf.classList.add('go'); o.disconnect(); } }); }, { threshold: 0.45 }).observe(bf);
+    }
+  }
 
   /* Apparitions */
   if (reduce) $$('.mup', root).forEach(function (e) { e.classList.add('in'); });
