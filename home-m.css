@@ -53,6 +53,8 @@
 .mbl:first-of-type{margin-top:26px}
 .mbf.go .mbl{opacity:1;transform:none}
 .mbl-a{color:#4F46E5;font-weight:500}
+.mbb{display:flex;align-items:center;justify-content:center;height:54px;margin:32px auto 0;padding:0 22px;max-width:340px;border-radius:12px;background:#0B0B0F;color:#fff!important;font-size:16px;font-weight:500;opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease}
+.mbf.go .mbb{opacity:1;transform:none}
 
 /* AFFICHE */
 .mpic{padding:24px var(--pad) 70px}
@@ -135,7 +137,7 @@
 .malt{margin-top:16px;font-size:15px;color:#A3A3AE;line-height:1.6}.malt a{color:#fff;border-bottom:1px solid currentColor;padding:6px 0}
 
 @media (prefers-reduced-motion:reduce){
-  .mbw,.mbl{opacity:1!important;filter:none!important;transform:none!important;transition:none!important}
+  .mbw,.mbl,.mbb{opacity:1!important;filter:none!important;transform:none!important;transition:none!important}
   .mbf video{opacity:.9!important;transition:none!important}
   .mup,.mln>span{opacity:1!important;transform:none!important;transition:none!important}
   .wd{opacity:1!important}.mh .mlead,.mh .meb,.mhv{opacity:1!important;transform:none!important;transition:none!important}

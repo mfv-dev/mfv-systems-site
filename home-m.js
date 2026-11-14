@@ -45,6 +45,7 @@
     else {
       bw.forEach(function (w, i) { w.style.transitionDelay = (i * 0.14) + 's'; });
       bl.forEach(function (l, i) { l.style.transitionDelay = (1 + i * 0.35) + 's'; });
+      var bb = $('.mbb', bf); if (bb) bb.style.transitionDelay = (1 + bl.length * 0.35) + 's';
       new IntersectionObserver(function (es, o) { es.forEach(function (x) { if (x.isIntersecting) { bf.classList.add('go'); o.disconnect(); } }); }, { threshold: 0.45 }).observe(bf);
     }
   }
