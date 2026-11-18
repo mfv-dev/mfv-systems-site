@@ -72,7 +72,7 @@
       '<div class="bk-sum">' + esc(dFmt.format(dateOf(picked))) + ' à ' + esc(time) + ' · 30 min</div>' +
       '<form class="bk-form" novalidate><label class="hp" aria-hidden="true">Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off"></label>' +
       '<input type="text" name="name" placeholder="Nom et prénom" aria-label="Nom et prénom" autocomplete="name" required>' +
-      '<input type="email" name="email" placeholder="Email professionnel" aria-label="Email professionnel" autocomplete="email" required>' +
+      '<input type="tel" name="phone" placeholder="Numéro de téléphone" aria-label="Numéro de téléphone" autocomplete="tel" inputmode="tel" required>' +
       '<input type="text" name="hotel" placeholder="Établissement (facultatif)" aria-label="Établissement" autocomplete="organization">' +
       '<button type="submit">Confirmer le rendez-vous</button><div class="bk-msg" role="status"></div></form>';
     var f = root.querySelector('form'), msg = root.querySelector('.bk-msg'), btn = f.querySelector('button[type=submit]');
@@ -80,13 +80,14 @@
     f.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!f.name.value.trim()) { msg.textContent = 'Merci de saisir votre nom.'; return; }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.value.trim())) { msg.textContent = 'Merci de saisir une adresse e-mail valide.'; return; }
+      var digits = f.phone.value.replace(/\D/g, '');
+      if (!/^[+\d][\d\s().-]{6,24}$/.test(f.phone.value.trim()) || digits.length < 8 || digits.length > 15) { msg.textContent = 'Merci de saisir un numéro de téléphone valide.'; return; }
       btn.disabled = true; msg.textContent = 'Réservation en cours...';
-      if (PREVIEW) { return setTimeout(function () { viewDone({ when: dFmt.format(dateOf(picked)) + ' à ' + time, mailed: true }, f.email.value.trim()); }, 600); }
-      fetch('/api/book', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ day: picked, time: time, name: f.name.value, email: f.email.value, hotel: f.hotel.value, website: f.website.value }) })
+      if (PREVIEW) { return setTimeout(function () { viewDone({ when: dFmt.format(dateOf(picked)) + ' à ' + time }, f.phone.value.trim()); }, 600); }
+      fetch('/api/book', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ day: picked, time: time, name: f.name.value, phone: f.phone.value, hotel: f.hotel.value, website: f.website.value }) })
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { st: r.status, j: j }; }); })
         .then(function (x) {
-          if (x.st === 200) return viewDone(x.j, f.email.value.trim());
+          if (x.st === 200) return viewDone(x.j, f.phone.value.trim());
           btn.disabled = false;
           if (x.st === 409) { msg.textContent = 'Ce créneau vient d\'être pris. Choisissez-en un autre.'; load(true); }
           else if (x.st === 429) msg.textContent = 'Trop de tentatives, réessayez dans quelques minutes.';
@@ -96,10 +97,10 @@
     });
   }
 
-  function viewDone(j, email) {
+  function viewDone(j, phone) {
     root.innerHTML = '<div class="bk-done"><div class="ok" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></div>' +
       '<h3>C\'est confirmé.</h3><p><b>' + esc(j.when || '') + '</b> (heure de Paris).</p>' +
-      '<p style="margin-top:8px">' + (j.mailed ? 'Une invitation, avec le lien de visioconférence, vient d\'être envoyée à ' + esc(email) + '.' : 'Nous vous confirmons le rendez-vous par e-mail.') + '</p></div>';
+      '<p style="margin-top:8px">' + 'Nous vous contacterons au ' + esc(phone) + ' à l\'heure choisie.' + '</p></div>';
   }
 
   root.addEventListener('click', function (e) {
