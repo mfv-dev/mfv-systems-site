@@ -64,7 +64,7 @@ module.exports = async (req, res) => {
       method: 'POST',
       signal: ctl.signal,
       headers: { 'content-type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({ model: MODEL, max_tokens: 320, system: SYSTEM, messages })
+      body: JSON.stringify({ model: MODEL, max_tokens: 320, thinking: { type: 'disabled' }, system: SYSTEM, messages })
     });
     if (!r.ok) return res.status(502).json({ error: 'upstream' });
     const j = await r.json();
