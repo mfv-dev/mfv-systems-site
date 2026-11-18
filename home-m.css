@@ -99,7 +99,7 @@
 
 /* RÉCEPTION et DIAPOS */
 .mrec{background:#8A878D;color:#fff}
-.mrec>img{width:100%;height:auto}
+.mrec>img{width:100%;height:auto;-webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent);mask-image:linear-gradient(to bottom,#000 70%,transparent)}
 .mrec .mw{padding-top:30px;padding-bottom:60px}
 .mrec h2{font-size:36px}
 .mrec .mlead{color:rgba(255,255,255,.88)}

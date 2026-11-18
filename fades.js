@@ -66,7 +66,10 @@
     pairs.forEach(function (p) {
       var prev = p[0], cur = p[1], pm = MEDIA.test(prev.className), cm = MEDIA.test(cur.className);
       if (NOFADE.test(cur.className) && !cm) return;
-      if (pm && cm) return;
+      if (pm && cm) {                               /* image puis image : on n'adoucit que le bas du bloc gris de la réception mobile */
+        if (/(^|\s)mrec(\s|$)/.test(prev.className)) add(prev, 'fx-bot', Math.min(48, veil(prev)), ramp(color(cur), false));
+        return;
+      }
       if (cm) {                                     /* voile sur le haut de l'image, depuis la section précédente */
         if (!NOFADE.test(prev.className) || !pm) add(cur, 'fx-top', veil(cur), ramp(color(prev), true));
         return;
