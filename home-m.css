@@ -130,7 +130,8 @@
 .mserv .mmedia{margin-top:28px;border-radius:0}
 .mserv video,.mmetro video{width:100%;height:auto}
 .mmetro{padding:40px 0 70px}
-.mmetro .mmedia{border-radius:16px}
+.mmetro .mw{padding:0}
+.mmetro .mmedia{border-radius:0}
 
 /* DÉMO */
 .mdemo{padding:90px 0 60px}
