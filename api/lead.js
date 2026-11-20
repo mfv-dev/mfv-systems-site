@@ -58,7 +58,7 @@ module.exports = async (req, res) => {
           'Message reçu depuis la page Contact du site.',
           '',
           'Nom : ' + (name || '-'),
-          'Établissement : ' + (hotel || '-'),
+          'Établissement ou entreprise : ' + (hotel || '-'),
           'E-mail : ' + email,
           'Téléphone : ' + (phone || '-'),
           'Situation : ' + (situation || '-'),

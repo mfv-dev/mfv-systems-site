@@ -2,7 +2,8 @@
    Valeurs publiques : elles figurent aussi dans .env.example, à garder identiques. */
 (function () {
   var GADS_ID = 'AW-18514632138';
-  var DEMO_SEND_TO = 'AW-18514632138/15tfCJ_7sbwdEMq7u_xE';
+  var DEMO_SEND_TO = 'AW-18514632138/15tfCJ_7sbwdEMq7u_xE';       /* conversion « Démo réservée » */
+  var CONTACT_SEND_TO = 'AW-18514632138/cga8CPeGsrwdEMq7u_xE';    /* conversion « Formulaire de contact » */
   var KEY = 'mfv-consent';
   var PREVIEW = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
 
@@ -46,11 +47,13 @@
   }
   if (read() === 'granted') activate();
 
-  /* 2. Conversion « Démo réservée » : appelée par book.js après la réponse OK de /api/book, seulement si accepté. */
-  window.mfvTrackDemo = function () {
+  /* 2. Conversions : appelées après une réponse OK du serveur, seulement si le visiteur a accepté. */
+  function convert(sendTo) {
     if (PREVIEW || !loaded) return;
-    gtag('event', 'conversion', { send_to: DEMO_SEND_TO, value: 1.0, currency: 'EUR' });
-  };
+    gtag('event', 'conversion', { send_to: sendTo, value: 1.0, currency: 'EUR' });
+  }
+  window.mfvTrackDemo = function () { convert(DEMO_SEND_TO); };        /* book.js, après /api/book */
+  window.mfvTrackContact = function () { convert(CONTACT_SEND_TO); };  /* contact.html, après /api/lead */
 
   /* 3. Bandeau : « Accepter » et « Refuser » de même poids. */
   var css = document.createElement('style');

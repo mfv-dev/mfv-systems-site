@@ -7,6 +7,9 @@
 /* HERO */
 .pb .phero{padding:110px 0 60px}
 .pb .phero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:4vw;min-height:calc(100vh - 170px);align-items:stretch}
+.pb .phero.solo .grid{grid-template-columns:1fr;min-height:calc(100vh - 170px)}
+.pb .phero.solo .txt{padding-bottom:0}
+.pb .phero.solo .sub{max-width:560px}
 .pb .phero .vis{border-radius:20px;background:#F3F3F5 url(/assets/home/fond2.webp) 50% 85%/170% auto no-repeat;background-blend-mode:multiply;display:flex;align-items:center;justify-content:center;padding:4%;overflow:hidden}
 .pb .phero .vis img{width:100%;height:auto;border-radius:14px;box-shadow:0 40px 80px rgba(20,16,60,.13);will-change:transform}
 .pb .phero .txt{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding-bottom:124px}
@@ -20,6 +23,7 @@
 .p-book{--acc:#7A3FE1;--acc-t:#fff}
 .p-stay{--acc:#40B3D5;--acc-t:#0B0B0F}
 .p-studio{--acc:#E8B150;--acc-t:#0B0B0F}
+.p-crm{--acc:#4F46E5;--acc-t:#fff}
 .p-insight{--acc:#35D299;--acc-t:#0B0B0F}
 .pb .phero .ctas .btn.pri{background:var(--acc);color:var(--acc-t)}
 .pb .phero .ctas .btn.pri:hover{background:var(--ink);color:#fff}
@@ -190,6 +194,12 @@
 .pb .fin h2{margin:22px auto 0;font-size:clamp(38px,4.6vw,76px)}
 .pb .fin .lead{margin:26px auto 0}
 .pb .fin .ctas{margin-top:38px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.pb .fin2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8vh;text-align:left}
+.pb .fin2 .fc{display:flex;flex-direction:column;align-items:flex-start;border:1px solid #24242C;border-radius:22px;padding:34px 32px 30px}
+.pb .fin2 .fc .eyebrow{justify-content:flex-start}
+.pb .fin2 .fc h3{margin-top:16px;font-size:clamp(26px,2.4vw,36px);letter-spacing:-.035em}
+.pb .fin2 .fc p{margin-top:12px;font-size:16.5px;line-height:1.55;color:#A3A3AE}
+.pb .fin2 .fc .ctas{margin-top:auto;padding-top:28px;justify-content:flex-start}
 .pb .fin .mail{margin-top:22px;font-size:15px;color:#A3A3AE}
 .pb .fin .mail a{border-bottom:1px solid currentColor}
 
@@ -204,6 +214,8 @@
   .pb .pills{gap:8px}
   .pb .pills a{padding:12px 16px}
   .pb .fin .mail a{display:inline-block;padding:12px 6px}
+  .pb .fin2{grid-template-columns:1fr;margin-top:6vh}
+  .pb .fin2 .fc{padding:28px 22px 24px}
   .pb .ecr{min-height:0;display:block;padding:12vh 0 8vh}
   .pb .ecr-g{grid-template-columns:1fr;padding:0 4vw;gap:0}
   .pb .ecr-v{margin:4vh -4vw 0}
