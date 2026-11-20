@@ -71,7 +71,7 @@
       typing.className = 'ai-m bot'; typing.innerHTML = '';
       typeInto(typing, text, function () {
         history.push({ role: 'assistant', content: text });
-        if (cta) add('cta', '<a href="' + (document.getElementById('book') ? '#top' : '/demo') + '" class="ai-c">Réserver un call</a>');
+        if (cta) add('cta', '<a href="' + (document.getElementById('book') ? (document.getElementById('top') ? '#top' : '#book') : '/demo') + '" class="ai-c">Réserver un call</a>');
         busy = false; input.focus();
       });
     };

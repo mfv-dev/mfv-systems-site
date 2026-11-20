@@ -27,10 +27,10 @@
   var dateOf = function (k) { var p = parse(k); return new Date(Date.UTC(p.y, p.m, p.d)); };
 
   var INVITE = root.hasAttribute('data-invite');   /* page /demo : e-mail facultatif pour recevoir l'invitation et le lien visio */
-  var ALT = INVITE ? 'https://calendar.app.google/pSe63FQdmTLZMeQw7' : '/demo';
   var MAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   function fallback(msg) {
-    root.innerHTML = '<p class="bk-note">' + esc(msg || 'La réservation en ligne est momentanément indisponible.') + ' <a href="' + ALT + '">Choisir un créneau</a> ou écrire à <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>.</p>';
+    var m = esc(msg || 'La réservation en ligne est momentanément indisponible.');
+    root.innerHTML = '<p class="bk-note">' + m + (INVITE ? ' Écrivez-nous à <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>, nous vous répondons vite.' : ' <a href="/demo">Choisir un créneau</a> ou écrire à <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>.') + '</p>';
   }
 
   function viewCalendar() {
