@@ -40,7 +40,7 @@
 /* CE QUE VOUS GARDEZ */
 .pb .keep{padding:12vh 0}
 .pb .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:9vh}
-.pb .kc{border:1px solid #24242C;border-radius:20px;padding:34px 30px 38px;background:linear-gradient(180deg,#131318,#0E0E12)}
+.pb .kc{border:1px solid #24242C;border-radius:20px;padding:34px 30px 38px;background:#111116}
 .pb .kc .lab{font-size:13px;letter-spacing:.14em;color:var(--lav)}
 .pb .kc h3{font-size:26px;letter-spacing:-.03em;margin-top:20px;line-height:1.15}
 .pb .kc p{margin-top:18px;font-size:16px;line-height:1.6;color:#A3A3AE}
@@ -72,7 +72,7 @@
 .pb .gc{border:1px solid var(--line);border-radius:20px;padding:30px 28px 32px;background:#fff;transition:box-shadow .5s,border-color .5s}
 .pb .gc:hover{box-shadow:0 24px 48px rgba(20,16,60,.08);border-color:#D6D6DE}
 .pb .grey .gc{border-color:#fff}
-.pb .dark .gc{background:linear-gradient(180deg,#131318,#0E0E12);border-color:#24242C}
+.pb .dark .gc{background:#111116;border-color:#24242C}
 .pb .gc .lab{font-size:12.5px;letter-spacing:.14em;color:var(--indigo);text-transform:uppercase}
 .pb .dark .gc .lab{color:var(--lav)}
 .pb .gc h3{font-size:24px;letter-spacing:-.03em;margin-top:16px;line-height:1.15}
@@ -113,7 +113,7 @@
 .pb .ecr-t .lead{color:#55565E;max-width:460px}
 .pb .ecr-t .btn{margin-top:34px}
 .pb .ecr-v{margin-right:-2vw}
-.pb .ecr-img{width:100%;height:auto;max-width:none;display:block;will-change:transform;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 10%,#000 100%),linear-gradient(180deg,transparent 0,#000 12%,#000 88%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 10%,#000 100%),linear-gradient(180deg,transparent 0,#000 12%,#000 88%,transparent 100%);mask-composite:intersect}
+.pb .ecr-img{width:100%;height:auto;max-width:none;display:block;will-change:transform;}
 
 /* INSIGHT : section Référencement (épinglée au scroll) */
 .seo{position:relative;height:320vh;background:#fff}
