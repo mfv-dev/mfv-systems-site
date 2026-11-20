@@ -150,3 +150,15 @@
   .wd{opacity:1!important}.mh .mlead,.mh .meb,.mhv{opacity:1!important;transform:none!important;transition:none!important}
   .mnotif{opacity:1;transform:none}
 }
+
+/* FILM DE PRÉSENTATION */
+.mfilm{padding:70px 0 30px}
+.mfilm .fvid{margin-top:22px;border-radius:18px}
+.mfilm .fplay span{width:64px;height:64px}
+.mfilm .fplay span:before{margin-left:5px;border-width:10px 0 10px 16px}
+.fvid{position:relative;overflow:hidden;background:#fff;box-shadow:0 0 0 1px #E4E4EA;line-height:0;aspect-ratio:16/9}
+.fvid video{display:block;width:100%;height:100%;object-fit:cover}
+.fplay{position:absolute;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:none;border:0;padding:0}
+.fplay span{border-radius:50%;background:#4F46E5;display:flex;align-items:center;justify-content:center}
+.fplay span:before{content:"";border-style:solid;border-color:transparent transparent transparent #fff}
+.fvid.on .fplay{display:none}

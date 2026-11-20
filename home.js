@@ -212,7 +212,7 @@
     var vio = new IntersectionObserver(function (es) {
       es.forEach(function (x) { var v = x.target; if (x.isIntersecting) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); } else v.pause(); });
     }, { rootMargin: '600px 0px' });
-    document.querySelectorAll('video:not([data-restart])').forEach(function (v) { vio.observe(v); });
+    document.querySelectorAll('video:not([data-restart]):not([data-manual])').forEach(function (v) { vio.observe(v); });
   }
   var last = 0;
   ScrollTrigger.create({ start: 0, end: 'max', onUpdate: function (s) {
