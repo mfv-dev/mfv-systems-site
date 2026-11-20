@@ -21,10 +21,16 @@ html.mm-open nav.top{background:#fff}
 /* menu plein écran */
 .mmenu{display:flex;flex-direction:column;position:fixed;inset:0;z-index:45;background:#fff;padding:104px 22px 40px;overflow:auto;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .6s cubic-bezier(.76,0,.24,1),visibility 0s .6s}
 html.mm-open .mmenu{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .6s cubic-bezier(.76,0,.24,1)}
-.mmenu>a{font-size:34px;letter-spacing:-.04em;line-height:1.1;padding:14px 0;border-bottom:1px solid #E4E4EA;color:#0B0B0F;text-decoration:none}
-.mmenu .mm-i{display:flex;gap:12px;margin-top:28px}
-.mmenu .mm-i a{display:block;width:56px;height:56px}
-.mmenu .mm-i img{width:56px;height:56px;border-radius:14px;box-shadow:0 8px 18px rgba(20,16,60,.18)}
+.mmenu{padding:92px 22px calc(32px + env(safe-area-inset-bottom))}
+.mmenu .mm-g{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6B6B74;margin:26px 0 6px}
+.mmenu .mm-g:first-child{margin-top:4px}
+.mmenu .mm-p,.mmenu .mm-s{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid #E4E4EA;color:#0B0B0F;text-decoration:none}
+.mmenu .mm-p img{width:44px;height:44px;border-radius:12px;flex:none;box-shadow:0 6px 14px rgba(20,16,60,.16)}
+.mmenu .mm-p b,.mmenu .mm-s b{display:block;font-weight:500;font-size:22px;letter-spacing:-.03em;line-height:1.2}
+.mmenu .mm-p small,.mmenu .mm-s small{display:block;margin-top:2px;font-size:14px;line-height:1.35;color:#6B6B74}
+.mmenu .mm-l{display:grid;grid-template-columns:1fr 1fr}
+.mmenu .mm-l a{font-size:22px;letter-spacing:-.03em;padding:14px 0;border-bottom:1px solid #E4E4EA;color:#0B0B0F;text-decoration:none}
+.mmenu .mm-d{margin-top:26px;height:56px;border-radius:14px;background:#0B0B0F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:16px;text-decoration:none;flex:none}
 .mmenu .mm-t{font-size:13px;color:#6B6B74;margin-top:22px}
 
 /* assistant : la bulle disparaît, la conversation monte du bas */

@@ -8,8 +8,16 @@
 
   var menu = document.createElement('nav');
   menu.className = 'mmenu'; menu.id = 'mmenu'; menu.setAttribute('aria-label', 'Menu');
-  menu.innerHTML = '<a href="/#m-produits">Produits</a><a href="/#m-resultats">Résultats</a><a href="/equipe">L’équipe</a><a href="/faq">FAQ</a><a href="/contact">Contact</a>' +
-    '<div class="mm-i"><a href="/book" aria-label="MFV Book"><img src="/assets/home/icone_book.webp" width="56" height="56" alt=""></a><a href="/stay" aria-label="MFV Stay"><img src="/assets/home/icone_stay.webp" width="56" height="56" alt=""></a><a href="/studio" aria-label="MFV Studio"><img src="/assets/home/icone_studio.webp" width="56" height="56" alt=""></a><a href="/insight" aria-label="MFV Insight"><img src="/assets/home/icone_insight.webp" width="56" height="56" alt=""></a></div>';
+  var prod = [['book', 'MFV Book', 'Le moteur de réservation directe', '/book'], ['stay', 'MFV Stay', 'Le PMS pensé pour les hôtels indépendants', '/stay'], ['insight', 'MFV Insight', 'Analyse et performance', '/insight'], ['studio', 'MFV Studio', 'Création digitale et direction artistique', '/studio']];
+  var serv = [['Référencement', 'Être trouvé sur Google', '/insight#seo'], ['Sites web et design', 'Pour les hôtels et pour d’autres métiers', '/studio'], ['CRM sur mesure', 'Pour les entreprises de tous secteurs', '/crm-sur-mesure'], ['Données', 'Récupérer et exploiter vos données', '/insight#analytics']];
+  menu.innerHTML =
+    '<div class="mm-g">Produits</div>' +
+    prod.map(function (x) { return '<a class="mm-p" href="' + x[3] + '"><img src="/assets/home/icone_' + x[0] + '.webp" width="44" height="44" alt=""><span><b>' + x[1] + '</b><small>' + x[2] + '</small></span></a>'; }).join('') +
+    '<div class="mm-g">Services</div>' +
+    serv.map(function (x) { return '<a class="mm-s" href="' + x[2] + '"><span><b>' + x[0] + '</b><small>' + x[1] + '</small></span></a>'; }).join('') +
+    '<div class="mm-g">MFV</div>' +
+    '<div class="mm-l"><a href="/#m-resultats">Résultats</a><a href="/equipe">L’équipe</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></div>' +
+    '<a class="mm-d" href="/demo">Réserver une démo</a>';
   document.body.appendChild(menu);
 
   var root = document.documentElement, btn = document.querySelector('.m-btn');
