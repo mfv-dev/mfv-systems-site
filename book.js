@@ -26,8 +26,11 @@
   var parse = function (k) { var p = k.split('-'); return { y: +p[0], m: +p[1] - 1, d: +p[2] }; };
   var dateOf = function (k) { var p = parse(k); return new Date(Date.UTC(p.y, p.m, p.d)); };
 
+  var INVITE = root.hasAttribute('data-invite');   /* page /demo : e-mail facultatif pour recevoir l'invitation et le lien visio */
+  var ALT = INVITE ? 'https://calendar.app.google/pSe63FQdmTLZMeQw7' : '/demo';
+  var MAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   function fallback(msg) {
-    root.innerHTML = '<p class="bk-note">' + esc(msg || 'La réservation en ligne est momentanément indisponible.') + ' <a href="/demo">Choisir un créneau</a> ou écrire à <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>.</p>';
+    root.innerHTML = '<p class="bk-note">' + esc(msg || 'La réservation en ligne est momentanément indisponible.') + ' <a href="' + ALT + '">Choisir un créneau</a> ou écrire à <a href="mailto:contact@mfv-systems.fr">contact@mfv-systems.fr</a>.</p>';
   }
 
   function viewCalendar() {
@@ -74,6 +77,7 @@
       '<input type="text" name="name" placeholder="Nom et prénom" aria-label="Nom et prénom" autocomplete="name" required>' +
       '<input type="tel" name="phone" placeholder="Numéro de téléphone" aria-label="Numéro de téléphone" autocomplete="tel" inputmode="tel" required>' +
       '<input type="text" name="hotel" placeholder="Établissement (facultatif)" aria-label="Établissement" autocomplete="organization">' +
+      (INVITE ? '<input type="email" name="email" placeholder="E-mail (facultatif, pour recevoir l\'invitation)" aria-label="E-mail" autocomplete="email">' : '') +
       '<button type="submit">Confirmer le rendez-vous</button><div class="bk-msg" role="status"></div></form>';
     var f = root.querySelector('form'), msg = root.querySelector('.bk-msg'), btn = f.querySelector('button[type=submit]');
     f.name.focus({ preventScroll: true });
@@ -82,12 +86,14 @@
       if (!f.name.value.trim()) { msg.textContent = 'Merci de saisir votre nom.'; return; }
       var digits = f.phone.value.replace(/\D/g, '');
       if (!/^[+\d][\d\s().-]{6,24}$/.test(f.phone.value.trim()) || digits.length < 8 || digits.length > 15) { msg.textContent = 'Merci de saisir un numéro de téléphone valide.'; return; }
+      var mail = f.email ? f.email.value.trim() : '';
+      if (mail && !MAIL.test(mail)) { msg.textContent = 'Merci de saisir une adresse e-mail valide, ou de laisser le champ vide.'; return; }
       btn.disabled = true; msg.textContent = 'Réservation en cours...';
-      if (PREVIEW) { return setTimeout(function () { viewDone({ when: dFmt.format(dateOf(picked)) + ' à ' + time }, f.phone.value.trim()); }, 600); }
-      fetch('/api/book', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ day: picked, time: time, name: f.name.value, phone: f.phone.value, hotel: f.hotel.value, website: f.website.value }) })
+      if (PREVIEW) { return setTimeout(function () { viewDone({ when: dFmt.format(dateOf(picked)) + ' à ' + time }, f.phone.value.trim(), mail); }, 600); }
+      fetch('/api/book', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ day: picked, time: time, name: f.name.value, phone: f.phone.value, email: mail, hotel: f.hotel.value, website: f.website.value }) })
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { st: r.status, j: j }; }); })
         .then(function (x) {
-          if (x.st === 200) return viewDone(x.j, f.phone.value.trim());
+          if (x.st === 200) { if (window.mfvTrackDemo) window.mfvTrackDemo(); return viewDone(x.j, f.phone.value.trim(), mail); }
           btn.disabled = false;
           if (x.st === 409) { msg.textContent = 'Ce créneau vient d\'être pris. Choisissez-en un autre.'; load(true); }
           else if (x.st === 429) msg.textContent = 'Trop de tentatives, réessayez dans quelques minutes.';
@@ -97,10 +103,11 @@
     });
   }
 
-  function viewDone(j, phone) {
+  function viewDone(j, phone, mail) {
     root.innerHTML = '<div class="bk-done"><div class="ok" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></div>' +
       '<h3>C\'est confirmé.</h3><p><b>' + esc(j.when || '') + '</b> (heure de Paris).</p>' +
-      '<p style="margin-top:8px">' + 'Nous vous contacterons au ' + esc(phone) + ' à l\'heure choisie.' + '</p></div>';
+      '<p style="margin-top:8px">' + 'Nous vous contacterons au ' + esc(phone) + ' à l\'heure choisie.' + '</p>' +
+      (mail ? '<p style="margin-top:8px">Une invitation avec le lien de visioconférence a été envoyée à ' + esc(mail) + '.</p>' : '') + '</div>';
   }
 
   root.addEventListener('click', function (e) {

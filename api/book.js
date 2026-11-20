@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 const { configured, freeSlots, createEvent, SLOT_MIN } = require('./_gcal');
 
 const hits = new Map();
+const MAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE = /^[+\d][\d\s().-]{6,24}$/;
 const clean = (v, n) => String(v || '').replace(/[\r\n]+/g, ' ').trim().slice(0, n);
 
@@ -14,11 +15,12 @@ module.exports = async (req, res) => {
   body = body || {};
   if (body.website) return res.status(200).json({ ok: true });
 
-  const name = clean(body.name, 120), hotel = clean(body.hotel, 160), phone = clean(body.phone, 30);
+  const name = clean(body.name, 120), hotel = clean(body.hotel, 160), phone = clean(body.phone, 30), email = clean(body.email, 160);
   const day = clean(body.day, 10), time = clean(body.time, 5);
   if (!name) return res.status(400).json({ error: 'name' });
   const digits = phone.replace(/\D/g, '');
   if (!PHONE.test(phone) || digits.length < 8 || digits.length > 15) return res.status(400).json({ error: 'phone' });
+  if (email && !MAIL.test(email)) return res.status(400).json({ error: 'email' });
   if (!configured()) return res.status(503).json({ error: 'not_configured' });
 
   const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'inconnue';
@@ -34,12 +36,12 @@ module.exports = async (req, res) => {
 
     const when = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' }).format(new Date(slot.startMs));
     const summary = 'Démo MFV Systems · ' + name + (hotel ? ' (' + hotel + ')' : '');
-    const description = ['Réservé depuis le site mfv-systems.fr', '', 'Nom : ' + name, 'Établissement : ' + (hotel || '-'), 'Téléphone : ' + phone].join('\n');
-    const ev = await createEvent(slot.startMs, summary, description);
+    const description = ['Réservé depuis le site mfv-systems.fr', '', 'Nom : ' + name, 'Établissement : ' + (hotel || '-'), 'Téléphone : ' + phone, email ? 'E-mail : ' + email : ''].filter(Boolean).join('\n');
+    const ev = await createEvent(slot.startMs, summary, description, email ? { email, name } : undefined);
     const meet = ev.hangoutLink || '';
     recent.push(now); hits.set(ip, recent);
 
-    // Le visiteur laisse son numéro de téléphone : pas d'invitation envoyée par Google. L'équipe reçoit une notification.
+    // Invitation Google (avec lien visio) envoyée seulement si le visiteur a laissé un e-mail (page /demo). L'équipe reçoit toujours une notification.
     const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, LEAD_TO } = process.env;
     if (SMTP_HOST && SMTP_USER && SMTP_PASS) {
       try {
@@ -48,7 +50,7 @@ module.exports = async (req, res) => {
         await tr.sendMail({
           from: '"Site MFV Systems" <' + SMTP_USER + '>', to: LEAD_TO || 'contact@mfv-systems.fr',
           subject: 'Nouveau rendez-vous : ' + name + ' · ' + when,
-          text: ['Un rendez-vous vient d\'être réservé sur le site.', '', 'Quand : ' + when + ' (heure de Paris)', 'Nom : ' + name, 'Établissement : ' + (hotel || '-'), 'Téléphone : ' + phone, meet ? 'Visio : ' + meet : ''].join('\n'),
+          text: ['Un rendez-vous vient d\'être réservé sur le site.', '', 'Quand : ' + when + ' (heure de Paris)', 'Nom : ' + name, 'Établissement : ' + (hotel || '-'), 'Téléphone : ' + phone, email ? 'E-mail : ' + email : '', meet ? 'Visio : ' + meet : ''].join('\n'),
         });
       } catch (e) { console.error('Notification impossible', e && e.code); }
     }
