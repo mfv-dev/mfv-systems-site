@@ -8,17 +8,15 @@
 
   var menu = document.createElement('nav');
   menu.className = 'mmenu'; menu.id = 'mmenu'; menu.setAttribute('aria-label', 'Menu');
-  var prodH = [['book', 'MFV Book', 'Le moteur de réservation directe', '/book'], ['stay', 'MFV Stay', 'Le PMS pensé pour les hôtels indépendants', '/stay']];
-  var servH = [['Gîtes et chambres d’hôtes', 'Réservation pour petits établissements', '/gites-chambres-d-hotes'], ['Campings et résidences', 'Réservation pour hébergements de plein air', '/campings'], ['Réservation directe', 'Réduire les commissions Booking et OTA', '/reservation-directe']];
-  var prodE = [['studio', 'MFV Studio', 'Sites internet haut de gamme', '/studio'], ['insight', 'MFV Insight', 'Référencement naturel et Google Ads', '/insight']];
-  var servE = [['Agence SEO', 'Être trouvé sur Google', '/agence-seo'], ['Agence Google Ads', 'Campagnes et conversions', '/agence-google-ads'], ['CRM sur mesure', 'Pour les entreprises de tous secteurs', '/crm-sur-mesure'], ['Refonte de site internet', 'Repartir sur de bonnes bases', '/refonte-site-internet']];
-  function prods(l) { return l.map(function (x) { return '<a class="mm-p" href="' + x[3] + '"><img src="/assets/home/icone_' + x[0] + '.webp" width="44" height="44" alt=""><span><b>' + x[1] + '</b><small>' + x[2] + '</small></span></a>'; }).join(''); }
-  function servs(l) { return l.map(function (x) { return '<a class="mm-s" href="' + x[2] + '"><span><b>' + x[0] + '</b><small>' + x[1] + '</small></span></a>'; }).join(''); }
+  var prod = [['book', 'MFV Book', 'Le moteur de réservation directe', '/book'], ['stay', 'MFV Stay', 'Le PMS pensé pour les hôtels indépendants', '/stay'], ['insight', 'MFV Insight', 'Analyse et performance', '/insight'], ['studio', 'MFV Studio', 'Création digitale et direction artistique', '/studio']];
+  var serv = [['Référencement', 'Être trouvé sur Google', '/insight#seo'], ['Sites web et design', 'Pour les hôtels et pour d’autres métiers', '/studio'], ['CRM sur mesure', 'Pour les entreprises de tous secteurs', '/crm-sur-mesure'], ['Données', 'Récupérer et exploiter vos données', '/insight#analytics']];
   menu.innerHTML =
-    '<div class="mm-g">Hébergeurs</div>' + prods(prodH) + servs(servH) +
-    '<div class="mm-g">Entreprises</div>' + prods(prodE) + servs(servE) +
+    '<div class="mm-g">Produits</div>' +
+    prod.map(function (x) { return '<a class="mm-p" href="' + x[3] + '"><img src="/assets/home/icone_' + x[0] + '.webp" width="44" height="44" alt=""><span><b>' + x[1] + '</b><small>' + x[2] + '</small></span></a>'; }).join('') +
+    '<div class="mm-g">Services</div>' +
+    serv.map(function (x) { return '<a class="mm-s" href="' + x[2] + '"><span><b>' + x[0] + '</b><small>' + x[1] + '</small></span></a>'; }).join('') +
     '<div class="mm-g">MFV</div>' +
-    '<div class="mm-l"><a href="/hebergeurs">Pôle hébergeurs</a><a href="/entreprises">Pôle entreprises</a><a href="/#m-resultats">Résultats</a><a href="/equipe">L’équipe</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></div>' +
+    '<div class="mm-l"><a href="/#m-resultats">Résultats</a><a href="/ressources">Ressources</a><a href="/hebergeurs">Pôle hébergeurs</a><a href="/entreprises">Pôle entreprises</a><a href="/equipe">L’équipe</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></div>' +
     '<a class="mm-d" href="/demo">Réserver une démo</a>';
   document.body.appendChild(menu);
 
