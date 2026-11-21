@@ -420,3 +420,13 @@ footer .legal a:hover{color:#fff}
 .fplay:hover span{background:#0B0B0F;transform:scale(1.06)}
 .fplay:focus-visible{outline:2px solid #4F46E5;outline-offset:-4px}
 .fvid.on .fplay{display:none}
+.hero .h1v,.mh .h1v{font-weight:400;letter-spacing:-.045em;line-height:.98;margin:0}
+.hero .h1v{margin-top:22px;font-size:clamp(50px,6.2vw,104px)}
+.hero .h1v .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.hero .h1v .ln>span{display:inline-block;transform:translateY(110%)}
+.hero .h1v .accent{color:#4F46E5}
+.mh .h1v{font-size:clamp(48px,13.6vw,68px);margin-top:18px}
+@media (prefers-reduced-motion:reduce){.hero .h1v .ln>span{transform:none}}
+.bc{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;margin:0 0 18px;opacity:.7}
+.bc a{color:inherit;text-decoration:none}.bc a:hover{text-decoration:underline}
+.phero.solo .bc{justify-content:center}
