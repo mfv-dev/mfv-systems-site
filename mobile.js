@@ -16,7 +16,7 @@
     '<div class="mm-g">Services</div>' +
     serv.map(function (x) { return '<a class="mm-s" href="' + x[2] + '"><span><b>' + x[0] + '</b><small>' + x[1] + '</small></span></a>'; }).join('') +
     '<div class="mm-g">MFV</div>' +
-    '<div class="mm-l"><a href="/#m-resultats">Résultats</a><a href="/ressources">Ressources</a><a href="/hebergeurs">Pôle hébergeurs</a><a href="/entreprises">Pôle entreprises</a><a href="/equipe">L’équipe</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></div>' +
+    '<div class="mm-l"><a href="/ressources">Ressources</a><a href="/hebergeurs">Pôle hébergeurs</a><a href="/entreprises">Pôle entreprises</a><a href="/equipe">L’équipe</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></div>' +
     '<a class="mm-d" href="/demo">Réserver une démo</a>';
   document.body.appendChild(menu);
 
