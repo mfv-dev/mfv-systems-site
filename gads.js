@@ -91,11 +91,14 @@
     document.body.appendChild(box);
   }
 
-  function init() {
-    if (!read()) open();
-    document.addEventListener('click', function (e) {
-      if (e.target.closest('[data-gads-manage]')) { e.preventDefault(); open(); }
-    });
+  /* Le bandeau s'affiche dès que <body> existe, sans attendre la fin du chargement des scripts de la page. */
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-gads-manage]')) { e.preventDefault(); open(); }
+  });
+  function init() { if (!read()) open(); }
+  if (document.body) init();
+  else {
+    var mo = new MutationObserver(function () { if (document.body) { mo.disconnect(); init(); } });
+    mo.observe(document.documentElement, { childList: true });
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
