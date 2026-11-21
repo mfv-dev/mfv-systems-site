@@ -3,6 +3,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/blog",
+      "destination": "/ressources",
+      "permanent": true
+    },
+    {
       "source": "/agence",
       "destination": "/studio",
       "permanent": true
