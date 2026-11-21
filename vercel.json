@@ -5,7 +5,7 @@
     {
       "source": "/blog",
       "destination": "/ressources",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/agence",
